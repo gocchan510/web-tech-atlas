@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSエンジン / ランタイム 系譜（1995–2026）</title>
+<style>
+:root{--t1:#1a1a1a;--t2:#565651;--t3:#8a8984;--bg1:#ffffff;--bg2:#f3f1ea;--bd3:rgba(0,0,0,0.14);--bd2:rgba(0,0,0,0.3);--bd1:rgba(0,0,0,0.42);--font:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;}
+@media(prefers-color-scheme:dark){:root{--t1:#ededed;--t2:#b3b2ad;--t3:#88877f;--bg1:#1f1f1e;--bg2:#2a2a28;--bd3:rgba(255,255,255,0.14);--bd2:rgba(255,255,255,0.3);--bd1:rgba(255,255,255,0.42);}body{background:#171716}}
+*{box-sizing:border-box}
+body{margin:0;padding:24px 18px 60px;font-family:var(--font);color:var(--t1);background:#fafaf7;line-height:1.6}
+@media(prefers-color-scheme:dark){body{background:#171716}}
+h1{font-size:22px;font-weight:600;margin:0 0 4px}
+.sub{font-size:13px;color:var(--t2);margin:0 0 16px;max-width:900px}
+#wrap{position:relative;max-width:1140px;margin:0 auto}
+.chip{font:400 12.5px var(--font);padding:4px 10px;border:1px solid var(--bd2);border-radius:8px;background:transparent;color:var(--t2);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--bg2);color:var(--t1);border-color:var(--bd1)}
+.lgd{display:inline-flex;align-items:center;gap:5px;margin-right:14px;font-size:12.5px;color:var(--t2)}
+g.box{cursor:pointer}
+#tip{position:absolute;pointer-events:none;background:var(--bg1);border:1px solid var(--bd2);border-radius:8px;padding:6px 10px;font:400 12.5px var(--font);color:var(--t1);max-width:280px;display:none;z-index:9;line-height:1.5;box-shadow:0 2px 10px rgba(0,0,0,0.12)}
+#panel{margin-top:16px;border:1px solid var(--bd3);border-radius:12px;padding:14px 18px;background:var(--bg1);min-height:60px}
+#go{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+#chart{overflow-x:auto}
+</style>
+</head>
+<body>
+<div id="wrap">
+<h1>JSエンジン / ランタイム 系譜（1995–2026）</h1>
+<div style="margin:2px 0 12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center"><span style="font-size:12px;color:var(--t3)">Web技術アトラス:</span><a href="daisyui-hub.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">daisyUIハブ</a><a href="css-frontend-lineage-flow.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">フロントエンド技術</a><a href="prog-lang-genealogy.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">プログラミング言語</a><a href="reactivity-state-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">リアクティビティ/状態</a><a href="cloud-evolution-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">クラウド進化史</a><a href="ai-llm-coding-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">AI・LLM</a><a href="rendering-arch-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">レンダリング/配信</a><a href="browser-web-standards-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">ブラウザ/Web標準</a><span style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd1);border-radius:8px;color:var(--t1);background:var(--bg2);font-weight:600" aria-current="page">JSエンジン/ランタイム</span><a href="vcs-git-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">Git/バージョン管理</a></div>
+<p class="sub">19のエンジン・JIT・ランタイム。縦＝時系列、色＝系統（エンジン / JIT・最適化 / サーバランタイム / エッジ）、矢印＝影響関係。SpiderMonkey(1995)起点、V8→Node/Deno/Workers、JSCore→Bun、V8のJIT変遷(TraceMonkey→Crankshaft→TurboFan+Ignition)。バーは歴史的重要度。フロントエンド技術編とは別ページ。</p>
+<div style="margin-bottom:10px"><input id="ff-search" type="search" placeholder="名前で検索（例: V8, Node, Bun, TurboFan）" style="width:100%;max-width:440px;padding:7px 11px;border:1px solid var(--bd2);border-radius:8px;background:var(--bg1);color:var(--t1);font:400 13px var(--font)"></div>
+<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px"><span style="font-size:12.5px;color:var(--t3);margin-right:2px">系統を強調</span><span id="filters"></span></div>
+<div id="legend" style="margin-bottom:12px"></div>
+<div id="chart"></div>
+<div id="tip"></div>
+<div id="panel"><span style="color:var(--t2);font-size:13.5px">ボックスにカーソルを合わせると系譜（影響元 ← / 影響先 →）が濃く表示されます。クリックで詳細。検索や系統チップでも絞り込めます。</span></div>
+</div>
+<script>
+(function(){
+var isDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+var STAT={mainstream:'主流',current:'現役',declining:'後退中',legacy:'レガシー',niche:'ニッチ'};
+var faint=isDark?'rgba(180,180,175,0.30)':'rgba(95,94,90,0.26)';
+var cIn=isDark?'#AFA9EC':'#534AB7', cOut=isDark?'#F0997B':'#D85A30';
+var CAT=[{k:'engine',t:'エンジン',L:{f:'#E6F1FB',s:'#185FA5',x:'#0C447C'},Dk:{f:'#0C447C',s:'#85B7EB',x:'#E6F1FB'},m:'#378ADD'},{k:'jit',t:'JIT / 最適化',L:{f:'#FAEEDA',s:'#854F0B',x:'#633806'},Dk:{f:'#633806',s:'#EF9F27',x:'#FAEEDA'},m:'#BA7517'},{k:'runtime',t:'サーバランタイム',L:{f:'#EAF3DE',s:'#3B6D11',x:'#27500A'},Dk:{f:'#27500A',s:'#97C459',x:'#EAF3DE'},m:'#639922'},{k:'edge',t:'エッジランタイム',L:{f:'#FAECE7',s:'#993C1D',x:'#712B13'},Dk:{f:'#712B13',s:'#F0997B',x:'#FAECE7'},m:'#D85A30'}];CAT.forEach(function(c){c.p=isDark?c.Dk:c.L;});var ERAT=['〜2007　初期JSエンジン（SpiderMonkey・Rhino）','2008–2009　高速化競争 & Node 誕生（V8・JSCore・TraceMonkey）','2010–2016　JIT進化 & ランタイム拡大（Crankshaft→TurboFan/Ignition）','2017–2026　エッジ & エンジン多様化（Workers・Deno・Bun・Hermes）'];function era(y){return y<=2007?0:y<=2009?1:y<=2016?2:3;}var D=[{id:'spidermonkey',l:0,y:1995,s:'mainstream',sn:'SpiderMonkey',c:'Brendan Eich / Netscape (現 Mozilla)',t:'世界初のJSエンジン。Brendan Eichが1995年に10日でMocha(後にLiveScript→JavaScript)を実装し、1996年末にC++で書き直してSpiderMonkeyとなった。Firefoxの心臓部として現在も継続。TraceMonkey/JägerMonkey/IonMonkey/WarpMonkeyと世代交代するJITを生んだ母体。',g:'JavaScriptそのものと最初のJSエンジンを生んだ全系譜の起点。',f:[]},
+{id:'rhino',l:0,y:1997,s:'niche',sn:'Rhino',c:'Netscape (現 Mozilla)',t:'1997年にNetscapeがJavaで全実装する『Javagator』向けに開発したJava製JSエンジン。1998年4月にMozillaへOSSとして公開され、JVM上(後のJava Scripting/javax.script、GraalJS前史)でのJS実行の定番となった。',g:'JVM上でJavaScriptを動かす道を開いたJava実装エンジンの代表。',f:['spidermonkey']},
+{id:'jscore',l:0,y:2008,s:'mainstream',sn:'JavaScriptCore',c:'Apple / WebKit',t:'WebKit由来のエンジンで、当初はKDEのKJS起源のツリー解釈器だった。2008年6月にレジスタ型バイトコードのSquirrelFishへ刷新、同年9月にネイティブコード生成するSquirrelFish Extreme(製品名Nitro)へ高速化。Safari/iOS WebKitの標準エンジン。',g:'WebKitの標準JSエンジンで、2008年高速化競争の一角を担った。',f:['spidermonkey']},
+{id:'v8',l:0,y:2008,s:'mainstream',sn:'V8',c:'Google (Lars Bak)',t:'2008年Chrome初版と同時公開。Lars Bak率いるチームが当初から直接機械語生成(full-codegen)を採用し高速化を牽引。Crankshaft→Ignition+TurboFanと最適化基盤を進化させ、Node.js・Deno・Cloudflare Workers・Electron等ブラウザ外ランタイムの基盤となった。',g:'ブラウザ外も含む現代JS実行の事実上の標準エンジン。',f:['spidermonkey']},
+{id:'chakra',l:0,y:2009,s:'legacy',sn:'Chakra',c:'Microsoft',t:'2009年から開発されIE9(2011)で投入、Microsoft初の本格JITエンジン。IE10(2012)でx64/ARMのJIT等を強化。2016年にChakraCoreとしてOSS化されEdge Legacyを駆動したが、2020年のEdgeのChromium(V8)移行で役目を終えた。',g:'IE/旧Edgeを支えたMicrosoftのJIT付きエンジン。',f:['v8','jscore']},
+{id:'carakan',l:0,y:2010,s:'legacy',sn:'Carakan',c:'Opera Software',t:'2009年発表、2010年のOpera 10.50(Presto 2.5)で投入されたレジスタ型バイトコード+ネイティブコード生成エンジン。SunSpiderで旧版比7倍超を達成。OperaのChromium移行(2013)でPrestoごと廃止された。',g:'Presto時代のOperaを高速化したレジスタ型JSエンジン。',f:['v8','jscore']},
+{id:'hermes',l:0,y:2019,s:'current',sn:'Hermes',c:'Meta (Facebook)',t:'2019年7月のChain Reactで発表・OSS化。React Nativeのモバイル起動高速化に特化し、ビルド時のAOTコンパイルとコンパクトなバイトコードを採用。2022年のRN 0.70で既定エンジン化。',g:'React Nativeのモバイル起動に最適化したAOT指向エンジン。',f:['jscore','v8','quickjs']},
+{id:'quickjs',l:0,y:2019,s:'niche',sn:'QuickJS',c:'Fabrice Bellard / Charlie Gordon',t:'2019年にFabrice Bellard(FFmpeg/QEMU作者)らが公開した小型・組込み向けエンジン。数個のCファイルで依存なし、ES2019をほぼ完全サポート。組込み・エッジ・WASM文脈で利用が広がる。',g:'依存ゼロで組込み可能な極小フルES準拠エンジン。',f:['spidermonkey']},
+{id:'tracemonkey',l:1,y:2008,s:'legacy',sn:'TraceMonkey',c:'Mozilla (Andreas Gal ら)',t:'2008年8月発表、Firefox 3.5で投入されたJavaScript史上初のJITコンパイラ。UC Irvineのtrace trees技術に基づき、実行時に型と制御フローを記録して特化ネイティブコードを生成。後のJägerMonkey/型推論で陳腐化しFirefox 11で除去。',g:'JS初のJIT(トレース型)で高速化時代の幕を開けた。',f:['spidermonkey']},
+{id:'crankshaft',l:1,y:2010,s:'legacy',sn:'Crankshaft',c:'Google (V8)',t:'2010年12月にV8へ投入された最適化JITコンパイラ。実行時プロファイルに基づく投機的最適化とデオプティマイズを導入しV8を大幅高速化。後にIgnition+TurboFanへ置換され、V8 5.9(2017)で廃止。',g:'V8に投機的最適化をもたらした第一世代の最適化JIT。',f:['v8']},
+{id:'turbofan',l:1,y:2015,s:'current',sn:'TurboFan',c:'Google (V8)',t:'Chrome 41(2015)でasm.js等向けに導入された次世代最適化コンパイラ。Sea-of-Nodes中間表現を採用しCrankshaftを置換、2017年(V8 5.9)にIgnitionと組むパイプラインとして本格稼働。現V8の最上位最適化層。',g:'現行V8の中核を成す高度最適化コンパイラ。',f:['v8','crankshaft']},
+{id:'ignition',l:1,y:2016,s:'current',sn:'Ignition',c:'Google (V8)',t:'2016年に導入されたV8のバイトコードインタプリタ。コンパクトなバイトコードでメモリを削減し、そのバイトコードからTurboFanが直接最適化機械語を生成できるようにした。2017年(V8 5.9)にTurboFanと組むパイプラインで標準化。',g:'V8の起動・省メモリを担い最適化パイプラインの土台となるインタプリタ。',f:['v8','turbofan']},
+{id:'node',l:2,y:2009,s:'mainstream',sn:'Node.js',c:'Ryan Dahl',t:'GoogleのV8エンジンにイベントループとノンブロッキングI/Oを組み合わせ、サーバサイドJSを確立した最初の主要ランタイム。',g:'JavaScriptをブラウザ外へ解放し、サーバ/エッジJSランタイム全系統の起点となった。',f:['v8']},
+{id:'iojs',l:2,y:2014,s:'legacy',sn:'io.js',c:'io.js contributors (Fedor Indutny ら)',t:'Joyentのガバナンスへの不満から2014年末に派生したNode.jsのフォーク。2015年にNode.jsへ再統合された。',g:'オープンガバナンスとNode.js Foundation設立を促し、現在のNode.js運営体制の礎となった。',f:['node']},
+{id:'deno',l:2,y:2020,s:'current',sn:'Deno',c:'Ryan Dahl',t:'Node.jsの設計上の後悔を是正すべくRyan Dahlが再設計。V8をRustで包み、TypeScript標準対応とセキュアな権限モデルを導入(1.0は2020年5月)。',g:'Web標準API志向とTS第一級対応で、Node.js後の安全なランタイム像を提示した。',f:['node','v8']},
+{id:'bun',l:2,y:2022,s:'current',sn:'Bun',c:'Jarred Sumner',t:'V8系の主流から外れ、Safari由来のJavaScriptCoreをZigで包んで構築した高速オールインワン・ツールキット(プロジェクト開始2021、1.0は2023年9月)。',g:'JSCore採用と圧倒的起動・実行速度で、V8独占だったランタイム勢にエンジン多様性と高速性を持ち込んだ。',f:['node','jscore']},
+{id:'workerd',l:3,y:2017,s:'current',sn:'Workers (workerd)',c:'Cloudflare',t:'2017年9月にベータ公開(GAは2018年3月)されたCloudflare Workersを支えるランタイム。V8 isolatesでコンテナ無しに多数のワーカを隔離実行し、2022年9月にworkerdとしてOSS化。',g:'V8 isolateベースのエッジ実行モデルを普及させ、軽量サーバレス/エッジJSの標準形を築いた。',f:['v8']},
+{id:'wintercg',l:3,y:2022,s:'current',sn:'WinterCG',c:'Cloudflare / Deno / Vercel ら',t:'2022年にW3Cコミュニティグループとして発足したランタイム間互換標準の取り組み。後にEcmaのWinterTC(TC55)へ移行。',g:'非ブラウザJSランタイム間でWeb API互換を定義し、エッジ/サーバ実装の相互運用性を標準化した。',f:['node','deno','workerd','verceledgert']},
+{id:'verceledgert',l:3,y:2021,s:'current',sn:'Vercel Edge',c:'Vercel',t:'V8 isolates上で動くWeb標準API準拠のエッジ実行環境。Node.js APIのサブセットとしてWinterCG準拠を志向(2021年導入)。',g:'Next.jsと密結合したエッジ実行を提供し、フレームワーク統合型エッジランタイムを普及させた。',f:['v8','workerd','wintercg']}];var DIFF={spidermonkey:5,rhino:2,jscore:4,v8:5,chakra:3,carakan:2,hermes:3,quickjs:3,tracemonkey:4,crankshaft:3,turbofan:4,ignition:3,node:5,iojs:2,deno:4,bun:4,workerd:4,wintercg:3,verceledgert:3};var DLAB={1:'低',2:'やや低',3:'中',4:'高',5:'最重要'};
+var byId={};D.forEach(function(n){byId[n.id]=n;});
+var Wv=1100,PAD=12,boxH=38,rowGap=14,colGap=10,headerH=30,GUT=48;
+var CONTENT=Wv-PAD*2,BX0=PAD+GUT,BW=CONTENT-GUT;
+function wOf(s){var w=0;for(var i=0;i<s.length;i++){w+=s.charCodeAt(i)>0x2E80?12.2:7.2;}return Math.max(60,Math.min(240,Math.round(w)+18));}
+var buckets=ERAT.map(function(){return[];});
+D.forEach(function(n){n.w=wOf(n.sn);buckets[era(n.y)].push(n);});
+var Y=10,bands=[];
+buckets.forEach(function(b,ei){
+ var top=Y, ct=top+headerH+10;
+ var years=[],ymap={};
+ b.forEach(function(n){if(!ymap[n.y]){ymap[n.y]=[];years.push(n.y);}ymap[n.y].push(n);});
+ years.sort(function(a,c){return a-c;});
+ var cy=ct,marks=[];
+ years.forEach(function(yr){
+  var nodes=ymap[yr];nodes.sort(function(a,c){return a.l-c.l;});
+  var x=BX0,row=0;
+  nodes.forEach(function(n){if(x+n.w>BX0+BW){row++;x=BX0;}n.x=x;n.yy=cy+row*(boxH+rowGap);x+=n.w+colGap;});
+  marks.push({y:yr,ytop:cy});
+  cy+=(row+1)*(boxH+rowGap)+12;
+ });
+ var bh=cy-top;
+ bands.push({top:top,h:bh,t:ERAT[ei],ei:ei,marks:marks});
+ Y+=bh;
+});
+var H=Y+8;
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function edgePath(a,b){var ax=a.x+a.w/2,ay=a.yy+boxH,bx=b.x+b.w/2,by=b.yy;var d=Math.max(20,Math.abs(by-ay)*0.4);return 'M'+ax+','+ay+' C'+ax+','+(ay+d)+' '+bx+','+(by-d)+' '+bx+','+by;}
+var p=[];
+p.push('<svg viewBox="0 0 '+Wv+' '+H+'" width="'+Wv+'" style="max-width:100%;display:block;font-family:var(--font)" role="img" aria-label="JSエンジンとランタイムの系譜 1995-2026">');
+p.push('<defs>');
+p.push('<marker id="mF" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="'+faint+'"/></marker>');
+p.push('<marker id="mIn" markerWidth="7.5" markerHeight="7.5" refX="6" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="'+cIn+'"/></marker>');
+p.push('<marker id="mOut" markerWidth="7.5" markerHeight="7.5" refX="6" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="'+cOut+'"/></marker>');
+p.push('</defs>');
+bands.forEach(function(bd){
+ if(bd.ei%2===0)p.push('<rect x="0" y="'+bd.top+'" width="'+Wv+'" height="'+bd.h+'" fill="'+(isDark?'rgba(180,180,175,0.05)':'rgba(95,94,90,0.045)')+'"/>');
+ p.push('<line x1="0" y1="'+bd.top+'" x2="'+Wv+'" y2="'+bd.top+'" stroke="'+(isDark?'rgba(180,180,175,0.20)':'rgba(95,94,90,0.20)')+'" stroke-width="1"/>');
+ p.push('<text x="'+PAD+'" y="'+(bd.top+19)+'" style="fill:var(--t2)" font-size="14" font-weight="600">'+esc(bd.t)+'</text>');
+ bd.marks.forEach(function(mk,i){
+  if(i>0)p.push('<line x1="'+PAD+'" y1="'+(mk.ytop-6)+'" x2="'+(Wv-PAD)+'" y2="'+(mk.ytop-6)+'" stroke="'+(isDark?'rgba(180,180,175,0.10)':'rgba(95,94,90,0.08)')+'" stroke-width="1"/>');
+  p.push('<text x="'+PAD+'" y="'+(mk.ytop+boxH/2+4)+'" style="fill:var(--t3)" font-size="12.5" font-weight="600">'+mk.y+'</text>');
+ });
+});
+p.push('<g id="base">');
+D.forEach(function(n){n.f.forEach(function(fid){var a=byId[fid];if(a)p.push('<path d="'+edgePath(a,n)+'" fill="none" stroke="'+faint+'" stroke-width="0.9" marker-end="url(#mF)"/>');});});
+p.push('</g>');
+p.push('<g id="boxes">');
+D.forEach(function(n){var cat=CAT[n.l],pal=cat.p,dash=(n.s==='legacy'||n.s==='declining'),op=dash?0.82:1;var dv=DIFF[n.id]||0,pipW=7,pipG=2.5,pw=5*pipW+4*pipG,px=n.x+n.w/2-pw/2,py=n.yy+boxH-11,pips='';for(var pi=0;pi<5;pi++){pips+='<rect x="'+(px+pi*(pipW+pipG)).toFixed(1)+'" y="'+py+'" width="'+pipW+'" height="4.5" rx="1" fill="'+(pi<dv?pal.s:faint)+'"/>';}p.push('<g class="box" data-id="'+n.id+'" opacity="'+op+'"><rect x="'+n.x+'" y="'+n.yy+'" width="'+n.w+'" height="'+boxH+'" rx="6" fill="'+pal.f+'" stroke="'+pal.s+'" stroke-width="1.1"'+(dash?' stroke-dasharray="3 2.4"':'')+'/><text x="'+(n.x+n.w/2)+'" y="'+(n.yy+16)+'" text-anchor="middle" style="fill:'+pal.x+'" font-size="12.5">'+esc(n.sn)+'</text>'+pips+'</g>');});
+p.push('</g>');
+p.push('<g id="hi"></g>');
+p.push('</svg>');
+document.getElementById('chart').innerHTML=p.join('');
+var fc=document.getElementById('filters');var fh='<button class="chip" data-f="all" aria-pressed="true">全部</button>';CAT.forEach(function(c){fh+='<button class="chip" data-f="'+c.k+'"><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:'+c.m+';margin-right:5px"></span>'+esc(c.t)+'</button>';});fc.innerHTML=fh;
+var lg=document.getElementById('legend');lg.innerHTML='<span class="lgd"><svg width="24" height="10"><line x1="0" y1="5" x2="24" y2="5" stroke="'+cIn+'" stroke-width="2" marker-end="url(#mIn)"/></svg>影響元←</span><span class="lgd"><svg width="24" height="10"><line x1="0" y1="5" x2="24" y2="5" stroke="'+cOut+'" stroke-width="2" marker-end="url(#mOut)"/></svg>影響先→</span><span class="lgd"><span style="display:inline-block;width:14px;height:12px;border:1px solid var(--t3);border-radius:3px"></span>現役</span><span class="lgd"><span style="display:inline-block;width:14px;height:12px;border:1px dashed var(--t3);border-radius:3px"></span>後退・レガシー</span>';
+lg.innerHTML+='<div style="margin-top:8px"><span class="lgd"><svg width="46" height="11" style="vertical-align:middle"><rect x="0" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="9.5" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="19" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="28.5" y="3" width="7" height="5" rx="1" fill="var(--bd2)"/><rect x="38" y="3" width="7" height="5" rx="1" fill="var(--bd2)"/></svg> 歴史的重要度（5段階・塗りが多いほど高い）</span><span class="lgd" style="color:var(--t3)">1低 / 5最重要</span></div>';
+var boxesG=document.getElementById('boxes'),baseG=document.getElementById('base'),hiG=document.getElementById('hi'),tip=document.getElementById('tip'),wrap=document.getElementById('wrap');
+var boxEls={};Array.prototype.slice.call(boxesG.querySelectorAll('g.box')).forEach(function(g){boxEls[g.getAttribute('data-id')]=g;});
+var state={cat:'all',lock:null};
+function descOf(id){return D.filter(function(n){return n.f.indexOf(id)>=0;}).map(function(n){return n.id;});}
+function applyDim(setIds){
+ D.forEach(function(n){var g=boxEls[n.id];var base=(state.cat==='all'||CAT[n.l].k===state.cat);var dash=(n.s==='legacy'||n.s==='declining');var full=dash?0.82:1;var op;if(setIds){op=setIds[n.id]?full:0.16;}else{op=base?full:0.18;}g.setAttribute('opacity',op);});
+ baseG.setAttribute('opacity',setIds?0.07:1);
+}
+function highlight(id){var n=byId[id];var anc=n.f.filter(function(x){return byId[x];});var de=descOf(id);var set={};set[id]=1;anc.forEach(function(x){set[x]=1;});de.forEach(function(x){set[x]=1;});
+ var h='';anc.forEach(function(x){h+='<path d="'+edgePath(byId[x],n)+'" fill="none" stroke="'+cIn+'" stroke-width="2" opacity="0.95" marker-end="url(#mIn)"/>';});de.forEach(function(x){h+='<path d="'+edgePath(n,byId[x])+'" fill="none" stroke="'+cOut+'" stroke-width="2" opacity="0.95" marker-end="url(#mOut)"/>';});hiG.innerHTML=h;applyDim(set);}
+function clearHi(){hiG.innerHTML='';applyDim(null);}
+function chip(id){return '<button class="chip" data-go="'+id+'">'+esc(byId[id].sn)+'</button>';}
+function showPanel(id){var n=byId[id];var cat=CAT[n.l];var anc=n.f.filter(function(x){return byId[x];});var de=descOf(id);
+ var h='<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-bottom:4px"><span style="font-size:17px;font-weight:600;color:var(--t1)">'+esc(n.sn)+'</span><span style="font-size:12.5px;color:'+cat.m+'">'+esc(cat.t)+'</span><span style="font-size:12.5px;color:var(--t3)">'+n.y+'年・'+esc(STAT[n.s])+'</span></div>';
+ if(n.c)h+='<div style="font-size:12.5px;color:var(--t2);margin-bottom:7px">作者/開発: '+esc(n.c)+'</div>';
+ var dv=DIFF[n.id]||0,dpip='';for(var pi=0;pi<5;pi++){dpip+='<span style="display:inline-block;width:10px;height:6px;border-radius:1px;margin-right:2px;background:'+(pi<dv?cat.m:'var(--bd2)')+'"></span>';}h+='<div style="font-size:13px;color:var(--t2);margin-bottom:8px">重要度　'+dpip+' <span style="color:var(--t1)">Lv'+dv+'・'+(DLAB[dv]||'')+'</span></div>';
+ h+='<div style="font-size:14px;line-height:1.65;color:var(--t1);margin-bottom:5px"><span style="color:var(--t3)">系譜　</span>'+esc(n.t)+'</div>';
+ h+='<div style="font-size:14px;line-height:1.65;color:var(--t1)"><span style="color:var(--t3)">意義　</span>'+esc(n.g)+'</div><div id="go">';
+ if(anc.length)h+='<span style="font-size:12.5px;color:'+cIn+';align-self:center">影響元 ←</span>'+anc.map(chip).join('');
+ if(de.length)h+='<span style="font-size:12.5px;color:'+cOut+';align-self:center;margin-left:4px">影響先 →</span>'+de.map(chip).join('');
+ if(!anc.length&&!de.length)h+='<span style="font-size:12.5px;color:var(--t3)">この図の中に直接の親子リンクなし</span>';
+ h+='<button class="chip" data-clear="1" style="margin-left:auto">解除</button></div>';
+ document.getElementById('panel').innerHTML=h;}
+boxesG.addEventListener('mouseover',function(e){var g=e.target.closest('g.box');if(g&&!state.lock)highlight(g.getAttribute('data-id'));});
+boxesG.addEventListener('mouseout',function(e){var g=e.target.closest('g.box');if(g&&!state.lock)clearHi();});
+boxesG.addEventListener('click',function(e){var g=e.target.closest('g.box');if(!g)return;var id=g.getAttribute('data-id');state.lock=id;highlight(id);showPanel(id);});
+boxesG.addEventListener('mousemove',function(e){var g=e.target.closest('g.box');if(g){var n=byId[g.getAttribute('data-id')];tip.innerHTML='<b>'+esc(n.sn)+'</b><br><span style="color:var(--t2)">'+n.y+'年・'+esc(CAT[n.l].t)+'・'+esc(STAT[n.s])+'</span>';tip.style.display='block';var wr=wrap.getBoundingClientRect();var x=e.clientX-wr.left+14,yp=e.clientY-wr.top+14;if(x>wr.width-260)x-=280;tip.style.left=x+'px';tip.style.top=yp+'px';}else{tip.style.display='none';}});
+boxesG.addEventListener('mouseleave',function(){tip.style.display='none';});
+document.getElementById('panel').addEventListener('click',function(e){var go=e.target.closest('[data-go]');if(go){var id=go.getAttribute('data-go');state.lock=id;highlight(id);showPanel(id);return;}var cl=e.target.closest('[data-clear]');if(cl){state.lock=null;clearHi();document.getElementById('panel').innerHTML='<span style="color:var(--t2);font-size:13.5px">ボックスをなぞると系譜（影響元 ← / 影響先 →）が濃く出ます。クリックで詳細。</span>';}});
+var ffSearch=document.getElementById('ff-search');
+fc.addEventListener('click',function(e){var b=e.target.closest('[data-f]');if(!b)return;state.cat=b.getAttribute('data-f');state.lock=null;hiG.innerHTML='';if(ffSearch)ffSearch.value='';Array.prototype.slice.call(fc.querySelectorAll('.chip')).forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});applyDim(null);});
+ffSearch.addEventListener('input',function(){var q=ffSearch.value.trim().toLowerCase();state.lock=null;state.cat='all';hiG.innerHTML='';Array.prototype.slice.call(fc.querySelectorAll('.chip')).forEach(function(x){x.setAttribute('aria-pressed',x.getAttribute('data-f')==='all'?'true':'false');});if(!q){applyDim(null);return;}var set={};D.forEach(function(n){if((n.sn+' '+n.id+' '+(n.c||'')).toLowerCase().indexOf(q)>=0)set[n.id]=1;});applyDim(set);});
+applyDim(null);
+})();
+</script>
+</body>
+</html>

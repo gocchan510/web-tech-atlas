@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>プログラミング言語 系統樹（1957–2025）</title>
+<style>
+:root{
+ --t1:#1a1a1a;--t2:#565651;--t3:#8a8984;--bg1:#ffffff;--bg2:#f3f1ea;
+ --bd3:rgba(0,0,0,0.14);--bd2:rgba(0,0,0,0.3);--bd1:rgba(0,0,0,0.42);
+ --font:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+}
+@media(prefers-color-scheme:dark){
+ :root{--t1:#ededed;--t2:#b3b2ad;--t3:#88877f;--bg1:#1f1f1e;--bg2:#2a2a28;--bd3:rgba(255,255,255,0.14);--bd2:rgba(255,255,255,0.3);--bd1:rgba(255,255,255,0.42);}
+ body{background:#171716}
+}
+*{box-sizing:border-box}
+body{margin:0;padding:24px 18px 60px;font-family:var(--font);color:var(--t1);background:#fafaf7;line-height:1.6}
+@media(prefers-color-scheme:dark){body{background:#171716}}
+h1{font-size:22px;font-weight:600;margin:0 0 4px}
+.sub{font-size:13px;color:var(--t2);margin:0 0 16px;max-width:900px}
+#wrap{position:relative;max-width:1140px;margin:0 auto}
+.chip{font:400 12.5px var(--font);padding:4px 10px;border:1px solid var(--bd2);border-radius:8px;background:transparent;color:var(--t2);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--bg2);color:var(--t1);border-color:var(--bd1)}
+.lgd{display:inline-flex;align-items:center;gap:5px;margin-right:14px;font-size:12.5px;color:var(--t2)}
+g.box{cursor:pointer}
+#tip{position:absolute;pointer-events:none;background:var(--bg1);border:1px solid var(--bd2);border-radius:8px;padding:6px 10px;font:400 12.5px var(--font);color:var(--t1);max-width:280px;display:none;z-index:9;line-height:1.5;box-shadow:0 2px 10px rgba(0,0,0,0.12)}
+#panel{margin-top:16px;border:1px solid var(--bd3);border-radius:12px;padding:14px 18px;background:var(--bg1);min-height:60px}
+#go{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+#chart{overflow-x:auto}
+</style>
+</head>
+<body>
+<div id="wrap">
+<h1>プログラミング言語 系統樹（1957–2025）</h1>
+<div style="margin:2px 0 12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center"><span style="font-size:12px;color:var(--t3)">Web技術アトラス:</span><a href="daisyui-hub.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">daisyUIハブ</a><a href="css-frontend-lineage-flow.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">フロントエンド技術</a><span style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd1);border-radius:8px;color:var(--t1);background:var(--bg2);font-weight:600" aria-current="page">プログラミング言語</span><a href="reactivity-state-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">リアクティビティ/状態</a><a href="cloud-evolution-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">クラウド進化史</a><a href="ai-llm-coding-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">AI・LLM</a><a href="rendering-arch-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">レンダリング/配信</a><a href="browser-web-standards-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">ブラウザ/Web標準</a><a href="js-engine-runtime-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">JSエンジン/ランタイム</a><a href="vcs-git-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">Git/バージョン管理</a></div>
+<p class="sub">58言語。縦＝時系列（10年帯）、色＝パラダイム系統（多パラダイム言語は代表で分類）、矢印＝影響関係（親言語→子言語）。ボックスにカーソルを合わせると系譜（影響元←／影響先→）が濃くなり、クリックで詳細。検索ボックスで一発で探せる。各ボックス下のバーは習得難易度（5段階）。フロントエンド技術編とは別ページ。</p>
+<div style="margin-bottom:10px"><input id="ff-search" type="search" placeholder="言語名で検索（例: Rust, Haskell, C++）" style="width:100%;max-width:440px;padding:7px 11px;border:1px solid var(--bd2);border-radius:8px;background:var(--bg1);color:var(--t1);font:400 13px var(--font)"></div>
+<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px">
+ <span style="font-size:12.5px;color:var(--t3);margin-right:2px">系統を強調</span><span id="filters"></span>
+</div>
+<div id="legend" style="margin-bottom:12px"></div>
+<div id="chart"></div>
+<div id="tip"></div>
+<div id="panel"><span style="color:var(--t2);font-size:13.5px">ボックスにカーソルを合わせると系譜（影響元 ← / 影響先 →）が濃く表示されます。クリックで詳細。検索や系統チップでも絞り込めます。</span></div>
+</div>
+<script>
+(function(){
+var isDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+var CAT=[{k:'systems',t:'手続き / システム',L:{f:'#E6F1FB',s:'#185FA5',x:'#0C447C'},Dk:{f:'#0C447C',s:'#85B7EB',x:'#E6F1FB'},m:'#378ADD'},{k:'oop',t:'OOP',L:{f:'#EEEDFE',s:'#534AB7',x:'#3C3489'},Dk:{f:'#3C3489',s:'#AFA9EC',x:'#EEEDFE'},m:'#7F77DD'},{k:'functional',t:'関数型',L:{f:'#E1F5EE',s:'#0F6E56',x:'#085041'},Dk:{f:'#085041',s:'#5DCAA5',x:'#E1F5EE'},m:'#1D9E75'},{k:'scripting',t:'スクリプト / 動的',L:{f:'#FAEEDA',s:'#854F0B',x:'#633806'},Dk:{f:'#633806',s:'#EF9F27',x:'#FAEEDA'},m:'#BA7517'},{k:'logic_other',t:'論理 / その他',L:{f:'#FAECE7',s:'#993C1D',x:'#712B13'},Dk:{f:'#712B13',s:'#F0997B',x:'#FAECE7'},m:'#D85A30'}];CAT.forEach(function(c){c.p=isDark?c.Dk:c.L;});
+var STAT={mainstream:'主流',current:'現役',declining:'後退中',legacy:'レガシー',niche:'ニッチ'};
+var faint=isDark?'rgba(180,180,175,0.30)':'rgba(95,94,90,0.26)';
+var cIn=isDark?'#AFA9EC':'#534AB7', cOut=isDark?'#F0997B':'#D85A30';
+var ERAT=['〜1959　黎明期（Fortran・Lisp・ALGOL）','1960年代（Simula・BASIC・APL）','1970年代（C・Smalltalk・ML・Prolog）','1980年代（C++・Perl・Erlang）','1990年代（Python・Java・Ruby・JS）','2000年代（C#・Scala・Go）','2010年代（Rust・Kotlin・Swift・TS）','2020年代（ReScript・Carbon・Mojo）'];function era(y){return y<=1959?0:y<=1969?1:y<=1979?2:y<=1989?3:y<=1999?4:y<=2009?5:y<=2019?6:7;}var D=[{id:'fortran',l:0,y:1957,s:'current',sn:'Fortran',c:'John Backus (IBM)',t:'Laning-ZierlerシステムやIBM Speedcodingといったアセンブリレベルのコード自動化の系譜を受け継ぎ、数式に近い代数記法(Formula Translation)を初めて実用コンパイラとして高速機械語に翻訳することを実現した。手書き機械語からの脱却を成し遂げた最初の高水準言語。',g:'世界初の広く普及した高水準コンパイラ言語であり、高水準プログラミングという概念そのものを確立した。',f:[]},
+{id:'lisp',l:2,y:1958,s:'current',sn:'Lisp',c:'John McCarthy (MIT)',t:'IPL(リスト処理)とFLPL(Fortran上のリスト処理)の発想を受け継ぎつつ、それらにない再帰とif-then-else・条件式を導入。Churchのラムダ計算を計算モデルの基盤に据え、コードとデータを同一のS式で表現する記号処理言語を生んだ。',g:'関数型プログラミングと記号処理・AI研究の始祖であり、ガベージコレクションやコード=データ等の概念を世に出した。',f:['fortran']},
+{id:'algol',l:0,y:1958,s:'legacy',sn:'ALGOL',c:'国際委員会(編集 Peter Naur ほか、John Backus ら)',t:'Fortranの機械依存性と非統一性を克服する目的で設計され、その実用性を継承しつつ数学的厳密さを志向。BNFによる構文定義、ブロック構造、入れ子スコープ、構造化制御フロー(if-then-else)、再帰を体系化した。',g:'構造化プログラミングとアルゴリズム記述の標準を確立し、後続の手続き型言語のほぼ全ての祖となった。',f:['fortran']},
+{id:'cobol',l:0,y:1959,s:'legacy',sn:'COBOL',c:'CODASYL委員会(技術顧問 Grace Hopper)',t:'HopperのFLOW-MATIC(英語的な命令文・入出力とプログラム区分の分離)を土台に、IBMのCOMTRANの記法も取り込み、英語に近い文法とデータ構造記述・帳票処理を備えた事務処理向け言語として体系化した。',g:'事務・基幹業務処理言語の標準として20世紀の商用計算を支配し、現在も金融・行政の基幹システムで稼働し続ける。',f:[]},
+{id:'apl',l:2,y:1962,s:'niche',sn:'APL',c:'Kenneth E. Iverson (Harvard / IBM)',t:'Iversonが1957年から数学記法として考案した『Iverson記法』を1962年の著書『A Programming Language』で形式化し、1966年にIBMで実行可能言語として実装。配列を第一級に扱う簡潔な記号演算子体系を確立した。',g:'配列指向プログラミングの始祖であり、簡潔な記号によるベクトル・行列演算という独自のパラダイムを切り拓いた。',f:[]},
+{id:'basic',l:3,y:1964,s:'declining',sn:'BASIC',c:'John Kemeny, Thomas Kurtz (Dartmouth College)',t:'FORTRAN IIとALGOL 60を部分的に継承しつつ、それらが初学者には複雑すぎるとして大幅に簡素化。全命令を英単語で始める対話的で平易な言語として再設計し、非理工系学生にも計算機を開放した。',g:'初心者向け・対話型言語の代表として普及し、マイコン時代に個人がプログラミングに触れる入口となった。',f:['fortran','algol']},
+{id:'pl1',l:0,y:1964,s:'legacy',sn:'PL/I',c:'IBM(SHARE/IBM合同委員会)',t:'System/360の統一言語を目指し、ALGOL 60のブロック構造・再帰、FORTRAN IVの分割コンパイルとグローバルデータ、COBOLのデータ構造・入出力・帳票機能を一つに統合した野心的な汎用言語。',g:'科学計算と事務処理を単一言語で統合しようとした最初期の大規模汎用言語で、例外処理など多くの先進機能を実装した。',f:['fortran','algol','cobol']},
+{id:'simula',l:1,y:1967,s:'legacy',sn:'Simula',c:'Ole-Johan Dahl, Kristen Nygaard (Norwegian Computing Center)',t:'ALGOL 60のほぼ上位互換として出発し、SIMSCRIPTのシミュレーション思想とHoareのレコードクラス概念を取り込み、クラス・オブジェクト・継承・仮想手続き・コルーチンを導入した。',g:'オブジェクト指向プログラミングの起源であり、クラス・継承・オブジェクトの概念を初めて言語に体系化した。',f:['algol']},
+{id:'bcpl',l:0,y:1967,s:'legacy',sn:'BCPL',c:'Martin Richards (University of Cambridge / MIT)',t:'コンパイルが困難なCPLから、その複雑な機能を削ぎ落とした部分集合として設計。型を持たない語(word)ベースの簡素なシステム記述言語とし、波括弧{}によるブロックや//コメントを導入した。',g:'コンパイラ記述向けのシステムプログラミング言語の先駆けで、B言語を経てCへと連なる系譜の起点となった。',f:[]},
+{id:'pascal',l:0,y:1970,s:'declining',sn:'Pascal',c:'Niklaus Wirth (ETH Zürich)',t:'ALGOL 60およびWirth自身のALGOL Wを土台に、構造化プログラミングと強い静的型付けを徹底。レコード・列挙型・部分範囲型・ポインタを備えたデータ型定義機能をALGOLに付加し、教育用にコンパクトにまとめた。',g:'構造化プログラミング教育の標準言語として広く普及し、規律あるプログラム設計の思想を浸透させた。',f:['algol']},
+{id:'c',l:0,y:1972,s:'mainstream',sn:'C',c:'Dennis Ritchie (Bell Labs)',t:'BCPLを簡略化したThompsonのB言語を継承し、PDP-11の能力を活かすため文字・構造体などの豊富な型システムを追加。型なしのBに静的型を導入し、低水準の効率と高水準の表現力を両立させた。',g:'UNIXとともに発展しシステム記述言語の事実上の標準となった、現代の言語設計に最も広く影響を与えた言語。',f:['bcpl','algol']},
+{id:'smalltalk',l:1,y:1972,s:'niche',sn:'Smalltalk',c:'Alan Kay, Dan Ingalls, Adele Goldberg (Xerox PARC)',t:'SimulaのクラスとオブジェクトおよびLispの簡潔さを受け継ぎ、Sketchpadの影響も加え、『すべてはオブジェクト』『すべてはメッセージ送信』という純粋な思想に純化。動的型付けとライブなGUI開発環境を伴った。',g:'純粋オブジェクト指向とメッセージ送信モデルを確立し、GUI・IDE・MVCなど現代ソフトウェア開発の基礎を生んだ。',f:['simula','lisp']},
+{id:'prolog',l:4,y:1972,s:'niche',sn:'Prolog',c:'Alain Colmerauer, Philippe Roussel (University of Marseille)',t:'RobinsonのレゾリューションとKowalskiのHorn節の手続き的解釈を基盤に、自然言語処理研究から発展。論理を宣言的な知識表現として用いつつ実行可能にし、ALGOL-Wで最初の処理系を実装した。',g:'論理プログラミングの代表言語であり、宣言的に記述した論理規則を計算として実行するパラダイムを確立した。',f:[]},
+{id:'ml',l:2,y:1973,s:'current',sn:'ML',c:'Robin Milner (University of Edinburgh)',t:'LandinのISWIMの構文を継承しLispの関数型思想を受け継ぎつつ、定理証明器LCFの証明戦術(tactic)を記述するメタ言語として開発。Hindley-Milner型推論による静的な多相型システムを導入した。',g:'静的型推論を備えた関数型言語の祖であり、多相型システムとパターンマッチを後続の関数型言語に広めた。',f:['lisp']},
+{id:'sql',l:4,y:1974,s:'mainstream',sn:'SQL',c:'Donald Chamberlin, Raymond Boyce (IBM System R)',t:'Coddの関係モデル(1970)を概念的基盤とし、添字記法で難解だった先行言語SQUAREを改良。英語キーワードを用いた平易な宣言的問い合わせ言語SEQUELとして設計され、後にSQLへ改称された。',g:'関係データベースの標準問い合わせ言語として確立し、宣言的データ操作の事実上の世界標準となった。',f:[]},
+{id:'scheme',l:2,y:1975,s:'current',sn:'Scheme',c:'Gerald Jay Sussman, Guy L. Steele (MIT)',t:'Lispから一般的な意味論と構文を受け継ぎつつ、ALGOLのレキシカルスコープとブロック構造を導入。HewittのActorモデルを理解する試みから生まれ、末尾呼び出し最適化を必須とし第一級の継続を備えた極小Lisp方言となった。',g:'レキシカルスコープと末尾再帰最適化を採用した最初のLisp方言で、ミニマルで原理的な言語設計の模範となった。',f:['lisp','algol']},
+{id:'ada',l:0,y:1980,s:'niche',sn:'Ada',c:'Jean Ichbiah(CII Honeywell Bull)/米国防総省(DoD)',t:'Pascalの構造化構文とSimulaのモジュール性をIchbiahの実験言語LIS経由で継承。強い静的型・パッケージ・タスク(並行)・例外処理を加え、軍用/高信頼システム向けに大規模化した。',g:'米国防総省が乱立する言語を統一する目的で標準化した、安全性・並行性を言語仕様に組み込んだ高信頼システム言語の代表。',f:['pascal','simula','algol']},
+{id:'cpp',l:0,y:1985,s:'mainstream',sn:'C++',c:'Bjarne Stroustrup(AT&T Bell研究所)',t:'Cの低レベル効率・移植性をそのままに、Simulaのクラス/継承(OOP)を移植。ALGOL68から演算子オーバーロードと参照、BCPLから//コメントを取り入れた。当初は『C with Classes』。',g:'Cの性能を保ったままOOPを実用言語に持ち込み、システム/ゲーム/高性能計算で支配的地位を築いた多パラダイム言語。',f:['c','simula','algol','ada']},
+{id:'objc',l:1,y:1984,s:'declining',sn:'Objective-C',c:'Brad Cox, Tom Love(Stepstone)',t:'Cの上にSmalltalk流のメッセージ送信(動的ディスパッチ)を薄い前処理層として被せた。Cとの完全互換を保ちつつ、Smalltalkのオブジェクトモデルだけを取り込む折衷設計。',g:'NeXT/Apple(macOS・iOS)の標準言語として長く採用され、Cとの互換を保つ動的OOP言語の代表となった。',f:['c','smalltalk']},
+{id:'eiffel',l:1,y:1986,s:'niche',sn:'Eiffel',c:'Bertrand Meyer(Eiffel Software)',t:'Simulaのクラス/継承とAdaの強い型・モジュール志向を受け継ぎ、事前条件・事後条件・不変条件による『契約による設計(Design by Contract)』を言語機能として導入した純粋OOP。',g:'契約による設計を体系化し、ソフトウェア信頼性と再利用を言語レベルで追求した、OOP理論に大きな影響を与えた言語。',f:['simula','ada']},
+{id:'erlang',l:2,y:1986,s:'current',sn:'Erlang',c:'Joe Armstrong, Robert Virding, Mike Williams(Ericsson)',t:'初期実装はPrologで書かれ、Prologのパターンマッチ/リスト処理とLispの関数型・GCを継承。Ericsson旧交換機言語PLEXの並行性要件を受け、軽量プロセスとメッセージ並行・耐障害性を独自に確立した。',g:'通信交換機の無停止運用のために生まれ、アクター的な軽量プロセスと耐障害性で並行/分散プログラミングの先駆けとなった。',f:['prolog','lisp']},
+{id:'perl',l:3,y:1987,s:'declining',sn:'Perl',c:'Larry Wall',t:'Cの構文を土台に、sed/awkのテキスト処理、Unixシェルの利便性、Lispの柔軟性を実用本位で寄せ集めた。正規表現を言語に深く統合し、レポート/テキスト処理を高速化した。',g:'強力な正規表現とテキスト処理で『インターネットの粘着テープ』と呼ばれ、初期Web CGIとシステム管理を席巻した実用スクリプト言語。',f:['c','lisp']},
+{id:'tcl',l:3,y:1988,s:'niche',sn:'Tcl',c:'John Ousterhout(UC Berkeley)',t:'EDA(VLSI設計ツールMagic)で各ツールが独自の拡張言語を作る非効率への反省から、Unixシェル/Emacsのコマンド言語の発想を一般化。Cアプリに組み込める汎用『command language』として『すべては文字列』の極小設計を取った。',g:'アプリケーションに組み込む拡張用スクリプト言語の概念を確立し、Tkと組んでGUI構築言語として広く使われた。',f:['lisp']},
+{id:'haskell',l:2,y:1990,s:'current',sn:'Haskell',c:'Haskell委員会(Simon Peyton Jones, Paul Hudak ら)',t:'乱立した非正格・純粋関数型言語、特にプロプライエタリだったMirandaを共通標準に統合する目的で誕生。Mirandaの遅延評価・純粋性・Hindley-Milner型をMLから継承し、型クラスを新たに導入した。',g:'遅延評価・純粋性・型クラスを備えたオープン標準の純粋関数型言語として、型システム研究と関数型プログラミング普及の中心となった。',f:['ml','lisp']},
+{id:'python',l:3,y:1991,s:'mainstream',sn:'Python',c:'Guido van Rossum(CWI)',t:'教育言語ABCの可読性(インデント構文・高水準データ型)を後継として継承し、Modula-3から例外処理とモジュール機構、Cから実装/拡張性を取り込んだ。可読性と生産性を最優先した汎用スクリプト言語。',g:'可読性重視の設計で初心者から科学計算・AIまで広がり、2020年代に最も広く使われる汎用言語の一つとなった。',f:['c']},
+{id:'vb',l:3,y:1991,s:'legacy',sn:'Visual Basic',c:'Microsoft(Alan Cooperのプロトタイプ Tripod を基にフォーム設計を採用)',t:'MicrosoftのDOS系BASIC(QuickBASIC/BASIC PDS)の言語を継承し、Alan Cooperのフォーム生成プロトタイプ(Tripod)由来のドラッグ&ドロップGUIビルダーを統合。コードとUI設計を同一IDEで行うイベント駆動開発を実現した。',g:'ビジュアルなフォーム設計とイベント駆動でWindowsアプリ開発を一般化し、RAD(高速開発)を大衆化した代表的言語。',f:['basic']},
+{id:'lua',l:3,y:1993,s:'current',sn:'Lua',c:'Roberto Ierusalimschy, Luiz Henrique de Figueiredo, Waldemar Celes(PUC-Rio Tecgraf)',t:'自作の前身DEL/SOL(データ記述・設定言語)を統合し、Schemeの簡潔さとModula風の構文を取り入れた。テーブルという単一データ構造とC組み込み容易性に特化した超軽量設計。',g:'極小・高速・組み込み容易を徹底し、ゲームエンジンや組込みの拡張スクリプトとして事実上の標準となった軽量言語。',f:['scheme']},
+{id:'r',l:2,y:1993,s:'current',sn:'R',c:'Ross Ihaka, Robert Gentleman(オークランド大学)',t:'統計言語Sの構文・機能をほぼ受け継ぎつつ(多くのSプログラムが無改変で動く)、内部実装はSchemeの関数型と字句的スコープを採用。Sの自由なオープンソース代替として作られた。',g:'Sを継承したオープンソース統計計算環境として学術・データ分析の標準となり、統計/可視化エコシステムを築いた。',f:['scheme']},
+{id:'ruby',l:3,y:1995,s:'current',sn:'Ruby',c:'まつもとゆきひろ(Yukihiro Matsumoto)',t:'Perlの実用性とテキスト処理を出発点に、Smalltalkの『すべてがオブジェクト』なOOPモデル、Lispの核、Eiffel/Adaの設計思想を融合。プログラマの幸福を最優先した純粋OOPスクリプト言語。',g:'『開発者の幸福』を掲げた純粋OOPスクリプト言語で、Ruby on Railsを通じてWeb開発の生産性に革命をもたらした。',f:['perl','smalltalk','lisp','eiffel','ada']},
+{id:'java',l:1,y:1995,s:'mainstream',sn:'Java',c:'James Gosling(Sun Microsystems)',t:'C++の構文を継承しつつポインタ操作などの危険機能を排除し、SmalltalkのOOP/GC、Objective-Cの動的性やインターフェイス発想、Adaの例外処理を取り込んだ。JVMによる『一度書けばどこでも動く』移植性が中核。',g:'JVMによる移植性とGC付きの安全なOOPで企業システムとAndroidを支配し、1990年代以降最も普及したOOP言語。',f:['cpp','smalltalk','objc','ada']},
+{id:'javascript',l:3,y:1995,s:'mainstream',sn:'JavaScript',c:'Brendan Eich(Netscape)',t:'当初『ブラウザ用Scheme』として構想され、Schemeの第一級関数とSelfのプロトタイプベースのオブジェクトモデルを核に持つ。経営判断でJava風の表面構文をまとわされ、わずか10日で原型が作られた。',g:'Webブラウザの唯一の標準スクリプト言語としてフロントエンドを独占し、後にNode.jsでサーバ側にも広がった最重要言語。',f:['scheme','java']},
+{id:'php',l:3,y:1995,s:'current',sn:'PHP',c:'Rasmus Lerdorf',t:'C言語で書かれたCGIバイナリ群(PHP/FI)として出発し、Perl風の変数とフォーム変数の自動展開、HTML埋め込み構文を継承。Web専用の手軽なサーバサイド言語として進化した。',g:'HTMLに直接埋め込めるサーバサイド言語として動的Webを大衆化し、WordPress等を通じてWebの大部分を支えた。',f:['perl','c']},
+{id:'ocaml',l:2,y:1996,s:'current',sn:'OCaml',c:'Xavier Leroy, Jérôme Vouillon, Damien Doligez, Didier Rémy ら(INRIA)',t:'MLの系譜(Caml/Caml Special Light)を継承し、強力な型推論と代数的データ型を備える。Rémy/Vouillonが設計したオブジェクト/クラスの型システムを統合して『Objective Caml』とした。',g:'ML系の強力な型推論に実用的なOOPと高速処理系を加え、コンパイラ・金融・形式手法分野で支持される実用関数型言語。',f:['ml']},
+{id:'csharp',l:1,y:2000,s:'mainstream',sn:'C#',c:'Anders Hejlsberg (Microsoft)',t:'JavaやC++の欠点を踏まえ、Anders HejlsbergがDelphi/Turbo Pascalの設計思想を持ち込んでCLR/.NET上の安全な静的型OOP言語として設計。プロパティ・delegate・後のLINQ/async/awaitなど言語機能を継続的に先導した。',g:'.NETの中核言語として企業システム・ゲーム(Unity)・Web開発を支え、後発の静的型言語に多大な影響を与えた商用OOP言語の代表格。',f:['cpp','java','smalltalk']},
+{id:'d',l:0,y:2001,s:'niche',sn:'D',c:'Walter Bright',t:'C/C++の効率と低レベルアクセス、Algol系構文を継承しつつ、複雑さと不安定さを排除。ガベージコレクション・モジュール・契約プログラミング(Eiffel由来のdesign by contract)・強力なコンパイル時メタプログラミングを統合し、JavaやPython/Rubyからも機能を取り入れた。',g:'C++を「再設計」する試みとして影響力を持ち、コンパイル時計算やメタプログラミングの先進例を示したシステムプログラミング言語。',f:['cpp','c','java','python','eiffel']},
+{id:'scala',l:2,y:2004,s:'current',sn:'Scala',c:'Martin Odersky (EPFL)',t:'JVM上でJavaと相互運用しつつ、オブジェクト指向と関数型を融合。Haskell/Standard ML/Schemeからカリー化・不変性・パターンマッチを、Erlangからアクターモデルの並行性を取り込み、強力な型システムを与えた。内部公開2003、一般公開2004。',g:'OOPと関数型の統合を実用規模で実証し、Spark等のビッグデータ基盤を生んだJVM代表的関数型言語。',f:['java','haskell','ml','scheme','erlang']},
+{id:'groovy',l:3,y:2003,s:'current',sn:'Groovy',c:'James Strachan',t:'Javaに似た見た目を保ちつつ動的言語化。Rubyからメタプログラミングと範囲型、Pythonからリスト/マップ・リテラルとデフォルト引数、Smalltalkからコレクション処理メソッド(collect/inject)を借用しJVM上の動的相棒言語とした。2003年に構想・公表、1.0は2007年。',g:'JVMに動的スクリプティングをもたらし、Gradleビルドツールやテスト/DSL分野で広く使われる実用言語。',f:['java','ruby','python','smalltalk']},
+{id:'fsharp',l:2,y:2005,s:'current',sn:'F#',c:'Don Syme (Microsoft Research)',t:'OCaml(Caml.NET研究プロジェクト)を母体に、ML系の型推論・パターンマッチを.NET上に実装。C#との相互運用性を確保し、Haskellやpythonからもアイデアを取り入れた静的型関数型言語。F# 1.0は2005年。',g:'.NET上で型付き関数型プログラミングを実用化し、後のC#の関数型機能取り込みにも影響を与えたMicrosoftの関数型言語。',f:['ocaml','csharp','haskell','ml']},
+{id:'clojure',l:2,y:2007,s:'current',sn:'Clojure',c:'Rich Hickey',t:'Lisp方言だが既存Lispの直系ではなく、JVM/ホスト環境への完全な相互運用を前提に再設計。不変データ構造とソフトウェアトランザクショナルメモリで並行性を解決し、Haskell/ML/Erlangの関数型思想を取り込んだ。開発開始2005、公開2007年10月。',g:'実用プラットフォーム上で不変性中心の関数型Lispを再興させ、並行プログラミングのモデルを広めた現代的Lisp。',f:['lisp','scheme','haskell','erlang','ml']},
+{id:'go',l:0,y:2009,s:'mainstream',sn:'Go',c:'Robert Griesemer, Rob Pike, Ken Thompson (Google)',t:'C系の構文を簡潔化し、Pascal/Modula/Oberonの宣言・パッケージ構造を継承。HoareのCSPに由来するgoroutine/channelによる並行性(Newsqueak/Alef経由)、ガベージコレクション、高速コンパイルを備えた。Googleで2007年設計、2009年11月公開。',g:'クラウド/サーバ・インフラ時代の並行処理を簡潔に書ける言語として普及し、Docker/Kubernetesを支えた現代システム言語。',f:['c','pascal']},
+{id:'rust',l:0,y:2010,s:'mainstream',sn:'Rust',c:'Graydon Hoare (Mozilla)',t:'C/C++の効率と低レベル制御を継承しつつ、所有権・借用とライフタイムでGCなしのメモリ安全と並行安全を実現。OCaml/MLの型システム、Cyclone・CLU・Erlangの知見を取り込んだ。初公開は2010年、安定版1.0は2015年5月。',g:'GCなしでメモリ安全を保証する所有権モデルを主流化し、システムプログラミングの安全性パラダイムを刷新した言語。',f:['cpp','ocaml','ml','erlang','haskell']},
+{id:'kotlin',l:1,y:2011,s:'mainstream',sn:'Kotlin',c:'Andrey Breslav (JetBrains)',t:'Javaとの完全な相互運用を保ちつつ簡潔さとnull安全を導入。Scalaを最も参考にしつつ、C#のプロパティ/拡張機能、Groovy、Pythonの設計を取り込んだJVM言語。2011年7月にJetBrainsが発表。',g:'GoogleがAndroid公式言語に採用し、JVM/モバイル開発の事実上の主流言語へと成長した実用OOP言語。',f:['java','scala','csharp','groovy']},
+{id:'dart',l:1,y:2011,s:'mainstream',sn:'Dart',c:'Lars Bak, Kasper Lund (Google)',t:'ALGOL/C系構文のクラスベースOOP言語。JavaScriptを置き換える狙いで設計され、Java/C#の整理された構文を取り込み、Smalltalkからメソッドカスケード構文を採用。V8開発者によるAOT/JIT両対応。2011年10月にGOTO Aarhusで発表。',g:'当初の野心は伸び悩んだがFlutterのフレームワーク言語として復活し、クロスプラットフォームUI開発を牽引する言語。',f:['javascript','java','csharp','smalltalk']},
+{id:'elixir',l:2,y:2011,s:'current',sn:'Elixir',c:'José Valim',t:'Erlang VM(BEAM)上に構築し、Erlangの並行性・耐障害性を継承しつつ、Rubyに似た表現力ある構文と、Clojure由来の関数型・メタプログラミング(マクロ)を取り入れた。開発開始2011、v0.5.0公開2012。',g:'BEAMの堅牢な並行・分散モデルに現代的な構文を与え、Phoenix等で高スケールなWebバックエンドを支える関数型言語。',f:['erlang','ruby','clojure']},
+{id:'typescript',l:3,y:2012,s:'mainstream',sn:'TypeScript',c:'Anders Hejlsberg (Microsoft)',t:'JavaScriptの上位互換として、Hejlsbergが任意の静的型・クラス・モジュールを追加。大規模JS開発のツール支援と構造化を目的とし、C#/Javaの型付きOOP思想とES6のクラス定義を取り込んだ。2012年10月発表。',g:'JavaScriptに静的型付けをもたらしフロントエンド/Node開発の事実上の標準となった、現代Web開発で最も影響力ある言語の一つ。',f:['javascript','csharp','java']},
+{id:'julia',l:3,y:2012,s:'current',sn:'Julia',c:'Jeff Bezanson, Stefan Karpinski, Viral Shah, Alan Edelman',t:'MATLAB/R/Pythonの高水準な書きやすさとCに迫る速度の両立(二言語問題の解消)を目指し、Lisp的なマクロ・多重ディスパッチを核に据えた。C/Fortranライブラリとも連携。開発開始2009、公開2012年2月。',g:'動的言語の生産性とコンパイル言語の性能を多重ディスパッチで両立し、科学技術・数値計算分野で台頭した言語。',f:['lisp','python','r','c','fortran']},
+{id:'elm',l:2,y:2012,s:'niche',sn:'Elm',c:'Evan Czaplicki',t:'Haskellに似た構文とML系セマンティクスを持つ純粋関数型言語で、OCaml/F#からも着想。当初は関数型リアクティブプログラミング(FRP)に基づくGUI記述を目指し、後にThe Elm Architectureへ発展。2012年にEvan Czaplickiの学部卒業論文(Harvard A.B. ’12, 指導: Stephen Chong)として公開。',g:'実行時例外のないWebフロントエンドを目指し、Reduxなどに影響を与えたThe Elm Architectureを生んだ純粋関数型言語。',f:['haskell','ocaml','fsharp','ml']},
+{id:'swift',l:0,y:2014,s:'mainstream',sn:'Swift',c:'Chris Lattner / Apple',t:'Objective-CのCocoa/ARCメモリ管理を継承しつつ、HaskellやRust由来の代数的データ型(enum)・オプショナル・プロトコル指向・パターンマッチを導入。値型と参照型を明確に分け、安全性と簡潔な構文を両立した。',g:'iOS/macOS開発のObjective-C後継として登場し、モダンな型安全システム言語をApple陣営の主流に押し上げた。',f:['objc','rust','haskell','ruby','python','csharp']},
+{id:'crystal',l:0,y:2014,s:'niche',sn:'Crystal',c:'Ary Borenszweig, Juan Wajnerman, Brian Cardiff (Manas Technology Solutions)',t:'Rubyのエレガントな構文と生産性をほぼそのまま受け継ぎつつ、グローバル型推論付きの静的型付けとLLVMによるネイティブコンパイルを加え、動的言語の見た目でC級の速度を狙った。並行性モデルはCSPとGoのfiber/channelから着想。',g:'「Rubyの書き味でコンパイル言語の性能を」という方向性を体現した代表例だが、採用は限定的なニッチに留まる。',f:['ruby','c','rust','go']},
+{id:'nim',l:0,y:2008,s:'niche',sn:'Nim',c:'Andreas Rumpf',t:'Pythonのインデント構文と読みやすさを土台に、Modula-3/Oberon/Adaの型安全とモジュール性、Lisp的な強力なマクロメタプログラミングを統合。C/C++/JavaScriptへトランスパイルする設計で、当初Nimrod名で公開(2014年にNimへ改名)。',g:'Python風の書き味でシステムプログラミング級の性能とコンパイル時メタプログラミングを実現した先駆的な多パラダイム言語。',f:['python','ada','lisp','cpp']},
+{id:'zig',l:0,y:2016,s:'current',sn:'Zig',c:'Andrew Kelley',t:'Cの単純さと低レベル制御を正統に継ぎつつ、隠れた制御フロー・隠れたメモリ確保・マクロ/プリプロセッサを排除。comptime(コンパイル時実行)で総称とメタプログラミングを統一し、GC無しの明示的メモリ管理を貫く「より良いC」を志向。',g:'Rustとは異なるアプローチでC代替を狙う新世代システム言語として急速に注目を集めている。',f:['c','rust','cpp','go']},
+{id:'purescript',l:2,y:2013,s:'niche',sn:'PureScript',c:'Phil Freeman',t:'Haskellの純粋関数型・型クラス・高階多相・代数的データ型をほぼそのまま受け継ぎつつ、遅延評価を捨てて正格評価とし、JavaScriptへ軽量にコンパイルする設計に最適化した。',g:'Haskellの強力な型システムをフロントエンドJavaScript環境へ持ち込んだ代表的な純粋関数型altJS言語。',f:['haskell']},
+{id:'rescript',l:2,y:2020,s:'niche',sn:'ReScript',c:'Hongbo Zhang (BuckleScriptチーム)',t:'OCaml(BuckleScript/Reason経由)の健全で高速な型推論エンジンを継承しつつ、OCaml互換構文を捨ててJS開発者に親しみやすい独自構文へ刷新。2020年にBuckleScript/Reasonから分岐しJSエコシステムへの統合を最優先した。',g:'OCamlの型システムをJavaScript親和の構文に再パッケージし、Reason/BuckleScript系譜から独立した型安全altJSとして再出発した。',f:['ocaml','javascript']},
+{id:'carbon_lang',l:0,y:2022,s:'niche',sn:'Carbon',c:'Chandler Carruth / Google',t:'C++を双方向に完全相互運用できる「実験的後継」として設計。C++の性能と既存資産を引き継ぎつつ、SwiftやKotlinのような後継言語モデルに倣い、Rust並みの安全性とモダンな文法・ツール基盤を目指す。',g:'C++の漸進的改善が困難という問題意識から生まれた、Google発のC++後継実験言語。',f:['cpp','rust','swift','kotlin']},
+{id:'mojo',l:0,y:2023,s:'current',sn:'Mojo',c:'Chris Lattner, Tim Davis / Modular',t:'Pythonの構文とエコシステム(モジュールimport可)を上位互換的に受け継ぎつつ、Rust由来のボローチェッカと静的型付けを導入。LLVMでなくMLIR上に構築し、comptime/マクロはZigから着想。GPU/アクセラレータ向けの高性能を狙うAI時代のシステム言語。',g:'Pythonの使いやすさとC++/Rust級の性能を融合し、AI/MLハードウェア向け高性能言語を志向する新興言語。',f:['python','rust','swift','cpp','zig']},
+{id:'gleam',l:2,y:2016,s:'current',sn:'Gleam',c:'Louis Pilfold',t:'Erlang/BEAMの並行性と耐障害性ランタイムを継承しつつ、Elm/OCaml/Rust由来の健全な静的型システム(Hindley-Milner)と優れた開発体験を載せた。コンパイラ自体はRust製で、BEAMとJavaScript双方へコンパイルできる。',g:'動的型が主流だったBEAM上に本格的な静的型安全をもたらした新世代関数型言語。',f:['erlang','elm','ocaml','rust']},
+{id:'vlang',l:0,y:2019,s:'niche',sn:'V',c:'Alexander Medvednikov',t:'Goの簡潔な構文・並行性モデル・全体構造を強く継承し(約8割が類似)、Rust/Swift由来の安全性(不変性デフォルト、no null/no global)とOberon由来のモジュール性、高速コンパイル・C出力を加えた。',g:'Go風の単純さに安全性と高速コンパイルを掲げて注目を集めたが、機能主張を巡る議論もあるニッチなシステム言語。',f:['go','rust','swift']},
+{id:'wasm',l:0,y:2017,s:'current',sn:'WebAssembly',c:'W3C Community Group (Mozilla, Google, Microsoft, Apple)',t:'asm.jsを直接の前身として継承し、JavaScriptサブセットでなくスタックマシン型の安全な低レベルバイナリ命令形式として再設計。C/C++/Rust等の言語のコンパイル先となる移植可能な仮想ISAで、2017年3月にMVP合意、2019年にW3C勧告化。',g:'ブラウザに高速・安全な実行ターゲットをもたらし、後にサーバ/エッジへも拡がる言語横断のコンパイル先標準となった。',f:['c','cpp','rust']}];
+var DIFF={fortran:3,lisp:4,algol:3,cobol:2,apl:5,basic:1,pl1:4,simula:3,bcpl:3,pascal:2,c:4,smalltalk:3,prolog:5,ml:4,sql:2,scheme:3,ada:4,cpp:5,objc:4,eiffel:3,erlang:4,perl:3,tcl:2,haskell:5,python:2,vb:1,lua:2,r:3,ruby:2,java:3,javascript:3,php:2,ocaml:4,csharp:3,d:4,scala:5,groovy:2,fsharp:4,clojure:4,go:2,rust:5,kotlin:3,dart:3,elixir:3,typescript:4,julia:3,elm:4,swift:3,crystal:3,nim:3,zig:4,purescript:5,rescript:4,carbon_lang:4,mojo:4,gleam:3,vlang:3,wasm:4};var DLAB={1:'入門',2:'やや易',3:'中級',4:'難',5:'専門'};
+var byId={};D.forEach(function(n){byId[n.id]=n;});
+var Wv=1100,PAD=12,boxH=38,rowGap=14,colGap=10,headerH=30,GUT=48;
+var CONTENT=Wv-PAD*2,BX0=PAD+GUT,BW=CONTENT-GUT;
+function wOf(s){var w=0;for(var i=0;i<s.length;i++){w+=s.charCodeAt(i)>0x2E80?12.2:7.2;}return Math.max(60,Math.min(240,Math.round(w)+18));}
+var buckets=ERAT.map(function(){return[];});
+D.forEach(function(n){n.w=wOf(n.sn);buckets[era(n.y)].push(n);});
+var Y=10,bands=[];
+buckets.forEach(function(b,ei){
+ var top=Y, ct=top+headerH+10;
+ var years=[],ymap={};
+ b.forEach(function(n){if(!ymap[n.y]){ymap[n.y]=[];years.push(n.y);}ymap[n.y].push(n);});
+ years.sort(function(a,c){return a-c;});
+ var cy=ct,marks=[];
+ years.forEach(function(yr){
+  var nodes=ymap[yr];nodes.sort(function(a,c){return a.l-c.l;});
+  var x=BX0,row=0;
+  nodes.forEach(function(n){if(x+n.w>BX0+BW){row++;x=BX0;}n.x=x;n.yy=cy+row*(boxH+rowGap);x+=n.w+colGap;});
+  marks.push({y:yr,ytop:cy});
+  cy+=(row+1)*(boxH+rowGap)+12;
+ });
+ var bh=cy-top;
+ bands.push({top:top,h:bh,t:ERAT[ei],ei:ei,marks:marks});
+ Y+=bh;
+});
+var H=Y+8;
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function edgePath(a,b){var ax=a.x+a.w/2,ay=a.yy+boxH,bx=b.x+b.w/2,by=b.yy;var d=Math.max(20,Math.abs(by-ay)*0.4);return 'M'+ax+','+ay+' C'+ax+','+(ay+d)+' '+bx+','+(by-d)+' '+bx+','+by;}
+var p=[];
+p.push('<svg viewBox="0 0 '+Wv+' '+H+'" width="'+Wv+'" style="max-width:100%;display:block;font-family:var(--font)" role="img" aria-label="プログラミング言語の系統樹 1957-2025">');
+p.push('<defs>');
+p.push('<marker id="mF" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="'+faint+'"/></marker>');
+p.push('<marker id="mIn" markerWidth="7.5" markerHeight="7.5" refX="6" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="'+cIn+'"/></marker>');
+p.push('<marker id="mOut" markerWidth="7.5" markerHeight="7.5" refX="6" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="'+cOut+'"/></marker>');
+p.push('</defs>');
+bands.forEach(function(bd){
+ if(bd.ei%2===0)p.push('<rect x="0" y="'+bd.top+'" width="'+Wv+'" height="'+bd.h+'" fill="'+(isDark?'rgba(180,180,175,0.05)':'rgba(95,94,90,0.045)')+'"/>');
+ p.push('<line x1="0" y1="'+bd.top+'" x2="'+Wv+'" y2="'+bd.top+'" stroke="'+(isDark?'rgba(180,180,175,0.20)':'rgba(95,94,90,0.20)')+'" stroke-width="1"/>');
+ p.push('<text x="'+PAD+'" y="'+(bd.top+19)+'" style="fill:var(--t2)" font-size="14" font-weight="600">'+esc(bd.t)+'</text>');
+ bd.marks.forEach(function(mk,i){
+  if(i>0)p.push('<line x1="'+PAD+'" y1="'+(mk.ytop-6)+'" x2="'+(Wv-PAD)+'" y2="'+(mk.ytop-6)+'" stroke="'+(isDark?'rgba(180,180,175,0.10)':'rgba(95,94,90,0.08)')+'" stroke-width="1"/>');
+  p.push('<text x="'+PAD+'" y="'+(mk.ytop+boxH/2+4)+'" style="fill:var(--t3)" font-size="12.5" font-weight="600">'+mk.y+'</text>');
+ });
+});
+p.push('<g id="base">');
+D.forEach(function(n){n.f.forEach(function(fid){var a=byId[fid];if(a)p.push('<path d="'+edgePath(a,n)+'" fill="none" stroke="'+faint+'" stroke-width="0.9" marker-end="url(#mF)"/>');});});
+p.push('</g>');
+p.push('<g id="boxes">');
+D.forEach(function(n){var cat=CAT[n.l],pal=cat.p,dash=(n.s==='legacy'||n.s==='declining'),op=dash?0.82:1;var dv=DIFF[n.id]||0,pipW=7,pipG=2.5,pw=5*pipW+4*pipG,px=n.x+n.w/2-pw/2,py=n.yy+boxH-11,pips='';for(var pi=0;pi<5;pi++){pips+='<rect x="'+(px+pi*(pipW+pipG)).toFixed(1)+'" y="'+py+'" width="'+pipW+'" height="4.5" rx="1" fill="'+(pi<dv?pal.s:faint)+'"/>';}p.push('<g class="box" data-id="'+n.id+'" opacity="'+op+'"><rect x="'+n.x+'" y="'+n.yy+'" width="'+n.w+'" height="'+boxH+'" rx="6" fill="'+pal.f+'" stroke="'+pal.s+'" stroke-width="1.1"'+(dash?' stroke-dasharray="3 2.4"':'')+'/><text x="'+(n.x+n.w/2)+'" y="'+(n.yy+16)+'" text-anchor="middle" style="fill:'+pal.x+'" font-size="12.5">'+esc(n.sn)+'</text>'+pips+'</g>');});
+p.push('</g>');
+p.push('<g id="hi"></g>');
+p.push('</svg>');
+document.getElementById('chart').innerHTML=p.join('');
+var fc=document.getElementById('filters');var fh='<button class="chip" data-f="all" aria-pressed="true">全部</button>';CAT.forEach(function(c){fh+='<button class="chip" data-f="'+c.k+'"><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:'+c.m+';margin-right:5px"></span>'+esc(c.t)+'</button>';});fc.innerHTML=fh;
+var lg=document.getElementById('legend');lg.innerHTML='<span class="lgd"><svg width="24" height="10"><line x1="0" y1="5" x2="24" y2="5" stroke="'+cIn+'" stroke-width="2" marker-end="url(#mIn)"/></svg>影響元←</span><span class="lgd"><svg width="24" height="10"><line x1="0" y1="5" x2="24" y2="5" stroke="'+cOut+'" stroke-width="2" marker-end="url(#mOut)"/></svg>影響先→</span><span class="lgd"><span style="display:inline-block;width:14px;height:12px;border:1px solid var(--t3);border-radius:3px"></span>現役</span><span class="lgd"><span style="display:inline-block;width:14px;height:12px;border:1px dashed var(--t3);border-radius:3px"></span>後退・レガシー</span>';
+lg.innerHTML+='<div style="margin-top:8px"><span class="lgd"><svg width="46" height="11" style="vertical-align:middle"><rect x="0" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="9.5" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="19" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="28.5" y="3" width="7" height="5" rx="1" fill="var(--bd2)"/><rect x="38" y="3" width="7" height="5" rx="1" fill="var(--bd2)"/></svg> 習得難易度（5段階・塗りが多いほど難しい）</span><span class="lgd" style="color:var(--t3)">1入門 / 2やや易 / 3中級 / 4難 / 5専門</span></div>';
+var boxesG=document.getElementById('boxes'),baseG=document.getElementById('base'),hiG=document.getElementById('hi'),tip=document.getElementById('tip'),wrap=document.getElementById('wrap');
+var boxEls={};Array.prototype.slice.call(boxesG.querySelectorAll('g.box')).forEach(function(g){boxEls[g.getAttribute('data-id')]=g;});
+var state={cat:'all',lock:null};
+function descOf(id){return D.filter(function(n){return n.f.indexOf(id)>=0;}).map(function(n){return n.id;});}
+function applyDim(setIds){
+ D.forEach(function(n){var g=boxEls[n.id];var base=(state.cat==='all'||CAT[n.l].k===state.cat);var dash=(n.s==='legacy'||n.s==='declining');var full=dash?0.82:1;var op;if(setIds){op=setIds[n.id]?full:0.16;}else{op=base?full:0.18;}g.setAttribute('opacity',op);});
+ baseG.setAttribute('opacity',setIds?0.07:1);
+}
+function highlight(id){var n=byId[id];var anc=n.f.filter(function(x){return byId[x];});var de=descOf(id);var set={};set[id]=1;anc.forEach(function(x){set[x]=1;});de.forEach(function(x){set[x]=1;});
+ var h='';anc.forEach(function(x){h+='<path d="'+edgePath(byId[x],n)+'" fill="none" stroke="'+cIn+'" stroke-width="2" opacity="0.95" marker-end="url(#mIn)"/>';});de.forEach(function(x){h+='<path d="'+edgePath(n,byId[x])+'" fill="none" stroke="'+cOut+'" stroke-width="2" opacity="0.95" marker-end="url(#mOut)"/>';});hiG.innerHTML=h;applyDim(set);}
+function clearHi(){hiG.innerHTML='';applyDim(null);}
+function chip(id){return '<button class="chip" data-go="'+id+'">'+esc(byId[id].sn)+'</button>';}
+function showPanel(id){var n=byId[id];var cat=CAT[n.l];var anc=n.f.filter(function(x){return byId[x];});var de=descOf(id);
+ var h='<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-bottom:4px"><span style="font-size:17px;font-weight:600;color:var(--t1)">'+esc(n.sn)+'</span><span style="font-size:12.5px;color:'+cat.m+'">'+esc(cat.t)+'</span><span style="font-size:12.5px;color:var(--t3)">'+n.y+'年・'+esc(STAT[n.s])+'</span></div>';
+ if(n.c)h+='<div style="font-size:12.5px;color:var(--t2);margin-bottom:7px">作者: '+esc(n.c)+'</div>';
+ var dv=DIFF[n.id]||0,dpip='';for(var pi=0;pi<5;pi++){dpip+='<span style="display:inline-block;width:10px;height:6px;border-radius:1px;margin-right:2px;background:'+(pi<dv?cat.m:'var(--bd2)')+'"></span>';}h+='<div style="font-size:13px;color:var(--t2);margin-bottom:8px">習得難易度　'+dpip+' <span style="color:var(--t1)">Lv'+dv+'・'+(DLAB[dv]||'')+'</span></div>';
+ h+='<div style="font-size:14px;line-height:1.65;color:var(--t1);margin-bottom:5px"><span style="color:var(--t3)">系譜　</span>'+esc(n.t)+'</div>';
+ h+='<div style="font-size:14px;line-height:1.65;color:var(--t1)"><span style="color:var(--t3)">意義　</span>'+esc(n.g)+'</div><div id="go">';
+ if(anc.length)h+='<span style="font-size:12.5px;color:'+cIn+';align-self:center">影響元 ←</span>'+anc.map(chip).join('');
+ if(de.length)h+='<span style="font-size:12.5px;color:'+cOut+';align-self:center;margin-left:4px">影響先 →</span>'+de.map(chip).join('');
+ if(!anc.length&&!de.length)h+='<span style="font-size:12.5px;color:var(--t3)">この図の中に直接の親子リンクなし</span>';
+ h+='<button class="chip" data-clear="1" style="margin-left:auto">解除</button></div>';
+ document.getElementById('panel').innerHTML=h;}
+boxesG.addEventListener('mouseover',function(e){var g=e.target.closest('g.box');if(g&&!state.lock)highlight(g.getAttribute('data-id'));});
+boxesG.addEventListener('mouseout',function(e){var g=e.target.closest('g.box');if(g&&!state.lock)clearHi();});
+boxesG.addEventListener('click',function(e){var g=e.target.closest('g.box');if(!g)return;var id=g.getAttribute('data-id');state.lock=id;highlight(id);showPanel(id);});
+boxesG.addEventListener('mousemove',function(e){var g=e.target.closest('g.box');if(g){var n=byId[g.getAttribute('data-id')];tip.innerHTML='<b>'+esc(n.sn)+'</b><br><span style="color:var(--t2)">'+n.y+'年・'+esc(CAT[n.l].t)+'・'+esc(STAT[n.s])+'</span>';tip.style.display='block';var wr=wrap.getBoundingClientRect();var x=e.clientX-wr.left+14,yp=e.clientY-wr.top+14;if(x>wr.width-260)x-=280;tip.style.left=x+'px';tip.style.top=yp+'px';}else{tip.style.display='none';}});
+boxesG.addEventListener('mouseleave',function(){tip.style.display='none';});
+document.getElementById('panel').addEventListener('click',function(e){var go=e.target.closest('[data-go]');if(go){var id=go.getAttribute('data-go');state.lock=id;highlight(id);showPanel(id);return;}var cl=e.target.closest('[data-clear]');if(cl){state.lock=null;clearHi();document.getElementById('panel').innerHTML='<span style="color:var(--t2);font-size:13.5px">ボックスをなぞると系譜（影響元 ← / 影響先 →）が濃く出ます。クリックで詳細。</span>';}});
+var ffSearch=document.getElementById('ff-search');
+fc.addEventListener('click',function(e){var b=e.target.closest('[data-f]');if(!b)return;state.cat=b.getAttribute('data-f');state.lock=null;hiG.innerHTML='';if(ffSearch)ffSearch.value='';Array.prototype.slice.call(fc.querySelectorAll('.chip')).forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});applyDim(null);});
+ffSearch.addEventListener('input',function(){var q=ffSearch.value.trim().toLowerCase();state.lock=null;state.cat='all';hiG.innerHTML='';Array.prototype.slice.call(fc.querySelectorAll('.chip')).forEach(function(x){x.setAttribute('aria-pressed',x.getAttribute('data-f')==='all'?'true':'false');});if(!q){applyDim(null);return;}var set={};D.forEach(function(n){if((n.sn+' '+n.id+' '+(n.c||'')).toLowerCase().indexOf(q)>=0)set[n.id]=1;});applyDim(set);});
+applyDim(null);
+})();
+</script>
+</body>
+</html>

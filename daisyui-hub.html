@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>daisyUI 起点 知識展開マップ（Web技術アトラス入口）</title>
+<style>
+:root{--t1:#1a1a1a;--t2:#565651;--t3:#8a8984;--bg1:#ffffff;--bg2:#f3f1ea;--bd3:rgba(0,0,0,0.14);--bd2:rgba(0,0,0,0.3);--bd1:rgba(0,0,0,0.42);--font:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;}
+@media(prefers-color-scheme:dark){:root{--t1:#ededed;--t2:#b3b2ad;--t3:#88877f;--bg1:#1f1f1e;--bg2:#2a2a28;--bd3:rgba(255,255,255,0.14);--bd2:rgba(255,255,255,0.3);--bd1:rgba(255,255,255,0.42);}body{background:#171716}}
+*{box-sizing:border-box}
+body{margin:0;padding:24px 18px 60px;font-family:var(--font);color:var(--t1);background:#fafaf7;line-height:1.6}
+@media(prefers-color-scheme:dark){body{background:#171716}}
+h1{font-size:22px;font-weight:600;margin:0 0 4px}
+.sub{font-size:13px;color:var(--t2);margin:0 0 14px;max-width:920px}
+#wrap{position:relative;max-width:1160px;margin:0 auto}
+.navchip{display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)}
+.navon{border-color:var(--bd1);background:var(--bg2);font-weight:600}
+.lgd{display:inline-flex;align-items:center;gap:5px;margin-right:14px;font-size:12.5px;color:var(--t2)}
+g.nd{cursor:pointer}
+#panel{margin-top:14px;border:1px solid var(--bd3);border-radius:12px;padding:14px 18px;background:var(--bg1);min-height:64px}
+.gobtn{display:inline-flex;align-items:center;gap:5px;font-size:13px;padding:6px 12px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg2);margin-top:10px}
+#chart{overflow-x:auto}
+</style>
+</head>
+<body>
+<div id="wrap">
+<h1>daisyUI 起点 知識展開マップ</h1>
+<div style="margin:2px 0 12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center"><span style="font-size:12px;color:var(--t3)">Web技術アトラス:</span>
+<span class="navchip navon" aria-current="page">daisyUIハブ</span>
+<a class="navchip" href="css-frontend-lineage-flow.html">フロントエンド技術</a>
+<a class="navchip" href="prog-lang-genealogy.html">プログラミング言語</a>
+<a class="navchip" href="reactivity-state-lineage.html">リアクティビティ/状態</a>
+<a class="navchip" href="cloud-evolution-lineage.html">クラウド進化史</a>
+<a class="navchip" href="ai-llm-coding-lineage.html">AI・LLM</a>
+<a class="navchip" href="rendering-arch-lineage.html">レンダリング/配信</a>
+<a class="navchip" href="browser-web-standards-lineage.html">ブラウザ/Web標準</a>
+<a class="navchip" href="js-engine-runtime-lineage.html">JSエンジン/ランタイム</a>
+<a class="navchip" href="vcs-git-lineage.html">Git/バージョン管理</a>
+</div>
+<p class="sub">daisyUI を中心に、知識を4方向へ広げる地図。<b>前提・土台 ←</b>（使うために先に要る）／<b>比較・代替 ↔</b>（並べると位置づけが分かる）／<b>応用・発展 →</b>（実戦で伸ばす）／<b>ルーツ・歴史 ⤴</b>（なぜ生まれたか）。中心から外へ行くほど「次の次」。ノードにカーソルを合わせると daisyUI までの道筋が光り、クリックで「関係・次に学ぶ理由・詳しく見る編」が出ます。各編はこのアトラスの深掘りページへ。</p>
+<div id="legend" style="margin-bottom:10px"></div>
+<div style="margin-bottom:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center"><button id="orderbtn" style="font:600 13px var(--font);padding:7px 13px;border:1px solid var(--bd1);border-radius:8px;background:var(--bg2);color:var(--t1);cursor:pointer">▶ 学習順（表層→深層）を表示</button><span style="font-size:12px;color:var(--t3)">「表層から潜る派」向け：daisyUIを触ってから下の層へ。各ノードに番号が付きます。</span></div>
+<div id="steps" style="display:none;margin-bottom:12px;border:1px solid var(--bd3);border-radius:12px;padding:12px 16px;background:var(--bg1)"></div>
+<div id="chart"></div>
+<div id="panel"><span style="color:var(--t2);font-size:13.5px">ノードをクリックすると、daisyUIとの関係・次に学ぶ理由・該当編へのリンクが出ます。まずは中心の daisyUI から「前提←」を辿るのがおすすめ。</span></div>
+</div>
+<script>
+(function(){
+var isDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+function pal(L,Dk){return isDark?Dk:L;}
+var DIR={
+ pre:{a:180,fan:33,t:'前提・土台 ←',L:{f:'#E6F1FB',s:'#185FA5',x:'#0C447C'},Dk:{f:'#0C447C',s:'#85B7EB',x:'#E6F1FB'},m:'#378ADD'},
+ alt:{a:0,fan:33,t:'比較・代替 ↔',L:{f:'#FAEEDA',s:'#854F0B',x:'#633806'},Dk:{f:'#633806',s:'#EF9F27',x:'#FAEEDA'},m:'#BA7517'},
+ app:{a:270,fan:33,t:'応用・発展 ↑',L:{f:'#EAF3DE',s:'#3B6D11',x:'#27500A'},Dk:{f:'#27500A',s:'#97C459',x:'#EAF3DE'},m:'#639922'},
+ root:{a:90,fan:33,t:'ルーツ・歴史 ↓',L:{f:'#EEEDFE',s:'#534AB7',x:'#3C3489'},Dk:{f:'#3C3489',s:'#AFA9EC',x:'#EEEDFE'},m:'#7F77DD'}
+};
+Object.keys(DIR).forEach(function(k){DIR[k].p=pal(DIR[k].L,DIR[k].Dk);});
+var CEN={f:isDark?'#712B13':'#FAECE7',s:isDark?'#F0997B':'#993C1D',x:isDark?'#FAECE7':'#712B13'};
+var faint=isDark?'rgba(180,180,175,0.34)':'rgba(95,94,90,0.3)';
+var F='css-frontend-lineage-flow.html',B='browser-web-standards-lineage.html',RND='rendering-arch-lineage.html';
+var N=[
+ {id:'tailwind',dir:'pre',hop:1,p:'daisyui',label:'Tailwind CSS',rel:'daisyUI は Tailwind CSS の「プラグイン」。btn 等の正体は Tailwind ユーティリティの集合で、Tailwind クラスでそのまま上書き・拡張できる。',why:'使うだけならクラス暗記でいけるが、少しでもカスタムすると Tailwind 知識が要る。最優先の前提。',ed:F,edl:'フロントエンド技術編'},
+ {id:'themetokens',dir:'pre',hop:1,p:'daisyui',label:'テーマ (data-theme)',rel:'daisyUI の色は CSS変数 でテーマ定義し、<html data-theme="dark"> 等で切替。light/独自テーマもこの仕組み。',why:'daisyUI らしさ＝テーマ機能。ダークモードやブランド色はここを理解すると一気に自由になる。',ed:F,edl:'フロントエンド技術編'},
+ {id:'css',dir:'pre',hop:2,p:'tailwind',label:'CSS 本体',rel:'Tailwind ユーティリティの実体はただの CSS（flex/color/padding…）。詰まったら結局ここに戻る。',why:'ユーティリティが「何をしているか」を読めるように。Flexbox/Grid/詳細度は必須。',ed:F,edl:'フロントエンド技術編'},
+ {id:'cssvars',dir:'pre',hop:2,p:'themetokens',label:'CSSカスタムプロパティ',rel:'daisyUI のテーマ実体は --color-* 等の CSS変数。実行時に値を変えられる。',why:'テーマを自作・動的変更する核。ダークモード/ブランド切替の鍵。',ed:F,edl:'フロントエンド技術編'},
+ {id:'html',dir:'pre',hop:2,p:'tailwind',label:'HTML/セマンティクス',rel:'btn や card は <button> や <div> に「付ける」もの。正しい要素選び・フォーム構造が土台。',why:'見た目だけ整えても要素が間違うと挙動/a11y が壊れる。',ed:B,edl:'ブラウザ/Web標準編'},
+ {id:'postcss',dir:'pre',hop:3,p:'tailwind',label:'PostCSS/ビルド',rel:'Tailwind/daisyUI はビルド時に使用クラスを検出して CSS を生成。v3 は PostCSS プラグイン。',why:'なぜクラスが効かない/消えるか（content設定・purge）を理解するため。',ed:F,edl:'フロントエンド技術編'},
+ {id:'tailwindv4',dir:'pre',hop:3,p:'tailwind',label:'Tailwind v4 (Oxide)',rel:'v4 は Rust 製 Oxide＋CSS-first 設定(@theme)。daisyUI v5 がこれに対応。',why:'最新版の設定・高速化を押さえると現行プロジェクトで困らない。',ed:F,edl:'フロントエンド技術編'},
+ {id:'oklch',dir:'pre',hop:3,p:'cssvars',label:'oklch 色空間',rel:'daisyUI v5 の色は oklch ベース。知覚的に均一でテーマ生成に向く。',why:'テーマ色を綺麗に作る/調整する時に効く。color-mix() と併用。',ed:F,edl:'フロントエンド技術編'},
+
+ {id:'shadcn',dir:'alt',hop:1,p:'daisyui',label:'shadcn/ui',rel:'思想の対極。shadcn は「コピペでソース所有(Radix+Tailwind)」、daisyUI は「プラグインでクラス提供」。',why:'2大潮流を比べると、なぜ daisyUI が手軽で shadcn が柔軟かが腑に落ちる。',ed:F,edl:'フロントエンド技術編'},
+ {id:'flowbite',dir:'alt',hop:1,p:'daisyui',label:'Flowbite',rel:'同じ Tailwind 上のコンポーネント集。直接の競合・選択肢。',why:'Tailwind 系コンポーネントの選択肢の幅を知る。',ed:F,edl:'フロントエンド技術編'},
+ {id:'bootstrap',dir:'alt',hop:2,p:'daisyui',label:'Bootstrap',rel:'daisyUI のセマンティッククラス(btn/card)は Bootstrap の再来。「短い意味のある名前」の系譜。',why:'daisyUI が何を現代に復活させたのか、歴史的位置づけが分かる。',ed:F,edl:'フロントエンド技術編'},
+ {id:'headlessui',dir:'alt',hop:2,p:'shadcn',label:'Headless UI',rel:'見た目を持たず挙動/a11y だけ提供。daisyUI はスタイル込みの対極。',why:'daisyUI に足りない「挙動」を補う時、ヘッドレスと組む発想が要る。',ed:F,edl:'フロントエンド技術編'},
+ {id:'radix',dir:'alt',hop:2,p:'shadcn',label:'Radix UI',rel:'ヘッドレスの本命で shadcn の土台。WAI-ARIA 準拠プリミティブ。',why:'本格的なアクセシブル UI を組む時の標準。daisyUI の先の世界。',ed:F,edl:'フロントエンド技術編'},
+ {id:'unocss',dir:'alt',hop:2,p:'daisyui',label:'UnoCSS',rel:'Tailwind 代替の高速エンジン。daisyUI ライクなプリセットもある。',why:'ユーティリティCSS の別実装。Vite/Nuxt 系で出会う。',ed:F,edl:'フロントエンド技術編'},
+ {id:'mui',dir:'alt',hop:3,p:'bootstrap',label:'MUI',rel:'React の CSS-in-JS 系コンポーネント。daisyUI(クラス式)と設計思想が違う。',why:'React 重厚案件の定番。アプローチの違いを知る。',ed:F,edl:'フロントエンド技術編'},
+ {id:'vanillaextract',dir:'alt',hop:3,p:'headlessui',label:'vanilla-extract',rel:'ゼロランタイム CSS-in-JS。スタイルの「書き方」の別系統。',why:'大規模/型安全スタイリングの選択肢。',ed:F,edl:'フロントエンド技術編'},
+
+ {id:'fwintegration',dir:'app',hop:1,p:'daisyui',label:'フレームワーク統合',rel:'daisyUI は JS 非依存の CSS プラグインなので、React/Vue/Svelte/Astro どのフレームワークでも同じクラスで使える。',why:'実アプリは FW 上で作る。daisyUI を載せる所から実戦。',ed:F,edl:'フロントエンド技術編'},
+ {id:'themedesign',dir:'app',hop:1,p:'daisyui',label:'テーマ設計/デザイントークン',rel:'daisyUI のテーマ変数を自分のブランド色で定義＝デザイントークン運用。',why:'「daisyUIっぽさ」を脱して自社デザインにする鍵。',ed:F,edl:'フロントエンド技術編'},
+ {id:'a11y',dir:'app',hop:2,p:'fwintegration',label:'アクセシビリティ (a11y)',rel:'daisyUI は見た目のみ。キーボード操作/ARIA/フォーカスは自前 or Headless 併用が必要。',why:'実務で必須。daisyUI の「足りない所」を埋める方向。',ed:F,edl:'フロントエンド技術編'},
+ {id:'responsive',dir:'app',hop:2,p:'fwintegration',label:'レスポンシブ/状態バリアント',rel:'Tailwind の sm: や hover: 等のバリアントで daisyUI を可変に。',why:'実画面はレスポンシブ前提。Tailwind バリアントの理解。',ed:F,edl:'フロントエンド技術編'},
+ {id:'componentdesign',dir:'app',hop:2,p:'themedesign',label:'コンポーネント設計/variants',rel:'daisyUI の btn-primary 等の variant 発想を自作コンポーネントへ(CVA 等)。',why:'再利用可能な UI を設計する力。',ed:F,edl:'フロントエンド技術編'},
+ {id:'designsystem',dir:'app',hop:3,p:'themedesign',label:'デザインシステム',rel:'テーマ＋コンポーネント＋トークンを束ねブランド横断の体系に。',why:'チーム/プロダクト規模での最終形。',ed:F,edl:'フロントエンド技術編'},
+ {id:'metaframework',dir:'app',hop:3,p:'fwintegration',label:'メタフレーム & レンダリング',rel:'Next/SvelteKit/Astro が実アプリの器。daisyUI の UI を SSR/ルーティングに載せる。',why:'「ページ/アプリ」を作る段階。配信/レンダリング方式も関わる。',ed:RND,edl:'レンダリング/配信編'},
+ {id:'figma',dir:'app',hop:3,p:'designsystem',label:'Figma↔コード/トークン',rel:'デザインツールのトークンを daisyUI テーマ変数へ橋渡し。',why:'デザイナーとの協業・一貫性。',ed:F,edl:'フロントエンド技術編'},
+
+ {id:'utilityfirst',dir:'root',hop:1,p:'daisyui',label:'ユーティリティファースト',rel:'Tailwind/daisyUI の根っこの思想。「意味的クラスを書かず小さな単機能クラスで組む」。daisyUI はそこに短い意味名を足し戻した折衷。',why:'なぜこの形なのか、思想を理解すると応用が効く。',ed:F,edl:'フロントエンド技術編'},
+ {id:'tachyons',dir:'root',hop:2,p:'utilityfirst',label:'Tachyons',rel:'Tailwind の直接の先行者（ユーティリティCSS の実用化）。',why:'Tailwind がどこから来たか。',ed:F,edl:'フロントエンド技術編'},
+ {id:'atomiccss',dir:'root',hop:2,p:'utilityfirst',label:'Atomic/Functional CSS',rel:'ユーティリティの理論的源流（Thierry Koblentz, 2013）。',why:'思想の出発点。',ed:F,edl:'フロントエンド技術編'},
+ {id:'bem',dir:'root',hop:3,p:'atomiccss',label:'BEM/OOCSS',rel:'意味的クラス設計の系譜。daisyUI の btn/card はこの「意味のある名前」文化も汲む。',why:'ユーティリティ vs 意味的クラスの対立軸を知る。',ed:F,edl:'フロントエンド技術編'},
+ {id:'csshistory',dir:'root',hop:3,p:'utilityfirst',label:'CSS/ブラウザ標準の進化',rel:'ユーティリティもテーマも、結局ブラウザの CSS 実装(変数/oklch/:has 等)の上に成り立つ。',why:'土台の進化を知ると「今使えるCSS」の判断ができる。',ed:B,edl:'ブラウザ/Web標準編'}
+];
+var byId={};N.forEach(function(n){byId[n.id]=n;});
+var cx=650,cy=575,Rr={1:210,2:350,3:510};
+var grp={};N.forEach(function(n){grp[n.dir]=grp[n.dir]||{};grp[n.dir][n.hop]=grp[n.dir][n.hop]||[];grp[n.dir][n.hop].push(n);});
+Object.keys(grp).forEach(function(d){var D=DIR[d];Object.keys(grp[d]).forEach(function(h){var arr=grp[d][h],k=arr.length;arr.forEach(function(n,i){var t=(k===1)?D.a:(D.a-D.fan+(2*D.fan)*(i/(k-1)));var rad=t*Math.PI/180;var r=Rr[h];n.x=cx+r*Math.cos(rad);n.y=cy+r*Math.sin(rad);});});});
+var POS={daisyui:{x:cx,y:cy}};N.forEach(function(n){POS[n.id]={x:n.x,y:n.y};});
+function wOf(s){var w=0;for(var i=0;i<s.length;i++){w+=s.charCodeAt(i)>0x2E80?12:7;}return Math.max(64,Math.round(w)+18);}
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+var Wv=1310,H=1165;
+var p=[];
+p.push('<svg viewBox="0 0 '+Wv+' '+H+'" width="'+Wv+'" style="max-width:100%;display:block;font-family:var(--font)" role="img" aria-label="daisyUI起点の知識展開マップ">');
+// direction sector labels
+Object.keys(DIR).forEach(function(d){var D=DIR[d];var rad=D.a*Math.PI/180;var r=Rr[3]+40;var lx=cx+r*Math.cos(rad),ly=cy+r*Math.sin(rad);p.push('<text x="'+lx.toFixed(0)+'" y="'+ly.toFixed(0)+'" text-anchor="middle" style="fill:'+D.m+';opacity:0.85" font-size="15" font-weight="600">'+esc(D.t)+'</text>');});
+// links
+p.push('<g id="links">');
+N.forEach(function(n){var a=POS[n.p],b=POS[n.id];if(a)p.push('<line data-c="'+n.id+'" x1="'+a.x.toFixed(1)+'" y1="'+a.y.toFixed(1)+'" x2="'+b.x.toFixed(1)+'" y2="'+b.y.toFixed(1)+'" stroke="'+faint+'" stroke-width="1.1"/>');});
+p.push('</g>');
+p.push('<g id="orderpath"></g>');
+// center daisyUI
+p.push('<g class="nd" data-id="daisyui"><rect x="'+(cx-46)+'" y="'+(cy-19)+'" width="92" height="38" rx="9" fill="'+CEN.f+'" stroke="'+CEN.s+'" stroke-width="2"/><text x="'+cx+'" y="'+(cy+5)+'" text-anchor="middle" style="fill:'+CEN.x+'" font-size="14" font-weight="600">daisyUI</text></g>');
+// nodes
+p.push('<g id="nodes">');
+N.forEach(function(n){var D=DIR[n.dir],c=D.p,w=wOf(n.label);p.push('<g class="nd" data-id="'+n.id+'"><rect x="'+(n.x-w/2).toFixed(1)+'" y="'+(n.y-14)+'" width="'+w+'" height="28" rx="7" fill="'+c.f+'" stroke="'+c.s+'" stroke-width="1.1"/><text x="'+n.x.toFixed(1)+'" y="'+(n.y+4.5).toFixed(1)+'" text-anchor="middle" style="fill:'+c.x+'" font-size="12">'+esc(n.label)+'</text></g>');});
+p.push('</g>');
+p.push('<g id="badges"></g>');
+p.push('<g id="hi"></g>');
+p.push('</svg>');
+document.getElementById('chart').innerHTML=p.join('');
+var lg=document.getElementById('legend');var lh='';Object.keys(DIR).forEach(function(d){lh+='<span class="lgd"><span style="display:inline-block;width:11px;height:11px;border-radius:3px;background:'+DIR[d].m+'"></span>'+esc(DIR[d].t)+'</span>';});lh+='<span class="lgd" style="color:var(--t3)">中心＝daisyUI / 外へ行くほど「次の次」</span>';lg.innerHTML=lh;
+var svg=document.querySelector('#chart svg'),nodesG=document.getElementById('nodes'),linksG=document.getElementById('links'),hiG=document.getElementById('hi');
+function chain(id){var ids=[id],seen={};var cur=byId[id];while(cur&&cur.p&&!seen[cur.p]){ids.push(cur.p);seen[cur.p]=1;cur=byId[cur.p];}return ids;}
+function highlight(id){
+ var ch=chain(id),set={};ch.forEach(function(x){set[x]=1;});set['daisyui']=1;
+ Array.prototype.slice.call(nodesG.querySelectorAll('g.nd')).forEach(function(g){g.setAttribute('opacity',set[g.getAttribute('data-id')]?1:0.22);});
+ var dg=svg.querySelector('g.nd[data-id="daisyui"]');if(dg)dg.setAttribute('opacity',1);
+ var h='';for(var i=0;i<ch.length-1;i++){var a=POS[ch[i]],b=POS[ch[i+1]];if(a&&b){var col=DIR[(byId[ch[i]]||{}).dir]?DIR[byId[ch[i]].dir].m:'#993C1D';h+='<line x1="'+a.x.toFixed(1)+'" y1="'+a.y.toFixed(1)+'" x2="'+b.x.toFixed(1)+'" y2="'+b.y.toFixed(1)+'" stroke="'+col+'" stroke-width="2.4" opacity="0.95"/>';}}
+ hiG.innerHTML=h;linksG.setAttribute('opacity',0.18);
+}
+function clearHi(){hiG.innerHTML='';linksG.setAttribute('opacity',1);Array.prototype.slice.call(nodesG.querySelectorAll('g.nd')).forEach(function(g){g.setAttribute('opacity',1);});var dg=svg.querySelector('g.nd[data-id="daisyui"]');if(dg)dg.setAttribute('opacity',1);}
+function showPanel(id){
+ if(id==='daisyui'){document.getElementById('panel').innerHTML='<div style="font-size:17px;font-weight:600;color:var(--t1);margin-bottom:4px">daisyUI <span style="font-size:12.5px;color:'+CEN.s+'">（この地図の中心）</span></div><div style="font-size:14px;line-height:1.65">Tailwind CSS の上に載るコンポーネント・プラグイン。btn / card のような<b>短いセマンティッククラス</b>を提供し、Tailwind の冗長なユーティリティ羅列を緩和する。テーマは CSS変数＋data-theme。<br>ここから <b style="color:'+DIR.pre.m+'">前提←</b>（Tailwind→CSS→テーマ）・<b style="color:'+DIR.alt.m+'">比較↔</b>（shadcn/Bootstrap）・<b style="color:'+DIR.app.m+'">応用→</b>（FW統合/a11y/デザインシステム）・<b style="color:'+DIR.root.m+'">ルーツ↓</b>（ユーティリティCSS史）の4方向へ広げよう。</div><a class="gobtn" href="'+F+'">→ フロントエンド技術編で位置づけを見る</a>';return;}
+ var n=byId[id],D=DIR[n.dir];
+ var h='<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-bottom:4px"><span style="font-size:17px;font-weight:600;color:var(--t1)">'+esc(n.label)+'</span><span style="font-size:12.5px;color:'+D.m+'">'+esc(D.t)+'</span><span style="font-size:12px;color:var(--t3)">daisyUI から '+chain(id).length+' ホップ</span></div>';
+ h+='<div style="font-size:14px;line-height:1.65;color:var(--t1);margin-bottom:5px"><span style="color:var(--t3)">daisyUIとの関係　</span>'+esc(n.rel)+'</div>';
+ h+='<div style="font-size:14px;line-height:1.65;color:var(--t1)"><span style="color:var(--t3)">次に学ぶ理由　</span>'+esc(n.why)+'</div>';
+ h+='<a class="gobtn" href="'+n.ed+'">→ '+esc(n.edl)+' で詳しく</a>';
+ document.getElementById('panel').innerHTML=h;
+}
+nodesG.addEventListener('mouseover',function(e){var g=e.target.closest('g.nd');if(g)highlight(g.getAttribute('data-id'));});
+svg.querySelector('g.nd[data-id="daisyui"]').addEventListener('mouseover',function(){clearHi();});
+nodesG.addEventListener('mouseout',function(e){var g=e.target.closest('g.nd');if(g)clearHi();});
+svg.addEventListener('click',function(e){var g=e.target.closest('g.nd');if(g)showPanel(g.getAttribute('data-id'));});
+
+// ---- 学習順（表層→深層）モード ----
+var STEP={themetokens:1,tailwind:2,responsive:2,themedesign:3,cssvars:3,oklch:3,css:4,html:4,postcss:5,tailwindv4:5,shadcn:6,flowbite:6,headlessui:6,radix:6,unocss:6,bootstrap:6,mui:6,vanillaextract:6,fwintegration:7,a11y:7,componentdesign:7,designsystem:7,metaframework:7,figma:7,utilityfirst:8,tachyons:8,atomiccss:8,bem:8,csshistory:8};
+var PH=['','① まず触って動かす（表層）','② Tailwindでちょいカスタム','③ 自分のテーマを作る','④ 土台のCSSを読む','⑤ ビルドと最新版を知る','⑥ 横の選択肢を見る（比較）','⑦ 実戦で組んで伸ばす（応用）','⑧ ルーツで腑に落とす（深層）'];
+var PHD=['','daisyUI を入れて btn / card を貼り、既成テーマを data-theme で切り替えて「動く」体験。暗記不要・コピペでOK。','Tailwind のユーティリティで色・余白・レスポンシブ(sm: hover:)を上書き。daisyUI の上に Tailwind が乗っていると体感する。','テーマの正体＝CSS変数。自分のブランド色でテーマを定義してみる。色は oklch。','ユーティリティの実体はただの CSS。Flexbox / Grid / 詳細度・HTML セマンティクスを読めるように。','なぜクラスが消える / 効かない？ content 検出・PostCSS・Tailwind v4(Oxide) の仕組み。','同類(shadcn / Flowbite)・ヘッドレス(Radix / Headless)・祖先(Bootstrap)・別エンジン(UnoCSS) と比較し、daisyUI の強みと限界を把握。','フレームワークに載せ、a11y を補い、variants / デザインシステム / メタフレームへ。実プロダクト化。','ユーティリティファースト思想・Tachyons・Atomic・BEM/OOCSS・CSS史で「なぜこの形か」を腑に落とす。'];
+var accent=CEN.s,orderMode=false;
+var obtn=document.getElementById('orderbtn'),stepsEl=document.getElementById('steps');
+function badge(bx,by,txt){return '<circle cx="'+bx.toFixed(1)+'" cy="'+by.toFixed(1)+'" r="9.5" fill="'+accent+'" stroke="var(--bg1)" stroke-width="1.5"/><text x="'+bx.toFixed(1)+'" y="'+(by+3.6).toFixed(1)+'" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">'+txt+'</text>';}
+function renderBadges(){var b=badge(cx-46,cy-19,'0');N.forEach(function(n){var ph=STEP[n.id];if(!ph)return;var w=wOf(n.label);b+=badge(n.x-w/2,n.y-14,String(ph));});document.getElementById('badges').innerHTML=b;}
+function renderSteps(){var h='<div style="font-size:13.5px;font-weight:600;margin-bottom:7px">学習ロードマップ（表層 → 深層）<span style="font-weight:400;color:var(--t3);font-size:12px">　daisyUI を触ってから下へ潜る順。番号は地図上のノードに対応。</span></div>';h+='<div style="margin:5px 0;font-size:13px;line-height:1.55"><b style="color:'+accent+'">⓪ ここから</b>　<span style="color:var(--t2)">daisyUI 本体。まず公式サイトのコンポーネント集を眺め、CDN で1枚 HTML に貼って動かす。</span></div>';for(var i=1;i<PH.length;i++){var names=N.filter(function(n){return STEP[n.id]===i;}).map(function(n){return n.label;});h+='<div style="margin:5px 0;font-size:13px;line-height:1.55"><b style="color:'+accent+'">'+PH[i]+'</b>　<span style="color:var(--t2)">'+PHD[i]+'</span><br><span style="font-size:12px;color:var(--t3)">→ '+names.join(' ・ ')+'</span></div>';}stepsEl.innerHTML=h;}
+obtn.addEventListener('click',function(){orderMode=!orderMode;if(orderMode){renderBadges();renderSteps();stepsEl.style.display='block';obtn.textContent='✕ 学習順を隠す';obtn.style.background='var(--bd3)';}else{document.getElementById('badges').innerHTML='';stepsEl.style.display='none';obtn.textContent='▶ 学習順（表層→深層）を表示';obtn.style.background='var(--bg2)';}});
+})();
+</script>
+</body>
+</html>

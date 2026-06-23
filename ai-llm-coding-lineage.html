@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI / LLM・AIコーディング 系譜（1997–2026）</title>
+<style>
+:root{--t1:#1a1a1a;--t2:#565651;--t3:#8a8984;--bg1:#ffffff;--bg2:#f3f1ea;--bd3:rgba(0,0,0,0.14);--bd2:rgba(0,0,0,0.3);--bd1:rgba(0,0,0,0.42);--font:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;}
+@media(prefers-color-scheme:dark){:root{--t1:#ededed;--t2:#b3b2ad;--t3:#88877f;--bg1:#1f1f1e;--bg2:#2a2a28;--bd3:rgba(255,255,255,0.14);--bd2:rgba(255,255,255,0.3);--bd1:rgba(255,255,255,0.42);}body{background:#171716}}
+*{box-sizing:border-box}
+body{margin:0;padding:24px 18px 60px;font-family:var(--font);color:var(--t1);background:#fafaf7;line-height:1.6}
+@media(prefers-color-scheme:dark){body{background:#171716}}
+h1{font-size:22px;font-weight:600;margin:0 0 4px}
+.sub{font-size:13px;color:var(--t2);margin:0 0 16px;max-width:900px}
+#wrap{position:relative;max-width:1140px;margin:0 auto}
+.chip{font:400 12.5px var(--font);padding:4px 10px;border:1px solid var(--bd2);border-radius:8px;background:transparent;color:var(--t2);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--bg2);color:var(--t1);border-color:var(--bd1)}
+.lgd{display:inline-flex;align-items:center;gap:5px;margin-right:14px;font-size:12.5px;color:var(--t2)}
+g.box{cursor:pointer}
+#tip{position:absolute;pointer-events:none;background:var(--bg1);border:1px solid var(--bd2);border-radius:8px;padding:6px 10px;font:400 12.5px var(--font);color:var(--t1);max-width:280px;display:none;z-index:9;line-height:1.5;box-shadow:0 2px 10px rgba(0,0,0,0.12)}
+#panel{margin-top:16px;border:1px solid var(--bd3);border-radius:12px;padding:14px 18px;background:var(--bg1);min-height:60px}
+#go{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+#chart{overflow-x:auto}
+</style>
+</head>
+<body>
+<div id="wrap">
+<h1>AI / LLM・AIコーディング 系譜（1997–2026）</h1>
+<div style="margin:2px 0 12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center"><span style="font-size:12px;color:var(--t3)">Web技術アトラス:</span><a href="daisyui-hub.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">daisyUIハブ</a><a href="css-frontend-lineage-flow.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">フロントエンド技術</a><a href="prog-lang-genealogy.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">プログラミング言語</a><a href="reactivity-state-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">リアクティビティ/状態</a><a href="cloud-evolution-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">クラウド進化史</a><span style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd1);border-radius:8px;color:var(--t1);background:var(--bg2);font-weight:600" aria-current="page">AI・LLM</span><a href="rendering-arch-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">レンダリング/配信</a><a href="browser-web-standards-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">ブラウザ/Web標準</a><a href="js-engine-runtime-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">JSエンジン/ランタイム</a><a href="vcs-git-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">Git/バージョン管理</a></div>
+<p class="sub">約55の技術・モデル・ツール。縦＝時系列、色＝系統（基盤研究 / OpenAI / Anthropic / 他社LLM / AIコーディング / エージェント基盤）、矢印＝影響関係。Transformer(2017) から各社LLM競争、AIコーディングツール、エージェント基盤(RAG / Function Calling / MCP)まで。バーは歴史的重要度。フロントエンド技術編とは別ページ。</p>
+<div style="margin-bottom:10px"><input id="ff-search" type="search" placeholder="名前で検索（例: Claude, GPT-4, Copilot, Transformer）" style="width:100%;max-width:440px;padding:7px 11px;border:1px solid var(--bd2);border-radius:8px;background:var(--bg1);color:var(--t1);font:400 13px var(--font)"></div>
+<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px"><span style="font-size:12.5px;color:var(--t3);margin-right:2px">系統を強調</span><span id="filters"></span></div>
+<div id="legend" style="margin-bottom:12px"></div>
+<div id="chart"></div>
+<div id="tip"></div>
+<div id="panel"><span style="color:var(--t2);font-size:13.5px">ボックスにカーソルを合わせると系譜（影響元 ← / 影響先 →）が濃く表示されます。クリックで詳細。検索や系統チップでも絞り込めます。</span></div>
+</div>
+<script>
+(function(){
+var isDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+var CAT=[{k:'foundation',t:'基盤研究',L:{f:'#F1EFE8',s:'#5F5E5A',x:'#2C2C2A'},Dk:{f:'#2C2C2A',s:'#B4B2A9',x:'#F1EFE8'},m:'#888780'},{k:'openai',t:'OpenAI',L:{f:'#E6F1FB',s:'#185FA5',x:'#0C447C'},Dk:{f:'#0C447C',s:'#85B7EB',x:'#E6F1FB'},m:'#378ADD'},{k:'anthropic',t:'Anthropic (Claude)',L:{f:'#FAECE7',s:'#993C1D',x:'#712B13'},Dk:{f:'#712B13',s:'#F0997B',x:'#FAECE7'},m:'#D85A30'},{k:'otherllm',t:'他社 LLM',L:{f:'#E1F5EE',s:'#0F6E56',x:'#085041'},Dk:{f:'#085041',s:'#5DCAA5',x:'#E1F5EE'},m:'#1D9E75'},{k:'coding',t:'AI コーディング',L:{f:'#EEEDFE',s:'#534AB7',x:'#3C3489'},Dk:{f:'#3C3489',s:'#AFA9EC',x:'#EEEDFE'},m:'#7F77DD'},{k:'agent',t:'エージェント基盤',L:{f:'#FAEEDA',s:'#854F0B',x:'#633806'},Dk:{f:'#633806',s:'#EF9F27',x:'#FAEEDA'},m:'#BA7517'}];CAT.forEach(function(c){c.p=isDark?c.Dk:c.L;});
+var STAT={mainstream:'主流',current:'現役',declining:'後退中',legacy:'レガシー',niche:'ニッチ'};
+var faint=isDark?'rgba(180,180,175,0.30)':'rgba(95,94,90,0.26)';
+var cIn=isDark?'#AFA9EC':'#534AB7', cOut=isDark?'#F0997B':'#D85A30';
+var ERAT=['〜2016　ニューラル基盤（LSTM・word2vec・seq2seq）','2017–2019　Transformer & 事前学習（GPT-1/2・BERT）','2020–2021　大規模化（GPT-3・Scaling則・RAG・Copilot）','2022　ChatGPT & エージェント萌芽（RLHF・LangChain）','2023　LLM 大競争（GPT-4・Claude・Llama・各社乱立）','2024　マルチモーダル・推論・コーディングエージェント（GPT-4o・o1・Devin・MCP）','2025–2026　推論統合 & 現行世代（o3/GPT-5・Claude 4.x/Fable 5）'];function era(y){return y<=2016?0:y<=2019?1:y<=2021?2:y<=2022?3:y<=2023?4:y<=2024?5:6;}var D=[{id:'lstm',l:0,y:1997,s:'legacy',sn:'LSTM',c:'Sepp Hochreiter & Jürgen Schmidhuber',t:'RNNの勾配消失問題をゲート機構(入力・忘却・出力ゲート)とセル状態で解決し、長期系列の学習を可能にした。Transformer登場前の系列モデリングの標準。',g:'長期依存を扱える系列学習を確立し、機械翻訳・音声認識など以後の深層系列モデルの基礎を築いた。',f:[]},
+{id:'word2vec',l:0,y:2013,s:'legacy',sn:'word2vec',c:'Tomáš Mikolov ら (Google)',t:'単語を密な分散表現(埋め込み)へ写像するCBOW/Skip-gramを提案。離散的な単語を連続ベクトル空間で扱う発想を普及させ、後の文脈埋め込みの土台となった。',g:'単語埋め込みを実用化し、NLPを統計的特徴量から分散表現ベースへ転換させた画期的成果。',f:[]},
+{id:'seq2seq',l:0,y:2014,s:'legacy',sn:'seq2seq',c:'Ilya Sutskever, Oriol Vinyals, Quoc V. Le (Google)',t:'LSTMをエンコーダ・デコーダ構成で接続し、可変長入力→可変長出力の写像(機械翻訳など)を実現。後にBahdanauらのAttention機構を取り込み、Transformerへの直接の前段となった。',g:'エンコーダ・デコーダ枠組みを確立し、生成系タスクとAttention導入への道を開いた。',f:['lstm','word2vec']},
+{id:'transformer',l:0,y:2017,s:'mainstream',sn:'Transformer',c:'Ashish Vaswani ら (Google Brain / Google Research)',t:'再帰・畳み込みを廃し自己注意(self-attention)のみで系列を並列処理。seq2seq+Attentionを純化し、大規模並列学習を可能にした。現代のほぼ全LLMの基盤アーキテクチャ。',g:'自己注意による並列学習で大規模言語モデル時代を開いた、現代LLMの根幹アーキテクチャ。',f:['seq2seq','word2vec']},
+{id:'scalinglaws',l:0,y:2020,s:'current',sn:'Scaling則',c:'Jared Kaplan, Sam McCandlish ら (OpenAI)',t:'モデル規模・データ量・計算量と損失がべき乗則で予測可能と実証(2022年Chinchillaが最適配分を更新)。GPT-3以降の大規模化を理論的に正当化した。',g:'性能が規模で予測可能と示し、LLMの大規模化路線(GPT-3〜)を方向づけた指針。',f:['transformer','gpt2']},
+{id:'rlhf',l:0,y:2022,s:'mainstream',sn:'RLHF / InstructGPT',c:'Long Ouyang ら (OpenAI)',t:'GPT-3を教師ありファインチューニング→報酬モデル→強化学習(PPO)の3段で人間嗜好に整列。指示追従と無害化を実現し、ChatGPTの直接的手法基盤となった。',g:'人間フィードバックによる整列(alignment)手法を確立し、ChatGPT以降の対話型AIを可能にした。',f:['gpt3','transformer']},
+{id:'gpt1',l:1,y:2018,s:'legacy',sn:'GPT-1',c:'OpenAI',t:'Transformerデコーダを用い『大規模教師なし事前学習＋タスク別ファインチューニング』を提唱。生成的事前学習(GPT)パラダイムの起点。',g:'生成的事前学習という枠組みを提示し、GPT系列すべての出発点となった。',f:['transformer']},
+{id:'gpt2',l:1,y:2019,s:'legacy',sn:'GPT-2',c:'OpenAI',t:'GPT-1を約15億パラメータへ拡大し、ファインチューニング無しのゼロショット汎化を実証。規模拡大の有効性を示し段階公開でも話題に。',g:'規模拡大でゼロショット能力が創発することを示し、スケーリング路線を裏付けた。',f:['gpt1','transformer']},
+{id:'gpt3',l:1,y:2020,s:'legacy',sn:'GPT-3',c:'OpenAI',t:'1750億パラメータへ大規模化し、少数例提示のみで多様タスクを解くfew-shot/in-context学習を確立。スケーリング則を体現し以後の整列・対話研究の土台となった。',g:'in-context学習を実証し、巨大LLMの実用的汎用性を世に知らしめた転換点。',f:['gpt2','scalinglaws','transformer']},
+{id:'chatgpt',l:1,y:2022,s:'mainstream',sn:'ChatGPT',c:'OpenAI',t:'GPT-3.5にRLHF/InstructGPT手法を適用した対話特化モデルを無料公開。会話UIで一般普及し、生成AIブームの起爆剤となった。',g:'RLHFを対話に応用して一般ユーザーに開放し、生成AIの社会的爆発を起こした製品。',f:['gpt3','rlhf']},
+{id:'gpt4',l:1,y:2023,s:'mainstream',sn:'GPT-4',c:'OpenAI',t:'画像入力に対応するマルチモーダル化と推論・信頼性を大幅向上。各種試験で人間上位水準を示し、GPT系の能力を一段引き上げた。',g:'マルチモーダルと高度推論を備え、実用専門タスクで人間水準に迫った主力世代。',f:['chatgpt','gpt3','rlhf']},
+{id:'gpt4o',l:1,y:2024,s:'mainstream',sn:'GPT-4o',c:'OpenAI',t:'テキスト・音声・画像を単一モデルで統合(omni)し、低遅延のリアルタイム音声対話を実現。GPT-4のネイティブ・マルチモーダル化版。',g:'音声・視覚・テキストを統合しリアルタイム対話を可能にしたネイティブ・マルチモーダル世代。',f:['gpt4']},
+{id:'o1',l:1,y:2024,s:'declining',sn:'OpenAI o1',c:'OpenAI',t:'推論時に連鎖的思考(chain-of-thought)を強化学習で内在化し、回答前に『考える』推論優先モデルの初代。2024-09にo1-previewを公開、フル版は2024-12提供。数学・コード・科学で大幅向上。',g:'推論時計算(test-time compute)を本格導入し、推論特化モデルという新系統を開いた。',f:['gpt4o','rlhf']},
+{id:'o3',l:1,y:2025,s:'current',sn:'OpenAI o3',c:'OpenAI',t:'o1の推論優先アーキテクチャを拡張し、ツール使用統合と難関ベンチ(ARC-AGI等)で飛躍。2024-12発表、2025-04に一般提供。後にGPT-5へ統合される系譜。',g:'推論モデル系統を最高水準へ押し上げ、ツール活用型エージェント能力を強化した世代。',f:['o1','gpt4o']},
+{id:'gpt5',l:1,y:2025,s:'mainstream',sn:'GPT-5',c:'OpenAI',t:'o系統の推論優先アーキテクチャとGPT-4oのマルチモダリティを統合し、高速応答と深い推論を自動切替する統一モデル。2025-08-07公開。',g:'推論モデルとマルチモーダルGPTを単一系へ統合し、用途別の自動ルーティングを実現した最新主力世代。',f:['o3','gpt4o','o1']},
+{id:'claude1',l:2,y:2023,s:'legacy',sn:'Claude 1',c:'Anthropic',t:'Anthropic初の公開Claudeアシスタント(2023-03-14、限定アクセス)。Transformer+RLHFを土台に、独自の「Constitutional AI(憲法AI)」で人手ラベルに頼らずモデル自身に有害応答を抑制させる安全整合手法を実装した最初の製品世代。同時にClaude Instantも公開。',g:'OpenAIに対抗する安全志向LLMの出発点となり、Constitutional AIという独自整合パラダイムを世に示した。',f:['transformer','gpt3','rlhf']},
+{id:'claude2',l:2,y:2023,s:'legacy',sn:'Claude 2',c:'Anthropic',t:'Claude 1を更新し、claude.aiの一般公開(米英ベータ、2023-07-11)とAPIを伴って初めて広く利用可能になった世代。コーディング・数学・推論を強化し約100Kトークンの長文脈を実現。',g:'Claudeを一般ユーザーに開放し、長文脈対応で実用LLM競争に本格参入した。',f:['claude1']},
+{id:'claude3',l:2,y:2024,s:'legacy',sn:'Claude 3',c:'Anthropic',t:'Claude 2を更新し(2024-03-04)、能力・速度・コストの異なる3段(Haiku<Sonnet<Opus)構成と画像入力(マルチモーダル)を初導入。Opusは当時の主要ベンチでGPT-4等に比肩。',g:'用途別のティア戦略とマルチモーダル化でClaudeをフロンティア級に押し上げた転換点。',f:['claude2','gpt4']},
+{id:'claude35',l:2,y:2024,s:'legacy',sn:'Claude 3.5',c:'Anthropic',t:'Claude 3を更新(2024-06-20)。中位ティアのSonnetでありながら旧フラッグシップOpus 3を上回り、コーディングとエージェント性能を大幅強化。2024-10-22の改良版で画面操作の「Computer Use」も追加。',g:'中位モデルが旗艦を凌駕する逆転を示し、コーディング/エージェント用途でClaudeの評価を決定づけた。',f:['claude3']},
+{id:'claude37',l:2,y:2025,s:'legacy',sn:'Claude 3.7',c:'Anthropic',t:'Claude 3.5 Sonnetを更新したAnthropic初のハイブリッド推論モデル(2025-02-24)。即答と段階的な拡張思考(extended thinking)を切替可能にし、Claude Codeを同時に研究プレビュー公開。',g:'推論の深さを動的に制御するハイブリッド思考を導入し、エージェント型コーディング(Claude Code)時代の幕を開けた。',f:['claude35','o1']},
+{id:'claude4',l:2,y:2025,s:'legacy',sn:'Claude 4',c:'Anthropic',t:'Claude 3.7世代を更新した次世代(2025-05-22公開)。長時間の自律エージェント作業に耐える持続性とコーディング能力を強化し、Opus 4を最上位コーディングモデルと位置付けた。',g:'拡張思考を標準化し、長時間稼働の自律エージェント運用を実用域に引き上げた世代。',f:['claude37']},
+{id:'claude45',l:2,y:2025,s:'legacy',sn:'Claude 4.5',c:'Anthropic',t:'Claude 4世代を更新した4.5系。まずSonnet 4.5が2025-09-29に先行公開($3/$15・30時間超の自律作業)され、続いてOpus 4.5が2025-11-24にSWE-bench Verifiedで初の80%超(80.9%)を達成し価格も$5/$25へ大幅引下げ。entryのmonthYearは旗艦Opus 4.5の公開月。',g:'コーディング系ベンチで初の80%超えと大幅値下げを両立し、エージェント実運用の標準を更新した。',f:['claude4']},
+{id:'claude46',l:2,y:2026,s:'legacy',sn:'Claude 4.6',c:'Anthropic',t:'4.5系を更新した4.6世代。Opus 4.6が2026-02-05(1Mトークン文脈ベータ・agent teams)、Sonnet 4.6が2026-02-17に公開。Opusは後続4.7/4.8へ進むが、Sonnetはこの4.6が2026年時点の現行最新版(後続Sonnetは未発売)。',g:'4.x系を磨き込み、1M文脈やagent teamsを導入。Sonnet現行版として安定運用を担った世代。',f:['claude45']},
+{id:'claude47',l:2,y:2026,s:'legacy',sn:'Claude 4.7',c:'Anthropic',t:'Opus 4.6を更新したOpusクラスの反復改良(2026-04-16 GA)。コーディング/エージェント精度と高解像度ビジョンを強化し、サイバーセキュリティ濫用検知のセーフガードを追加。続く4.8の正直性・信頼性強化の前段。',g:'Opus系の漸進的改良を重ね、後続4.8の信頼性向上の基盤を整えた。',f:['claude46']},
+{id:'claude48',l:2,y:2026,s:'mainstream',sn:'Claude 4.8',c:'Anthropic',t:'Opus 4.7を更新(2026-05-28 GA)。コーディング・エージェント・専門業務の性能を底上げしつつ、正直性と信頼性に重点を置き、不確実な問いでは回答を控える方針で幻覚(誤答)率を最小化。',g:'性能だけでなく事実性・誠実性という信頼性指標を大きく改善した、Opus系の現行主力世代。',f:['claude47']},
+{id:'claudefable5',l:2,y:2026,s:'niche',sn:'Claude Fable 5',c:'Anthropic',t:'従来のOpus/Sonnet/Haiku命名を離れた新クラス。Mythos 5クラスをセーフガード付きで一般公開した版(2026-06-09 GA、$10/$50)。常時オンの適応的思考・100万トークン文脈・大容量出力を備える最上位級。直後の2026-06-12、米輸出管理指令でMythos 5と共に全顧客向けアクセスが停止された。',g:'命名体系を刷新した新世代フラッグシップだが、輸出規制でアクセス停止となり提供が限定された異例の存在。',f:['claude48']},
+{id:'bert',l:3,y:2018,s:'legacy',sn:'BERT',c:'Google',t:'2017年のTransformerエンコーダを土台に、双方向のマスク言語モデル(MLM)で事前学習する手法を確立(2018-10)。生成ではなく文脈理解(分類・抽出)向けの基盤を築いた。',g:'事前学習+ファインチューニングというNLPの標準パラダイムを普及させ、現代LLM前夜を象徴するモデル。',f:['transformer']},
+{id:'t5',l:3,y:2019,s:'legacy',sn:'T5',c:'Google',t:'Transformerのエンコーダ・デコーダ構成を用い、あらゆるNLPタスクを「テキスト→テキスト」の統一形式に落とし込む枠組みを提示(arXiv 2019-10、JMLR掲載は2020)。大規模コーパスC4も整備。',g:'全タスクを統一フォーマットで扱う発想を示し、後続の汎用LLM設計に影響を与えた。',f:['transformer','bert']},
+{id:'lamda',l:3,y:2021,s:'legacy',sn:'LaMDA',c:'Google',t:'Transformerベースの対話特化LLM(2021-05-18 Google I/Oで発表)。オープンドメイン会話の自然さ・整合性に最適化され、後のBard(現Gemini)系対話アシスタントの源流となった。',g:'対話に特化した大規模モデルとしてGoogleの会話AI路線を方向づけた。',f:['transformer','t5']},
+{id:'palm',l:3,y:2022,s:'legacy',sn:'PaLM',c:'Google',t:'Transformerデコーダを540Bまで大規模化し(2022-04)、Pathwaysインフラで学習。スケール則と思考連鎖(CoT)プロンプティングによる推論創発を実証。後にPaLM 2がBardを駆動。',g:'超大規模化による能力創発とCoT推論を示し、Googleのフロンティア競争復帰を牽引した。',f:['transformer','lamda','gpt3']},
+{id:'gemini',l:3,y:2023,s:'mainstream',sn:'Gemini',c:'Google (DeepMind)',t:'PaLM 2系とDeepMind研究を統合し、設計当初からネイティブにマルチモーダル(テキスト/画像/音声/動画)な統一モデルとして構築(2023-12-06発表)。後継1.5でMoEと100万トークン文脈を導入。',g:'GoogleとDeepMindの統合後初の旗艦として、ネイティブマルチモーダルで対GPT-4の本命となった。',f:['palm','gpt4']},
+{id:'gemma',l:3,y:2024,s:'current',sn:'Gemma',c:'Google (DeepMind)',t:'Geminiと同じ研究・技術から作られた軽量オープンウェイトモデル群(2024-02-21、2B/7B)。ローカル/オンデバイス実行を狙い、Geminiの知見を開放系に展開。Llamaが切り拓いたオープンモデル市場を主戦場とする。',g:'Geminiの技術を開放系に持ち込み、Llama対抗の高品質オープンモデルとして普及した。',f:['gemini','llama2']},
+{id:'llama',l:3,y:2023,s:'legacy',sn:'LLaMA',c:'Meta AI',t:'Transformerデコーダ(RMSNorm/RoPE/SwiGLU等の改良採用)を効率良く学習し(2023-02)、比較的小さなパラメータでも高性能を達成。研究公開の重みが流出し、オープンLLM生態系の起点に。',g:'高品質な重みが事実上開放され、オープンソースLLM爆発の引き金となった記念碑的モデル。',f:['transformer','palm','gpt3']},
+{id:'llama2',l:3,y:2023,s:'legacy',sn:'Llama 2',c:'Meta AI',t:'LLaMAを更新し、商用利用可の寛容なライセンスで正式公開(2023-07-18)。RLHFによるチャット版(Llama 2-Chat)を整備し、エコシステムを一気に拡大。',g:'商用可ライセンスでオープンLLMの実用導入を解禁し、企業利用とファインチューニング文化を加速した。',f:['llama']},
+{id:'llama3',l:3,y:2024,s:'current',sn:'Llama 3',c:'Meta AI',t:'Llama 2を更新(8B/70Bで2024-04開始、7月の3.1で405B、9月の3.2でマルチモーダル/エッジ対応)。データ・トークナイザ・学習規模を刷新し、クローズド級に肉薄。',g:'オープンモデルをフロンティア級に引き上げ、405Bや視覚対応でクローズド勢に対抗した世代。',f:['llama2']},
+{id:'mistral',l:3,y:2023,s:'current',sn:'Mistral',c:'Mistral AI',t:'LLaMA系のデコーダ設計を踏まえつつ、グループ化クエリ注意(GQA)とスライディングウィンドウ注意で効率化(2023-09-27)。7BでLlama 2 13Bを上回る性能を示したオープンウェイト。',g:'小型でも高効率・高性能を実証し、軽量オープンLLMの新基準を作った欧州発の代表格。',f:['llama','llama2']},
+{id:'mixtral',l:3,y:2023,s:'current',sn:'Mixtral',c:'Mistral AI',t:'Mistral 7Bと同一アーキを基に各層を8エキスパート化したスパースMoE(2023-12-11)。トークン毎に2エキスパートを選択し、総47B中13B活性で推論。Llama 2 70Bを多くのベンチで凌駕。',g:'オープンウェイトでMoEの実力を示し、疎なエキスパート混合を主流アーキの選択肢に押し上げた。',f:['mistral']},
+{id:'deepseek',l:3,y:2025,s:'current',sn:'DeepSeek',c:'DeepSeek (China)',t:'DeepSeek-V3(2024-12)のMoEアーキ(総671B/活性37B)を土台に、R1(2025-01-20)はGRPOによる大規模強化学習で推論を自己創発させ、OpenAI o1級の性能を低コストで達成。',g:'純粋なRLで高度推論を引き出し、低コストでo1級に到達してオープン推論モデル競争を一変させた。',f:['mixtral','llama','o1']},
+{id:'qwen',l:3,y:2023,s:'current',sn:'Qwen',c:'Alibaba Cloud (China)',t:'LLaMA系デコーダ設計を基にAlibabaが開発(2023-04ベータ、8月にQwen-7B重み公開、12月に72B/1.8B)。多言語・コーディング・後年はMoE化やマルチモーダルへ拡張し広範なオープン系列を形成。',g:'中国発の主要オープンモデル群として多サイズ展開し、世界的にファインチューニング基盤として普及した。',f:['llama','llama2']},
+{id:'grok',l:3,y:2023,s:'current',sn:'Grok',c:'xAI',t:'Transformerデコーダ系のLLMをxAIが独自学習(2023-11-04プレビュー)。X(旧Twitter)のリアルタイム検索連携とツール使用を組み込み、後継でMoE化・推論強化を進めた。',g:'リアルタイムなX連携とツール使用を前面に出し、Muskの参入でフロンティア競争に新勢力を加えた。',f:['transformer','gpt4']},
+{id:'tabnine',l:4,y:2018,s:'niche',sn:'Tabnine',c:'Tabnine (旧Codota)',t:'2018年11月にJacob Jacksonが最初のTabNineを公開(当初はLLMベースではない)。2019年中頃に『Deep TabNine』としてOpenAIのGPT-2を統合し、深層言語モデルによるコード補完の最初期の商用例となった。Codotaが2019年にTabNineを取得、2021年5月に社名をTabnineへ統一。Copilot登場前のAIコード補完の原型。',g:'深層言語モデルによるコード自動補完を商用化した最初期の製品で、後発のCopilot系すべての地ならしをした。',f:['gpt2']},
+{id:'copilot',l:4,y:2021,s:'mainstream',sn:'GitHub Copilot',c:'GitHub / Microsoft / OpenAI',t:'OpenAI Codex(GPT-3をコードで微調整したモデル)の上にOpenAIと共同で構築。2021年6月29日にtechnical preview、2022年6月21日にGA。Tabnine等が市場で先行したAIコード補完を、Codexの生成力でIDE内ペアプログラマーへ昇華させた(Tabnineは市場上の先行者であり技術的派生元ではない)。',g:'AIコード補完を一気に主流化させ、以後のAIコーディングツール市場全体の起点となった製品。',f:['gpt3']},
+{id:'codewhisperer',l:4,y:2022,s:'current',sn:'CodeWhisperer / Q',c:'Amazon Web Services',t:'Copilotへの対抗として、Amazon独自の基盤モデルを用いて2022年6月にプレビュー、2023年4月にGA。2024年4月30日にAmazon Q Developerへ統合・改称し、補完からエージェント的開発支援へ拡張。',g:'クラウド大手によるCopilot対抗の代表例で、セキュリティスキャンやAWS連携を備えたエンタープライズ向けAIコーディングを定着させた。',f:['copilot']},
+{id:'replit',l:4,y:2022,s:'current',sn:'Replit AI',c:'Replit',t:'Copilotの流れを汲むが、基盤はOpenAI CodexではなくSalesforceのCodeGenモデル(約2Bを~1Bへ蒸留)とCodeBERT。これをブラウザ完結のクラウドIDEへ統合。2022年9月にクローズドベータ、10月31日に一般提供。後にAgent/会話型へ発展。',g:'AIコード補完をローカル環境不要のWeb IDEへ持ち込み、初心者でも使えるAI内蔵開発環境の流れを作った。',f:['copilot']},
+{id:'cody',l:4,y:2023,s:'current',sn:'Cody',c:'Sourcegraph',t:'Sourcegraphのコード検索基盤の上に、RAGでリポジトリ全体の文脈を取り込むAIアシスタント。2023年6月にベータ公開、2023年12月14日にGA(Cody 1.0)。Copilotの単純補完を、コードベース検索×LLMで文脈精度を高める方向へ拡張。',g:'RAGをコーディング支援に本格適用し、大規模コードベースに根ざした回答を実現したことで『コードベース理解型』アシスタントの先駆けとなった。',f:['copilot','rag']},
+{id:'windsurf',l:4,y:2024,s:'current',sn:'Windsurf',c:'Codeium (Exafunction) → Windsurf',t:'Codeiumとして無料補完ツールから出発(2022)。2024年11月にエージェント機能Cascadeを核とする独立エディタWindsurfを発表し、2025年4月に社名もWindsurfへ。Cursorに対抗するエージェント型IDE。',g:'『agentic IDE』を掲げ、補完中心のCodeiumをマルチファイル自律編集のエディタへ転換させた代表例。',f:['copilot','cursor','react_agent']},
+{id:'cursor',l:4,y:2023,s:'mainstream',sn:'Cursor',c:'Anysphere',t:'VS Codeをフォークし、OpenAI/Anthropic等のフロンティアモデルを深く統合したAIファーストエディタ。Copilotの『補完プラグイン』を超え、チャット・複数ファイル編集・エージェントをエディタ中核に据えた。',g:'AIネイティブなコードエディタという形態を確立し、AIコーディングの主役を補完からエディタ体験全体へ移した。',f:['copilot','functioncalling']},
+{id:'aider',l:4,y:2023,s:'current',sn:'Aider',c:'Paul Gauthier',t:'ターミナル上でLLMとペアプログラミングし、gitと連動して差分編集・自動コミットを行うOSSツール。Paul Gauthierが2023年4月に開始し同年中頃に公開。Copilot流のIDE統合に対し、CLI×git中心という別系統を確立。',g:'git連携の差分編集とコミット自動化により、ターミナル派のAIペアプログラミングの定番OSSとなった。',f:['copilot','functioncalling']},
+{id:'continue',l:4,y:2023,s:'current',sn:'Continue',c:'Continue (Continue Dev)',t:'VS Code/JetBrains向けのオープンソースAIコードアシスタント。任意のモデル(ローカルLLM含む)を差し替えられる拡張で、Copilotのクローズドな体験に対しOSS/モデル非依存の選択肢を提供。',g:'モデル交換可能なオープンソースのAIコーディング基盤として、ローカルLLMや自前モデル運用の道を開いた。',f:['copilot']},
+{id:'v0',l:4,y:2023,s:'current',sn:'v0',c:'Vercel',t:'自然言語プロンプトからReact/Tailwind/shadcn UIのコンポーネントを生成する生成UIツール。2023年10月にベータ公開。コード補完ではなくUI丸ごと生成という用途を切り拓き、テキストから動くアプリへの流れ(Bolt等)に先行。',g:'プロンプトからフロントエンドUIを生成する『生成UI』を実用化し、テキスト→アプリ系ツールの先鞭をつけた。',f:['copilot','functioncalling']},
+{id:'bolt',l:4,y:2024,s:'current',sn:'Bolt',c:'StackBlitz',t:'StackBlitzのWebContainers(ブラウザ内実行環境)とClaude 3.5 Sonnetを組み合わせ、自然言語からフルスタックWebアプリを生成・実行・デプロイ。2024年10月3日にbolt.newとして公開。v0の生成UIを、ブラウザ完結の実行までつなげた。',g:'ブラウザ内でアプリを生成から実行・デプロイまで完結させ、いわゆる『vibe coding』時代の代表ツールとなった。',f:['v0','claude35','functioncalling']},
+{id:'devin',l:4,y:2024,s:'current',sn:'Devin',c:'Cognition',t:'計画・コード記述・実行・デバッグを端から端まで自律実行する『AIソフトウェアエンジニア』。ReAct的な推論-行動ループとツール使用を、長期タスクの自律遂行へ押し進めた点でCopilot系の補完から大きく離脱。',g:'SWE-benchで自律解決を実証し、AIが開発タスクを丸ごと担う『自律SWEエージェント』という概念を世に広めた。',f:['react_agent','functioncalling','copilot']},
+{id:'claudecode',l:4,y:2025,s:'mainstream',sn:'Claude Code',c:'Anthropic',t:'Anthropicのターミナル常駐型エージェント。2025年2月24日にClaude 3.7 Sonnetと共に研究プレビュー、5月22日にClaude 4と共にGA。Claudeのagentic性能・ツール使用・MCPを土台に、Devin的自律性をCLIへ統合。',g:'高性能Claudeとツール使用/MCPを束ねたターミナル型エージェントとして急成長し、AIコーディングエージェントの主流の一角を占めた。',f:['devin','aider','mcp','functioncalling','claude4']},
+{id:'rag',l:5,y:2020,s:'mainstream',sn:'RAG',c:'Facebook AI Research (Meta)',t:'Lewisら(Meta/FAIR, 2020 NeurIPS)が提案。事前学習済みseq2seqに密ベクトル検索(DPR)を結合し、外部知識を取得して生成を条件付ける枠組み。LLMに外部情報を与える基本パターンの源流。',g:'パラメトリック知識の限界を検索で補う方式を定式化し、現代のLLMアプリ(知識ベースQA・エージェント)の基礎技術となった。',f:['transformer']},
+{id:'react_agent',l:5,y:2022,s:'mainstream',sn:'ReAct',c:'Princeton大学 / Google Research (Yaoら)',t:'Yaoら(2022年10月, arXiv 2210.03629)が提案。推論トレース(Chain-of-Thought)と行動(ツール/API呼び出し)を交互に生成させる枠組みで、CoTの幻覚をツール観測で抑制(実験は主にPaLMで実施)。AutoGPTやDevin等の自律エージェントの理論的土台。',g:'『考える』と『行動する』をLLM内で結合し、ツール使用型エージェントの中核パラダイムを確立した記念碑的研究。',f:['gpt3']},
+{id:'langchain',l:5,y:2022,s:'mainstream',sn:'LangChain',c:'Harrison Chase / LangChain',t:'2022年10月にHarrison Chaseが公開。LLM・プロンプト・ツール・メモリ・RAGを連鎖(chain)/エージェントとして組み立てるフレームワーク。ReActのループを実装可能な抽象として提供し、LLMアプリ開発を標準化。',g:'LLMアプリ構築の事実上の標準フレームワークとなり、RAGやエージェント実装の入口を大衆化した。',f:['react_agent','rag','gpt3']},
+{id:'llamaindex',l:5,y:2022,s:'mainstream',sn:'LlamaIndex',c:'Jerry Liu / LlamaIndex',t:'2022年11月にGPT Index(GPT Tree Index)として公開、後にLlamaIndexへ改称。文書のインデックス化・検索とLLM接続に特化したデータフレームワーク。LangChainとは同一ハッカソンから独立・並行して誕生し、RAGの実装を専門化したデータ取り込み層を担う。',g:'RAGのためのデータ索引・検索を専門に体系化し、企業文書をLLMに繋ぐ標準ツールの一つとなった。',f:['rag','gpt3']},
+{id:'autogpt',l:5,y:2023,s:'declining',sn:'AutoGPT',c:'Toran Bruce Richards (Significant Gravitas)',t:'2023年3月30日公開。GPT-4の上でReAct的な自律ループを回し、目標をサブタスクに分解してWeb閲覧・ファイル操作を人手なしに連続実行。自律エージェント・ブームの火付け役。',g:'完全自律で目標を追うエージェントを大衆に体験させ、AutoGPT/AgentGPT/BabyAGIに始まる自律エージェント潮流を生んだ。',f:['react_agent','gpt4']},
+{id:'functioncalling',l:5,y:2023,s:'mainstream',sn:'Function Calling',c:'OpenAI',t:'2023年6月13日、gpt-4-0613/gpt-3.5-turbo-0613で導入。モデルが関数呼び出しの要否を判断しJSONで引数を返す機能で、ReActのツール使用をAPIレベルで構造化・信頼化。エージェント/MCPの実装基盤。',g:'LLMの『ツール使用』を構造化出力として標準APIに組み込み、信頼性の高いエージェント実装を一気に現実化した。',f:['react_agent','gpt4']},
+{id:'mcp',l:5,y:2024,s:'mainstream',sn:'MCP',c:'Anthropic',t:'2024年11月25日にAnthropicがオープンソース公開。AIをデータ源・ツールへ接続する統一プロトコルで、function callingのN×M統合問題を一つの標準で解消。Claude Code等のエージェントが外部世界と繋がる土台。',g:'ツール接続を標準プロトコル化し、AIエージェントと外部システム連携の業界標準(AIのUSB-C)として急速に普及した。',f:['functioncalling','langchain']}];var DIFF={lstm:3,word2vec:3,seq2seq:3,transformer:5,scalinglaws:4,rlhf:5,gpt1:3,gpt2:4,gpt3:5,chatgpt:5,gpt4:5,gpt4o:4,o1:4,o3:3,gpt5:4,claude1:3,claude2:3,claude3:4,claude35:4,claude37:4,claude4:4,claude45:4,claude46:3,claude47:3,claude48:4,claudefable5:3,bert:4,t5:3,lamda:2,palm:3,gemini:4,gemma:2,llama:4,llama2:4,llama3:4,mistral:3,mixtral:3,deepseek:4,qwen:3,grok:2,tabnine:2,copilot:5,codewhisperer:2,replit:2,cody:2,windsurf:3,cursor:4,aider:3,continue:2,v0:3,bolt:2,devin:4,claudecode:4,rag:4,react_agent:4,langchain:4,llamaindex:3,autogpt:3,functioncalling:4,mcp:4};var DLAB={1:'低',2:'やや低',3:'中',4:'高',5:'画期的'};
+var byId={};D.forEach(function(n){byId[n.id]=n;});
+var Wv=1100,PAD=12,boxH=38,rowGap=14,colGap=10,headerH=30,GUT=48;
+var CONTENT=Wv-PAD*2,BX0=PAD+GUT,BW=CONTENT-GUT;
+function wOf(s){var w=0;for(var i=0;i<s.length;i++){w+=s.charCodeAt(i)>0x2E80?12.2:7.2;}return Math.max(60,Math.min(240,Math.round(w)+18));}
+var buckets=ERAT.map(function(){return[];});
+D.forEach(function(n){n.w=wOf(n.sn);buckets[era(n.y)].push(n);});
+var Y=10,bands=[];
+buckets.forEach(function(b,ei){
+ var top=Y, ct=top+headerH+10;
+ var years=[],ymap={};
+ b.forEach(function(n){if(!ymap[n.y]){ymap[n.y]=[];years.push(n.y);}ymap[n.y].push(n);});
+ years.sort(function(a,c){return a-c;});
+ var cy=ct,marks=[];
+ years.forEach(function(yr){
+  var nodes=ymap[yr];nodes.sort(function(a,c){return a.l-c.l;});
+  var x=BX0,row=0;
+  nodes.forEach(function(n){if(x+n.w>BX0+BW){row++;x=BX0;}n.x=x;n.yy=cy+row*(boxH+rowGap);x+=n.w+colGap;});
+  marks.push({y:yr,ytop:cy});
+  cy+=(row+1)*(boxH+rowGap)+12;
+ });
+ var bh=cy-top;
+ bands.push({top:top,h:bh,t:ERAT[ei],ei:ei,marks:marks});
+ Y+=bh;
+});
+var H=Y+8;
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function edgePath(a,b){var ax=a.x+a.w/2,ay=a.yy+boxH,bx=b.x+b.w/2,by=b.yy;var d=Math.max(20,Math.abs(by-ay)*0.4);return 'M'+ax+','+ay+' C'+ax+','+(ay+d)+' '+bx+','+(by-d)+' '+bx+','+by;}
+var p=[];
+p.push('<svg viewBox="0 0 '+Wv+' '+H+'" width="'+Wv+'" style="max-width:100%;display:block;font-family:var(--font)" role="img" aria-label="AI/LLMとAIコーディングの系譜 1997-2026">');
+p.push('<defs>');
+p.push('<marker id="mF" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="'+faint+'"/></marker>');
+p.push('<marker id="mIn" markerWidth="7.5" markerHeight="7.5" refX="6" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="'+cIn+'"/></marker>');
+p.push('<marker id="mOut" markerWidth="7.5" markerHeight="7.5" refX="6" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="'+cOut+'"/></marker>');
+p.push('</defs>');
+bands.forEach(function(bd){
+ if(bd.ei%2===0)p.push('<rect x="0" y="'+bd.top+'" width="'+Wv+'" height="'+bd.h+'" fill="'+(isDark?'rgba(180,180,175,0.05)':'rgba(95,94,90,0.045)')+'"/>');
+ p.push('<line x1="0" y1="'+bd.top+'" x2="'+Wv+'" y2="'+bd.top+'" stroke="'+(isDark?'rgba(180,180,175,0.20)':'rgba(95,94,90,0.20)')+'" stroke-width="1"/>');
+ p.push('<text x="'+PAD+'" y="'+(bd.top+19)+'" style="fill:var(--t2)" font-size="14" font-weight="600">'+esc(bd.t)+'</text>');
+ bd.marks.forEach(function(mk,i){
+  if(i>0)p.push('<line x1="'+PAD+'" y1="'+(mk.ytop-6)+'" x2="'+(Wv-PAD)+'" y2="'+(mk.ytop-6)+'" stroke="'+(isDark?'rgba(180,180,175,0.10)':'rgba(95,94,90,0.08)')+'" stroke-width="1"/>');
+  p.push('<text x="'+PAD+'" y="'+(mk.ytop+boxH/2+4)+'" style="fill:var(--t3)" font-size="12.5" font-weight="600">'+mk.y+'</text>');
+ });
+});
+p.push('<g id="base">');
+D.forEach(function(n){n.f.forEach(function(fid){var a=byId[fid];if(a)p.push('<path d="'+edgePath(a,n)+'" fill="none" stroke="'+faint+'" stroke-width="0.9" marker-end="url(#mF)"/>');});});
+p.push('</g>');
+p.push('<g id="boxes">');
+D.forEach(function(n){var cat=CAT[n.l],pal=cat.p,dash=(n.s==='legacy'||n.s==='declining'),op=dash?0.82:1;var dv=DIFF[n.id]||0,pipW=7,pipG=2.5,pw=5*pipW+4*pipG,px=n.x+n.w/2-pw/2,py=n.yy+boxH-11,pips='';for(var pi=0;pi<5;pi++){pips+='<rect x="'+(px+pi*(pipW+pipG)).toFixed(1)+'" y="'+py+'" width="'+pipW+'" height="4.5" rx="1" fill="'+(pi<dv?pal.s:faint)+'"/>';}p.push('<g class="box" data-id="'+n.id+'" opacity="'+op+'"><rect x="'+n.x+'" y="'+n.yy+'" width="'+n.w+'" height="'+boxH+'" rx="6" fill="'+pal.f+'" stroke="'+pal.s+'" stroke-width="1.1"'+(dash?' stroke-dasharray="3 2.4"':'')+'/><text x="'+(n.x+n.w/2)+'" y="'+(n.yy+16)+'" text-anchor="middle" style="fill:'+pal.x+'" font-size="12.5">'+esc(n.sn)+'</text>'+pips+'</g>');});
+p.push('</g>');
+p.push('<g id="hi"></g>');
+p.push('</svg>');
+document.getElementById('chart').innerHTML=p.join('');
+var fc=document.getElementById('filters');var fh='<button class="chip" data-f="all" aria-pressed="true">全部</button>';CAT.forEach(function(c){fh+='<button class="chip" data-f="'+c.k+'"><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:'+c.m+';margin-right:5px"></span>'+esc(c.t)+'</button>';});fc.innerHTML=fh;
+var lg=document.getElementById('legend');lg.innerHTML='<span class="lgd"><svg width="24" height="10"><line x1="0" y1="5" x2="24" y2="5" stroke="'+cIn+'" stroke-width="2" marker-end="url(#mIn)"/></svg>影響元←</span><span class="lgd"><svg width="24" height="10"><line x1="0" y1="5" x2="24" y2="5" stroke="'+cOut+'" stroke-width="2" marker-end="url(#mOut)"/></svg>影響先→</span><span class="lgd"><span style="display:inline-block;width:14px;height:12px;border:1px solid var(--t3);border-radius:3px"></span>現役</span><span class="lgd"><span style="display:inline-block;width:14px;height:12px;border:1px dashed var(--t3);border-radius:3px"></span>後退・レガシー</span>';
+lg.innerHTML+='<div style="margin-top:8px"><span class="lgd"><svg width="46" height="11" style="vertical-align:middle"><rect x="0" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="9.5" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="19" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="28.5" y="3" width="7" height="5" rx="1" fill="var(--bd2)"/><rect x="38" y="3" width="7" height="5" rx="1" fill="var(--bd2)"/></svg> 歴史的重要度（5段階・塗りが多いほど高い）</span><span class="lgd" style="color:var(--t3)">1低 / 5画期的</span></div>';
+var boxesG=document.getElementById('boxes'),baseG=document.getElementById('base'),hiG=document.getElementById('hi'),tip=document.getElementById('tip'),wrap=document.getElementById('wrap');
+var boxEls={};Array.prototype.slice.call(boxesG.querySelectorAll('g.box')).forEach(function(g){boxEls[g.getAttribute('data-id')]=g;});
+var state={cat:'all',lock:null};
+function descOf(id){return D.filter(function(n){return n.f.indexOf(id)>=0;}).map(function(n){return n.id;});}
+function applyDim(setIds){
+ D.forEach(function(n){var g=boxEls[n.id];var base=(state.cat==='all'||CAT[n.l].k===state.cat);var dash=(n.s==='legacy'||n.s==='declining');var full=dash?0.82:1;var op;if(setIds){op=setIds[n.id]?full:0.16;}else{op=base?full:0.18;}g.setAttribute('opacity',op);});
+ baseG.setAttribute('opacity',setIds?0.07:1);
+}
+function highlight(id){var n=byId[id];var anc=n.f.filter(function(x){return byId[x];});var de=descOf(id);var set={};set[id]=1;anc.forEach(function(x){set[x]=1;});de.forEach(function(x){set[x]=1;});
+ var h='';anc.forEach(function(x){h+='<path d="'+edgePath(byId[x],n)+'" fill="none" stroke="'+cIn+'" stroke-width="2" opacity="0.95" marker-end="url(#mIn)"/>';});de.forEach(function(x){h+='<path d="'+edgePath(n,byId[x])+'" fill="none" stroke="'+cOut+'" stroke-width="2" opacity="0.95" marker-end="url(#mOut)"/>';});hiG.innerHTML=h;applyDim(set);}
+function clearHi(){hiG.innerHTML='';applyDim(null);}
+function chip(id){return '<button class="chip" data-go="'+id+'">'+esc(byId[id].sn)+'</button>';}
+function showPanel(id){var n=byId[id];var cat=CAT[n.l];var anc=n.f.filter(function(x){return byId[x];});var de=descOf(id);
+ var h='<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-bottom:4px"><span style="font-size:17px;font-weight:600;color:var(--t1)">'+esc(n.sn)+'</span><span style="font-size:12.5px;color:'+cat.m+'">'+esc(cat.t)+'</span><span style="font-size:12.5px;color:var(--t3)">'+n.y+'年・'+esc(STAT[n.s])+'</span></div>';
+ if(n.c)h+='<div style="font-size:12.5px;color:var(--t2);margin-bottom:7px">開発: '+esc(n.c)+'</div>';
+ var dv=DIFF[n.id]||0,dpip='';for(var pi=0;pi<5;pi++){dpip+='<span style="display:inline-block;width:10px;height:6px;border-radius:1px;margin-right:2px;background:'+(pi<dv?cat.m:'var(--bd2)')+'"></span>';}h+='<div style="font-size:13px;color:var(--t2);margin-bottom:8px">重要度　'+dpip+' <span style="color:var(--t1)">Lv'+dv+'・'+(DLAB[dv]||'')+'</span></div>';
+ h+='<div style="font-size:14px;line-height:1.65;color:var(--t1);margin-bottom:5px"><span style="color:var(--t3)">系譜　</span>'+esc(n.t)+'</div>';
+ h+='<div style="font-size:14px;line-height:1.65;color:var(--t1)"><span style="color:var(--t3)">意義　</span>'+esc(n.g)+'</div><div id="go">';
+ if(anc.length)h+='<span style="font-size:12.5px;color:'+cIn+';align-self:center">影響元 ←</span>'+anc.map(chip).join('');
+ if(de.length)h+='<span style="font-size:12.5px;color:'+cOut+';align-self:center;margin-left:4px">影響先 →</span>'+de.map(chip).join('');
+ if(!anc.length&&!de.length)h+='<span style="font-size:12.5px;color:var(--t3)">この図の中に直接の親子リンクなし</span>';
+ h+='<button class="chip" data-clear="1" style="margin-left:auto">解除</button></div>';
+ document.getElementById('panel').innerHTML=h;}
+boxesG.addEventListener('mouseover',function(e){var g=e.target.closest('g.box');if(g&&!state.lock)highlight(g.getAttribute('data-id'));});
+boxesG.addEventListener('mouseout',function(e){var g=e.target.closest('g.box');if(g&&!state.lock)clearHi();});
+boxesG.addEventListener('click',function(e){var g=e.target.closest('g.box');if(!g)return;var id=g.getAttribute('data-id');state.lock=id;highlight(id);showPanel(id);});
+boxesG.addEventListener('mousemove',function(e){var g=e.target.closest('g.box');if(g){var n=byId[g.getAttribute('data-id')];tip.innerHTML='<b>'+esc(n.sn)+'</b><br><span style="color:var(--t2)">'+n.y+'年・'+esc(CAT[n.l].t)+'・'+esc(STAT[n.s])+'</span>';tip.style.display='block';var wr=wrap.getBoundingClientRect();var x=e.clientX-wr.left+14,yp=e.clientY-wr.top+14;if(x>wr.width-260)x-=280;tip.style.left=x+'px';tip.style.top=yp+'px';}else{tip.style.display='none';}});
+boxesG.addEventListener('mouseleave',function(){tip.style.display='none';});
+document.getElementById('panel').addEventListener('click',function(e){var go=e.target.closest('[data-go]');if(go){var id=go.getAttribute('data-go');state.lock=id;highlight(id);showPanel(id);return;}var cl=e.target.closest('[data-clear]');if(cl){state.lock=null;clearHi();document.getElementById('panel').innerHTML='<span style="color:var(--t2);font-size:13.5px">ボックスをなぞると系譜（影響元 ← / 影響先 →）が濃く出ます。クリックで詳細。</span>';}});
+var ffSearch=document.getElementById('ff-search');
+fc.addEventListener('click',function(e){var b=e.target.closest('[data-f]');if(!b)return;state.cat=b.getAttribute('data-f');state.lock=null;hiG.innerHTML='';if(ffSearch)ffSearch.value='';Array.prototype.slice.call(fc.querySelectorAll('.chip')).forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});applyDim(null);});
+ffSearch.addEventListener('input',function(){var q=ffSearch.value.trim().toLowerCase();state.lock=null;state.cat='all';hiG.innerHTML='';Array.prototype.slice.call(fc.querySelectorAll('.chip')).forEach(function(x){x.setAttribute('aria-pressed',x.getAttribute('data-f')==='all'?'true':'false');});if(!q){applyDim(null);return;}var set={};D.forEach(function(n){if((n.sn+' '+n.id+' '+(n.c||'')).toLowerCase().indexOf(q)>=0)set[n.id]=1;});applyDim(set);});
+applyDim(null);
+})();
+</script>
+</body>
+</html>

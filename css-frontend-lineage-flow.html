@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSS・フロントエンド エコシステム系譜フロー（1996–2026）</title>
+<style>
+:root{
+ --t1:#1a1a1a;--t2:#565651;--t3:#8a8984;--bg1:#ffffff;--bg2:#f3f1ea;
+ --bd3:rgba(0,0,0,0.14);--bd2:rgba(0,0,0,0.3);--bd1:rgba(0,0,0,0.42);
+ --font:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+}
+@media(prefers-color-scheme:dark){
+ :root{--t1:#ededed;--t2:#b3b2ad;--t3:#88877f;--bg1:#1f1f1e;--bg2:#2a2a28;--bd3:rgba(255,255,255,0.14);--bd2:rgba(255,255,255,0.3);--bd1:rgba(255,255,255,0.42);}
+ body{background:#171716}
+}
+*{box-sizing:border-box}
+body{margin:0;padding:24px 18px 60px;font-family:var(--font);color:var(--t1);background:#fafaf7;line-height:1.6}
+@media(prefers-color-scheme:dark){body{background:#171716}}
+h1{font-size:22px;font-weight:600;margin:0 0 4px}
+.sub{font-size:13px;color:var(--t2);margin:0 0 16px;max-width:900px}
+#wrap{position:relative;max-width:1140px;margin:0 auto}
+.chip{font:400 12.5px var(--font);padding:4px 10px;border:1px solid var(--bd2);border-radius:8px;background:transparent;color:var(--t2);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--bg2);color:var(--t1);border-color:var(--bd1)}
+.lgd{display:inline-flex;align-items:center;gap:5px;margin-right:14px;font-size:12.5px;color:var(--t2)}
+g.box{cursor:pointer}
+#tip{position:absolute;pointer-events:none;background:var(--bg1);border:1px solid var(--bd2);border-radius:8px;padding:6px 10px;font:400 12.5px var(--font);color:var(--t1);max-width:260px;display:none;z-index:9;line-height:1.5;box-shadow:0 2px 10px rgba(0,0,0,0.12)}
+#panel{margin-top:16px;border:1px solid var(--bd3);border-radius:12px;padding:14px 18px;background:var(--bg1);min-height:60px}
+#go{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+#chart{overflow-x:auto}
+</style>
+</head>
+<body>
+<div id="wrap">
+<h1>CSS・フロントエンド エコシステム系譜フロー（1996–2026）</h1>
+<div style="margin:2px 0 12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center"><span style="font-size:12px;color:var(--t3)">Web技術アトラス:</span><a href="daisyui-hub.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">daisyUIハブ</a><span style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd1);border-radius:8px;color:var(--t1);background:var(--bg2);font-weight:600" aria-current="page">フロントエンド技術</span><a href="prog-lang-genealogy.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">プログラミング言語</a><a href="reactivity-state-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">リアクティビティ/状態</a><a href="cloud-evolution-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">クラウド進化史</a><a href="ai-llm-coding-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">AI・LLM</a><a href="rendering-arch-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">レンダリング/配信</a><a href="browser-web-standards-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">ブラウザ/Web標準</a><a href="js-engine-runtime-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">JSエンジン/ランタイム</a><a href="vcs-git-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">Git/バージョン管理</a></div>
+<p class="sub">10系統・205技術（状態管理レーン新設・基盤/代替言語も追加）。上が古く下が新しい縦の時系列で、各時代帯の中は厳密な年順。色＝系統、破線＝後退・レガシー。ボックスにカーソルを合わせるとその技術の系譜（影響元←／影響先→）の矢印だけが濃くなり、クリックで詳細が出ます。上のチップで系統ごとに強調できます。各ボックス下の5段階バー＝習得難易度（塗りが多いほど難しい / 1入門〜5専門）。</p>
+<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px">
+ <span style="font-size:12.5px;color:var(--t3);margin-right:2px">系統を強調</span><span id="filters"></span>
+</div>
+<div id="legend" style="margin-bottom:12px"></div>
+<div style="margin-bottom:12px"><input id="ff-search" type="search" placeholder="技術名で検索（例: Svelte, Tailwind, Vite）" style="width:100%;max-width:440px;padding:7px 11px;border:1px solid var(--bd2);border-radius:8px;background:var(--bg1);color:var(--t1);font:400 13px var(--font)"></div>
+<div id="chart"></div>
+<div id="tip"></div>
+<div id="panel"><span style="color:var(--t2);font-size:13.5px">ボックスにカーソルを合わせると系譜（影響元 ← / 影響先 →）が濃く表示されます。クリックで詳細。上のチップで系統ごとに強調できます。</span></div>
+</div>
+<script>
+(function(){
+var isDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+var CAT=[
+{k:'css',t:'CSS標準',L:{f:'#E6F1FB',s:'#185FA5',x:'#0C447C'},Dk:{f:'#0C447C',s:'#85B7EB',x:'#E6F1FB'},m:'#378ADD'},
+{k:'pre',t:'前処理',L:{f:'#E1F5EE',s:'#0F6E56',x:'#085041'},Dk:{f:'#085041',s:'#5DCAA5',x:'#E1F5EE'},m:'#1D9E75'},
+{k:'met',t:'設計手法',L:{f:'#FAEEDA',s:'#854F0B',x:'#633806'},Dk:{f:'#633806',s:'#EF9F27',x:'#FAEEDA'},m:'#BA7517'},
+{k:'uti',t:'Utility',L:{f:'#FAECE7',s:'#993C1D',x:'#712B13'},Dk:{f:'#712B13',s:'#F0997B',x:'#FAECE7'},m:'#D85A30'},
+{k:'cij',t:'CSS-in-JS',L:{f:'#FBEAF0',s:'#993556',x:'#72243E'},Dk:{f:'#72243E',s:'#ED93B1',x:'#FBEAF0'},m:'#D4537E'},
+{k:'ui',t:'UI部品',L:{f:'#EEEDFE',s:'#534AB7',x:'#3C3489'},Dk:{f:'#3C3489',s:'#AFA9EC',x:'#EEEDFE'},m:'#7F77DD'},
+{k:'js',t:'JS言語/FW',L:{f:'#EAF3DE',s:'#3B6D11',x:'#27500A'},Dk:{f:'#27500A',s:'#97C459',x:'#EAF3DE'},m:'#639922'},
+{k:'meta',t:'メタフレーム',L:{f:'#F1EFE8',s:'#5F5E5A',x:'#2C2C2A'},Dk:{f:'#2C2C2A',s:'#B4B2A9',x:'#F1EFE8'},m:'#888780'},
+{k:'build',t:'ビルド',L:{f:'#FCEBEB',s:'#A32D2D',x:'#791F1F'},Dk:{f:'#791F1F',s:'#F09595',x:'#FCEBEB'},m:'#E24B4A'},
+{k:'state',t:'状態管理',L:{f:'#F0E7DC',s:'#7A5230',x:'#4D3318'},Dk:{f:'#4D3318',s:'#C99E76',x:'#F0E7DC'},m:'#9A6B3F'}
+];
+CAT.forEach(function(c){c.p=isDark?c.Dk:c.L;});
+var STAT={mainstream:'主流',current:'現役',declining:'後退中',legacy:'レガシー',niche:'ニッチ'};
+var faint=isDark?'rgba(180,180,175,0.30)':'rgba(95,94,90,0.26)';
+var cIn=isDark?'#AFA9EC':'#534AB7', cOut=isDark?'#F0997B':'#D85A30';
+var D=[
+{id:'resetcss',l:0,y:2007,s:'legacy',sn:'Reset CSS',c:'Eric Meyer',t:'ブラウザ既定スタイルを広範に剥がす「全消し」派リセットを定式化。',g:'既定をゼロ化して足し戻す思想を普及させたリセットの代名詞。',f:[]},
+{id:'normalizecss',l:0,y:2011,s:'legacy',sn:'Normalize.css',c:'Nicolas Gallagher, Jonathan Neal',t:'全消しReset CSSへのアンチテーゼ。差異だけを正規化する方式。',g:'「正規化」という対抗パラダイムを確立。Bootstrap等の基盤に。',f:['resetcss']},
+{id:'openprops',l:3,y:2021,s:'current',sn:'Open Props',c:'Adam Argyle',t:'純粋なCSSカスタムプロパティとしてデザイントークンを配布。JS非依存。',g:'ネイティブCSS変数によるデザインシステム構築を普及させた。',f:['customprops','themeui']},
+{id:'styledsystem',l:4,y:2017,s:'legacy',sn:'Styled System',c:'Brent Jackson',t:'styled-components/Emotion上でthemeを参照するレスポンシブなstyle propsを提供。',g:'テーマ連動の制約付きプロップスの先駆。Theme UI/Chakra/トークン系の源流。',f:['styledcomp','emotion']},
+{id:'themeui',l:4,y:2019,s:'legacy',sn:'Theme UI',c:'Brent Jackson',t:'Styled Systemの上位概念。cssプロップとグローバルthemeでトークン適用。',g:'デザイントークン仕様(theme spec)を標準化しようとした取り組み。',f:['styledsystem','emotion']},
+{id:'panda',l:4,y:2023,s:'current',sn:'Panda CSS',c:'Segun Adebayo (Chakra)',t:'Chakraの実行時CSS-in-JSの反省から生まれたゼロランタイム後継。ビルド時に静的CSSへ抽出。',g:'Chakra系のDXを保ちつつランタイムコストを排した主要選択肢。RSC対応。',f:['chakra','styledsystem','tailwind']},
+{id:'stylex',l:4,y:2023,s:'current',sn:'StyleX',c:'Meta',t:'Facebook/Instagram等を支える社内システムをOSS化。コンパイル時にアトミックCSSへ。',g:'超大規模での衝突と肥大を解いた、ゼロランタイム系の到達点。',f:['cssmodules','atomic','styledsystem']},
+{id:'pigmentcss',l:4,y:2024,s:'current',sn:'Pigment CSS',c:'MUI',t:'MUIのEmotion後継。Linaria系のビルド時抽出を発展させたゼロランタイム。',g:'MUIの脱Emotion・RSC対応を担い、主要UIのゼロランタイム移行を象徴。',f:['linaria','emotion','stylex']},
+{id:'picocss',l:5,y:2019,s:'current',sn:'Pico.css',c:'Lucas Larroche',t:'セマンティックHTMLタグを直接装飾する極小フレームワーク。クラスレス版あり。',g:'クラスをほぼ書かず整う「クラスレス」潮流の代表。',f:['normalizecss','resetcss']},
+{id:'polymer',l:6,y:2015,s:'legacy',sn:'Polymer',c:'Google',t:'Web Components標準を実用化したGoogle製ライブラリ。Material Designを体現。',g:'Web Componentsを普及させた先駆。Litの直接の前身。',f:[]},
+{id:'mithril',l:6,y:2014,s:'niche',sn:'Mithril.js',c:'Leo Horie',t:'仮想DOM+ルーティング+XHRを同梱した約8KBの軽量SPA FW。',g:'Reactと同時代のミニマル志向の先駆。小規模/性能重視層に支持。',f:['react']},
+{id:'marko',l:6,y:2014,s:'niche',sn:'Marko',c:'eBay (Patrick Steele-Idem)',t:'eBay製。HTML的テンプレートとストリーミングSSR・部分hydrationを早期重視。',g:'後年のパフォーマンス指向SSR/アイランドを先取りした実戦投入FW。',f:['vue']},
+{id:'stencil',l:6,y:2017,s:'niche',sn:'Stencil',c:'Ionic',t:'仮想DOM/JSX/遅延読込をコンパイラでWeb Componentsに落とすIonic製。',g:'標準WCを生成しReact/Angular/Vue横断で使えるDS構築の代表。',f:['react','typescript']},
+{id:'stimulus',l:6,y:2018,s:'current',sn:'Stimulus',c:'Basecamp (DHH ら)',t:'既存HTMLにdata-controller属性で振る舞いを付ける「控えめな」FW。',g:'Hotwire流の中核。Rails 7既定JS構成として普及。SPAへの対抗。',f:[]},
+{id:'htmx',l:6,y:2020,s:'current',sn:'htmx',c:'Carson Gross',t:'前身intercooler.jsを脱jQueryで再実装。HTML属性でAJAX等を宣言的に。',g:'ハイパーメディア駆動回帰の旗手。SPA一辺倒への反動を象徴。',f:['jquery']},
+{id:'dart',l:6,y:2011,s:'current',sn:'Dart',c:'Google',t:'GoogleのJS代替言語。当初Web向け、後にFlutterの言語として開花。',g:'JSを置き換える野心から出発し、モバイルUI(Flutter)で確立。',f:[]},
+{id:'clojurescript',l:6,y:2011,s:'niche',sn:'ClojureScript',c:'Rich Hickey',t:'LispであるClojureをJSにコンパイル。不変データと関数型。',g:'関数型/不変思想をフロントに持ち込み、Reagent等を生んだ。',f:[]},
+{id:'elm',l:6,y:2012,s:'declining',sn:'Elm',c:'Evan Czaplicki',t:'純粋関数型のWeb向け言語。The Elm Architecture(Model-Update-View)。',g:'ランタイムエラーゼロを掲げ、Reduxの設計に強い影響を与えた。',f:[]},
+{id:'purescript',l:6,y:2013,s:'niche',sn:'PureScript',c:'Phil Freeman',t:'Haskell風の純粋関数型言語をJSにコンパイル。強力な型システム。',g:'高度な関数型をWebに持ち込む選択肢。学習コストは高い。',f:['elm']},
+{id:'rescript',l:6,y:2020,s:'niche',sn:'ReScript',c:'Hongbo Zhang',t:'OCaml由来のBuckleScript/Reasonを再ブランド。型安全でJSへコンパイル。',g:'高速ビルドと強い型付けでJSの堅牢化を狙う言語。',f:[]},
+{id:'wasm',l:6,y:2015,s:'mainstream',sn:'WebAssembly',c:'W3C (主要ブラウザ各社)',t:'ブラウザで動く低レベルバイナリ命令形式。C/C++/Rust等をWebへ。',g:'JS以外の言語と高性能をWebにもたらす標準。JSと相補的。',f:[]},
+{id:'eleventy',l:7,y:2017,s:'current',sn:'Eleventy',c:'Zach Leatherman',t:'JekyllをJSで再現する発想のSSG。複数テンプレート対応・クライアントJSゼロ。',g:'JS製ながらJSを吐かない徹底した静的志向。軽量SSGの代表。',f:['gatsby']},
+{id:'docusaurus',l:7,y:2017,s:'mainstream',sn:'Docusaurus',c:'Meta',t:'OSSドキュメント量産用にFacebookが開発。v2でMDX/プラグイン化。',g:'OSSドキュメントサイトのデファクト的なReactベースSSG。',f:['react','gatsby']},
+{id:'vitepress',l:7,y:2020,s:'current',sn:'VitePress',c:'Evan You / Vue',t:'VuePressの後継。Vue3+Vite上のドキュメント特化SSG。',g:'Vueエコシステムの公式ドキュメント標準。DocusaurusのVue版的存在。',f:['vite','vue']},
+{id:'redwood',l:7,y:2020,s:'declining',sn:'RedwoodJS',c:'Tom Preston-Werner ら',t:'「JS版Rails」を志向しReact+GraphQL+Prismaを規約で束ねるフルスタック。',g:'規約重視の一体型メタFW。後にRSC/Cloudflare特化へ路線転換。',f:['react','nextjs']},
+{id:'nodejs',l:8,y:2009,s:'mainstream',sn:'Node.js',c:'Ryan Dahl',t:'V8を使いJSをサーバ/CLIで動かすランタイム。ノンブロッキングI/O。',g:'JSをブラウザ外へ解き放ち、npm/全ビルドツールの土台となった基盤。',f:[]},
+{id:'npm',l:8,y:2010,s:'mainstream',sn:'npm',c:'Isaac Z. Schlueter',t:'Node.jsのパッケージマネージャ/レジストリ。',g:'世界最大のパッケージエコシステム。フロント開発の依存管理の中心。',f:['nodejs']},
+{id:'yarn',l:8,y:2016,s:'declining',sn:'Yarn',c:'Facebook ほか',t:'npmの速度・決定性の問題への対抗。lockfileと並列インストール。',g:'npmに決定的インストール/lockを促した。後にnpm自身が追従。',f:['npm']},
+{id:'pnpm',l:8,y:2017,s:'mainstream',sn:'pnpm',c:'Zoltan Kochan',t:'コンテンツアドレスのストアとハードリンクで重複排除。高速・省容量。',g:'monorepo時代の効率的PMとして採用拡大。npm/Yarnの現実的後継。',f:['npm']},
+{id:'deno',l:8,y:2020,s:'current',sn:'Deno',c:'Ryan Dahl',t:'Node作者自身によるNodeの反省を踏まえた後継ランタイム。TS標準対応・安全既定。',g:'Nodeの設計的後悔を正す試み。Web標準API志向。',f:['nodejs']},
+{id:'redux',l:9,y:2015,s:'mainstream',sn:'Redux',c:'Dan Abramov, Andrew Clark',t:'Flux/Elmに着想した単一ストア・純粋reducerの状態管理。',g:'Reactの状態管理を長く支配したデファクト。ボイラープレート批判も生んだ。',f:['react','elm']},
+{id:'mobx',l:9,y:2015,s:'current',sn:'MobX',c:'Michel Weststrate',t:'Knockout/Meteor系の透過的リアクティブ(Observable自動追跡)。Reduxとは独立系統。',g:'Reduxと対極の「魔法のリアクティブ」状態管理として定着。',f:['knockout']},
+{id:'vuex',l:9,y:2015,s:'legacy',sn:'Vuex',c:'Evan You (Vue公式)',t:'Flux/ReduxをVue向けに公式実装した中央集権ストア。',g:'Vue2時代の公式状態管理。後にPiniaへバトンタッチ。',f:['redux','vue']},
+{id:'xstate',l:9,y:2017,s:'current',sn:'XState',c:'David Khourshid',t:'有限状態機械/ステートチャートでアプリの状態を厳密に記述。',g:'状態遷移を図として扱う発想を広めた。Zag.js等の基盤思想に。',f:[]},
+{id:'zustand',l:9,y:2019,s:'mainstream',sn:'Zustand',c:'Paul Henschel (Poimandres)',t:'Reduxの冗長さへの反動。フックベースの極小ストア。',g:'簡潔さでReduxの代替として急速に普及。',f:['redux','react']},
+{id:'pinia',l:9,y:2019,s:'mainstream',sn:'Pinia',c:'Eduardo San Martin Morote (Vue公式)',t:'Vuexの後継として設計。Composition API・型安全・モジュール不要。',g:'Vue3時代の公式状態管理。Vuexを置き換えた。',f:['vuex','vue']},
+{id:'tanstackquery',l:9,y:2019,s:'mainstream',sn:'TanStack Query',c:'Tanner Linsley',t:'クライアント状態でなく「サーバ状態」のキャッシュ/同期に特化(旧React Query)。',g:'サーバ状態という概念を確立し、状態管理の役割分担を変えた。',f:['react']},
+{id:'recoil',l:9,y:2020,s:'legacy',sn:'Recoil',c:'Meta',t:'Metaによるatomベースの状態管理。Reactの並行機能を意識。',g:'atomic state管理を提唱したが、開発停滞でJotai等に道を譲った。',f:['react']},
+{id:'jotai',l:9,y:2020,s:'mainstream',sn:'Jotai',c:'Daishi Kato (Poimandres)',t:'Recoil的なatomベースを極小APIで実現。',g:'軽量atomicモデルでRecoilの実質的後継として普及。',f:['recoil','react']},
+{id:'valtio',l:9,y:2020,s:'current',sn:'Valtio',c:'Daishi Kato (Poimandres)',t:'Proxyベースの可変的な状態管理(MobX的)。',g:'Poimandres三兄弟(Zustand/Jotai/Valtio)の一角でproxy派。',f:['mobx','react']},
+{id:'javascript',l:6,y:1995,s:'mainstream',sn:'JavaScript',c:'Brendan Eich / Netscape',t:'1995年にNetscapeで約10日で作られたブラウザ用スクリプト言語(当初LiveScript)。',g:'Web上で動く唯一の言語として全FW/ライブラリの土台。後にECMAScriptとして標準化。',f:[]},
+{id:'coffeescript',l:6,y:2009,s:'declining',sn:'CoffeeScript',c:'Jeremy Ashkenas',t:'Ruby/Python風の簡潔な構文でJSにコンパイルされる言語。',g:'アロー関数やclass等ES6機能を先取りしJS言語進化に影響。ES6普及で衰退。',f:['javascript']},
+{id:'typescript',l:6,y:2012,s:'mainstream',sn:'TypeScript',c:'Microsoft (Anders Hejlsberg)',t:'JSに静的型を付ける上位互換言語。大規模開発の保守性を解決。',g:'Flow等との競争を制し、現代フロントエンドの事実上の標準言語に。',f:['javascript']},
+{id:'jsx',l:6,y:2013,s:'mainstream',sn:'JSX',c:'Facebook (React)',t:'JS内にHTML風構文を書く拡張。Reactと共に登場。',g:'宣言的UIの記述法として定着。Solid/Preact等も採用。',f:['javascript','react']},
+{id:'flow',l:6,y:2014,s:'declining',sn:'Flow',c:'Facebook',t:'JSに静的型検査を加えるツール。TypeScriptの対抗馬。',g:'TSとの型付け競争に敗れ、Facebook内もTSへ移行する流れに。',f:['javascript']},
+{id:'es2015',l:6,y:2015,s:'mainstream',sn:'ES2015 (ES6)',c:'Ecma TC39',t:'let/const・アロー関数・class・モジュール・Promiseを導入した大規模刷新。',g:'モダンJSの基盤。以降ECMAScriptは毎年更新へ。CoffeeScriptの利点を多く吸収。',f:['javascript','coffeescript']},
+{id:'vuetify',l:5,y:2016,s:'mainstream',sn:'Vuetify',c:'John Leider',t:'MaterializeCSSラッパーの後に作られたVue向けMaterial Design実装。',g:'Vue界のMaterial UI的存在。Vueエコシステム最大級のUIフレームワーク。',f:['vue','materialize']},
+{id:'quasar',l:5,y:2016,s:'mainstream',sn:'Quasar',c:'Razvan Stoenescu',t:'単一コードからSPA/PWA/SSR/Electron等を生む全部入りVue系FW。',g:'UIとビルドを統合したVue製クロスプラットフォーム開発の代表格。',f:['vue']},
+{id:'elementui',l:5,y:2016,s:'legacy',sn:'Element UI',c:'ElemeFE (Ele.me)',t:'Ele.me社内発のVue2向けデスクトップUI。Ant Design/Materialに着想。',g:'一時Vue界最大の人気を誇った企業向けUI(Vue2世代)。Vue3はElement Plusへ。',f:['vue','antd']},
+{id:'elementplus',l:5,y:2020,s:'mainstream',sn:'Element Plus',c:'Element team',t:'Element UIのVue3版フルリライト(TS/Composition API)。',g:'Vue3時代のElement系定番。企業向けデスクトップUIの主力。',f:['elementui']},
+{id:'antdvue',l:5,y:2018,s:'mainstream',sn:'Ant Design Vue',c:'tangjinzhou',t:'React製Ant DesignのデザインをVueへ移植した非公式実装。',g:'AntのデザインシステムをVueで使える定番ポート。',f:['antd','vue']},
+{id:'primevue',l:5,y:2019,s:'mainstream',sn:'PrimeVue',c:'PrimeTek',t:'PrimeFaces(2009)起点のPrimeファミリーのVue版。',g:'豊富なコンポーネントとテーマを持つPrimeエコシステムのVue窓口。',f:['primereact','vue']},
+{id:'naiveui',l:5,y:2020,s:'current',sn:'Naive UI',c:'TuSimple',t:'最初からVue3+TS専用設計。CSS-in-JSでテーマ自在。Evan Youも言及。',g:'Vue3ネイティブで型安全・高速をうたう人気UI。',f:['elementui','vue']},
+{id:'vant',l:5,y:2017,s:'mainstream',sn:'Vant',c:'Youzan (有赞)',t:'モバイルWeb特化の軽量Vue UI(平均1kb/コンポーネント)。',g:'中国発モバイルWeb向けUIの定番。',f:['elementui','vue']},
+{id:'radixvue',l:5,y:2023,s:'legacy',sn:'Radix Vue',c:'zernonia',t:'React製Radix PrimitivesのVue向け非公式ポート。ヘッドレス/a11y。',g:'Vueにヘッドレス思想を持ち込み、後にReka UIへ改名される基盤。',f:['radix','headlessui']},
+{id:'rekaui',l:5,y:2024,s:'current',sn:'Reka UI',c:'zernonia',t:'Radix Vueをv2移行に合わせ改名・再ブランドした後継。',g:'Vueのヘッドレス標準的存在。Nuxt UI等の土台。',f:['radixvue']},
+{id:'nuxtui',l:5,y:2023,s:'current',sn:'Nuxt UI',c:'NuxtLabs',t:'Nuxt公式系UI。初期はHeadless UI+Tailwind、v3でReka UI基盤へ。',g:'ヘッドレス基盤+Tailwindスタイルを統合した現行主力。',f:['headlessui','tailwind','rekaui']},
+{id:'skeleton',l:5,y:2022,s:'current',sn:'Skeleton',c:'Skeleton Labs',t:'Svelte+Tailwindの統合デザインシステム。スタイル込みの「意見強め」路線。',g:'Svelte+Tailwind領域で最も早期かつ包括的なUIの一つ。',f:['tailwind','svelte']},
+{id:'meltui',l:5,y:2023,s:'current',sn:'Melt UI',c:'Thomas G. Lopes',t:'Svelteのアクション/ストアを使うビルダーAPI方式のヘッドレス基盤。',g:'Svelteヘッドレスの起点。Bits UI→shadcn-svelteの最下層。',f:['radix','reactaria']},
+{id:'bitsui',l:5,y:2023,s:'current',sn:'Bits UI',c:'Hunter Johnston',t:'Melt UIのビルダーをコンポーネント化(Radix UI風API)したヘッドレス層。',g:'shadcn-svelteの土台。Svelte版Radix UIに相当。',f:['meltui','radix']},
+{id:'shadcnsvelte',l:5,y:2023,s:'mainstream',sn:'shadcn-svelte',c:'Hunter Johnston',t:'shadcn/uiのSvelte移植。挙動はBits UI依存、Tailwindでスタイル、CLI配布。',g:'Svelteで事実上の標準コンポーネント配布方式に。',f:['bitsui','shadcn','tailwind']},
+{id:'hopeui',l:5,y:2022,s:'legacy',sn:'Hope UI',c:'Fabien MARIE-LOUISE',t:'Chakra/Stitches/Mantineに着想したSolid向けスタイル込みUI。',g:'Solid初期のスタイル付きUI代表。作者は後にヘッドレスのKobalteへ。',f:['chakra','stitches','tailwind']},
+{id:'kobalte',l:5,y:2023,s:'current',sn:'Kobalte',c:'Fabien MARIE-LOUISE',t:'Radix/React Aria思想をSolidに移植したヘッドレス/a11yプリミティブ。',g:'Solidヘッドレスの事実上の標準基盤。Solid版shadcnの土台。',f:['radix','reactaria','hopeui']},
+{id:'corvu',l:5,y:2024,s:'current',sn:'corvu',c:'giyomoon',t:'Solid向けの無スタイル・a11yプリミティブ群。Radix的志向。',g:'Kobalteと並ぶSolidの主要ヘッドレス。併用構成も一般的。',f:['radix','kobalte']},
+{id:'shadcnsolid',l:5,y:2023,s:'niche',sn:'shadcn-solid',c:'hngngn',t:'shadcn/uiのSolid移植。挙動はKobalte依存、Tailwindでスタイル。',g:'Solid版のshadcn-svelte相当。',f:['kobalte','shadcn','tailwind']},
+{id:'reachui',l:5,y:2018,s:'legacy',sn:'Reach UI',c:'Ryan Florence',t:'React Router共同作者によるa11y最優先のReactコンポーネント基盤。',g:'ヘッドレスプリミティブの方向性を確立しRadix等の先駆けに(2022年非メンテ)。',f:['react']},
+{id:'reactaria',l:5,y:2020,s:'mainstream',sn:'React Aria',c:'Adobe',t:'React Spectrumの一部。状態と振る舞い+WAI-ARIAをフックで提供。',g:'ヘッドレスの事実上の業界標準ロジック層(HeroUI等が採用)。',f:['react','reachui']},
+{id:'ariakit',l:5,y:2017,s:'current',sn:'Ariakit',c:'Diego Haz',t:'2017年Reakitとして開始、後にAriakitへ改名。低レベルa11yプリミティブ。',g:'Reach UIと並ぶ初期ヘッドレスの一角。',f:['react']},
+{id:'primereact',l:5,y:2017,s:'mainstream',sn:'PrimeReact',c:'PrimeTek',t:'PrimeファミリーのReact版。90超のスタイル付き完成コンポーネント。',g:'「電池入り」エンタープライズUIの代表格。',f:['react']},
+{id:'heroui',l:5,y:2021,s:'current',sn:'HeroUI(旧NextUI)',c:'Junior Garcia',t:'NextUIとして公開、v2でReact Aria+Tailwindへ再設計、後にHeroUI改名。',g:'ヘッドレスロジック+Tailwind装飾の実用化を象徴。',f:['react','reactaria','tailwind']},
+{id:'baseui',l:5,y:2022,s:'current',sn:'Base UI',c:'MUI + Radix中核',t:'MUI Baseから発展。Radix/Floating UIの作者を迎え独立プロジェクトへ。',g:'MUIの「スタイルなし」構想をRadix系知見と統合した最新世代の基盤。',f:['mui','radix']},
+{id:'tamagui',l:5,y:2021,s:'current',sn:'Tamagui',c:'Nate Wienert',t:'最適化コンパイラ+スタイルシステムでRN+Web間のコード共有を狙う。',g:'クロスプラットフォーム最適化スタイルエンジンの独自路線。',f:['react']},
+{id:'tremor',l:5,y:2022,s:'current',sn:'Tremor',c:'Tremor Labs',t:'React+Tailwind+Radix上のダッシュボード/チャート特化コンポーネント集。',g:'ヘッドレスの上に乗る用途特化レイヤーの代表(2025年Vercelが買収)。',f:['react','tailwind','radix']},
+{id:'zagjs',l:5,y:2022,s:'current',sn:'Zag.js',c:'Segun Adebayo',t:'XState触発の有限状態機械でUIロジックを書くFW非依存エンジン。',g:'振る舞いを状態機械で一元実装する横断ヘッドレスエンジン。Ark UIの基盤。',f:['xstate']},
+{id:'arkui',l:5,y:2023,s:'current',sn:'Ark UI',c:'Chakra UIチーム',t:'Zag.jsの状態機械を各FW向けにラップした横断ヘッドレスUI。Chakra v3の土台。',g:'Radix的体験をReact/Vue/Solid/Svelteへ拡張した実装層。',f:['zagjs','reactaria','chakra']},
+{id:'shoelace',l:5,y:2020,s:'current',sn:'Shoelace',c:'Cory LaViska',t:'Lit製のFW非依存な50超のカスタム要素群(後にWeb Awesomeへ)。',g:'Web Componentsベースで「どのFWでも動く」UIの代表例。',f:['lit']},
+{id:'fast',l:5,y:2020,s:'declining',sn:'MS FAST',c:'Microsoft',t:'Web標準上でアダプティブなデザインシステムを組む基盤。Fluentにも利用。',g:'Web ComponentsでDSを組むファウンデーション層(近年勢い鈍化)。',f:[]},
+{id:'fluentui',l:5,y:2016,s:'mainstream',sn:'Fluent UI',c:'Microsoft',t:'Office UI Fabric Reactを起源に2020年Fluent UIへ統合。WC版はFAST基盤。',g:'Office/M365を支えるエンタープライズDSの代表格。',f:['react','fast']},
+{id:'carbon',l:5,y:2015,s:'mainstream',sn:'Carbon (IBM)',c:'IBM',t:'IBM Design Languageを実装したデザインシステム(2015 OSS化)。',g:'大企業発エンタープライズDSの代表。完全OSS(Apache-2.0)。',f:['react']},
+{id:'sgml',l:0,y:1986,s:'legacy',sn:'SGML',c:'Charles Goldfarb ら / ISO',t:'文書の構造と表現を分離する思想を国際標準化(ISO 8879)。HTMLの母体。',g:'スタイルシートという概念そのものを成立させた源流。整形を別仕様に委ねる設計がCSSの分離原則の起点。',f:[]},
+{id:'fosi',l:0,y:1987,s:'legacy',sn:'FOSI',c:'米国防総省 (CALS / MIL-M-28001)',t:'SGML文書用スタイルシート。スタイル定義自体をSGML文書として書く方式。em単位の発想を持ち込んだ。',g:'実用化された最初期のSGMLスタイル言語。発想は後のXSLへ継承。',f:['sgml']},
+{id:'rrp',l:0,y:1993,s:'legacy',sn:'RRP提案',c:'Robert Raisch（オライリー）',t:'1993年にwww-talkへ投稿されたWeb用スタイルの最初期提案。低帯域を意識した極簡潔な構文。',g:'Web専用スタイルシートの最初期提案の一つ。Mosaicには未実装。',f:['sgml']},
+{id:'viola',l:0,y:1993,s:'legacy',sn:'ViolaWWW SS',c:'Pei-Yuan Wei',t:'自作ブラウザViolaWWWに組み込んだスタイル言語。入れ子構文と外部スタイル参照を備えた。',g:'実装を伴う最初期のWebスタイルシート。CSSの外部参照モデルの先行例。',f:['sgml']},
+{id:'ssp',l:0,y:1994,s:'legacy',sn:'SSP (Bos)',c:'Bert Bos',t:'Bert Bosが自作ブラウザArgo開発中に提案したストリームベースのスタイル案。汎用設計。',g:'LieのCHSSと統合されCSSの二大源流の一方に。',f:['sgml','viola']},
+{id:'chss',l:0,y:1994,s:'legacy',sn:'CSS提案(CHSS)',c:'Håkon Wium Lie',t:'1994年10月「Cascading HTML Style Sheets」を提案。著者と読者のスタイルをカスケードさせる概念が核心。',g:'CSSの直接の前身。1995年にBosのSSPと統合しCSSへ、1996年CSS1勧告に結実。',f:['sgml','rrp']},
+{id:'tagsoup',l:0,y:1995,s:'legacy',sn:'タグ直書き(font等)',c:'Netscape',t:'<font>/<center>/bgcolor等、見た目をHTMLタグ・属性に直接記述。Netscapeが独自拡張で主導。',g:'CSS以前のデザイン制御の事実上の標準。構造と表現を混在させた負の遺産で、後にCSSへ置換。',f:[]},
+{id:'frames',l:0,y:1995,s:'legacy',sn:'フレーム',c:'Netscape (Navigator 2.0)',t:'ウィンドウを複数領域に分割し各文書を独立スクロール。共通パーツの再読込を避ける狙い。',g:'URL不整合やa11y問題で廃れHTML5で廃止。用途はiframe/CSSへ継承。',f:['tagsoup']},
+{id:'tablelayout',l:0,y:1996,s:'legacy',sn:'テーブルレイアウト',c:'David Siegel（書籍で普及）',t:'表用の<table>を多段ネストして段組みに転用＋透明スペーサーGIFでピクセル単位の余白制御。',g:'CSS実用化までの主流レイアウト技法。重さとa11y低下を招きCSS Zen Garden等で淘汰。',f:['tagsoup']},
+{id:'html32',l:0,y:1997,s:'legacy',sn:'HTML 3.2',c:'W3C (Dave Raggett)',t:'乱立したNetscape独自のpresentationalタグを事実上標準として公式に取り込んだ版。',g:'ベンダー拡張を初めて正典化した妥協的標準。翌HTML4.0で非推奨化されCSS移行へ。',f:['tagsoup']},
+{id:'dsssl',l:0,y:1996,s:'legacy',sn:'DSSSL',c:'ISO/IEC JTC1',t:'SGML文書用のスタイル/変換言語(ISO/IEC 10179)。Schemeベースの強力な式言語。',g:'最強だが複雑すぎてWeb標準争いで敗退。その複雑さがCSSの単純さ路線を正当化。思想はXSLへ。',f:['sgml']},
+{id:'jsss',l:4,y:1996,s:'legacy',sn:'JSSS',c:'Netscape (Brendan Eich ら)',t:'JavaScriptの代入構文でスタイルを記述。Navigator 4に実装され、CSSと標準化を直接争った。',g:'CSSと争った最後の対抗馬。NetscapeがCSS支持に転じ敗退。だがJSでスタイルの発想は後のCSS-in-JSを先取り。',f:['chss']},
+{id:'css1',l:0,y:1996,s:'legacy',sn:'CSS1',c:'W3C (Håkon Wium Lie / Bert Bos)',t:'HTMLに見た目を直書きする方式を置き換え、構造と表現を分離する最初の標準。',g:'1996年勧告。Web装飾の原則を確立した出発点。',f:['chss','ssp','tagsoup']},
+{id:'css2',l:0,y:1998,s:'legacy',sn:'CSS2',t:'position/z-index/::before等を追加しテーブルレイアウト脱却を志向。',g:'実装がバラバラで「仕様はあるが使えない」時代を生んだ。',f:['css1']},
+{id:'css3mod',l:0,y:2000,s:'mainstream',sn:'CSS3 modules',t:'単一巨大仕様を捨て、Selectors/Color/Flexbox/Grid等の独立モジュールへ分割。',g:'機能ごと独立進化でCSSの進化速度が激変。全モジュールの土台。',f:['css2']},
+{id:'css21',l:0,y:2011,s:'legacy',sn:'CSS2.1',t:'実装挙動に合わせCSS2を現実準拠で修正した基準仕様。',g:'勧告まで13年。単一巨大仕様の限界を象徴。',f:['css2']},
+{id:'mq',l:0,y:2012,s:'mainstream',sn:'Media Queries',t:'画面幅・解像度等の条件でCSSを切替。固定幅/別モバイルサイトを置換。',g:'レスポンシブWebデザインを実現した転換点。',f:['css3mod']},
+{id:'anim',l:0,y:2013,s:'mainstream',sn:'CSS Animations',t:'JS/Flashの動きをCSS宣言だけで記述。2009年WebKit先行。',g:'2013年頃に実装が出揃い実用化。GPU合成で滑らかな動きを普及。',f:[]},
+{id:'calc',l:0,y:2015,s:'mainstream',sn:'calc()',t:'%とpx等の異種単位の計算をCSS内で完結。JSでの寸法算出を置換。',g:'柔軟な寸法計算を可能にした。',f:[]},
+{id:'flexbox',l:0,y:2015,s:'mainstream',sn:'Flexbox',t:'float/tableを悪用した1次元レイアウトのハックを置換。',g:'floatハック時代を終わらせ垂直中央揃え問題を解決。',f:['css3mod']},
+{id:'grid',l:0,y:2017,s:'mainstream',sn:'CSS Grid',t:'行と列を同時制御する2次元レイアウト。FWのグリッドを置換。',g:'2017年に主要ブラウザがほぼ同時実装。2次元ネイティブ時代を開いた。',f:['flexbox']},
+{id:'customprops',l:0,y:2017,s:'mainstream',sn:'CSS変数',c:'W3C',t:'Sass/Lessのコンパイル時変数を、実行時に解決・継承できるネイティブ変数(--var)へ。',g:'実行時に値を変えられる点でビルド時変数を超え、デザインシステムの基盤に。',f:['sass','calc']},
+{id:'iswhere',l:0,y:2021,s:'mainstream',sn:':is() / :where()',t:'複数セレクタの列挙を1つに集約。各社:any()を統合・標準化。',g:':where()の「詳細度ゼロ」がリセット/上書き容易化に効く転換。',f:[]},
+{id:'aspectratio',l:0,y:2021,s:'mainstream',sn:'aspect-ratio',t:'padding-bottomハックを置き換え、縦横比を直接指定。',g:'2021年Baseline。比率維持ハックを不要に。',f:[]},
+{id:'layer',l:0,y:2022,s:'current',sn:'@layer',t:'詳細度・記述順の暗黙の優先争い(!important合戦)を明示レイヤーで制御。',g:'カスケードを開発者が明示管理できる初の仕組み。',f:['itcss']},
+{id:'containerq',l:0,y:2023,s:'current',sn:'Container Q.',t:'親コンテナのサイズでスタイル切替。長年JSで模索したElement Queriesをネイティブ化。',g:'真のコンポーネント単位レスポンシブを実現。',f:['mq']},
+{id:'colormix',l:0,y:2023,s:'current',sn:'color-mix()',t:'Sassのmix/lighten/darkenを実行時のネイティブ関数へ。',g:'動的テーマ生成を可能に。',f:['sass','customprops']},
+{id:'subgrid',l:0,y:2023,s:'current',sn:'Subgrid',t:'入れ子の子要素を親グリッドのトラックに整列。Gridの制約を補完。',g:'Firefox先行(2019)→2023年出揃い。',f:['grid']},
+{id:'has',l:0,y:2023,s:'current',sn:':has()',t:'子の有無で親/先行要素を選択。JSでしか不可能だった条件付きスタイルを置換。',g:'20年以上不可能とされた親セレクタを実現した画期的機能。',f:['jquery']},
+{id:'nesting',l:0,y:2023,s:'current',sn:'CSS Nesting',t:'Sass/Less/PostCSSのネスト記法を、ビルド不要のネイティブ機能へ。',g:'プリプロセッサの代表機能をネイティブ化。',f:['sass','postcss']},
+{id:'lightdark',l:0,y:2024,s:'current',sn:'light-dark()',t:'prefers-color-schemeの重複記述やCSS変数の二重定義を1関数に圧縮。',g:'ダークモード実装を大幅簡潔化。',f:['customprops']},
+{id:'property',l:0,y:2024,s:'current',sn:'@property',t:'型なしCSS変数に型・初期値を定義しアニメ可能化。',g:'2024年Baseline。Houdiniの実用化を象徴。',f:['customprops']},
+{id:'startingstyle',l:0,y:2024,s:'current',sn:'@starting-style',t:'display:noneやpopover/dialogの出現・消滅をJSなしでアニメ化。',g:'登場/退場アニメという長年JS必須だった領域を純CSSで実現。',f:['anim']},
+{id:'textwrap',l:0,y:2024,s:'current',sn:'text-wrap',t:'見出しの不格好な改行/孤立行を手動<br>やJSで直す手法を置換。',g:'balanceは2024年Baseline、prettyはまだ部分対応。',f:[]},
+{id:'scrollanim',l:0,y:2024,s:'niche',sn:'Scroll Anim.',t:'JSのscroll/IntersectionObserver実装を、scroll()/view()タイムラインで宣言的に置換。',g:'2024-25時点でBaseline未達だが性能面の将来性は高い。',f:['anim']},
+{id:'sass',l:1,y:2006,s:'mainstream',sn:'Sass',c:'Hampton Catlin, Natalie Weizenbaum',t:'素のCSSに変数・ネスト・mixin・継承を導入した最初期のプリプロセッサ。',g:'プリプロセッサというカテゴリそのものを生んだ起点。',f:[]},
+{id:'less',l:1,y:2009,s:'declining',sn:'Less',c:'Alexis Sellier',t:'Sassに触発されつつ「CSSに極力近い構文」を狙った。Bootstrap初期が採用。',g:'SCSS構文登場の直接の引き金。Bootstrap 4のSass移行後に衰退。',f:['sass']},
+{id:'scss',l:1,y:2010,s:'mainstream',sn:'SCSS',t:'中括弧式のCSS上位互換構文。.sassの取っつきにくさとLessの手軽さに応えた。',g:'事実上の標準記法として今も主力。',f:['sass','less']},
+{id:'stylus',l:1,y:2010,s:'legacy',sn:'Stylus',c:'TJ Holowaychuk',t:'SassのロジックとLessの手軽さを統合。記号を大幅省略できる柔軟な構文。',g:'御三家の最後発。作者の離脱でメンテ停滞、現在は実質レガシー。',f:['sass','less']},
+{id:'autoprefixer',l:1,y:2013,s:'mainstream',sn:'Autoprefixer',c:'Andrey Sitnik',t:'ベンダープレフィックスをCan I Use/Browserslistデータで自動付与。',g:'時系列ではPostCSSより先行し、その成長がPostCSS創出の引き金。',f:[]},
+{id:'postcss',l:1,y:2013,s:'mainstream',sn:'PostCSS',c:'Andrey Sitnik',t:'CSSをASTにパースしJSプラグインで変換。一枚岩のSass/Lessをパイプラインへ転換。',g:'TailwindやstylelintやAutoprefixerの土台。現代CSSツールチェーンの基盤。',f:['sass']},
+{id:'cssmodules',l:1,y:2015,s:'current',sn:'CSS Modules',c:'Mark Dalgleish ほか',t:'クラス名をビルド時に局所スコープのハッシュへ変換しグローバル衝突を解消。',g:'「グローバルCSSの終焉」を掲げ、後のCSS-in-JS/ゼロランタイムへ連なる起点。',f:['postcss']},
+{id:'oocss',l:2,y:2009,s:'legacy',sn:'OOCSS',c:'Nicole Sullivan',t:'肥大化した手書きCSSへの反動。「再利用可能なオブジェクト」をCSSに初めて導入。',g:'CSS設計を体系的に語る最初の方法論。後続の全設計手法の原点。',f:[]},
+{id:'bem',l:2,y:2009,s:'mainstream',sn:'BEM',c:'Yandex',t:'OOCSSの再利用思想に厳格な命名規約を導入。詳細度の戦いを単一クラス命名で置換。',g:'命名衝突と詳細度地獄を機械的に防ぐ規約として世界的に普及。',f:['oocss']},
+{id:'smacss',l:2,y:2011,s:'declining',sn:'SMACSS',c:'Jonathan Snook',t:'CSS全体をBase/Layout/Module/State/Themeの5分類で整理。',g:'状態・テーマ軸の分類を明文化。後のレイヤー型に繋がった。',f:['oocss','bem']},
+{id:'atomic',l:2,y:2013,s:'current',sn:'Atomic CSS',c:'Thierry Koblentz',t:'意味的クラス名を捨て、単一プロパティ=単一クラスへ分解。設計の鉄則へのアンチテーゼ。',g:'Tachyons→Tailwindの直接の思想的源流。',f:['oocss']},
+{id:'itcss',l:2,y:2014,s:'niche',sn:'ITCSS',c:'Harry Roberts',t:'詳細度を軸に、汎用→具体の逆三角形7層で読み込み順を強制。',g:'大規模CSSの詳細度競合への構造的解決。',f:['oocss','smacss','bem']},
+{id:'cube',l:2,y:2020,s:'niche',sn:'CUBE CSS',c:'Andy Bell',t:'ユーティリティ全盛への揺り戻し。カスケードを活かす折衷手法。',g:'CSSの素の力を尊重する設計思想。',f:['bem','atomic','itcss']},
+{id:'basscss',l:3,y:2013,s:'legacy',sn:'Basscss',c:'Brent Jackson',t:'Tachyonsと同時代の最初期Functional CSS。',g:'ユーティリティファーストの土壌を作った双璧の一翼。',f:['oocss']},
+{id:'tachyons',l:3,y:2013,s:'declining',sn:'Tachyons',c:'Adam Morse',t:'完成済みUI集(Bootstrap)への反動。最小ユーティリティのみ提供。',g:'ユーティリティファーストを実用化したTailwindの直接の先行者。',f:['atomic','oocss','basscss']},
+{id:'tailwind',l:3,y:2017,s:'mainstream',sn:'Tailwind',c:'Adam Wathan / Tailwind Labs',t:'Tachyonsの固定スケールの窮屈さへの反動。設定可能なトークン+未使用CSS削除を製品化。PostCSSプラグインとして動く。',g:'ユーティリティファーストを業界標準にした決定打。以後のFWはTailwind互換を意識する基準点。',f:['tachyons','atomic','postcss']},
+{id:'tw2',l:3,y:2020,s:'legacy',sn:'Tailwind v2',t:'ダークモード(dark:)・新カラーパレットを導入。ビルドはまだ事後パージ方式。',g:'ビルド方式の限界が後のJITを生んだ。',f:['tailwind']},
+{id:'windi',l:3,y:2020,s:'legacy',sn:'Windi CSS',c:'Voorjaar (メンテナ Anthony Fu)',t:'v2の遅いパージ方式への反動。使用クラスのみオンデマンド生成。',g:'Tailwind公式JIT採用を促した歴史的触媒。2023年終了。',f:['tailwind']},
+{id:'tw3',l:3,y:2021,s:'mainstream',sn:'Tailwind v3',t:'Windiが示したオンデマンド生成を公式採用。任意の値やバリアント自由化。',g:'開発時の巨大CSS問題を解消し覇権をTailwindに収斂させた。',f:['windi','tw2']},
+{id:'unocss',l:3,y:2021,s:'current',sn:'UnoCSS',c:'Anthony Fu',t:'AST解析さえ省く「FWでなくエンジン」。Windiの後継かつ反省。',g:'Tailwind JIT比約5倍。Vite/Nuxt系で広がる現役選択肢。',f:['windi','tailwind']},
+{id:'tw4',l:3,y:2025,s:'current',sn:'Tailwind v4',t:'JS+PostCSSパイプラインをRust製エンジンOxide+Lightning CSSへ。設定をCSSの@themeへ移す。',g:'ネイティブ処理でフルビルド最大5倍/増分100倍超の現行主流。',f:['tw3','unocss','lightningcss']},
+{id:'jss',l:4,y:2014,s:'niche',sn:'JSS',c:'Oleg Isonen',t:'JSをホスト言語にスコープ付きでスタイルを書く初期実装。',g:'vjeuxの「CSS in JS」提唱と同年。後にMUI v3/v4の基盤に。',f:['cssmodules']},
+{id:'radium',l:4,y:2015,s:'legacy',sn:'Radium',c:'Formidable Labs',t:'Reactのinline styleの限界への対応。クラスを生成せずインライン拡張。',g:'「インラインスタイルこそ未来」を実装に移した初期例。',f:[]},
+{id:'aphrodite',l:4,y:2016,s:'legacy',sn:'Aphrodite',c:'Khan Academy',t:'JSオブジェクトから実CSSクラスを生成・注入。',g:'「最小限のCSSクラスを生成する」方式の転換点。',f:['radium']},
+{id:'glamor',l:4,y:2016,s:'legacy',sn:'glamor',c:'Sunil Pai / Kent C. Dodds',t:'オブジェクト記法でクラス生成。glamorousはstyled風APIを乗せた。',g:'styled-componentsとEmotion双方の前身となったミッシングリンク。',f:['aphrodite']},
+{id:'styledcomp',l:4,y:2016,s:'declining',sn:'styled-comp.',c:'Glen Maddern, Max Stoiber',t:'タグ付きテンプレートで「本物のCSS」をコンポーネント内に書く。',g:'ランタイムCSS-in-JS全盛期の象徴。2025年メンテナンスモード入りを宣言。',f:['glamor','react']},
+{id:'emotion',l:4,y:2017,s:'current',sn:'Emotion',c:'Kye Hohenberger',t:'styled-componentsの高性能版。css prop+オブジェクト記法の両対応。',g:'MUI v5の標準エンジン。皮肉にもメンテナが2022年に脱CSS-in-JS論の急先鋒に。',f:['styledcomp','glamor']},
+{id:'linaria',l:4,y:2017,s:'niche',sn:'Linaria',c:'Callstack',t:'styled風DXを保ちつつビルド時にCSSを静的抽出するゼロランタイムを先駆けて確立。',g:'後年主流化するビルド時抽出を早期に実証。',f:['styledcomp','cssmodules']},
+{id:'stitches',l:4,y:2020,s:'legacy',sn:'Stitches',c:'Modulz (Pedro Duarte)',t:'variants(バリアント)を第一級機能にし、トークン/型安全テーマを導入。',g:'variants駆動スタイリングを刷新しCVA等に影響。2022年買収で開発停止。',f:['styledcomp','emotion','tailwind']},
+{id:'vanillaextract',l:4,y:2021,s:'current',sn:'vanilla-extract',c:'Mark Dalgleish',t:'TSで書きビルド時に静的CSSへ抽出する完全ゼロランタイム。ランタイムCSS-in-JSへの反動。',g:'実質「型付きCSS Modules」。RSC時代に適合した現役のゼロランタイム代表格。',f:['cssmodules','linaria','stitches']},
+{id:'blueprint',l:5,y:2007,s:'legacy',sn:'Blueprint',c:'Olav Bjørkøy',t:'固定24カラムグリッド+タイポグラフィのリセットを提供。',g:'CSSフレームワークという概念そのものを確立した最初期の存在。',f:[]},
+{id:'grid960',l:5,y:2008,s:'legacy',sn:'960 Grid',c:'Nathan Smith',t:'960px幅を12/16カラムに割る固定グリッドに特化。',g:'Bootstrapのグリッドに直接影響。',f:['blueprint']},
+{id:'bootstrap',l:5,y:2011,s:'declining',sn:'Bootstrap',c:'Twitter (Mark Otto ほか)',t:'グリッド+コンポーネント+JSプラグインを一式提供。',g:'CSSフレームワークを一気に主流化した決定的存在。ユーティリティ台頭で退潮。',f:['grid960','blueprint']},
+{id:'foundation',l:5,y:2011,s:'legacy',sn:'Foundation',c:'ZURB',t:'Bootstrapとほぼ同時期。「モバイルファースト」を前面に。',g:'Bootstrap最大のライバル。現在は停滞。',f:['grid960','blueprint']},
+{id:'purecss',l:5,y:2013,s:'legacy',sn:'Pure.css',c:'Yahoo',t:'重量化したBootstrapへの反動。数KBのモジュール式で軽量志向。',g:'フルセット型へのミニマリズム的アンチテーゼ。',f:['bootstrap']},
+{id:'mui',l:5,y:2014,s:'mainstream',sn:'MUI',c:'Hai Nguyen / Olivier Tassinari',t:'CSSクラス配布でなくReactコンポーネントとしてMaterial Designを実装。',g:'CSSフレームワーク→「コンポーネントライブラリ」への潮流転換を象徴。',f:['react']},
+{id:'semanticui',l:5,y:2014,s:'legacy',sn:'Semantic UI',c:'Jack Lukic',t:'自然言語に近い命名(ui primary button)。Bootstrapの難読クラス名への反動。',g:'作者離脱で停滞、Fomantic-UIが後継。',f:['bootstrap']},
+{id:'materialize',l:5,y:2014,s:'legacy',sn:'Materialize',c:'Dogfalo',t:'GoogleマテリアルデザインをCSS化。',g:'Material Designをいち早くWeb化したがメンテ停滞。',f:['bootstrap']},
+{id:'antd',l:5,y:2015,s:'mainstream',sn:'Ant Design',c:'Alibaba',t:'業務SaaS向けの独自デザイン言語ベースReactコンポーネント群。',g:'エンタープライズReactの定番。',f:['mui','react']},
+{id:'bulma',l:5,y:2016,s:'niche',sn:'Bulma',c:'Jeremy Thomas',t:'Flexboxをフル活用した純CSS(JS非依存)。BootstrapのjQuery依存への反動。',g:'Flexboxネイティブ世代の代表。',f:['bootstrap','flexbox','foundation']},
+{id:'chakra',l:5,y:2019,s:'current',sn:'Chakra UI',c:'Segun Adebayo',t:'a11yとDXを重視。Style Propsで直感的に。MUIの重厚さへの対案。',g:'後にArk UI+Panda CSSへ分解しヘッドレス潮流を取り込んだ。',f:['mui','react']},
+{id:'headlessui',l:5,y:2020,s:'current',sn:'Headless UI',c:'Tailwind Labs',t:'Tailwind前提の「見た目を持たない」アクセシブルなコンポーネント群。',g:'ヘッドレス設計を主流化。',f:['tailwind']},
+{id:'radix',l:5,y:2020,s:'mainstream',sn:'Radix UI',c:'Modulz / WorkOS',t:'低レベル・unstyled・高a11yなReactプリミティブ群。',g:'shadcn/uiの土台。ヘッドレス潮流を技術的に完成。',f:['headlessui','react']},
+{id:'daisyui',l:5,y:2020,s:'current',sn:'daisyUI',c:'Pouya Saadeghi',t:'Tailwind上に載るコンポーネントプラグイン。btn/card等のセマンティック命名を提供。',g:'「Tailwindの便利さ+短いクラス名」を両立。ユーティリティ時代のBootstrap的存在。',f:['tailwind','bootstrap']},
+{id:'mantine',l:5,y:2021,s:'mainstream',sn:'Mantine',c:'Vitaly Rtishchev',t:'100超のコンポーネント+hooksを備えたフル機能ライブラリ。',g:'MUI/Chakraに次ぐ主要選択肢に定着。',f:['chakra','mui','react']},
+{id:'flowbite',l:5,y:2021,s:'current',sn:'Flowbite',c:'Themesberg',t:'Tailwindベースの「すぐ貼れる」マークアップ済みコンポーネント集。',g:'Tailwindエコシステムの実用的供給源。',f:['tailwind','bootstrap','daisyui']},
+{id:'shadcn',l:5,y:2023,s:'mainstream',sn:'shadcn/ui',c:'shadcn (Shadab Ahmed, Vercel)',t:'Radix+Tailwindを、CLIで自分のリポジトリにソースをコピペ配置する新形態。',g:'「インストールせずコードを所有する」配布でUI配布のパラダイムを転換した最重要の転機。',f:['radix','tailwind','headlessui']},
+{id:'parkui',l:5,y:2023,s:'niche',sn:'Park UI',c:'Christian Schröter',t:'Ark UI+Panda CSS土台に、shadcnのコピペ式を踏襲。React以外も対象。',g:'コピペ配布のマルチFW化を示す事例。',f:['shadcn','radix','arkui']},
+{id:'jquery',l:6,y:2006,s:'legacy',sn:'jQuery',c:'John Resig',t:'生DOM API・ブラウザ非互換・Prototype.jsを置換。$()でDOM操作とAjaxを統一。',g:'2010年代前半のWebを事実上支配。状態とビューの同期は手動DOM操作のまま。',f:['javascript']},
+{id:'knockout',l:6,y:2010,s:'legacy',sn:'Knockout',c:'Steve Sanderson',t:'observableによる宣言的データバインディング(MVVM)を導入。',g:'現代signalsの直接の祖先と評される細粒度依存追跡の先駆。',f:['jquery']},
+{id:'backbone',l:6,y:2010,s:'legacy',sn:'Backbone',c:'Jeremy Ashkenas',t:'Model/View/Collectionで構造を与えた最初期SPA向けMVC。',g:'バインディング欠如が次世代誕生の動機に。',f:['jquery']},
+{id:'angularjs',l:6,y:2010,s:'legacy',sn:'AngularJS',c:'Misko Hevery / Google',t:'双方向データバインディングとHTMLディレクティブを導入。',g:'SPA開発を一変させたが自身のAngular 2で置換。2022年サポート終了。',f:['knockout','jquery']},
+{id:'ember',l:6,y:2011,s:'declining',sn:'Ember',c:'Yehuda Katz, Tom Dale',t:'Rails流「規約は設定に優る」を徹底した重量級フルスタック。',g:'完結したエコシステムを提供。Reactの台頭で後退。',f:['backbone']},
+{id:'react',l:6,y:2013,s:'mainstream',sn:'React',c:'Jordan Walke / Facebook',t:'仮想DOM+単方向データフロー+JSXで「UI=状態の関数」を確立。AngularJSの反動。',g:'フロントのパラダイムを決定づけた最重要ライブラリ。スタイリング非規定がCSS-in-JS文化を生んだ。',f:['angularjs']},
+{id:'vue',l:6,y:2014,s:'mainstream',sn:'Vue',c:'Evan You',t:'AngularJSの良い部分とReactの仮想DOMを取り込んだ折衷案。',g:'.vueの<style scoped>でコンポーネント単位scoped CSSを標準化した点が画期的。',f:['angularjs','react','knockout']},
+{id:'preact',l:6,y:2015,s:'niche',sn:'Preact',c:'Jason Miller',t:'同一APIで約3kBのReact軽量代替。',g:'大規模Reactの軽量置換を可能に。islandsの着想にも繋がる。',f:['react']},
+{id:'angular2',l:6,y:2016,s:'mainstream',sn:'Angular 2+',c:'Google',t:'AngularJSの完全書き直し。TS・コンポーネント・RxJS・DIを核に再設計。',g:'本格エンタープライズFWへ転換。ViewEncapsulationでscoped CSSを標準提供。',f:['angularjs','react','typescript']},
+{id:'svelte',l:6,y:2016,s:'current',sn:'Svelte',c:'Rich Harris',t:'「仮想DOMはランタイムコスト」への反動。ビルド時にDOM更新コードへコンパイル。',g:'「コンパイラがFW」という発想を確立。<style>は自動でscoped。',f:['react','vue']},
+{id:'solid',l:6,y:2018,s:'current',sn:'SolidJS',c:'Ryan Carniato',t:'JSXを保ちつつ仮想DOMを捨て、Knockout由来のsignalで該当ノードだけ更新。',g:'fine-grained reactivityを主流化し後のsignals採用に影響。',f:['react','knockout','svelte']},
+{id:'lit',l:6,y:2019,s:'niche',sn:'Lit',c:'Google (Polymer)',t:'標準のWeb Components上に薄く乗り、lit-htmlで効率再描画。',g:'Shadow DOMによる真のネイティブscoped CSSを持つ。横断UIに強い。',f:['polymer']},
+{id:'alpine',l:6,y:2019,s:'current',sn:'Alpine.js',c:'Caleb Porzio',t:'HTMLに属性を直書きするVue風の極小版。jQueryの現代的後継。',g:'「HTMLにとってのTailwind」。サーバ駆動スタックのjQueryを置換。',f:['vue','jquery','tailwind']},
+{id:'qwik',l:6,y:2022,s:'niche',sn:'Qwik',c:'Misko Hevery / Builder.io',t:'状態をHTMLにシリアライズしクライアントで「再開(resumability)」。hydration反動。',g:'TTIの理論的最小化を狙う。採用は限定的。',f:['angular2','react','solid']},
+{id:'svelte5',l:6,y:2024,s:'current',sn:'Svelte 5',c:'Rich Harris',t:'暗黙リアクティビティ($:)の破綻への自己反動。$state/$derived(signal)へ刷新。',g:'コンパイラ方式とsignalsの融合。仮想DOM→コンパイラ→signalsの潮流の象徴。',f:['svelte','solid','react']},
+{id:'gatsby',l:7,y:2015,s:'legacy',sn:'Gatsby',c:'Kyle Mathews',t:'旧来SSGを置換するReact製SSG。GraphQLデータ層でJamstackを牽引。',g:'ビルドの遅さとNext台頭で失速、現在レガシー。',f:['react']},
+{id:'nextjs',l:7,y:2016,s:'mainstream',sn:'Next.js',c:'Vercel (Guillermo Rauch)',t:'Reactに本格SSRをもたらした決定版。PHPのファイルベース手軽さが着想。',g:'「Reactメタフレームワーク」を確立。App Router(2023)でRSCを主流化した現代のデファクト。',f:['react']},
+{id:'nuxt',l:7,y:2016,s:'mainstream',sn:'Nuxt',c:'Chopin兄弟',t:'Next.jsのVue版。SSR/SSGとファイルベースルーティングを統合。',g:'Vue界のフルスタック標準。Nitroでユニバーサルデプロイ。',f:['nextjs','vue']},
+{id:'sapper',l:7,y:2017,s:'legacy',sn:'Sapper',c:'Rich Harris',t:'Next/Nuxtに相当するSvelte版アプリFWの初代。',g:'SvelteKitへ発展的解消した前身。',f:['nextjs','svelte','nuxt']},
+{id:'gridsome',l:7,y:2018,s:'legacy',sn:'Gridsome',c:'Hjalmar Snadden',t:'GatsbyのVue版。GraphQLデータ層を持つVue製SSG。',g:'Nuxt拡充と開発停滞で失速。',f:['gatsby','vue']},
+{id:'rsc',l:7,y:2020,s:'current',sn:'RSC',c:'Meta',t:'サーバ専用コンポーネントでJSを削減。CSR/SSRへの反動。',g:'Next App Routerが先行採用→React 19で安定化。設計前提を「RSC対応」へ転換。',f:['react']},
+{id:'astro',l:7,y:2021,s:'mainstream',sn:'Astro',c:'Fred Schott / Nate Moore',t:'既定でゼロJSの静的HTMLを出し、必要箇所のみ「アイランド」で部分hydration。',g:'アイランドアーキテクチャを主流化。コンテンツ重視サイトの新基準。',f:['preact','marko']},
+{id:'remix',l:7,y:2021,s:'declining',sn:'Remix',c:'Ryan Florence / Michael Jackson',t:'React Router上にネスト型loader/actionとサーバ中心データフロー。Web標準回帰。',g:'2024年React Router v7へ吸収統合され独立ブランドは縮小。',f:['nextjs']},
+{id:'sveltekit',l:7,y:2022,s:'mainstream',sn:'SvelteKit',c:'Svelte team / Vercel',t:'Sapperの後継。Viteベースに再設計し、アダプタ方式でサーバレス/エッジ対応。',g:'Svelteの標準フルスタックFWとして確立。',f:['sapper','svelte','vite','nextjs']},
+{id:'qwikcity',l:7,y:2022,s:'niche',sn:'Qwik City',c:'Builder.io',t:'Qwikのresumability前提にルーティング/データ/サーバ関数を載せる。',g:'「O(1)起動」を標榜。エコシステムは限定的。',f:['qwik','nextjs','remix','vite']},
+{id:'solidstart',l:7,y:2024,s:'niche',sn:'SolidStart',c:'Ryan Carniato',t:'SolidJSの公式メタFW。Next/Remixの概念をSolidの細粒度リアクティビティに移植。',g:'性能評価は高いが採用はニッチ。',f:['solid','nextjs','remix','vite']},
+{id:'requirejs',l:8,y:2010,s:'legacy',sn:'RequireJS',c:'James Burke',t:'<script>手動順序管理への反動。非同期に依存を読み込むAMDの代表実装。',g:'ブラウザで初めて本格的なモジュール依存解決を実用化(1.0は2011)。',f:[]},
+{id:'browserify',l:8,y:2011,s:'legacy',sn:'Browserify',c:'James Halliday',t:'AMDの独自構文を書かされるRequireJSへの反動。NodeのCommonJS requireをブラウザへ。',g:'npmエコシステムをフロントに開放した最初のバンドラ。',f:['requirejs','nodejs']},
+{id:'webpack',l:8,y:2012,s:'mainstream',sn:'webpack',c:'Tobias Koppers',t:'modules-webmakeへの却下PRが起点。CSS・画像も含め「すべてをモジュール」+コード分割。',g:'loader/pluginとコード分割を確立し、SPA時代のビルドのデファクト標準に。',f:['browserify','requirejs']},
+{id:'grunt',l:8,y:2012,s:'legacy',sn:'Grunt',c:'Ben Alman',t:'手書きMakefile/シェルを置換したNode製の最初期JSタスクランナー。',g:'JSタスクランナーという分野を確立した最初の本命。',f:['nodejs']},
+{id:'gulp',l:8,y:2013,s:'legacy',sn:'Gulp',c:'Eric Schoffstall',t:'Gruntの冗長な設定への反動。Nodeストリームで中間ファイルを書かずパイプ処理。',g:'「code over configuration」でタスクランナーの主流を奪った。',f:['grunt']},
+{id:'babel',l:8,y:2014,s:'mainstream',sn:'Babel',c:'Sebastian McKenzie',t:'6to5(ES6→ES5)として公開し、ES7/JSXまで扱う汎用変換基盤へ拡張(2015改名)。',g:'最新ECMAScriptを既存ブラウザ向けに変換する事実上の標準トランスパイラ。',f:[]},
+{id:'rollup',l:8,y:2015,s:'current',sn:'Rollup',c:'Rich Harris',t:'ローダ埋め込みで肥大化するwebpack/Browserifyへの反動。ESM前提のtree-shaking。',g:'tree-shakingを広め、後にViteの本番バンドラにも採用。',f:['browserify','webpack']},
+{id:'parcel',l:8,y:2017,s:'niche',sn:'Parcel',c:'Devon Govett',t:'webpackのconfig地獄への反動。設定ゼロで動く即時バンドラ。',g:'ゼロコンフィグをバンドラに持ち込みDXを主戦場に変えた。',f:['webpack','browserify','rollup']},
+{id:'swc',l:8,y:2019,s:'mainstream',sn:'SWC',c:'DongYoon Kang',t:'Babel互換のトランスパイルをRustで再実装。JS製Babelの速度限界への反動。',g:'Babel比で桁違いの高速化。Next.js/Turbopack/Rspackが内部採用する標準コンパイラ層。',f:['babel']},
+{id:'snowpack',l:8,y:2019,s:'legacy',sn:'Snowpack',c:'Fred K. Schott',t:'規模で遅くなるwebpackへの反動。開発時はバンドルせずネイティブESMで配信するアンバンドル開発。',g:'no-bundle dev/即時HMR潮流の先駆け。役割をViteに譲り終息。',f:['webpack','rollup','parcel']},
+{id:'esbuild',l:8,y:2020,s:'mainstream',sn:'esbuild',c:'Evan Wallace',t:'JS製バンドラの遅さへの反動。Go製で並列処理しネイティブ速度(従来比10-100倍)。',g:'バンドラをGoで書き「ビルドは遅いもの」という前提を覆した。Viteの基盤。',f:['webpack','rollup']},
+{id:'vite',l:8,y:2020,s:'mainstream',sn:'Vite',c:'Evan You',t:'開発時はネイティブESM+esbuild、本番はRollupの二段構成。Snowpackのno-bundle思想を継ぎwebpackの重さへの反動。',g:'no-bundle開発でcold start/HMRを劇的高速化し、フレームワーク横断の標準ビルド基盤へ。',f:['esbuild','rollup','snowpack']},
+{id:'lightningcss',l:8,y:2022,s:'mainstream',sn:'Lightning CSS',c:'Devon Govett',t:'PostCSS+cssnano+Autoprefixer等JS製CSSスタックへの反動。パース/変換/minifyをRustで一括(旧Parcel CSS)。',g:'CSS処理をRustネイティブ化。ViteのCSS処理やTailwind v4(Oxide)に組み込まれた標準。',f:['parcel','postcss','autoprefixer','esbuild']},
+{id:'turbopack',l:8,y:2022,s:'current',sn:'Turbopack',c:'Tobias Koppers / Vercel',t:'webpack作者自身による「webpackの後継」Rust製インクリメンタルバンドラ。変換はSWCに依存。',g:'生みの親がRustで再実装する象徴性。Next.jsの開発(後に本番)バンドラに段階既定化。',f:['webpack','esbuild','swc']},
+{id:'bun',l:8,y:2022,s:'current',sn:'Bun',c:'Jarred Sumner',t:'Nodeのランタイム/ツール分断とJS製の遅さへの反動。ランタイム/PM/テスト/バンドラをZigで一体化。',g:'Go/Rust一辺倒のネイティブ化にZigの選択肢を加えたオールインワン。',f:['esbuild']},
+{id:'rspack',l:8,y:2023,s:'current',sn:'Rspack',c:'ByteDance Web Infra',t:'巨大化したwebpackビルドを救うRust製。webpack互換API/プラグインをそのまま使えるドロップイン置換。',g:'webpack資産を捨てずRust速度を得る移行戦略を確立。',f:['webpack','esbuild','swc']},
+{id:'rolldown',l:8,y:2024,s:'current',sn:'Rolldown',c:'VoidZero / Evan You',t:'Viteのdev(esbuild)/prod(Rollup)二系統の不整合を統一。Rollup互換のRust製、パースはOxc。',g:'Vite配下のバンドラを単一Rust製に統合する統一トレインの中核(Vite 8で採用)。',f:['rollup','esbuild','vite']}
+];
+var byId={};D.forEach(function(n){byId[n.id]=n;});
+var DIFF={resetcss:1,normalizecss:1,styledsystem:3,themeui:3,picocss:1,openprops:2,panda:3,stylex:3,pigmentcss:3,htmx:2,stimulus:2,polymer:3,stencil:3,marko:3,mithril:2,eleventy:2,docusaurus:2,vitepress:2,redwood:3,redux:4,mobx:3,vuex:3,xstate:4,recoil:3,zustand:1,jotai:2,pinia:2,tanstackquery:3,valtio:2,nodejs:3,deno:2,npm:1,yarn:1,pnpm:1,elm:4,dart:3,rescript:4,clojurescript:4,purescript:5,wasm:4,javascript:3,coffeescript:2,typescript:4,jsx:2,flow:3,es2015:2,vuetify:3,quasar:3,elementui:2,elementplus:3,antdvue:3,primevue:3,naiveui:3,vant:2,radixvue:4,rekaui:4,nuxtui:3,skeleton:2,meltui:4,bitsui:3,shadcnsvelte:3,hopeui:2,kobalte:4,corvu:4,shadcnsolid:3,reachui:3,reactaria:4,ariakit:4,primereact:3,heroui:2,baseui:4,tamagui:4,tremor:2,zagjs:4,arkui:3,shoelace:2,fast:3,fluentui:3,carbon:3,sgml:4,fosi:4,rrp:1,viola:2,ssp:2,chss:2,tagsoup:1,frames:2,tablelayout:3,html32:1,dsssl:5,jsss:2,css1:1,css2:2,css3mod:2,css21:2,mq:2,anim:2,calc:1,flexbox:2,grid:3,customprops:2,iswhere:2,aspectratio:1,layer:3,containerq:3,colormix:2,subgrid:3,has:2,nesting:1,lightdark:1,property:3,startingstyle:3,textwrap:1,scrollanim:4,sass:2,less:2,scss:2,stylus:2,autoprefixer:1,postcss:3,cssmodules:2,oocss:2,bem:2,smacss:3,atomic:2,itcss:3,cube:3,basscss:1,tachyons:2,tailwind:3,tw2:2,windi:2,tw3:3,unocss:3,tw4:3,jss:3,radium:2,aphrodite:2,glamor:2,styledcomp:3,emotion:3,linaria:3,stitches:3,vanillaextract:4,blueprint:2,grid960:1,bootstrap:2,foundation:2,purecss:1,mui:3,semanticui:2,materialize:2,antd:3,bulma:2,chakra:3,headlessui:3,radix:4,daisyui:1,mantine:3,flowbite:2,shadcn:3,parkui:3,jquery:2,knockout:3,backbone:3,angularjs:3,ember:4,react:3,vue:2,preact:2,angular2:4,svelte:2,solid:4,lit:3,alpine:1,qwik:4,svelte5:3,gatsby:3,nextjs:4,nuxt:3,sapper:3,gridsome:3,rsc:5,astro:2,remix:3,sveltekit:3,qwikcity:4,solidstart:4,requirejs:3,browserify:2,webpack:4,grunt:2,gulp:2,babel:3,rollup:3,parcel:1,swc:3,snowpack:2,esbuild:2,vite:2,lightningcss:3,turbopack:4,bun:3,rspack:3,rolldown:3};
+var DLAB={1:'入門',2:'やや易',3:'中級',4:'難',5:'専門'};
+function era(y){return y<=1995?0:y<=2005?1:y<=2012?2:y<=2016?3:y<=2020?4:5;}
+var ERAT=['〜1995　前史：タグ直書き & スタイル言語の乱立','1996–2005　黎明期：手書き / テーブルレイアウト','2006–2012　前処理 & jQuery & バンドラ黎明','2013–2016　コンポーネント革命（React・Vue・Svelte）','2017–2020　ユーティリティ・CSS-in-JS・ネイティブビルド','2021–2026　ネイティブCSS成熟 & Rust/Goツールチェーン'];
+var Wv=1100,PAD=12,boxH=38,rowGap=14,colGap=10,headerH=30,GUT=48;
+var CONTENT=Wv-PAD*2,BX0=PAD+GUT,BW=CONTENT-GUT;
+function wOf(s){var w=0;for(var i=0;i<s.length;i++){w+=s.charCodeAt(i)>0x2E80?12.2:7.2;}return Math.max(60,Math.min(240,Math.round(w)+18));}
+var buckets=[[],[],[],[],[],[]];
+D.forEach(function(n){n.w=wOf(n.sn);buckets[era(n.y)].push(n);});
+var Y=10,bands=[];
+buckets.forEach(function(b,ei){
+ var top=Y, ct=top+headerH+10;
+ var years=[],ymap={};
+ b.forEach(function(n){if(!ymap[n.y]){ymap[n.y]=[];years.push(n.y);}ymap[n.y].push(n);});
+ years.sort(function(a,c){return a-c;});
+ var cy=ct,marks=[];
+ years.forEach(function(yr){
+  var nodes=ymap[yr];nodes.sort(function(a,c){return a.l-c.l;});
+  var x=BX0,row=0;
+  nodes.forEach(function(n){if(x+n.w>BX0+BW){row++;x=BX0;}n.x=x;n.yy=cy+row*(boxH+rowGap);x+=n.w+colGap;});
+  marks.push({y:yr,ytop:cy});
+  cy+=(row+1)*(boxH+rowGap)+12;
+ });
+ var bh=cy-top;
+ bands.push({top:top,h:bh,t:ERAT[ei],ei:ei,marks:marks});
+ Y+=bh;
+});
+var H=Y+8;
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function edgePath(a,b){var ax=a.x+a.w/2,ay=a.yy+boxH,bx=b.x+b.w/2,by=b.yy;var d=Math.max(20,Math.abs(by-ay)*0.4);return 'M'+ax+','+ay+' C'+ax+','+(ay+d)+' '+bx+','+(by-d)+' '+bx+','+by;}
+var p=[];
+p.push('<svg viewBox="0 0 '+Wv+' '+H+'" width="'+Wv+'" style="max-width:100%;display:block;font-family:var(--font)" role="img" aria-label="CSS・フロントエンドのエコシステム統合フロー図 1996-2026">');
+p.push('<defs>');
+p.push('<marker id="mF" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="'+faint+'"/></marker>');
+p.push('<marker id="mIn" markerWidth="7.5" markerHeight="7.5" refX="6" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="'+cIn+'"/></marker>');
+p.push('<marker id="mOut" markerWidth="7.5" markerHeight="7.5" refX="6" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="'+cOut+'"/></marker>');
+p.push('</defs>');
+bands.forEach(function(bd){
+ if(bd.ei%2===0)p.push('<rect x="0" y="'+bd.top+'" width="'+Wv+'" height="'+bd.h+'" fill="'+(isDark?'rgba(180,180,175,0.05)':'rgba(95,94,90,0.045)')+'"/>');
+ p.push('<line x1="0" y1="'+bd.top+'" x2="'+Wv+'" y2="'+bd.top+'" stroke="'+(isDark?'rgba(180,180,175,0.22)':'rgba(95,94,90,0.22)')+'" stroke-width="1"/>');
+ p.push('<text x="'+PAD+'" y="'+(bd.top+19)+'" style="fill:var(--t2)" font-size="14" font-weight="600">'+esc(bd.t)+'</text>');
+ bd.marks.forEach(function(mk,i){
+  if(i>0)p.push('<line x1="'+PAD+'" y1="'+(mk.ytop-6)+'" x2="'+(Wv-PAD)+'" y2="'+(mk.ytop-6)+'" stroke="'+(isDark?'rgba(180,180,175,0.10)':'rgba(95,94,90,0.08)')+'" stroke-width="1"/>');
+  p.push('<text x="'+PAD+'" y="'+(mk.ytop+boxH/2+4)+'" style="fill:var(--t3)" font-size="12.5" font-weight="600">'+mk.y+'</text>');
+ });
+});
+p.push('<g id="base">');
+D.forEach(function(n){n.f.forEach(function(fid){var a=byId[fid];if(a)p.push('<path d="'+edgePath(a,n)+'" fill="none" stroke="'+faint+'" stroke-width="0.9" marker-end="url(#mF)"/>');});});
+p.push('</g>');
+p.push('<g id="boxes">');
+D.forEach(function(n){var cat=CAT[n.l],pal=cat.p,dash=(n.s==='legacy'||n.s==='declining'),op=dash?0.82:1;var dv=DIFF[n.id]||0,pipW=7,pipG=2.5,pw=5*pipW+4*pipG,px=n.x+n.w/2-pw/2,py=n.yy+boxH-11,pips='';for(var pi=0;pi<5;pi++){pips+='<rect x="'+(px+pi*(pipW+pipG)).toFixed(1)+'" y="'+py+'" width="'+pipW+'" height="4.5" rx="1" fill="'+(pi<dv?pal.s:faint)+'"/>';}p.push('<g class="box" data-id="'+n.id+'" opacity="'+op+'"><rect x="'+n.x+'" y="'+n.yy+'" width="'+n.w+'" height="'+boxH+'" rx="6" fill="'+pal.f+'" stroke="'+pal.s+'" stroke-width="1.1"'+(dash?' stroke-dasharray="3 2.4"':'')+'/><text x="'+(n.x+n.w/2)+'" y="'+(n.yy+16)+'" text-anchor="middle" style="fill:'+pal.x+'" font-size="12.5">'+esc(n.sn)+'</text>'+pips+'</g>');});
+p.push('</g>');
+p.push('<g id="hi"></g>');
+p.push('</svg>');
+document.getElementById('chart').innerHTML=p.join('');
+var fc=document.getElementById('filters');var fh='<button class="chip" data-f="all" aria-pressed="true">全部</button>';CAT.forEach(function(c){fh+='<button class="chip" data-f="'+c.k+'"><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:'+c.m+';margin-right:5px"></span>'+esc(c.t)+'</button>';});fc.innerHTML=fh;
+var lg=document.getElementById('legend');lg.innerHTML='<span class="lgd"><svg width="24" height="10"><line x1="0" y1="5" x2="24" y2="5" stroke="'+cIn+'" stroke-width="2" marker-end="url(#mIn)"/></svg>影響元←</span><span class="lgd"><svg width="24" height="10"><line x1="0" y1="5" x2="24" y2="5" stroke="'+cOut+'" stroke-width="2" marker-end="url(#mOut)"/></svg>影響先→</span><span class="lgd"><span style="display:inline-block;width:14px;height:12px;border:1px solid var(--t3);border-radius:3px"></span>現役</span><span class="lgd"><span style="display:inline-block;width:14px;height:12px;border:1px dashed var(--t3);border-radius:3px"></span>後退・レガシー</span>';lg.innerHTML+='<div style="margin-top:8px"><span class="lgd"><svg width="46" height="11" style="vertical-align:middle"><rect x="0" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="9.5" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="19" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="28.5" y="3" width="7" height="5" rx="1" fill="var(--bd2)"/><rect x="38" y="3" width="7" height="5" rx="1" fill="var(--bd2)"/></svg> 習得難易度（5段階・塗りが多いほど難しい）</span><span class="lgd" style="color:var(--t3)">1入門 / 2やや易 / 3中級 / 4難 / 5専門</span></div>';
+var boxesG=document.getElementById('boxes'),baseG=document.getElementById('base'),hiG=document.getElementById('hi'),tip=document.getElementById('tip'),wrap=document.getElementById('wrap');
+var boxEls={};Array.prototype.slice.call(boxesG.querySelectorAll('g.box')).forEach(function(g){boxEls[g.getAttribute('data-id')]=g;});
+var state={cat:'all',lock:null};
+function descOf(id){return D.filter(function(n){return n.f.indexOf(id)>=0;}).map(function(n){return n.id;});}
+function applyDim(setIds){
+ D.forEach(function(n){var g=boxEls[n.id];var base=(state.cat==='all'||CAT[n.l].k===state.cat);var dash=(n.s==='legacy'||n.s==='declining');var full=dash?0.82:1;var op;if(setIds){op=setIds[n.id]?full:0.16;}else{op=base?full:0.18;}g.setAttribute('opacity',op);});
+ baseG.setAttribute('opacity',setIds?0.07:1);
+}
+function highlight(id){var n=byId[id];var anc=n.f.filter(function(x){return byId[x];});var de=descOf(id);var set={};set[id]=1;anc.forEach(function(x){set[x]=1;});de.forEach(function(x){set[x]=1;});
+ var h='';anc.forEach(function(x){h+='<path d="'+edgePath(byId[x],n)+'" fill="none" stroke="'+cIn+'" stroke-width="2" opacity="0.95" marker-end="url(#mIn)"/>';});de.forEach(function(x){h+='<path d="'+edgePath(n,byId[x])+'" fill="none" stroke="'+cOut+'" stroke-width="2" opacity="0.95" marker-end="url(#mOut)"/>';});hiG.innerHTML=h;applyDim(set);}
+function clearHi(){hiG.innerHTML='';applyDim(null);}
+function chip(id){return '<button class="chip" data-go="'+id+'">'+esc(byId[id].sn)+'</button>';}
+function showPanel(id){var n=byId[id];var cat=CAT[n.l];var anc=n.f.filter(function(x){return byId[x];});var de=descOf(id);
+ var h='<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-bottom:4px"><span style="font-size:17px;font-weight:600;color:var(--t1)">'+esc(n.sn)+'</span><span style="font-size:12.5px;color:'+cat.m+'">'+esc(cat.t)+'</span><span style="font-size:12.5px;color:var(--t3)">'+n.y+'年・'+esc(STAT[n.s])+'</span></div>';
+ if(n.c)h+='<div style="font-size:12.5px;color:var(--t2);margin-bottom:7px">作者: '+esc(n.c)+'</div>';
+ var dv=DIFF[n.id]||0,dpip='';for(var pi=0;pi<5;pi++){dpip+='<span style="display:inline-block;width:10px;height:6px;border-radius:1px;margin-right:2px;background:'+(pi<dv?cat.m:'var(--bd2)')+'"></span>';}h+='<div style="font-size:13px;color:var(--t2);margin-bottom:8px">習得難易度　'+dpip+' <span style="color:var(--t1)">Lv'+dv+'・'+(DLAB[dv]||'')+'</span></div>';
+ h+='<div style="font-size:14px;line-height:1.65;color:var(--t1);margin-bottom:5px"><span style="color:var(--t3)">系譜　</span>'+esc(n.t)+'</div>';
+ h+='<div style="font-size:14px;line-height:1.65;color:var(--t1)"><span style="color:var(--t3)">意義　</span>'+esc(n.g)+'</div><div id="go">';
+ if(anc.length)h+='<span style="font-size:12.5px;color:'+cIn+';align-self:center">影響元 ←</span>'+anc.map(chip).join('');
+ if(de.length)h+='<span style="font-size:12.5px;color:'+cOut+';align-self:center;margin-left:4px">影響先 →</span>'+de.map(chip).join('');
+ if(!anc.length&&!de.length)h+='<span style="font-size:12.5px;color:var(--t3)">直接の親子リンクなし</span>';
+ h+='<button class="chip" data-clear="1" style="margin-left:auto">解除</button></div>';
+ document.getElementById('panel').innerHTML=h;}
+boxesG.addEventListener('mouseover',function(e){var g=e.target.closest('g.box');if(g&&!state.lock)highlight(g.getAttribute('data-id'));});
+boxesG.addEventListener('mouseout',function(e){var g=e.target.closest('g.box');if(g&&!state.lock)clearHi();});
+boxesG.addEventListener('click',function(e){var g=e.target.closest('g.box');if(!g)return;var id=g.getAttribute('data-id');state.lock=id;highlight(id);showPanel(id);});
+boxesG.addEventListener('mousemove',function(e){var g=e.target.closest('g.box');if(g){var n=byId[g.getAttribute('data-id')];tip.innerHTML='<b>'+esc(n.sn)+'</b><br><span style="color:var(--t2)">'+n.y+'年・'+esc(CAT[n.l].t)+'・'+esc(STAT[n.s])+'</span>';tip.style.display='block';var wr=wrap.getBoundingClientRect();var x=e.clientX-wr.left+14,yp=e.clientY-wr.top+14;if(x>wr.width-240)x-=260;tip.style.left=x+'px';tip.style.top=yp+'px';}else{tip.style.display='none';}});
+boxesG.addEventListener('mouseleave',function(){tip.style.display='none';});
+document.getElementById('panel').addEventListener('click',function(e){var go=e.target.closest('[data-go]');if(go){var id=go.getAttribute('data-go');state.lock=id;highlight(id);showPanel(id);return;}var cl=e.target.closest('[data-clear]');if(cl){state.lock=null;clearHi();document.getElementById('panel').innerHTML='<span style="color:var(--t2);font-size:13.5px">ボックスをなぞると系譜（影響元 ← / 影響先 →）が濃く出ます。クリックで詳細。</span>';}});
+var ffSearch=document.getElementById('ff-search');
+fc.addEventListener('click',function(e){var b=e.target.closest('[data-f]');if(!b)return;state.cat=b.getAttribute('data-f');state.lock=null;hiG.innerHTML='';if(ffSearch)ffSearch.value='';Array.prototype.slice.call(fc.querySelectorAll('.chip')).forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});applyDim(null);});
+ffSearch.addEventListener('input',function(){var q=ffSearch.value.trim().toLowerCase();state.lock=null;state.cat='all';hiG.innerHTML='';Array.prototype.slice.call(fc.querySelectorAll('.chip')).forEach(function(x){x.setAttribute('aria-pressed',x.getAttribute('data-f')==='all'?'true':'false');});if(!q){applyDim(null);return;}var set={};D.forEach(function(n){if((n.sn+' '+n.id+' '+(n.c||'')).toLowerCase().indexOf(q)>=0)set[n.id]=1;});applyDim(set);});
+applyDim(null);
+})();
+</script>
+</body>
+</html>

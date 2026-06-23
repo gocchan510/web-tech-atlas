@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ブラウザ / エンジン / Web標準 系譜（1993–2026）</title>
+<style>
+:root{--t1:#1a1a1a;--t2:#565651;--t3:#8a8984;--bg1:#ffffff;--bg2:#f3f1ea;--bd3:rgba(0,0,0,0.14);--bd2:rgba(0,0,0,0.3);--bd1:rgba(0,0,0,0.42);--font:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;}
+@media(prefers-color-scheme:dark){:root{--t1:#ededed;--t2:#b3b2ad;--t3:#88877f;--bg1:#1f1f1e;--bg2:#2a2a28;--bd3:rgba(255,255,255,0.14);--bd2:rgba(255,255,255,0.3);--bd1:rgba(255,255,255,0.42);}body{background:#171716}}
+*{box-sizing:border-box}
+body{margin:0;padding:24px 18px 60px;font-family:var(--font);color:var(--t1);background:#fafaf7;line-height:1.6}
+@media(prefers-color-scheme:dark){body{background:#171716}}
+h1{font-size:22px;font-weight:600;margin:0 0 4px}
+.sub{font-size:13px;color:var(--t2);margin:0 0 16px;max-width:900px}
+#wrap{position:relative;max-width:1140px;margin:0 auto}
+.chip{font:400 12.5px var(--font);padding:4px 10px;border:1px solid var(--bd2);border-radius:8px;background:transparent;color:var(--t2);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--bg2);color:var(--t1);border-color:var(--bd1)}
+.lgd{display:inline-flex;align-items:center;gap:5px;margin-right:14px;font-size:12.5px;color:var(--t2)}
+g.box{cursor:pointer}
+#tip{position:absolute;pointer-events:none;background:var(--bg1);border:1px solid var(--bd2);border-radius:8px;padding:6px 10px;font:400 12.5px var(--font);color:var(--t1);max-width:280px;display:none;z-index:9;line-height:1.5;box-shadow:0 2px 10px rgba(0,0,0,0.12)}
+#panel{margin-top:16px;border:1px solid var(--bd3);border-radius:12px;padding:14px 18px;background:var(--bg1);min-height:60px}
+#go{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+#chart{overflow-x:auto}
+</style>
+</head>
+<body>
+<div id="wrap">
+<h1>ブラウザ / エンジン / Web標準 系譜（1993–2026）</h1>
+<div style="margin:2px 0 12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center"><span style="font-size:12px;color:var(--t3)">Web技術アトラス:</span><a href="daisyui-hub.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">daisyUIハブ</a><a href="css-frontend-lineage-flow.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">フロントエンド技術</a><a href="prog-lang-genealogy.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">プログラミング言語</a><a href="reactivity-state-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">リアクティビティ/状態</a><a href="cloud-evolution-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">クラウド進化史</a><a href="ai-llm-coding-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">AI・LLM</a><a href="rendering-arch-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">レンダリング/配信</a><span style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd1);border-radius:8px;color:var(--t1);background:var(--bg2);font-weight:600" aria-current="page">ブラウザ/Web標準</span><a href="js-engine-runtime-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">JSエンジン/ランタイム</a><a href="vcs-git-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">Git/バージョン管理</a></div>
+<p class="sub">27のブラウザ・レンダリングエンジン・標準。縦＝時系列、色＝種別（ブラウザ / エンジン / 標準化団体 / マイルストーン）、矢印＝系譜。KHTML→WebKit→Blink、Trident、Netscape→Gecko、W3C/WHATWG/TC39。第一次/第二次ブラウザ戦争からBlink寡占・Baselineまで。バーは歴史的重要度。</p>
+<div style="margin-bottom:10px"><input id="ff-search" type="search" placeholder="名前で検索（例: WebKit, Blink, WHATWG, HTML5）" style="width:100%;max-width:440px;padding:7px 11px;border:1px solid var(--bd2);border-radius:8px;background:var(--bg1);color:var(--t1);font:400 13px var(--font)"></div>
+<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px"><span style="font-size:12.5px;color:var(--t3);margin-right:2px">系統を強調</span><span id="filters"></span></div>
+<div id="legend" style="margin-bottom:12px"></div>
+<div id="chart"></div>
+<div id="tip"></div>
+<div id="panel"><span style="color:var(--t2);font-size:13.5px">ボックスにカーソルを合わせると系譜（影響元 ← / 影響先 →）が濃く表示されます。クリックで詳細。検索や系統チップでも絞り込めます。</span></div>
+</div>
+<script>
+(function(){
+var isDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+var STAT={mainstream:'主流',current:'現役',declining:'後退中',legacy:'レガシー',niche:'ニッチ'};
+var faint=isDark?'rgba(180,180,175,0.30)':'rgba(95,94,90,0.26)';
+var cIn=isDark?'#AFA9EC':'#534AB7', cOut=isDark?'#F0997B':'#D85A30';
+var CAT=[{k:'browser',t:'ブラウザ',L:{f:'#E6F1FB',s:'#185FA5',x:'#0C447C'},Dk:{f:'#0C447C',s:'#85B7EB',x:'#E6F1FB'},m:'#378ADD'},{k:'engine',t:'レンダリングエンジン',L:{f:'#E1F5EE',s:'#0F6E56',x:'#085041'},Dk:{f:'#085041',s:'#5DCAA5',x:'#E1F5EE'},m:'#1D9E75'},{k:'standards',t:'標準化団体',L:{f:'#EEEDFE',s:'#534AB7',x:'#3C3489'},Dk:{f:'#3C3489',s:'#AFA9EC',x:'#EEEDFE'},m:'#7F77DD'},{k:'milestone',t:'標準 / マイルストーン',L:{f:'#FAEEDA',s:'#854F0B',x:'#633806'},Dk:{f:'#633806',s:'#EF9F27',x:'#FAEEDA'},m:'#BA7517'}];CAT.forEach(function(c){c.p=isDark?c.Dk:c.L;});var ERAT=['〜1998　黎明・第一次ブラウザ戦争・標準化開始（Mosaic・Netscape・IE・W3C）','1999–2004　Gecko/WebKit 台頭 & WHATWG（Firefox・Safari）','2005–2012　標準復興 & Chrome（HTML5・Acid・V8）','2013–2026　Blink 寡占 & Baseline（Edge Chromium）'];function era(y){return y<=1998?0:y<=2004?1:y<=2012?2:3;}var D=[{id:'mosaic',l:0,y:1993,s:'legacy',sn:'Mosaic',c:'NCSA (Marc Andreessen / Eric Bina)',t:'NCSAが開発した最初期のグラフィカルWebブラウザ。コードはSpyglass経由でIE(Trident系)の源流の一つとなった。',g:'画像とテキストを同一画面に表示し、Webを一般に普及させた草分けのブラウザ。',f:[]},
+{id:'netscape',l:0,y:1994,s:'legacy',sn:'Netscape',c:'Netscape Communications (Marc Andreessen)',t:'Mosaic開発者が設立したNetscape社製。後にコードがオープンソース化されMozilla/Geckoの母体となった。',g:'1990年代に市場を席巻し、第一次ブラウザ戦争の主役となった商用ブラウザ。',f:['mosaic']},
+{id:'ie',l:0,y:1995,s:'legacy',sn:'Internet Explorer',c:'Microsoft',t:'Spyglass Mosaic由来のコードから出発し、後に独自のTridentエンジンを採用。Windows同梱でNetscapeを駆逐した。',g:'Windows同梱で第一次ブラウザ戦争を制し、長くデファクト標準だったMS製ブラウザ。',f:['mosaic']},
+{id:'trident',l:1,y:1997,s:'legacy',sn:'Trident',c:'Microsoft',t:'IE4(1997)で導入されたMicrosoft独自のレンダリングエンジン。IE11まで使われ、現在は互換モードのみで延命。',g:'Internet Explorerを駆動した独立系エンジンで、長年Web標準のもう一極だった。',f:['ie']},
+{id:'gecko',l:1,y:2000,s:'current',sn:'Gecko',c:'Netscape / Mozilla',t:'NetscapeのコードをMozillaがオープンソース化して新規開発(NGLayout)。Netscape 6(2000)で初搭載され、Firefoxへ継承。',g:'FirefoxなどMozilla系を支える独立系エンジンで、Chromium覇権下で非WebKit/Blinkの最後の砦。',f:['netscape']},
+{id:'firefox',l:0,y:2004,s:'mainstream',sn:'Firefox',c:'Mozilla Foundation',t:'Netscapeの後継としてMozilla Foundationが2004年に1.0公開。Geckoエンジンを採用。',g:'第二次ブラウザ戦争でIE独占を崩し、Web標準とオープンソースを推進した代表的ブラウザ。',f:['gecko','netscape']},
+{id:'presto',l:1,y:2003,s:'legacy',sn:'Presto (Opera)',c:'Opera Software',t:'Opera 7(2003)からOpera 12まで使われた独自エンジン。2013年にOperaはBlinkへ移行し開発終了。',g:'軽量・高速で標準準拠に優れた独立系エンジン。多くのCSS/モバイル機能を先取りした。',f:[]},
+{id:'khtml',l:1,y:1998,s:'legacy',sn:'KHTML',c:'KDE Project',t:'KDEのKonqueror用に1998年開発(公開はKDE 2.0/2000年)。AppleがフォークしWebKitを生み出した、現代エンジン系譜の起点。',g:'WebKit→Blinkへと連なる巨大系譜の源流となったオープンソースエンジン。',f:[]},
+{id:'webkit',l:1,y:2001,s:'mainstream',sn:'WebKit',c:'Apple',t:'AppleがKHTML/KJSをフォークして2001年に開始、2005年オープンソース化。SafariおよびiOS全ブラウザを駆動。',g:'KHTMLから派生しSafari/iOSを支え、さらにBlinkを生んだ現代の主要エンジン。',f:['khtml']},
+{id:'safari',l:0,y:2003,s:'mainstream',sn:'Safari',c:'Apple',t:'Appleが2003年に公開、WebKitエンジンを搭載。iOSではWebKit必須化でモバイルの一大勢力。',g:'WebKitを擁しmacOS/iOSの標準として巨大なモバイルWebシェアを持つAppleのブラウザ。',f:['webkit']},
+{id:'chrome',l:0,y:2008,s:'mainstream',sn:'Chrome',c:'Google',t:'2008年公開。当初WebKitを採用し、2013年に自家フォークのBlinkへ移行。現在のWeb最大シェア。',g:'高速なV8とマルチプロセス設計で市場を席巻し、事実上のWeb標準を主導するブラウザ。',f:['webkit']},
+{id:'blink',l:1,y:2013,s:'mainstream',sn:'Blink',c:'Google',t:'2013年GoogleがWebKit(WebCore)をフォークして誕生。Chrome/Edge/Opera/Braveなど大半が採用。',g:'WebKitから派生し、現在のWebレンダリングを事実上独占するChromium中核エンジン。',f:['webkit']},
+{id:'edgehtml',l:1,y:2015,s:'legacy',sn:'EdgeHTML',c:'Microsoft',t:'2015年、MicrosoftがTridentをフォーク・刷新して旧Edge用に開発。シェアを得られず2020年に廃止。',g:'Trident後継としてMS独自路線を狙ったが普及せず短命に終わったエンジン。',f:['trident']},
+{id:'edgechromium',l:0,y:2020,s:'mainstream',sn:'Edge (Chromium)',c:'Microsoft',t:'2020年、MicrosoftがEdgeHTMLを捨てBlink/Chromiumベースへ再構築。独自路線を放棄しChromium陣営入り。',g:'MSが独自エンジンを断念しChromiumへ合流した、Blink寡占を象徴する転換点。',f:['edgehtml','blink','chrome']},
+{id:'servo',l:1,y:2012,s:'niche',sn:'Servo',c:'Mozilla / Linux Foundation Europe',t:'2012年Mozillaが並列処理を狙いRustで開発開始。成果はFirefox(Quantum)へ移植され、現在はLinux Foundation下で継続。',g:'Rust製の並列・実験的エンジンで、安全性と並列描画の研究を通じ次世代設計に影響を与えた。',f:['gecko']},
+{id:'w3c',l:2,y:1994,s:'mainstream',sn:'W3C',c:'Tim Berners-Lee',t:'1994年10月、Web発明者Tim Berners-LeeがMITで設立。CERN・DARPA・欧州委員会の支援。HTML/CSS/DOMなどWeb中核仕様の標準化を統括し、後にWHATWGと並立する二大標準化主体の一方となった。',g:'Web標準化の中心機関として、HTML・CSS・DOMなど基盤仕様を勧告として制定し続けてきた。',f:[]},
+{id:'tc39',l:2,y:1997,s:'mainstream',sn:'TC39 / ECMAScript',c:'Ecma International (TC39) / Brendan Eich(JavaScript原作)',t:'Brendan EichがNetscapeで作ったJavaScriptを、1996年11月開始の標準化作業を経てEcma TC39が仕様化。第1版ECMA-262は1997年6月に採択。Netscape対Microsoftの妥協で「ECMAScript」と命名された。',g:'Webのスクリプト言語をベンダー中立な国際標準として定義し、JavaScriptの相互運用性を担保した。',f:['browserwars']},
+{id:'html4',l:3,y:1997,s:'legacy',sn:'HTML 4',c:'W3C',t:'1997年12月18日にW3C勧告として公開（4.01は1999年12月24日）。表現要素の整理と構造・スタイル分離（CSSへの委譲）を進め、その後XHTMLへの厳格化路線につながった。',g:'構造とスタイルの分離を打ち出した、CSS時代を支えた古典的なHTML勧告。',f:['w3c']},
+{id:'xhtml',l:3,y:2000,s:'legacy',sn:'XHTML',c:'W3C',t:'2000年1月26日にW3C勧告。HTML4をXMLとして再定式化し厳格な整形式を要求。XHTML2への過度な厳格化路線がWeb開発者の不満を招き、WHATWG結成とHTML5回帰の遠因となった。',g:'HTMLをXML化して厳格化を図ったが、現実のWeb開発と乖離しHTML5への揺り戻しを生んだ。',f:['html4','w3c']},
+{id:'whatwg',l:2,y:2004,s:'mainstream',sn:'WHATWG',c:'Apple・Mozilla・Opera',t:'W3CのXHTML偏重に反発し、2004年6月4日にApple・Mozilla・Operaが結成。実装者主導でHTML5を起草。2011年に成果物をHTML Living Standardへ改称し、2019年にW3CとHTML/DOMの一本化合意に至る。',g:'実装者主導でHTMLを再起動させ、現在のWeb標準（Living Standard）の主導権を握った。',f:['w3c','xhtml','browserwars']},
+{id:'html5',l:3,y:2008,s:'mainstream',sn:'HTML5',c:'WHATWG / W3C',t:'WHATWG起草の仕様を母体に、2008年に最初の草案（W3C Working Draft）公開、2014年10月28日にW3C勧告化。XHTMLの厳格化路線を否定し、video/canvas/semantic要素などアプリ基盤を提供。',g:'プラグイン不要のリッチWebアプリ基盤を確立した、現代Webの土台となるマイルストーン。',f:['whatwg','w3c','html4','xhtml','tc39']},
+{id:'htmlliving',l:2,y:2011,s:'current',sn:'HTML Living Std',c:'WHATWG',t:'2011年1月にWHATWGが「HTML5」仕様をHTML Living Standardへ改称。バージョン番号を廃し継続更新する方式へ。2019年のW3C・WHATWG合意でこれが唯一のHTML/DOM標準と位置づけられた。',g:'版数を持たない継続更新型のHTML標準として、現行Webの単一の正典となっている。',f:['whatwg','html5','w3c']},
+{id:'cssstd',l:2,y:1996,s:'mainstream',sn:'CSS標準 (WG)',c:'W3C CSS Working Group（Håkon Wium Lie / Bert Bos）',t:'CSS1勧告（1996年）を受けW3CがCSS Working Groupを1997年に設立。CSS2/2.1を経て、CSS3以降はモジュール分割方式で継続進化。後年はBaseline等で相互運用性が可視化される。',g:'Webの見た目を担うCSSをモジュール単位で標準化し続ける作業部会。',f:['w3c','html4']},
+{id:'browserwars',l:3,y:1995,s:'legacy',sn:'ブラウザ戦争',c:'Netscape・Microsoft（第一次）/ Microsoft・Mozilla・Google（第二次）',t:'第一次（1995-2001）はNetscape Navigator対Internet Explorer。第二次（2004-2017、Firefox 1.0が2004年11月始動）はIE対Firefox/Chrome。独自拡張の乱立がWaSPやAcidテスト等の標準化運動を誘発した。',g:'独自拡張競争がWeb断片化を招き、標準準拠運動とエンジン淘汰を加速させた歴史的転換点。',f:['w3c']},
+{id:'wasp',l:3,y:1998,s:'legacy',sn:'WaSP',c:'Jeffrey Zeldman・Glenn Davis・George Olsen',t:'1998年8月、ブラウザ戦争による断片化に抗してJeffrey Zeldmanらが結成した草の根連合。ブラウザベンダにW3C標準準拠を要求し、Acid2/Acid3を公開。2013年に解散。',g:'開発者主導でブラウザに標準準拠を迫り、相互運用性向上を牽引した運動体。',f:['w3c','html4','browserwars']},
+{id:'acid',l:3,y:2005,s:'legacy',sn:'Acid2 / Acid3',c:'Web Standards Project（Håkon Wium Lie・Ian Hickson）',t:'Acid2は2005年4月13日公開（CSS2.1・PNG・data URI等を検証、正しければ笑顔顔が描画）。Acid3は2008年3月3日公開（JavaScript/DOM中心の100点テスト）。いずれもWaSPがブラウザの標準準拠を競わせた。',g:'目に見える合否でブラウザの標準準拠を競わせ、レンダリングエンジンの相互運用性を底上げした。',f:['wasp','html4','cssstd','browserwars']},
+{id:'baseline',l:3,y:2023,s:'current',sn:'Baseline',c:'Google Chrome チーム / WebDX Community Group',t:'2023年Google I/Oでweb.devが導入。主要ブラウザ（Chrome/Edge/Firefox/Safari）対応状況をNewly/Widely availableで区分。WebDX Community Groupの協働運営へ発展し、Acidテストの相互運用性可視化の現代版的役割を担う。',g:'どのWeb機能が全主要ブラウザで安全に使えるかを年単位で可視化する現代の相互運用性指標。',f:['whatwg','htmlliving','cssstd','w3c']}];var DIFF={mosaic:4,netscape:4,ie:4,trident:3,gecko:4,firefox:4,presto:2,khtml:3,webkit:5,safari:4,chrome:5,blink:5,edgehtml:2,edgechromium:3,servo:2,w3c:5,tc39:5,html4:3,xhtml:2,whatwg:5,html5:5,htmlliving:4,cssstd:4,browserwars:3,wasp:3,acid:3,baseline:3};var DLAB={1:'低',2:'やや低',3:'中',4:'高',5:'最重要'};
+var byId={};D.forEach(function(n){byId[n.id]=n;});
+var Wv=1100,PAD=12,boxH=38,rowGap=14,colGap=10,headerH=30,GUT=48;
+var CONTENT=Wv-PAD*2,BX0=PAD+GUT,BW=CONTENT-GUT;
+function wOf(s){var w=0;for(var i=0;i<s.length;i++){w+=s.charCodeAt(i)>0x2E80?12.2:7.2;}return Math.max(60,Math.min(240,Math.round(w)+18));}
+var buckets=ERAT.map(function(){return[];});
+D.forEach(function(n){n.w=wOf(n.sn);buckets[era(n.y)].push(n);});
+var Y=10,bands=[];
+buckets.forEach(function(b,ei){
+ var top=Y, ct=top+headerH+10;
+ var years=[],ymap={};
+ b.forEach(function(n){if(!ymap[n.y]){ymap[n.y]=[];years.push(n.y);}ymap[n.y].push(n);});
+ years.sort(function(a,c){return a-c;});
+ var cy=ct,marks=[];
+ years.forEach(function(yr){
+  var nodes=ymap[yr];nodes.sort(function(a,c){return a.l-c.l;});
+  var x=BX0,row=0;
+  nodes.forEach(function(n){if(x+n.w>BX0+BW){row++;x=BX0;}n.x=x;n.yy=cy+row*(boxH+rowGap);x+=n.w+colGap;});
+  marks.push({y:yr,ytop:cy});
+  cy+=(row+1)*(boxH+rowGap)+12;
+ });
+ var bh=cy-top;
+ bands.push({top:top,h:bh,t:ERAT[ei],ei:ei,marks:marks});
+ Y+=bh;
+});
+var H=Y+8;
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function edgePath(a,b){var ax=a.x+a.w/2,ay=a.yy+boxH,bx=b.x+b.w/2,by=b.yy;var d=Math.max(20,Math.abs(by-ay)*0.4);return 'M'+ax+','+ay+' C'+ax+','+(ay+d)+' '+bx+','+(by-d)+' '+bx+','+by;}
+var p=[];
+p.push('<svg viewBox="0 0 '+Wv+' '+H+'" width="'+Wv+'" style="max-width:100%;display:block;font-family:var(--font)" role="img" aria-label="ブラウザ/エンジン/Web標準の系譜 1993-2026">');
+p.push('<defs>');
+p.push('<marker id="mF" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="'+faint+'"/></marker>');
+p.push('<marker id="mIn" markerWidth="7.5" markerHeight="7.5" refX="6" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="'+cIn+'"/></marker>');
+p.push('<marker id="mOut" markerWidth="7.5" markerHeight="7.5" refX="6" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="'+cOut+'"/></marker>');
+p.push('</defs>');
+bands.forEach(function(bd){
+ if(bd.ei%2===0)p.push('<rect x="0" y="'+bd.top+'" width="'+Wv+'" height="'+bd.h+'" fill="'+(isDark?'rgba(180,180,175,0.05)':'rgba(95,94,90,0.045)')+'"/>');
+ p.push('<line x1="0" y1="'+bd.top+'" x2="'+Wv+'" y2="'+bd.top+'" stroke="'+(isDark?'rgba(180,180,175,0.20)':'rgba(95,94,90,0.20)')+'" stroke-width="1"/>');
+ p.push('<text x="'+PAD+'" y="'+(bd.top+19)+'" style="fill:var(--t2)" font-size="14" font-weight="600">'+esc(bd.t)+'</text>');
+ bd.marks.forEach(function(mk,i){
+  if(i>0)p.push('<line x1="'+PAD+'" y1="'+(mk.ytop-6)+'" x2="'+(Wv-PAD)+'" y2="'+(mk.ytop-6)+'" stroke="'+(isDark?'rgba(180,180,175,0.10)':'rgba(95,94,90,0.08)')+'" stroke-width="1"/>');
+  p.push('<text x="'+PAD+'" y="'+(mk.ytop+boxH/2+4)+'" style="fill:var(--t3)" font-size="12.5" font-weight="600">'+mk.y+'</text>');
+ });
+});
+p.push('<g id="base">');
+D.forEach(function(n){n.f.forEach(function(fid){var a=byId[fid];if(a)p.push('<path d="'+edgePath(a,n)+'" fill="none" stroke="'+faint+'" stroke-width="0.9" marker-end="url(#mF)"/>');});});
+p.push('</g>');
+p.push('<g id="boxes">');
+D.forEach(function(n){var cat=CAT[n.l],pal=cat.p,dash=(n.s==='legacy'||n.s==='declining'),op=dash?0.82:1;var dv=DIFF[n.id]||0,pipW=7,pipG=2.5,pw=5*pipW+4*pipG,px=n.x+n.w/2-pw/2,py=n.yy+boxH-11,pips='';for(var pi=0;pi<5;pi++){pips+='<rect x="'+(px+pi*(pipW+pipG)).toFixed(1)+'" y="'+py+'" width="'+pipW+'" height="4.5" rx="1" fill="'+(pi<dv?pal.s:faint)+'"/>';}p.push('<g class="box" data-id="'+n.id+'" opacity="'+op+'"><rect x="'+n.x+'" y="'+n.yy+'" width="'+n.w+'" height="'+boxH+'" rx="6" fill="'+pal.f+'" stroke="'+pal.s+'" stroke-width="1.1"'+(dash?' stroke-dasharray="3 2.4"':'')+'/><text x="'+(n.x+n.w/2)+'" y="'+(n.yy+16)+'" text-anchor="middle" style="fill:'+pal.x+'" font-size="12.5">'+esc(n.sn)+'</text>'+pips+'</g>');});
+p.push('</g>');
+p.push('<g id="hi"></g>');
+p.push('</svg>');
+document.getElementById('chart').innerHTML=p.join('');
+var fc=document.getElementById('filters');var fh='<button class="chip" data-f="all" aria-pressed="true">全部</button>';CAT.forEach(function(c){fh+='<button class="chip" data-f="'+c.k+'"><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:'+c.m+';margin-right:5px"></span>'+esc(c.t)+'</button>';});fc.innerHTML=fh;
+var lg=document.getElementById('legend');lg.innerHTML='<span class="lgd"><svg width="24" height="10"><line x1="0" y1="5" x2="24" y2="5" stroke="'+cIn+'" stroke-width="2" marker-end="url(#mIn)"/></svg>影響元←</span><span class="lgd"><svg width="24" height="10"><line x1="0" y1="5" x2="24" y2="5" stroke="'+cOut+'" stroke-width="2" marker-end="url(#mOut)"/></svg>影響先→</span><span class="lgd"><span style="display:inline-block;width:14px;height:12px;border:1px solid var(--t3);border-radius:3px"></span>現役</span><span class="lgd"><span style="display:inline-block;width:14px;height:12px;border:1px dashed var(--t3);border-radius:3px"></span>後退・レガシー</span>';
+lg.innerHTML+='<div style="margin-top:8px"><span class="lgd"><svg width="46" height="11" style="vertical-align:middle"><rect x="0" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="9.5" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="19" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="28.5" y="3" width="7" height="5" rx="1" fill="var(--bd2)"/><rect x="38" y="3" width="7" height="5" rx="1" fill="var(--bd2)"/></svg> 歴史的重要度（5段階）</span><span class="lgd" style="color:var(--t3)">1低 / 5最重要</span></div>';
+var boxesG=document.getElementById('boxes'),baseG=document.getElementById('base'),hiG=document.getElementById('hi'),tip=document.getElementById('tip'),wrap=document.getElementById('wrap');
+var boxEls={};Array.prototype.slice.call(boxesG.querySelectorAll('g.box')).forEach(function(g){boxEls[g.getAttribute('data-id')]=g;});
+var state={cat:'all',lock:null};
+function descOf(id){return D.filter(function(n){return n.f.indexOf(id)>=0;}).map(function(n){return n.id;});}
+function applyDim(setIds){
+ D.forEach(function(n){var g=boxEls[n.id];var base=(state.cat==='all'||CAT[n.l].k===state.cat);var dash=(n.s==='legacy'||n.s==='declining');var full=dash?0.82:1;var op;if(setIds){op=setIds[n.id]?full:0.16;}else{op=base?full:0.18;}g.setAttribute('opacity',op);});
+ baseG.setAttribute('opacity',setIds?0.07:1);
+}
+function highlight(id){var n=byId[id];var anc=n.f.filter(function(x){return byId[x];});var de=descOf(id);var set={};set[id]=1;anc.forEach(function(x){set[x]=1;});de.forEach(function(x){set[x]=1;});
+ var h='';anc.forEach(function(x){h+='<path d="'+edgePath(byId[x],n)+'" fill="none" stroke="'+cIn+'" stroke-width="2" opacity="0.95" marker-end="url(#mIn)"/>';});de.forEach(function(x){h+='<path d="'+edgePath(n,byId[x])+'" fill="none" stroke="'+cOut+'" stroke-width="2" opacity="0.95" marker-end="url(#mOut)"/>';});hiG.innerHTML=h;applyDim(set);}
+function clearHi(){hiG.innerHTML='';applyDim(null);}
+function chip(id){return '<button class="chip" data-go="'+id+'">'+esc(byId[id].sn)+'</button>';}
+function showPanel(id){var n=byId[id];var cat=CAT[n.l];var anc=n.f.filter(function(x){return byId[x];});var de=descOf(id);
+ var h='<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-bottom:4px"><span style="font-size:17px;font-weight:600;color:var(--t1)">'+esc(n.sn)+'</span><span style="font-size:12.5px;color:'+cat.m+'">'+esc(cat.t)+'</span><span style="font-size:12.5px;color:var(--t3)">'+n.y+'年・'+esc(STAT[n.s])+'</span></div>';
+ if(n.c)h+='<div style="font-size:12.5px;color:var(--t2);margin-bottom:7px">作者/開発: '+esc(n.c)+'</div>';
+ var dv=DIFF[n.id]||0,dpip='';for(var pi=0;pi<5;pi++){dpip+='<span style="display:inline-block;width:10px;height:6px;border-radius:1px;margin-right:2px;background:'+(pi<dv?cat.m:'var(--bd2)')+'"></span>';}h+='<div style="font-size:13px;color:var(--t2);margin-bottom:8px">重要度　'+dpip+' <span style="color:var(--t1)">Lv'+dv+'・'+(DLAB[dv]||'')+'</span></div>';
+ h+='<div style="font-size:14px;line-height:1.65;color:var(--t1);margin-bottom:5px"><span style="color:var(--t3)">系譜　</span>'+esc(n.t)+'</div>';
+ h+='<div style="font-size:14px;line-height:1.65;color:var(--t1)"><span style="color:var(--t3)">意義　</span>'+esc(n.g)+'</div><div id="go">';
+ if(anc.length)h+='<span style="font-size:12.5px;color:'+cIn+';align-self:center">影響元 ←</span>'+anc.map(chip).join('');
+ if(de.length)h+='<span style="font-size:12.5px;color:'+cOut+';align-self:center;margin-left:4px">影響先 →</span>'+de.map(chip).join('');
+ if(!anc.length&&!de.length)h+='<span style="font-size:12.5px;color:var(--t3)">この図の中に直接の親子リンクなし</span>';
+ h+='<button class="chip" data-clear="1" style="margin-left:auto">解除</button></div>';
+ document.getElementById('panel').innerHTML=h;}
+boxesG.addEventListener('mouseover',function(e){var g=e.target.closest('g.box');if(g&&!state.lock)highlight(g.getAttribute('data-id'));});
+boxesG.addEventListener('mouseout',function(e){var g=e.target.closest('g.box');if(g&&!state.lock)clearHi();});
+boxesG.addEventListener('click',function(e){var g=e.target.closest('g.box');if(!g)return;var id=g.getAttribute('data-id');state.lock=id;highlight(id);showPanel(id);});
+boxesG.addEventListener('mousemove',function(e){var g=e.target.closest('g.box');if(g){var n=byId[g.getAttribute('data-id')];tip.innerHTML='<b>'+esc(n.sn)+'</b><br><span style="color:var(--t2)">'+n.y+'年・'+esc(CAT[n.l].t)+'・'+esc(STAT[n.s])+'</span>';tip.style.display='block';var wr=wrap.getBoundingClientRect();var x=e.clientX-wr.left+14,yp=e.clientY-wr.top+14;if(x>wr.width-260)x-=280;tip.style.left=x+'px';tip.style.top=yp+'px';}else{tip.style.display='none';}});
+boxesG.addEventListener('mouseleave',function(){tip.style.display='none';});
+document.getElementById('panel').addEventListener('click',function(e){var go=e.target.closest('[data-go]');if(go){var id=go.getAttribute('data-go');state.lock=id;highlight(id);showPanel(id);return;}var cl=e.target.closest('[data-clear]');if(cl){state.lock=null;clearHi();document.getElementById('panel').innerHTML='<span style="color:var(--t2);font-size:13.5px">ボックスをなぞると系譜（影響元 ← / 影響先 →）が濃く出ます。クリックで詳細。</span>';}});
+var ffSearch=document.getElementById('ff-search');
+fc.addEventListener('click',function(e){var b=e.target.closest('[data-f]');if(!b)return;state.cat=b.getAttribute('data-f');state.lock=null;hiG.innerHTML='';if(ffSearch)ffSearch.value='';Array.prototype.slice.call(fc.querySelectorAll('.chip')).forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});applyDim(null);});
+ffSearch.addEventListener('input',function(){var q=ffSearch.value.trim().toLowerCase();state.lock=null;state.cat='all';hiG.innerHTML='';Array.prototype.slice.call(fc.querySelectorAll('.chip')).forEach(function(x){x.setAttribute('aria-pressed',x.getAttribute('data-f')==='all'?'true':'false');});if(!q){applyDim(null);return;}var set={};D.forEach(function(n){if((n.sn+' '+n.id+' '+(n.c||'')).toLowerCase().indexOf(q)>=0)set[n.id]=1;});applyDim(set);});
+applyDim(null);
+})();
+</script>
+</body>
+</html>

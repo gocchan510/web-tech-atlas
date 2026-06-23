@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>クラウド進化史 系譜（1961–2025）</title>
+<style>
+:root{--t1:#1a1a1a;--t2:#565651;--t3:#8a8984;--bg1:#ffffff;--bg2:#f3f1ea;--bd3:rgba(0,0,0,0.14);--bd2:rgba(0,0,0,0.3);--bd1:rgba(0,0,0,0.42);--font:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;}
+@media(prefers-color-scheme:dark){:root{--t1:#ededed;--t2:#b3b2ad;--t3:#88877f;--bg1:#1f1f1e;--bg2:#2a2a28;--bd3:rgba(255,255,255,0.14);--bd2:rgba(255,255,255,0.3);--bd1:rgba(255,255,255,0.42);}body{background:#171716}}
+*{box-sizing:border-box}
+body{margin:0;padding:24px 18px 60px;font-family:var(--font);color:var(--t1);background:#fafaf7;line-height:1.6}
+@media(prefers-color-scheme:dark){body{background:#171716}}
+h1{font-size:22px;font-weight:600;margin:0 0 4px}
+.sub{font-size:13px;color:var(--t2);margin:0 0 16px;max-width:900px}
+#wrap{position:relative;max-width:1140px;margin:0 auto}
+.chip{font:400 12.5px var(--font);padding:4px 10px;border:1px solid var(--bd2);border-radius:8px;background:transparent;color:var(--t2);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--bg2);color:var(--t1);border-color:var(--bd1)}
+.lgd{display:inline-flex;align-items:center;gap:5px;margin-right:14px;font-size:12.5px;color:var(--t2)}
+g.box{cursor:pointer}
+#tip{position:absolute;pointer-events:none;background:var(--bg1);border:1px solid var(--bd2);border-radius:8px;padding:6px 10px;font:400 12.5px var(--font);color:var(--t1);max-width:280px;display:none;z-index:9;line-height:1.5;box-shadow:0 2px 10px rgba(0,0,0,0.12)}
+#panel{margin-top:16px;border:1px solid var(--bd3);border-radius:12px;padding:14px 18px;background:var(--bg1);min-height:60px}
+#go{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+#chart{overflow-x:auto}
+</style>
+</head>
+<body>
+<div id="wrap">
+<h1>クラウド進化史 系譜（1961–2025）</h1>
+<div style="margin:2px 0 12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center"><span style="font-size:12px;color:var(--t3)">Web技術アトラス:</span><a href="daisyui-hub.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">daisyUIハブ</a><a href="css-frontend-lineage-flow.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">フロントエンド技術</a><a href="prog-lang-genealogy.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">プログラミング言語</a><a href="reactivity-state-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">リアクティビティ/状態</a><span style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd1);border-radius:8px;color:var(--t1);background:var(--bg2);font-weight:600" aria-current="page">クラウド進化史</span><a href="ai-llm-coding-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">AI・LLM</a><a href="rendering-arch-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">レンダリング/配信</a><a href="browser-web-standards-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">ブラウザ/Web標準</a><a href="js-engine-runtime-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">JSエンジン/ランタイム</a><a href="vcs-git-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">Git/バージョン管理</a></div>
+<p class="sub">31の技術・サービス。縦＝時系列、色＝レイヤー（仮想化 / IaaS / PaaS / コンテナ / サーバーレス / エッジ）、矢印＝技術的系譜。Xen→EC2、Borg→Kubernetes、Docker→サーバーレス→エッジ の流れが追える。Azure もこの中の主要マイルストーン。バーは運用/習得の複雑度。フロントエンド技術編とは別ページ。</p>
+<div style="margin-bottom:10px"><input id="ff-search" type="search" placeholder="名前で検索（例: Kubernetes, Lambda, Azure）" style="width:100%;max-width:440px;padding:7px 11px;border:1px solid var(--bd2);border-radius:8px;background:var(--bg1);color:var(--t1);font:400 13px var(--font)"></div>
+<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px"><span style="font-size:12.5px;color:var(--t3);margin-right:2px">系統を強調</span><span id="filters"></span></div>
+<div id="legend" style="margin-bottom:12px"></div>
+<div id="chart"></div>
+<div id="tip"></div>
+<div id="panel"><span style="color:var(--t2);font-size:13.5px">ボックスにカーソルを合わせると系譜（影響元 ← / 影響先 →）が濃く表示されます。クリックで詳細。検索や系統チップでも絞り込めます。</span></div>
+</div>
+<script>
+(function(){
+var isDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+var CAT=[{k:'virt',t:'仮想化 / 基盤',L:{f:'#F1EFE8',s:'#5F5E5A',x:'#2C2C2A'},Dk:{f:'#2C2C2A',s:'#B4B2A9',x:'#F1EFE8'},m:'#888780'},{k:'iaas',t:'IaaS',L:{f:'#E6F1FB',s:'#185FA5',x:'#0C447C'},Dk:{f:'#0C447C',s:'#85B7EB',x:'#E6F1FB'},m:'#378ADD'},{k:'paas',t:'PaaS',L:{f:'#EEEDFE',s:'#534AB7',x:'#3C3489'},Dk:{f:'#3C3489',s:'#AFA9EC',x:'#EEEDFE'},m:'#7F77DD'},{k:'container',t:'コンテナ / オーケストレーション',L:{f:'#E1F5EE',s:'#0F6E56',x:'#085041'},Dk:{f:'#085041',s:'#5DCAA5',x:'#E1F5EE'},m:'#1D9E75'},{k:'serverless',t:'サーバーレス / FaaS',L:{f:'#FAEEDA',s:'#854F0B',x:'#633806'},Dk:{f:'#633806',s:'#EF9F27',x:'#FAEEDA'},m:'#BA7517'},{k:'edge',t:'エッジ',L:{f:'#FAECE7',s:'#993C1D',x:'#712B13'},Dk:{f:'#712B13',s:'#F0997B',x:'#FAECE7'},m:'#D85A30'}];CAT.forEach(function(c){c.p=isDark?c.Dk:c.L;});
+var STAT={mainstream:'主流',current:'現役',declining:'後退中',legacy:'レガシー',niche:'ニッチ'};
+var faint=isDark?'rgba(180,180,175,0.30)':'rgba(95,94,90,0.26)';
+var cIn=isDark?'#AFA9EC':'#534AB7', cOut=isDark?'#F0997B':'#D85A30';
+var ERAT=['〜2005　黎明：タイムシェアリング → 仮想化（VMware・Xen）','2006–2009　クラウド誕生（S3/EC2・Heroku・App Engine・LXC）','2010–2012　IaaS/PaaS 拡大・コンテナ源流（Azure・OpenStack・Mesos）','2013–2015　コンテナ革命（Docker・Kubernetes・Lambda）','2016–2018　サーバーレス & オーケストレーション成熟','2019–2026　エッジ / マネージド（Cloud Run・Workers・Deno Deploy）'];function era(y){return y<=2005?0:y<=2009?1:y<=2012?2:y<=2015?3:y<=2018?4:5;}var D=[{id:'timesharing',l:0,y:1961,s:'legacy',sn:'タイムシェアリング',c:'MIT(Fernando Corbató ら)/ CTSS・Multics プロジェクト',t:'1台の高価なメインフレームを複数ユーザーで同時共有する発想。バッチ処理を置き換え、計算資源を「分割して貸し出す」という後の仮想化・クラウドの根本思想を打ち立てた原型。',g:'MIT の CTSS(1961年デモ)に始まる時分割方式は、計算資源を多数の利用者に分け与えるという仮想化・クラウドの全系譜の出発点となった。同年の John McCarthy による MIT 創立100周年講演は「計算のユーティリティ販売」を予言し、後の従量課金クラウドの思想的源流となった。',f:[]},
+{id:'vm370',l:0,y:1972,s:'legacy',sn:'IBM VM/370',c:'IBM(Cambridge Scientific Center)',t:'タイムシェアリングの思想を、各ユーザーに「完全な仮想マシン」を与える形へ昇華。Cambridge Scientific Center の CP-40/CP-67(CP/CMS)を System/370 向けに再実装したもので、ハードウェア支援による仮想化の起源。',g:'1972年に発表された VM/370 は、1つの物理機上で複数の仮想計算機を走らせるハードウェア仮想化を製品として確立し、後の全ハイパーバイザの原型となった。',f:['timesharing']},
+{id:'vmware',l:0,y:1999,s:'current',sn:'VMware',c:'VMware, Inc.(Mendel Rosenblum, Diane Greene ら)',t:'メインフレーム固有だった仮想化を、不向きとされた x86 アーキテクチャへ持ち込んだ。バイナリ変換でハードウェア支援なき x86 を仮想化し、IBM VM の概念をコモディティ PC/サーバの世界へ移植した。',g:'1999年5月の VMware Workstation 1.0 により x86 仮想化が初めて商用実現し、サーバ統合とクラウドのハードウェア基盤への道を開いた。',f:['vm370','timesharing']},
+{id:'xen',l:0,y:2003,s:'declining',sn:'Xen',c:'University of Cambridge(Ian Pratt, Keir Fraser ら)/ XenSource',t:'VMware の重いバイナリ変換に対し、ゲスト OS を改変して効率を稼ぐ準仮想化(paravirtualization)を提唱。オープンソースのハイパーバイザとして、商用クラウドのコンピュート基盤を初めて支えた。',g:'2003年に Cambridge 大から登場(SOSP 2003 論文『Xen and the Art of Virtualization』)した Xen は準仮想化を実用化し、Amazon EC2 をはじめ初期パブリッククラウドの稼働基盤となった。',f:['vmware','vm370']},
+{id:'kvm',l:0,y:2007,s:'mainstream',sn:'KVM',c:'Qumranet(Avi Kivity ら)/ 後に Red Hat',t:'Intel VT / AMD-V のハードウェア仮想化支援を前提に、Linux カーネル自体をハイパーバイザ化。外付けの Xen に対し、カーネル標準機能として仮想化を内蔵し主流の座を奪った。',g:'2007年2月5日に Linux カーネル 2.6.20 へ統合された KVM は、OS 標準の仮想化を実現し、現在の OpenStack や主要クラウド(AWS Nitro 含む)の基盤となった。',f:['xen','vmware','vm370']},
+{id:'s3',l:1,y:2006,s:'mainstream',sn:'Amazon S3',c:'Amazon Web Services',t:'ファイルシステムやストレージ機器の所有を、HTTP API で呼び出すオブジェクトストレージのサービスへ置換。従量課金で無限に近い容量を提供し、IaaS という事業形態そのものを切り開いた。',g:'2006年3月14日(Pi Day)公開の S3 は、AWS 初の一般提供サービスであり、ストレージを API 経由の従量課金サービスとして提供した最初の本格 IaaS としてクラウド時代の幕開けを告げた。',f:['timesharing']},
+{id:'ec2',l:1,y:2006,s:'mainstream',sn:'Amazon EC2',c:'Amazon Web Services',t:'VM/370 以来の仮想マシン技術を、API で即時に起動・課金できるレンタル計算資源へ昇華。当初は Xen ハイパーバイザ上で稼働し、仮想化技術をパブリッククラウドの計算基盤として商業化した。',g:'2006年8月25日にベータ公開された EC2 は、Xen 上の仮想サーバを API と従量課金で貸し出し、オンデマンド計算という IaaS の中核モデルを確立した。',f:['xen','s3','vm370','timesharing']},
+{id:'azure',l:1,y:2010,s:'mainstream',sn:'Microsoft Azure',c:'Microsoft',t:'AWS への対抗として、Windows/.NET 資産と Hyper-V を武器にエンタープライズ向けクラウドを構築。当初は PaaS 寄りだったが、後に IaaS(仮想マシン)へ拡張し AWS と双璧をなす。',g:'2008年10月の PDC(コード名 Project Red Dog)で発表され2010年2月1日に GA となった Azure は、Microsoft をクラウド大手へ転換させ、AWS との二強体制の一角を築いた(2014年に Windows Azure から Microsoft Azure へ改称)。',f:['ec2','s3']},
+{id:'openstack',l:1,y:2010,s:'niche',sn:'OpenStack',c:'Rackspace + NASA(後に OpenStack Foundation)',t:'AWS の囲い込みに対抗する「オープンソース版 AWS」。NASA の Nova(コンピュート)と Rackspace の Swift(ストレージ)を統合し、KVM/Xen 上に自前 IaaS を構築できる標準スタックを目指した。',g:'2010年7月に Rackspace と NASA が発表した OpenStack(初版 Austin は同年10月)は、独自クラウドを自前構築するためのオープンソース IaaS 標準となり、プライベートクラウドの普及を牽引した。',f:['ec2','s3','kvm','xen']},
+{id:'digitalocean',l:1,y:2011,s:'current',sn:'DigitalOcean',c:'DigitalOcean, Inc.(Ben・Moisey Uretsky 兄弟ら)',t:'肥大化・複雑化した AWS に対し、KVM ベースの SSD 仮想サーバ(Droplet)を、明快な定額価格とシンプルな UI で個人開発者・スタートアップ向けに提供。IaaS を「分かりやすく安く」再定義した。',g:'2011年6月創業の DigitalOcean は、SSD 仮想サーバと定額・簡潔な UX(2013年に主要事業者の先陣を切って SSD VM を提供)を打ち出し、開発者フレンドリーなクラウドという市場層を切り開いた。',f:['ec2','kvm']},
+{id:'gce',l:1,y:2013,s:'mainstream',sn:'Compute Engine',c:'Google(Google Cloud Platform)',t:'AWS EC2 への後発対抗。Google 自社データセンター技術と KVM ベース仮想化を背景に、ライブマイグレーションや秒課金など差別化機能を投入し、後の三大クラウドの一角(GCP)を形成した。',g:'2012年6月28日(Google I/O)発表・2013年12月2日 GA の GCE は、Google を IaaS 市場へ本格参入させ、AWS・Azure と並ぶ主要クラウドプロバイダの地位を確立した。',f:['ec2','kvm']},
+{id:'heroku',l:2,y:2007,s:'declining',sn:'Heroku',c:'Heroku, Inc.（James Lindenbaum/Adam Wiggins/Orion Henry 創業、2010年12月 Salesforce が買収発表・2011年1月完了）',t:'サーバ管理を不要にする初期PaaSの代表格にして先駆者。2007年創業（当初はブラウザ内コードエディタ）、2009年頃に git push による即時デプロイ体験を確立、Cedar(2011)でポリグロット化。Dyno/Buildpack/12-Factor App の思想を打ち立て、後続のPaaS・コンテナPaaSの開発者体験の原型となった。先行PaaSの前身を持たない独立した起点。',g:'「git push でデプロイ」という開発者体験とポリグロットPaaSモデルを世に広め、クラウドアプリ開発の標準的UXを定義した（2022年無料枠廃止以降は退潮）。',f:[]},
+{id:'appengine',l:2,y:2008,s:'current',sn:'App Engine',c:'Google',t:'Googleの巨大インフラ上にアプリを載せるマネージドPaaSの先駆け。インフラ運用を完全に隠蔽し自動スケールを提供することで、生IaaS(VM自前管理)を置き換える方向性を示した。Herokuと並ぶ初期PaaSの双璧。',g:'2008年4月にプレビュー公開され、フルマネージド＆自動スケールという「サーバを意識しない」PaaSの概念を大衆化し、後のサーバレスの源流となった。',f:[]},
+{id:'cloudfoundry',l:2,y:2011,s:'niche',sn:'Cloud Foundry',c:'VMware（後に Pivotal、Cloud Foundry Foundation）',t:'業界初のオープンソースPaaSとして、Heroku型の独自PaaSに対し「どこでも動くマルチクラウドPaaS」を対抗軸に提示。Buildpack 等の概念を Heroku 系から継承しつつ、オンプレ/各クラウドへ移植可能にした。',g:'2011年4月に初のオープンソースPaaSを名乗り、ベンダー非依存のエンタープライズPaaS標準を確立した。',f:['heroku']},
+{id:'borg',l:3,y:2003,s:'niche',sn:'Google Borg',c:'Google（社内システム、非公開）',t:'コンテナ・オーケストレーションの始祖。2003-2004年頃 Google 社内で誕生し、数万台規模のクラスタにジョブを宣言的にスケジューリング。後継 Omega を経て Kubernetes の直接の前身となった。なお cgroups は Borg そのものの系譜ではなく、Google の別プロジェクト『Process Containers』(2006, Menage/Seth、後にcgroupsへ改名)として生まれカーネルにマージされた。',g:'Google検索やGmailを支えた社内クラスタ管理システムで、現代のコンテナ・オーケストレーション（特にKubernetes）の設計思想の原点となった。',f:[]},
+{id:'lxc',l:3,y:2008,s:'niche',sn:'LXC',c:'IBM 等のカーネル開発者コミュニティ（Daniel Lezcano ほか）',t:'Linuxカーネルの cgroups（Google発の Process Containers (2006) 由来、2008年に2.6.24へマージ）と namespaces を組み合わせ、単一カーネル上で軽量な隔離環境を実現した最初の完成度の高いLinuxコンテナ実装。Solaris Zones/FreeBSD jails のOSレベル仮想化思想を継承し、Docker の最初の実行基盤となった。Borg などオーケストレータの子孫ではなく低レベルのコンテナ実行系。',g:'2008年にcgroups+namespacesでOSレベル仮想化を実用化し、Linuxコンテナの土台を築いた（後にDockerに表舞台を譲る）。',f:[]},
+{id:'mesos',l:3,y:2010,s:'legacy',sn:'Apache Mesos',c:'UC Berkeley RAD Lab（Benjamin Hindman/Andy Konwinski/Matei Zaharia/Ion Stoica ほか）／Apache Software Foundation',t:'学術発のクラスタ・リソース管理基盤（旧名 Nexus、2009年 HotCloud で発表、2010年 Apache Incubator 入り）。2層スケジューリングで多数のフレームワークにリソースを供給。Twitter等の大規模採用を経て、Kubernetes と並ぶオーケストレーションの選択肢となったが後に衰退。Borg は当時非公開でその論文公開は2015年のため、Mesos は独立した学術設計として誕生した。',g:'2010年にデータセンターを単一リソースプールとして抽象化する2層スケジューリングを実装し、オーケストレーション競争の一翼を担った。',f:[]},
+{id:'docker',l:3,y:2013,s:'mainstream',sn:'Docker',c:'dotCloud / Docker, Inc.（Solomon Hykes）',t:'LXC を初期の実行環境として出発し（2014年 v0.9 で独自の libcontainer に置換）、イメージ/Dockerfile/レジストリという配布・再現可能なパッケージング体験を付加。難解だったLXCを開発者に開放し、コンテナを主流化した。',g:'2013年にコンテナを「イメージとして配布・再現できる」開発者フレンドリーな形にし、コンテナ革命を爆発的に普及させた。',f:['lxc']},
+{id:'kubernetes',l:3,y:2014,s:'mainstream',sn:'Kubernetes',c:'Google（Joe Beda/Brendan Burns/Craig McLuckie ほか）／CNCF',t:'Google社内の Borg（および後継 Omega）の思想をオープンソースとして再実装した直系の後継。Docker が普及させた単一ホストのコンテナに、宣言的なクラスタ全体のオーケストレーション（Pod/Service/Label）を与え、競合の Mesos や Docker Swarm を退けて事実上の標準となった。',g:'2014年6月に発表されBorgのオーケストレーション思想を世界に開放、コンテナ・オーケストレーションのデファクト標準として現代クラウドネイティブの中核となった。',f:['borg','docker']},
+{id:'swarm',l:3,y:2014,s:'declining',sn:'Docker Swarm',c:'Docker, Inc.',t:'Docker純正のオーケストレーション。2014年の Classic Swarm に始まり、2016年に Docker Engine 統合の Swarm mode（SwarmKit）へ刷新。Kubernetes への対抗としてシンプルさを売りにしたが、競争に敗れ縮小した。',g:'2014年登場のDocker純正オーケストレーターで、Kubernetesとの標準争い（オーケストレーション戦争）を象徴する存在となった。',f:['docker','kubernetes']},
+{id:'cloudrun',l:3,y:2019,s:'current',sn:'Cloud Run',c:'Google',t:'Knative（Kubernetes上のサーバレス基盤）を土台に、任意のコンテナをリクエスト駆動・ゼロスケールで動かす「サーバレス・コンテナ」。2019年4月にベータ発表、同年11月にGA。コンテナの可搬性とサーバレスの運用レス・従量課金を融合し、PaaS(App Engine)とコンテナ(K8s)の系譜を架橋した。',g:'2019年11月GAでコンテナとサーバレスを統合し、Kubernetesの運用負荷なしにコンテナを即デプロイできる新世代の実行モデルを確立した。',f:['kubernetes','appengine','docker']},
+{id:'firebase',l:4,y:2012,s:'mainstream',sn:'Firebase',c:'Firebase Inc.（James Tamplin, Andrew Lee）／2014年以降 Google',t:'2011年にJames Tamplin・Andrew Leeが設立(前身はチャットAPI企業Envolve)、2012年4月にRealtime Databaseを一般公開。チャットAPIがアプリ状態の同期に転用されていた事実からリアルタイムDB同期をBaaS(Backend as a Service)として独立確立。サーバー管理不要でモバイル/Webバックエンドを提供する発想は、BaaS先駆のParseと並走しつつ、後のサーバーレスFaaSと共通する『運用レス』思想を体現。2014年10月Google買収後、認証・Firestore・Cloud Functions等を束ねた統合BaaSへ拡張。',g:'サーバー運用なしにバックエンド機能を従量課金で利用するBaaSモデルを普及させ、サーバーレス時代の利用者体験(運用レス・即時スケール)を先取りした。',f:['heroku']},
+{id:'lambda',l:4,y:2014,s:'mainstream',sn:'AWS Lambda',c:'Amazon Web Services',t:'2014年11月re:Inventで『Run Code in the Cloud』として発表(2015年4月9日GA)された、メジャーパブリッククラウド初のFaaS(Function as a Service)。Lambda以前にもhook.io(2014年後半)やPiCloud等のFaaS的サービスは存在したが、大手クラウドとして初めて関数実行を商用化。EC2/IaaSの上位抽象として、サーバープロビジョニングを完全に隠蔽しイベント駆動・実行時間課金・自動スケールを実現。PaaS(Heroku/GAE)の運用レス思想をさらに関数粒度へ推し進めた。',g:'『サーバーレス』(語自体はKen Frommが2012年に提唱)というキーワードを世に広め、関数単位・イベント駆動・ミリ秒課金というFaaSの標準形を定義した記念碑的サービス。以降の全FaaSの原型となった。',f:['ec2','heroku','appengine']},
+{id:'azurefunctions',l:4,y:2016,s:'mainstream',sn:'Azure Functions',c:'Microsoft',t:'AWS Lambdaへの直接的対抗としてMicrosoftが投入したFaaS。2016年3月プレビュー、同年11月にGA。Azure WebJobsの実行基盤を発展させ、C#/JavaScript中心にイベント駆動の従量課金関数実行を提供。Lambdaが定義したFaaSモデルをAzureエコシステムに移植した。',g:'Lambda発のFaaSモデルを主要クラウド第2極(Azure)に定着させ、サーバーレスがクラウド共通の標準サービス層であることを確立した。',f:['lambda']},
+{id:'cloudfunctions',l:4,y:2017,s:'mainstream',sn:'Cloud Functions',c:'Google',t:'AWS Lambdaへの対抗としてGoogleが投入したFaaS。2016年2月アルファ、2017年Next ’17でNode.js対応ベータ公開、2018年GA。Google App Engine(PaaS)とFirebase(BaaS)の運用レス資産を背景に、関数粒度のイベント駆動実行をGCPに導入した。',g:'Lambda発のFaaSを主要クラウド3社目(GCP)で標準化し、Firebaseのバックエンドトリガーとも統合してBaaS+FaaSの融合を進めた。',f:['lambda','firebase','appengine']},
+{id:'knative',l:4,y:2018,s:'current',sn:'Knative',c:'Google／Pivotal・IBM・Red Hat・SAP',t:'2018年7月Google Cloud Next ’18でGoogleがPivotal/IBM/Red Hat/SAPと共同発表した、Kubernetes上にサーバーレス(当初はBuild・Serving・Eventingの3コンポーネント)を実装するOSS基盤(安定版1.0のGAは2021年11月)。Lambda型FaaSのベンダーロックインへの対抗として、コンテナの上にポータブルなScale-to-zero/自動スケール層を載せた。なおBuildコンポーネントは後にTekton Pipelinesへ移行・非推奨化された。',g:'ベンダー独自FaaSに対し、Kubernetes+コンテナ上で動く移植可能なサーバーレス標準を提示。Cloud Run等マネージドサーバーレスの基盤技術となった。',f:['lambda','kubernetes']},
+{id:'cloudflare',l:5,y:2010,s:'mainstream',sn:'Cloudflare',c:'Cloudflare, Inc.',t:'2009年7月創業、2010年9月27日TechCrunch DisruptでDNSベースのフリーミアムCDN/リバースプロキシとして公開。世界中のPoP網でコンテンツを配信・防御する基盤を築き、後にその同じエッジ網を計算基盤へ転用する『エッジコンピューティング』の起点となった。',g:'グローバルなエッジPoP網とCDN/セキュリティ基盤を確立し、ユーザー近接でコードを実行するエッジコンピューティングが生まれる土台を作った。',f:[]},
+{id:'cfworkers',l:5,y:2017,s:'mainstream',sn:'Cloudflare Workers',c:'Cloudflare, Inc.',t:'2017年9月(Birthday Week)公開・2018年3月一般提供。自社CDNエッジ網(Cloudflare)の上に、コンテナやVMでなくV8アイソレートで関数を走らせる発想を導入し、コールドスタートをほぼ排除。Lambda型FaaSをユーザー近接のエッジへ持ち込み、エッジ実行(Edge Functions)というカテゴリそのものを創出した。',g:'V8アイソレートによる軽量・低コールドスタートのエッジ実行モデルを確立し、後続の全エッジランタイムの原型となった。',f:['cloudflare','lambda']},
+{id:'fastly',l:5,y:2020,s:'current',sn:'Fastly Compute',c:'Fastly',t:'2019年4月にOSSのWASMコンパイラ/ランタイムLucetを公開、同年11月私的ベータ、2020年11月GA。Cloudflare WorkersのV8アイソレート方式への対抗として、WebAssembly(Lucet/後にWasmtime)で多言語(Rust等)をエッジ実行。マイクロ秒級の起動を訴求した。',g:'WorkersのJS/V8路線に対しWebAssembly中心のエッジ実行という別系統を確立し、エッジランタイムの言語多様化とWASM標準化を牽引した。',f:['cfworkers']},
+{id:'denodeploy',l:5,y:2021,s:'current',sn:'Deno Deploy',c:'Deno（the Deno Company）',t:'2021年6月にBeta 1公開。Denoランタイム作者(Node.js創始者Ryan Dahl)らが、Cloudflare Workersと同じくVMやコンテナでなくV8アイソレートでグローバル分散実行する設計を採用。Web標準API準拠のJS/TSをエッジで動かす点でWorkersの直系。',g:'Web標準API準拠のJS/TSをV8アイソレートでエッジ実行する流れを広げ、Workers型エッジランタイムの多様化を進めた。',f:['cfworkers']},
+{id:'verceledge',l:5,y:2021,s:'declining',sn:'Vercel Edge',c:'Vercel',t:'2021年夏にベータ導入(2022年12月15日GA)。Cloudflare Workersと同系のV8アイソレートベースの軽量Edge Runtimeを採用し、フロントエンド(Next.js)デプロイに統合したエッジ実行。Workers発のアイソレート型エッジモデルをフレームワーク密着で提供した。後にVercel Functions(Fluid compute/Node.js)へ統合・非推奨化。',g:'フレームワーク(Next.js)と密結合したエッジ実行を普及させたが、2024年以降Vercel Functionsへ統合され独立カテゴリとしては縮小した。',f:['cfworkers']}];var DIFF={timesharing:3,vm370:4,vmware:3,xen:4,kvm:4,s3:1,ec2:2,azure:4,openstack:5,digitalocean:1,gce:3,heroku:1,appengine:2,cloudfoundry:4,borg:5,lxc:4,mesos:4,docker:3,kubernetes:5,swarm:2,cloudrun:2,firebase:2,lambda:2,azurefunctions:2,cloudfunctions:2,knative:4,cloudflare:1,cfworkers:2,fastly:3,denodeploy:2,verceledge:2};var DLAB={1:'入門',2:'やや易',3:'中級',4:'難',5:'専門'};
+var byId={};D.forEach(function(n){byId[n.id]=n;});
+var Wv=1100,PAD=12,boxH=38,rowGap=14,colGap=10,headerH=30,GUT=48;
+var CONTENT=Wv-PAD*2,BX0=PAD+GUT,BW=CONTENT-GUT;
+function wOf(s){var w=0;for(var i=0;i<s.length;i++){w+=s.charCodeAt(i)>0x2E80?12.2:7.2;}return Math.max(60,Math.min(240,Math.round(w)+18));}
+var buckets=ERAT.map(function(){return[];});
+D.forEach(function(n){n.w=wOf(n.sn);buckets[era(n.y)].push(n);});
+var Y=10,bands=[];
+buckets.forEach(function(b,ei){
+ var top=Y, ct=top+headerH+10;
+ var years=[],ymap={};
+ b.forEach(function(n){if(!ymap[n.y]){ymap[n.y]=[];years.push(n.y);}ymap[n.y].push(n);});
+ years.sort(function(a,c){return a-c;});
+ var cy=ct,marks=[];
+ years.forEach(function(yr){
+  var nodes=ymap[yr];nodes.sort(function(a,c){return a.l-c.l;});
+  var x=BX0,row=0;
+  nodes.forEach(function(n){if(x+n.w>BX0+BW){row++;x=BX0;}n.x=x;n.yy=cy+row*(boxH+rowGap);x+=n.w+colGap;});
+  marks.push({y:yr,ytop:cy});
+  cy+=(row+1)*(boxH+rowGap)+12;
+ });
+ var bh=cy-top;
+ bands.push({top:top,h:bh,t:ERAT[ei],ei:ei,marks:marks});
+ Y+=bh;
+});
+var H=Y+8;
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function edgePath(a,b){var ax=a.x+a.w/2,ay=a.yy+boxH,bx=b.x+b.w/2,by=b.yy;var d=Math.max(20,Math.abs(by-ay)*0.4);return 'M'+ax+','+ay+' C'+ax+','+(ay+d)+' '+bx+','+(by-d)+' '+bx+','+by;}
+var p=[];
+p.push('<svg viewBox="0 0 '+Wv+' '+H+'" width="'+Wv+'" style="max-width:100%;display:block;font-family:var(--font)" role="img" aria-label="クラウドの進化史 系譜 1961-2025">');
+p.push('<defs>');
+p.push('<marker id="mF" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="'+faint+'"/></marker>');
+p.push('<marker id="mIn" markerWidth="7.5" markerHeight="7.5" refX="6" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="'+cIn+'"/></marker>');
+p.push('<marker id="mOut" markerWidth="7.5" markerHeight="7.5" refX="6" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="'+cOut+'"/></marker>');
+p.push('</defs>');
+bands.forEach(function(bd){
+ if(bd.ei%2===0)p.push('<rect x="0" y="'+bd.top+'" width="'+Wv+'" height="'+bd.h+'" fill="'+(isDark?'rgba(180,180,175,0.05)':'rgba(95,94,90,0.045)')+'"/>');
+ p.push('<line x1="0" y1="'+bd.top+'" x2="'+Wv+'" y2="'+bd.top+'" stroke="'+(isDark?'rgba(180,180,175,0.20)':'rgba(95,94,90,0.20)')+'" stroke-width="1"/>');
+ p.push('<text x="'+PAD+'" y="'+(bd.top+19)+'" style="fill:var(--t2)" font-size="14" font-weight="600">'+esc(bd.t)+'</text>');
+ bd.marks.forEach(function(mk,i){
+  if(i>0)p.push('<line x1="'+PAD+'" y1="'+(mk.ytop-6)+'" x2="'+(Wv-PAD)+'" y2="'+(mk.ytop-6)+'" stroke="'+(isDark?'rgba(180,180,175,0.10)':'rgba(95,94,90,0.08)')+'" stroke-width="1"/>');
+  p.push('<text x="'+PAD+'" y="'+(mk.ytop+boxH/2+4)+'" style="fill:var(--t3)" font-size="12.5" font-weight="600">'+mk.y+'</text>');
+ });
+});
+p.push('<g id="base">');
+D.forEach(function(n){n.f.forEach(function(fid){var a=byId[fid];if(a)p.push('<path d="'+edgePath(a,n)+'" fill="none" stroke="'+faint+'" stroke-width="0.9" marker-end="url(#mF)"/>');});});
+p.push('</g>');
+p.push('<g id="boxes">');
+D.forEach(function(n){var cat=CAT[n.l],pal=cat.p,dash=(n.s==='legacy'||n.s==='declining'),op=dash?0.82:1;var dv=DIFF[n.id]||0,pipW=7,pipG=2.5,pw=5*pipW+4*pipG,px=n.x+n.w/2-pw/2,py=n.yy+boxH-11,pips='';for(var pi=0;pi<5;pi++){pips+='<rect x="'+(px+pi*(pipW+pipG)).toFixed(1)+'" y="'+py+'" width="'+pipW+'" height="4.5" rx="1" fill="'+(pi<dv?pal.s:faint)+'"/>';}p.push('<g class="box" data-id="'+n.id+'" opacity="'+op+'"><rect x="'+n.x+'" y="'+n.yy+'" width="'+n.w+'" height="'+boxH+'" rx="6" fill="'+pal.f+'" stroke="'+pal.s+'" stroke-width="1.1"'+(dash?' stroke-dasharray="3 2.4"':'')+'/><text x="'+(n.x+n.w/2)+'" y="'+(n.yy+16)+'" text-anchor="middle" style="fill:'+pal.x+'" font-size="12.5">'+esc(n.sn)+'</text>'+pips+'</g>');});
+p.push('</g>');
+p.push('<g id="hi"></g>');
+p.push('</svg>');
+document.getElementById('chart').innerHTML=p.join('');
+var fc=document.getElementById('filters');var fh='<button class="chip" data-f="all" aria-pressed="true">全部</button>';CAT.forEach(function(c){fh+='<button class="chip" data-f="'+c.k+'"><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:'+c.m+';margin-right:5px"></span>'+esc(c.t)+'</button>';});fc.innerHTML=fh;
+var lg=document.getElementById('legend');lg.innerHTML='<span class="lgd"><svg width="24" height="10"><line x1="0" y1="5" x2="24" y2="5" stroke="'+cIn+'" stroke-width="2" marker-end="url(#mIn)"/></svg>影響元←</span><span class="lgd"><svg width="24" height="10"><line x1="0" y1="5" x2="24" y2="5" stroke="'+cOut+'" stroke-width="2" marker-end="url(#mOut)"/></svg>影響先→</span><span class="lgd"><span style="display:inline-block;width:14px;height:12px;border:1px solid var(--t3);border-radius:3px"></span>現役</span><span class="lgd"><span style="display:inline-block;width:14px;height:12px;border:1px dashed var(--t3);border-radius:3px"></span>後退・レガシー</span>';
+lg.innerHTML+='<div style="margin-top:8px"><span class="lgd"><svg width="46" height="11" style="vertical-align:middle"><rect x="0" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="9.5" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="19" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="28.5" y="3" width="7" height="5" rx="1" fill="var(--bd2)"/><rect x="38" y="3" width="7" height="5" rx="1" fill="var(--bd2)"/></svg> 複雑度（5段階・塗りが多いほど高い）</span><span class="lgd" style="color:var(--t3)">1易 / 5専門</span></div>';
+var boxesG=document.getElementById('boxes'),baseG=document.getElementById('base'),hiG=document.getElementById('hi'),tip=document.getElementById('tip'),wrap=document.getElementById('wrap');
+var boxEls={};Array.prototype.slice.call(boxesG.querySelectorAll('g.box')).forEach(function(g){boxEls[g.getAttribute('data-id')]=g;});
+var state={cat:'all',lock:null};
+function descOf(id){return D.filter(function(n){return n.f.indexOf(id)>=0;}).map(function(n){return n.id;});}
+function applyDim(setIds){
+ D.forEach(function(n){var g=boxEls[n.id];var base=(state.cat==='all'||CAT[n.l].k===state.cat);var dash=(n.s==='legacy'||n.s==='declining');var full=dash?0.82:1;var op;if(setIds){op=setIds[n.id]?full:0.16;}else{op=base?full:0.18;}g.setAttribute('opacity',op);});
+ baseG.setAttribute('opacity',setIds?0.07:1);
+}
+function highlight(id){var n=byId[id];var anc=n.f.filter(function(x){return byId[x];});var de=descOf(id);var set={};set[id]=1;anc.forEach(function(x){set[x]=1;});de.forEach(function(x){set[x]=1;});
+ var h='';anc.forEach(function(x){h+='<path d="'+edgePath(byId[x],n)+'" fill="none" stroke="'+cIn+'" stroke-width="2" opacity="0.95" marker-end="url(#mIn)"/>';});de.forEach(function(x){h+='<path d="'+edgePath(n,byId[x])+'" fill="none" stroke="'+cOut+'" stroke-width="2" opacity="0.95" marker-end="url(#mOut)"/>';});hiG.innerHTML=h;applyDim(set);}
+function clearHi(){hiG.innerHTML='';applyDim(null);}
+function chip(id){return '<button class="chip" data-go="'+id+'">'+esc(byId[id].sn)+'</button>';}
+function showPanel(id){var n=byId[id];var cat=CAT[n.l];var anc=n.f.filter(function(x){return byId[x];});var de=descOf(id);
+ var h='<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-bottom:4px"><span style="font-size:17px;font-weight:600;color:var(--t1)">'+esc(n.sn)+'</span><span style="font-size:12.5px;color:'+cat.m+'">'+esc(cat.t)+'</span><span style="font-size:12.5px;color:var(--t3)">'+n.y+'年・'+esc(STAT[n.s])+'</span></div>';
+ if(n.c)h+='<div style="font-size:12.5px;color:var(--t2);margin-bottom:7px">提供/作者: '+esc(n.c)+'</div>';
+ var dv=DIFF[n.id]||0,dpip='';for(var pi=0;pi<5;pi++){dpip+='<span style="display:inline-block;width:10px;height:6px;border-radius:1px;margin-right:2px;background:'+(pi<dv?cat.m:'var(--bd2)')+'"></span>';}h+='<div style="font-size:13px;color:var(--t2);margin-bottom:8px">複雑度　'+dpip+' <span style="color:var(--t1)">Lv'+dv+'・'+(DLAB[dv]||'')+'</span></div>';
+ h+='<div style="font-size:14px;line-height:1.65;color:var(--t1);margin-bottom:5px"><span style="color:var(--t3)">系譜　</span>'+esc(n.t)+'</div>';
+ h+='<div style="font-size:14px;line-height:1.65;color:var(--t1)"><span style="color:var(--t3)">意義　</span>'+esc(n.g)+'</div><div id="go">';
+ if(anc.length)h+='<span style="font-size:12.5px;color:'+cIn+';align-self:center">影響元 ←</span>'+anc.map(chip).join('');
+ if(de.length)h+='<span style="font-size:12.5px;color:'+cOut+';align-self:center;margin-left:4px">影響先 →</span>'+de.map(chip).join('');
+ if(!anc.length&&!de.length)h+='<span style="font-size:12.5px;color:var(--t3)">この図の中に直接の親子リンクなし</span>';
+ h+='<button class="chip" data-clear="1" style="margin-left:auto">解除</button></div>';
+ document.getElementById('panel').innerHTML=h;}
+boxesG.addEventListener('mouseover',function(e){var g=e.target.closest('g.box');if(g&&!state.lock)highlight(g.getAttribute('data-id'));});
+boxesG.addEventListener('mouseout',function(e){var g=e.target.closest('g.box');if(g&&!state.lock)clearHi();});
+boxesG.addEventListener('click',function(e){var g=e.target.closest('g.box');if(!g)return;var id=g.getAttribute('data-id');state.lock=id;highlight(id);showPanel(id);});
+boxesG.addEventListener('mousemove',function(e){var g=e.target.closest('g.box');if(g){var n=byId[g.getAttribute('data-id')];tip.innerHTML='<b>'+esc(n.sn)+'</b><br><span style="color:var(--t2)">'+n.y+'年・'+esc(CAT[n.l].t)+'・'+esc(STAT[n.s])+'</span>';tip.style.display='block';var wr=wrap.getBoundingClientRect();var x=e.clientX-wr.left+14,yp=e.clientY-wr.top+14;if(x>wr.width-260)x-=280;tip.style.left=x+'px';tip.style.top=yp+'px';}else{tip.style.display='none';}});
+boxesG.addEventListener('mouseleave',function(){tip.style.display='none';});
+document.getElementById('panel').addEventListener('click',function(e){var go=e.target.closest('[data-go]');if(go){var id=go.getAttribute('data-go');state.lock=id;highlight(id);showPanel(id);return;}var cl=e.target.closest('[data-clear]');if(cl){state.lock=null;clearHi();document.getElementById('panel').innerHTML='<span style="color:var(--t2);font-size:13.5px">ボックスをなぞると系譜（影響元 ← / 影響先 →）が濃く出ます。クリックで詳細。</span>';}});
+var ffSearch=document.getElementById('ff-search');
+fc.addEventListener('click',function(e){var b=e.target.closest('[data-f]');if(!b)return;state.cat=b.getAttribute('data-f');state.lock=null;hiG.innerHTML='';if(ffSearch)ffSearch.value='';Array.prototype.slice.call(fc.querySelectorAll('.chip')).forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});applyDim(null);});
+ffSearch.addEventListener('input',function(){var q=ffSearch.value.trim().toLowerCase();state.lock=null;state.cat='all';hiG.innerHTML='';Array.prototype.slice.call(fc.querySelectorAll('.chip')).forEach(function(x){x.setAttribute('aria-pressed',x.getAttribute('data-f')==='all'?'true':'false');});if(!q){applyDim(null);return;}var set={};D.forEach(function(n){if((n.sn+' '+n.id+' '+(n.c||'')).toLowerCase().indexOf(q)>=0)set[n.id]=1;});applyDim(set);});
+applyDim(null);
+})();
+</script>
+</body>
+</html>

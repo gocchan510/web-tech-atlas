@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>リアクティビティ / 状態管理 系譜（1979–2024）</title>
+<style>
+:root{--t1:#1a1a1a;--t2:#565651;--t3:#8a8984;--bg1:#ffffff;--bg2:#f3f1ea;--bd3:rgba(0,0,0,0.14);--bd2:rgba(0,0,0,0.3);--bd1:rgba(0,0,0,0.42);--font:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;}
+@media(prefers-color-scheme:dark){:root{--t1:#ededed;--t2:#b3b2ad;--t3:#88877f;--bg1:#1f1f1e;--bg2:#2a2a28;--bd3:rgba(255,255,255,0.14);--bd2:rgba(255,255,255,0.3);--bd1:rgba(255,255,255,0.42);}body{background:#171716}}
+*{box-sizing:border-box}
+body{margin:0;padding:24px 18px 60px;font-family:var(--font);color:var(--t1);background:#fafaf7;line-height:1.6}
+@media(prefers-color-scheme:dark){body{background:#171716}}
+h1{font-size:22px;font-weight:600;margin:0 0 4px}
+.sub{font-size:13px;color:var(--t2);margin:0 0 16px;max-width:900px}
+#wrap{position:relative;max-width:1140px;margin:0 auto}
+.chip{font:400 12.5px var(--font);padding:4px 10px;border:1px solid var(--bd2);border-radius:8px;background:transparent;color:var(--t2);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--bg2);color:var(--t1);border-color:var(--bd1)}
+.lgd{display:inline-flex;align-items:center;gap:5px;margin-right:14px;font-size:12.5px;color:var(--t2)}
+g.box{cursor:pointer}
+#tip{position:absolute;pointer-events:none;background:var(--bg1);border:1px solid var(--bd2);border-radius:8px;padding:6px 10px;font:400 12.5px var(--font);color:var(--t1);max-width:280px;display:none;z-index:9;line-height:1.5;box-shadow:0 2px 10px rgba(0,0,0,0.12)}
+#panel{margin-top:16px;border:1px solid var(--bd3);border-radius:12px;padding:14px 18px;background:var(--bg1);min-height:60px}
+#go{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+#chart{overflow-x:auto}
+</style>
+</head>
+<body>
+<div id="wrap">
+<h1>リアクティビティ / 状態管理 系譜（1979–2024）</h1>
+<div style="margin:2px 0 12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center"><span style="font-size:12px;color:var(--t3)">Web技術アトラス:</span><a href="daisyui-hub.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">daisyUIハブ</a><a href="css-frontend-lineage-flow.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">フロントエンド技術</a><a href="prog-lang-genealogy.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">プログラミング言語</a><span style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd1);border-radius:8px;color:var(--t1);background:var(--bg2);font-weight:600" aria-current="page">リアクティビティ/状態</span><a href="cloud-evolution-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">クラウド進化史</a><a href="ai-llm-coding-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">AI・LLM</a><a href="rendering-arch-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">レンダリング/配信</a><a href="browser-web-standards-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">ブラウザ/Web標準</a><a href="js-engine-runtime-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">JSエンジン/ランタイム</a><a href="vcs-git-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">Git/バージョン管理</a></div>
+<p class="sub">40の概念・ライブラリ。縦＝時系列、色＝系統（理論 / Observable / 細粒度Signals / Flux / store / 状態機械 / サーバ状態）、矢印＝影響関係。signals の一本道（Knockout→S.js→Solid→各FW→TC39 Signals 提案）が背骨。検索・系統フィルタ・習得難易度バーつき。フロントエンド技術編とは別ページ。</p>
+<div style="margin-bottom:10px"><input id="ff-search" type="search" placeholder="名前で検索（例: Signals, Redux, RxJS）" style="width:100%;max-width:440px;padding:7px 11px;border:1px solid var(--bd2);border-radius:8px;background:var(--bg1);color:var(--t1);font:400 13px var(--font)"></div>
+<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px"><span style="font-size:12.5px;color:var(--t3);margin-right:2px">系統を強調</span><span id="filters"></span></div>
+<div id="legend" style="margin-bottom:12px"></div>
+<div id="chart"></div>
+<div id="tip"></div>
+<div id="panel"><span style="color:var(--t2);font-size:13.5px">ボックスにカーソルを合わせると系譜（影響元 ← / 影響先 →）が濃く表示されます。クリックで詳細。検索や系統チップでも絞り込めます。</span></div>
+</div>
+<script>
+(function(){
+var isDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+var CAT=[{k:'theory',t:'理論 / FRP',L:{f:'#F1EFE8',s:'#5F5E5A',x:'#2C2C2A'},Dk:{f:'#2C2C2A',s:'#B4B2A9',x:'#F1EFE8'},m:'#888780'},{k:'observable',t:'Observable / ストリーム',L:{f:'#E6F1FB',s:'#185FA5',x:'#0C447C'},Dk:{f:'#0C447C',s:'#85B7EB',x:'#E6F1FB'},m:'#378ADD'},{k:'signals',t:'細粒度 Signals',L:{f:'#E1F5EE',s:'#0F6E56',x:'#085041'},Dk:{f:'#085041',s:'#5DCAA5',x:'#E1F5EE'},m:'#1D9E75'},{k:'flux',t:'Flux / 単方向',L:{f:'#EEEDFE',s:'#534AB7',x:'#3C3489'},Dk:{f:'#3C3489',s:'#AFA9EC',x:'#EEEDFE'},m:'#7F77DD'},{k:'store',t:'atom / proxy / store',L:{f:'#FAECE7',s:'#993C1D',x:'#712B13'},Dk:{f:'#712B13',s:'#F0997B',x:'#FAECE7'},m:'#D85A30'},{k:'statemachine',t:'状態機械',L:{f:'#FBEAF0',s:'#993556',x:'#72243E'},Dk:{f:'#72243E',s:'#ED93B1',x:'#FBEAF0'},m:'#D4537E'},{k:'serverstate',t:'サーバ状態',L:{f:'#EAF3DE',s:'#3B6D11',x:'#27500A'},Dk:{f:'#27500A',s:'#97C459',x:'#EAF3DE'},m:'#639922'}];CAT.forEach(function(c){c.p=isDark?c.Dk:c.L;});
+var STAT={mainstream:'主流',current:'現役',declining:'後退中',legacy:'レガシー',niche:'ニッチ'};
+var faint=isDark?'rgba(180,180,175,0.30)':'rgba(95,94,90,0.26)';
+var cIn=isDark?'#AFA9EC':'#534AB7', cOut=isDark?'#F0997B':'#D85A30';
+var ERAT=['〜1999　理論・源流（Spreadsheet・Statecharts・Observer・FRP）','2000–2009　データバインディング & Rx 黎明','2010–2013　自動依存追跡の確立（Knockout・S.js）','2014–2016　Flux 革命 & Observable','2017–2020　状態管理の多様化（XState・Solid・Recoil/Jotai）','2021–2026　Signals 復権（TC39 Signals 提案）'];function era(y){return y<=1999?0:y<=2009?1:y<=2013?2:y<=2016?3:y<=2020?4:5;}var D=[{id:'spreadsheet',l:0,y:1979,s:'mainstream',sn:'Spreadsheet',c:'Dan Bricklin & Bob Frankston',t:'起点。セルに値か他セルを参照する数式を持たせ、ある値を変えると依存先が自動で再計算される依存グラフ駆動の更新を初めて大衆化。『宣言的に関係を書けば値の伝播は処理系が面倒を見る』という、後のリアクティブ全系の原型を確立した。',g:'宣言的な依存追跡と自動伝播という『リアクティブの原型』を最初に実証し、後続すべての再計算/派生状態の発想的祖先となった。',f:[]},
+{id:'observer',l:0,y:1994,s:'mainstream',sn:'Observerパターン',c:'Gamma, Helm, Johnson, Vlissides (GoF)',t:'Subject(被観測者)が状態変化をObserver(購読者)群へ通知する1対多の依存関係をオブジェクト指向の再利用可能パターンとして定式化。出自はSmalltalk-80のMVC依存機構(Reenskaug, 1979-80)で、GoF本もこれを明示的に引用している。push型通知のAPI契約に落とし込み、INotifyPropertyChangedやイベントストリームの基礎概念となった。',g:'状態変化の通知を再利用可能な設計パターンとして言語化し、データバインディングからRxまでpush型リアクティビティ全体の語彙と土台を与えた。',f:[]},
+{id:'statecharts',l:5,y:1987,s:'current',sn:'Statecharts',c:'David Harel',t:'古典的な状態遷移図に階層・並行・通信の3要素を加え、リアクティブ(反応的)システムの振る舞いを視覚的に形式化(Science of Computer Programming Vol.8, 1987)。小さな図で複雑な反応的挙動を表現する手法を確立し、後年XState等のUI状態機械系へ直接受け継がれた。',g:'『リアクティブシステム』の振る舞いを形式的に記述する基盤を作り、状態機械系UI状態管理の理論的源流となった。',f:[]},
+{id:'frp',l:0,y:1997,s:'niche',sn:'FRP / Fran',c:'Conal Elliott & Paul Hudak',t:'ICFP’97論文で提唱。時間とともに変化する連続値Behaviorと離散的Eventを第一級の値として合成可能にし、関数型の枠組みで『時間で変わる値』を宣言的に扱う理論を確立。後のRxのストリーム合成や各種リアクティブUIの理論的源泉となった。',g:'リアクティブプログラミングという語と概念を生み、時間変化値・イベントを合成可能な第一級値とする理論的基盤を提供した。',f:['spreadsheet']},
+{id:'wpfbinding',l:0,y:2006,s:'declining',sn:'WPF/XAML Binding',c:'Microsoft (.NET 3.0 / WinFX)',t:'ObserverパターンをINotifyPropertyChanged/DependencyPropertyとして製品化し(.NET 3.0, 2006年11月)、XAMLの宣言的マークアップでViewとModelを双方向に結ぶ仕組みを提供。MVVM(John Gossman命名)の前提となり、宣言的データバインディングをGUI開発の主流手法に押し上げた。',g:'宣言的データバインディングとMVVMを実用化し、UIとモデルを自動同期させる設計を業界標準として定着させた。',f:['observer']},
+{id:'angulardigest',l:0,y:2010,s:'legacy',sn:'AngularJS digest',c:'Miško Hevery & Adam Abrons (Google)',t:'WPF流の双方向バインディングをWebに持ち込み(2009年開発開始・2010年v0.9公開)、Observerの明示購読の代わりに$digestループで全$watch式を前回値と比較するダーティチェックで変化を検出。宣言的テンプレートと双方向同期を普及させたが、暗黙の全走査によるパフォーマンス問題が後続の細粒度リアクティビティ/仮想DOMへの反動を生んだ。',g:'Webに双方向データバインディングを大衆化した一方、ダーティチェックの限界が以後のリアクティビティ設計の方向性を規定した。',f:['wpfbinding','observer']},
+{id:'rx',l:1,y:2009,s:'current',sn:'Rx (.NET)',c:'Erik Meijer & Microsoft Cloud Programmability Team',t:'ObserverパターンとFRPの発想を統合し、IObservable/IObserverをIEnumerable/IEnumeratorの双対(push型コレクション)として定式化。Meijer自身が『Subject/ObserverはIteratorの双対』と示し、モナド/圏論的背景でLINQ演算子による非同期・イベントストリームの合成・変換を可能にし、Observable系リアクティブの中核モデルを確立した。',g:'Observerを双対化しLINQで合成可能なObservableストリームとして体系化、ReactiveX系全言語実装の原典となった。',f:['observer','frp']},
+{id:'rxjs',l:1,y:2010,s:'mainstream',sn:'RxJS',c:'Matthew Podwysocki / Microsoft (後にBen Lesh / ReactiveX)',t:'Rx.NETのモデルをJavaScriptへ移植(Matthew Podwysockiが2010年に作成、2012年にCodePlex/GitHubでOSS化)。Observableによるイベントストリーム合成をWebにもたらし、2015年末にBen Lesh & Paul Taylor主導のv5でゼロから再設計。Angular(2+)に標準採用され、Cycle.jsやTC39 Observable提案の直接の土台となった。',g:'Rxをフロントエンドに持ち込みObservableをWeb標準的存在にし、Angular採用とTC39提案を通じてJSのリアクティビティ議論の中心となった。',f:['rx']},
+{id:'cyclejs',l:1,y:2014,s:'niche',sn:'Cycle.js',c:'André Staltz',t:'RxJSのObservableを全面採用し、アプリを『入力ストリーム→出力ストリーム』の純粋関数として表現する単方向アーキテクチャ(Model-View-Intent)を提示。FRP思想をUIフレームワークに純化して持ち込み、Observableを状態管理の第一級プリミティブに据えた。',g:'Observableを基盤に純関数的・単方向のUIアーキテクチャ(MVI)を実証し、リアクティブストリームでアプリ全体を記述する設計を示した。',f:['rxjs','frp']},
+{id:'observableproposal',l:1,y:2015,s:'niche',sn:'TC39 Observable提案',c:'Jafar Husain & Kevin Smith (TC39)',t:'RxJSのObservableをモデルにECMAScript標準ライブラリへObservable型を導入する提案。push型ストリームを言語ネイティブの基本型にしようとしたが、Stage 1で2017年頃から推進者不在で停滞。標準化はせずとも、Observableをプラットフォーム基盤に置く構想として系譜に残る。',g:'Observableを言語標準に格上げしようとした試みで、push型ストリームのプリミティブ化という方向性を公式議論の俎上に載せた。',f:['rxjs','rx']},
+{id:'knockout',l:2,y:2010,s:'legacy',sn:'Knockout.js',c:'Steve Sanderson',t:'MicrosoftのWPF/Silverlight向けMVVM(データバインディング+依存追跡)をJavaScriptに移植して普及。observable()とcomputedを関数で表現し、評価関数の実行中に読まれたobservableを自動購読して依存グラフを毎回再構築する『自動依存追跡』をJSで確立。これが後のJS Signals系の核となるアイデアとなった。',g:'WPF/Silverlight由来のMVVMデータバインディングをJavaScriptへ移植し、自動依存追跡型リアクティビティをJSにもたらした事実上の祖。JS Signals系の系譜の出発点。',f:[]},
+{id:'meteortracker',l:2,y:2012,s:'legacy',sn:'Meteor Tracker',c:'Meteor Development Group',t:'Knockoutの自動依存追跡を全フレームワーク規模に拡張。Tracker.autorun()でcomputationを定義し、Session・Minimongo等のreactive data sourceがDependencyを通じて無効化→再実行する透過的リアクティビティを実現。明示的な依存宣言を不要にした点をMobXが直接参照。',g:'透過的リアクティブをアプリ全体のデータ層に適用した先例で、MobXの直接の着想源(『Reactで使えるより良いTracker』)。',f:['knockout']},
+{id:'sjs',l:2,y:2013,s:'legacy',sn:'S.js',c:'Adam Haile',t:'Knockout流の自動依存追跡を、S.data()のatomic signalとS()のcomputationに純化し『細粒度signal』という概念を確立。デジタル回路に倣った同期実行とグリッチフリーなトポロジカル再計算、そして『reactive ownership(リアクティブ所有権)』を導入。現代的signalの実装パターンと用語の直接の原型となり、Solidが2017年に発見し決定的影響を受けた。',g:'現代Signalsの実装的源流。Ryan Carniato曰く、今日使う『Signals』という語と所有権の概念の出所であり、この種のリアクティビティの見方を再定義した。',f:['knockout']},
+{id:'vuereactivity',l:2,y:2014,s:'legacy',sn:'Vue 1/2 reactivity',c:'Evan You',t:'Knockout流の依存追跡を、明示的なobservable関数ではなくObject.definePropertyによる暗黙のgetter/setter変換で実現(初出はVue 0.x/2014年、2.xまで継承)。watcherがレンダー中に触れたプロパティを依存として記録し、setter発火で再レンダーする。透過的だが配列・新規プロパティ追加に弱点を残し、後にVue 3でProxyへ刷新される。',g:'細粒度追跡をテンプレートに統合し『書けば勝手に反応する』体験を主流化、後年Vue 3でProxyへ刷新される土台となった。',f:['knockout']},
+{id:'mobx',l:2,y:2015,s:'current',sn:'MobX',c:'Michel Weststrate',t:'Meteor Tracker・Knockout・Vueに着想を得た透過的関数型リアクティブ(TFRP)のスタンドアロン実装(当初Mobservable)。observable/computed/autorunをglitch-freeかつ同期的に提供し、Reactの外側に独立した細粒度リアクティブグラフを構築。可変state×派生値の自動同期を主流のReactエコシステムへ持ち込んだ。',g:'Reactの世界に独立した細粒度リアクティブを根付かせ、Signals復権前夜の代表的実装となった。',f:['meteortracker','knockout','vuereactivity']},
+{id:'solidsignals',l:2,y:2018,s:'current',sn:'Solid signals',c:'Ryan Carniato',t:'Knockoutで愛した細粒度リアクティブパターンを出発点に、2017年に発見したS.jsの実装思想(同期実行・reactive ownership)を統合。createSignal/createMemo/createEffectというgetter+setterタプルAPIを確立し、コンポーネント再実行なしにDOMをピンポイント更新する細粒度モデルを完成させ、2018年にOSS公開して『Signal』という語と設計を現代に再定義した。',g:'S.jsの理論を実用フレームワークに結実させ、2020年代のSignalsブームの直接の震源となった存在。',f:['sjs','knockout']},
+{id:'vueref',l:2,y:2020,s:'mainstream',sn:'Vue 3 ref',c:'Evan You / Vue team',t:'Vue初期のObject.defineProperty追跡をES6 Proxyベースに刷新しtrack/triggerで深いリアクティビティを実現。ref()でプリミティブを包む単位はSolid的signalに接近し、Composition APIでコンポーネント外にリアクティブロジックを分離可能にした。MobX的な透過性とSignal的な明示性を折衷。',g:'主流大規模フレームワークがProxy×ref基盤へ移行した転換点で、Signals的設計の本流化を象徴。',f:['vuereactivity','mobx','solidsignals']},
+{id:'preactsignals',l:2,y:2022,s:'current',sn:'Preact Signals',c:'Preact team (Jason Miller, Marvin Hagemeister 他)',t:'Solid/S.js系の細粒度signalをReact/Preactのコンポーネントツリーに移植(2022-09-06公開)。signal/computed/effectを提供し、値をpropsやcontextを介さずsignalオブジェクトとして渡すことで、ツリー形状に依存せず実際に値を読む箇所だけを再レンダーする。Reactにmemoization不要の細粒度更新を持ち込んだ。',g:'Reactエコシステムへ本格的Signalsを輸入し、仮想DOM系FWでのSignals採用の先導役となった。',f:['solidsignals','sjs','mobx']},
+{id:'angularsignals',l:2,y:2023,s:'mainstream',sn:'Angular Signals',c:'Angular team (Alex Rickabaugh, Pawel Kozlowski 他)',t:'v16(2023-05-03)でdeveloper previewとして導入。Solid/Preact系のsignal/computed/effectプリミティブを採用し、Zone.jsベースの変更検知を細粒度リアクティブグラフへ置換。computationを削減しINP改善とリアクティビティの明快なメンタルモデルを狙った、大規模FWのSignals移行の代表例。',g:'Zone.js時代を終わらせる大規模FWのSignals全面採用として、Signalsの業界標準化を決定づけた。',f:['solidsignals','preactsignals']},
+{id:'reactively',l:2,y:2022,s:'niche',sn:'Reactively',c:'Milo (milomg)',t:'Solidチームでの作業から派生した1KB未満の細粒度リアクティブ実装。push-pullハイブリッドの遅延評価と着色(clean/check/dirty)による無駄のない再計算アルゴリズムを提示し、記事『Super-Charging Fine-Grained Reactive Performance』(2022-12-01)で各実装をベンチ比較。後続実装の高速化アルゴリズムの参照点となった。',g:'細粒度リアクティビティの再計算アルゴリズムを体系化・最速化し、後発のSignals実装の性能設計に影響を与えた。',f:['solidsignals','sjs']},
+{id:'svelterunes',l:2,y:2024,s:'mainstream',sn:'Svelte 5 runes',c:'Svelte team (Rich Harris, Dominic Gannaway 他)',t:'コンパイラ指示子$state/$derived/$effectの裏側を、Solid/Preact系のsignalで駆動する細粒度リアクティビティへ刷新(2024-10-19公開、$:ラベル方式を置換)。signalをAPIとして露出せず実装詳細に隠すことで設計制約を外し、人間工学と効率を両立。『Knockoutが2010年にやっていたこと』を現代コンパイラで再構築。',g:'コンパイラ駆動でSignalsを内部実装化する独自路線を示し、Signals設計の多様性を広げた到達点。',f:['solidsignals','preactsignals','knockout']},
+{id:'tc39signals',l:2,y:2024,s:'current',sn:'TC39 Signals提案',c:'Rob Eisenberg, Daniel Ehrenberg (champions: Yehuda Katz, Dominic Gannaway, Milo M 他)',t:'各FWが独自実装してきた細粒度signalを言語標準へ統一する提案(2024-04 Stage 1)。Signal.State/Signal.Computedとauto-tracking、glitch-free評価を核とし、Angular・Vue・Svelte・Preact・Solid・MobX・Qwik・Ember等の作者の設計入力を集約。複数FWで実用に耐えると確認できた場合のみ標準化する慎重方針。',g:'Knockout以来14年の細粒度リアクティビティ系譜をJavaScript標準へ収斂させようとする到達点。',f:['solidsignals','angularsignals','preactsignals','vueref','svelterunes','mobx','sjs']},
+{id:'flux',l:3,y:2014,s:'legacy',sn:'Flux',c:'Facebook (Jing Chen ほか)',t:'MVC双方向バインディングの破綻への回答として、Action→Dispatcher→Store→Viewの単方向データフローを提唱。実装ではなくアーキテクチャパターンとして発表され、以降のクライアント状態管理の共通言語となった。',g:'フロントエンド状態管理を『単方向データフロー』へ転換させた起点。',f:[]},
+{id:'elmtea',l:3,y:2014,s:'niche',sn:'Elm Architecture',c:'Evan Czaplicki',t:'Elm言語(2012〜)の中で確立したModel-Update-Viewパターン。Fluxの単方向データフローを純粋関数型へ昇華し、(msg, model) => model という単一reducer的更新で複雑なDispatcher概念を排除した。',g:'reducerによる純粋関数的状態更新という発想を確立し、Reduxの直接的な設計源泉となった。',f:['flux']},
+{id:'redux',l:3,y:2015,s:'declining',sn:'Redux',c:'Dan Abramov & Andrew Clark',t:'Fluxの単方向フローを継承しつつ、Elm Architectureに倣ってDispatcherを廃し『単一ストア+純粋reducer』へ簡素化。タイムトラベルデバッグやホットリロードを実現し、React時代のデファクト標準となった。',g:'Fluxの複雑さを純粋関数reducerで整理し、状態管理ライブラリのデファクトを築いた。',f:['flux','elmtea']},
+{id:'immer',l:3,y:2018,s:'mainstream',sn:'Immer',c:'Michel Weststrate',t:'MobX作者がProxyによるdraft変更記録と構造共有(copy-on-write)を組み合わせ、ミュータブルな書き味でイミュータブルな次状態を生成。Reduxのreducerボイラープレートを劇的に削減し、後にRTKへ標準採用された。',g:'Proxyベースの『書きやすい不変更新』を確立し、Redux系のreducer記述を一変させた。',f:['redux']},
+{id:'rtk',l:3,y:2019,s:'mainstream',sn:'Redux Toolkit',c:'Mark Erikson / Redux team',t:'Reduxの過剰なボイラープレート批判への公式回答。createSliceでaction/reducerを統合し、内部にImmerを組み込んでミュータブル風記述を許容。RTK Queryでサーバ状態管理も取り込んだ。',g:'Reduxを公式に再設計しImmerを統合、Redux利用の標準形を現代化した。',f:['redux','immer']},
+{id:'vuex',l:3,y:2015,s:'legacy',sn:'Vuex',c:'Evan You / Vue team',t:'Flux・Redux・The Elm Architectureに着想を得つつ、Vueのリアクティビティを前提にstate/getters/mutations/actionsへ再構成。Vue公式の中央集権ストアとして長く標準だったが、現在はPiniaに座を譲った。',g:'Fluxの発想をVueのリアクティビティに最適化した公式ストアの先駆け。',f:['flux','redux','elmtea']},
+{id:'zustand',l:4,y:2019,s:'mainstream',sn:'Zustand',c:'Poimandres (Daishi Kato ほか)',t:'『簡素化したFlux原則』を掲げ、Reduxのstore概念を継承しつつProviderラッパー不要のhooksベースAPIへ。state/actionを単一store関数に統合し、ボイラープレートと再レンダリングコストを最小化した。',g:'Provider不要・最小APIのストアでReduxの複雑さに代わる現代的選択肢を定着させた。',f:['flux','redux']},
+{id:'recoil',l:4,y:2020,s:'legacy',sn:'Recoil',c:'Facebook (Dave McCabe ほか)',t:'単一の巨大ストアではなく、atom(最小状態単位)とselector(派生状態)を組み合わせる『アトミックモデル』を提唱。Reactの並行機能と整合する細粒度の購読・再レンダリング最適化を狙った。',g:'atom/selectorによる細粒度アトミック状態管理という新パラダイムを提示した。',f:['flux']},
+{id:'jotai',l:4,y:2020,s:'mainstream',sn:'Jotai',c:'Daishi Kato (Poimandres)',t:'Recoilのアトミックモデルを継承しつつ、Recoilが要求した文字列keyを廃しオブジェクト参照ベースの最小APIへ。WeakMapで管理し、ボトムアップで合成可能なatom設計を徹底した。',g:'Recoilのatom思想を継ぎ、keyレス・最小コアで実用的なアトミック状態管理を確立した。',f:['recoil']},
+{id:'valtio',l:4,y:2020,s:'current',sn:'Valtio',c:'Daishi Kato (Poimandres)',t:'MobXのProxyベース・ミュータブル状態の系譜を、React hooks APIとして再設計。state.count++ のような素直な変更を許しつつ、state usage trackingで使用箇所だけを自動的に再レンダリング最適化する。',g:'MobXのProxy可変状態をhooks時代に持ち込み、自動追跡で再レンダリングを最適化した。',f:[]},
+{id:'pinia',l:4,y:2019,s:'mainstream',sn:'Pinia',c:'Eduardo San Martin Morote',t:'『Vuex 5はどうあるべきか』の実験として誕生。Vuexのmutations概念を撤廃し、Composition APIを基盤にフラットでTypeScript推論に優れたstore APIへ簡素化。2022年にVue公式の後継ストアとなった。',g:'Vuexのmutationsを捨てComposition API基盤に再設計、Vue公式ストアの座を継承した。',f:['vuex']},
+{id:'nanostores',l:4,y:2021,s:'current',sn:'Nano Stores',c:'Andrey Sitnik',t:'Jotai/Zustand系のアトミックストア思想を、特定フレームワークに縛られない極小(数百バイト)・tree-shakable設計へ抽出。React/Vue/Svelte/Solid/vanillaを横断し、Astroが公式に推奨するマルチフレームワーク状態管理となった。',g:'アトミックストアをフレームワーク非依存・極小バンドルで実現し、MPA/島構成時代に適合させた。',f:['zustand','jotai']},
+{id:'xstate',l:5,y:2017,s:'current',sn:'XState',c:'David Khourshid',t:'David Harelの1987年statechart形式論とW3C SCXML標準を、TypeScriptの有限状態機械/statechartライブラリとして実装。階層・並行状態やactorモデルを持ち込み、暗黙のbooleanフラグ地獄に対し明示的な状態遷移を提供した。',g:'statechart/状態機械という古典的形式論をWeb開発の実用的状態管理へ橋渡しした。',f:[]},
+{id:'relay',l:6,y:2015,s:'niche',sn:'Relay',c:'Facebook',t:'GraphQLと同時発表。各コンポーネントが自身のデータ依存をGraphQLフラグメントとして宣言的にコロケーションし、フレームワークが効率的なクエリ合成と正規化キャッシュを担う。サーバ状態を独立した関心事として扱う先駆けとなった。',g:'サーバ状態を宣言的・コンポーネント同居で扱う『サーバ状態管理』という分野を切り拓いた。',f:['flux']},
+{id:'apollo',l:6,y:2016,s:'mainstream',sn:'Apollo Client',c:'Meteor Development Group (Apollo)',t:'Meteor社のデータシステム(Livedata後継)を起源とし、GraphQLを採用した汎用GraphQLクライアントとして登場。Relayより軽量で任意のクエリ構造を許容する柔軟な設計を志向し、Relay同様の正規化インメモリキャッシュを備えつつフレームワーク横断で普及した。',g:'Relayの思想を平易化し、正規化キャッシュ付きGraphQLクライアントを広く普及させた。',f:['relay']},
+{id:'swr',l:6,y:2019,s:'mainstream',sn:'SWR',c:'Vercel',t:'HTTP RFC 5861のstale-while-revalidate戦略を名に冠し、GraphQL非依存でREST等にも使える汎用データフェッチhookへ昇華。キャッシュ即時返却→再検証のモデルと最小APIで、サーバ状態管理をhooks時代に大衆化した。',g:'stale-while-revalidateをhook化し、汎用サーバ状態フェッチを軽量に標準化した。',f:[]},
+{id:'tanstackquery',l:6,y:2019,s:'mainstream',sn:'TanStack Query',c:'Tanner Linsley',t:'『サーバ状態はUI状態と本質的に異なる』という観点を明確化。SWRとは独立に並行開発され(着想源はApollo的なDraqula)、キャッシュ・再検証に加えミューテーション・無効化・ページネーション等を体系化。2022年に多フレームワーク対応のTanStack Queryへ拡張した。',g:'『サーバ状態』を独立した関心事として概念化し、その管理を包括的な標準ツールへ昇華した。',f:['apollo']}];var DIFF={spreadsheet:1,observer:2,statecharts:4,frp:5,wpfbinding:3,angulardigest:3,rx:4,rxjs:4,cyclejs:4,observableproposal:3,knockout:2,meteortracker:3,sjs:4,vuereactivity:2,mobx:3,solidsignals:3,vueref:3,preactsignals:2,angularsignals:3,reactively:3,svelterunes:3,tc39signals:4,flux:3,elmtea:4,redux:4,immer:2,rtk:2,vuex:3,zustand:1,recoil:3,jotai:2,valtio:2,pinia:2,nanostores:2,xstate:4,relay:4,apollo:3,swr:1,tanstackquery:3};var DLAB={1:'入門',2:'やや易',3:'中級',4:'難',5:'専門'};
+var byId={};D.forEach(function(n){byId[n.id]=n;});
+var Wv=1100,PAD=12,boxH=38,rowGap=14,colGap=10,headerH=30,GUT=48;
+var CONTENT=Wv-PAD*2,BX0=PAD+GUT,BW=CONTENT-GUT;
+function wOf(s){var w=0;for(var i=0;i<s.length;i++){w+=s.charCodeAt(i)>0x2E80?12.2:7.2;}return Math.max(60,Math.min(240,Math.round(w)+18));}
+var buckets=ERAT.map(function(){return[];});
+D.forEach(function(n){n.w=wOf(n.sn);buckets[era(n.y)].push(n);});
+var Y=10,bands=[];
+buckets.forEach(function(b,ei){
+ var top=Y, ct=top+headerH+10;
+ var years=[],ymap={};
+ b.forEach(function(n){if(!ymap[n.y]){ymap[n.y]=[];years.push(n.y);}ymap[n.y].push(n);});
+ years.sort(function(a,c){return a-c;});
+ var cy=ct,marks=[];
+ years.forEach(function(yr){
+  var nodes=ymap[yr];nodes.sort(function(a,c){return a.l-c.l;});
+  var x=BX0,row=0;
+  nodes.forEach(function(n){if(x+n.w>BX0+BW){row++;x=BX0;}n.x=x;n.yy=cy+row*(boxH+rowGap);x+=n.w+colGap;});
+  marks.push({y:yr,ytop:cy});
+  cy+=(row+1)*(boxH+rowGap)+12;
+ });
+ var bh=cy-top;
+ bands.push({top:top,h:bh,t:ERAT[ei],ei:ei,marks:marks});
+ Y+=bh;
+});
+var H=Y+8;
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function edgePath(a,b){var ax=a.x+a.w/2,ay=a.yy+boxH,bx=b.x+b.w/2,by=b.yy;var d=Math.max(20,Math.abs(by-ay)*0.4);return 'M'+ax+','+ay+' C'+ax+','+(ay+d)+' '+bx+','+(by-d)+' '+bx+','+by;}
+var p=[];
+p.push('<svg viewBox="0 0 '+Wv+' '+H+'" width="'+Wv+'" style="max-width:100%;display:block;font-family:var(--font)" role="img" aria-label="リアクティビティと状態管理の系譜 1979-2024">');
+p.push('<defs>');
+p.push('<marker id="mF" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="'+faint+'"/></marker>');
+p.push('<marker id="mIn" markerWidth="7.5" markerHeight="7.5" refX="6" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="'+cIn+'"/></marker>');
+p.push('<marker id="mOut" markerWidth="7.5" markerHeight="7.5" refX="6" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="'+cOut+'"/></marker>');
+p.push('</defs>');
+bands.forEach(function(bd){
+ if(bd.ei%2===0)p.push('<rect x="0" y="'+bd.top+'" width="'+Wv+'" height="'+bd.h+'" fill="'+(isDark?'rgba(180,180,175,0.05)':'rgba(95,94,90,0.045)')+'"/>');
+ p.push('<line x1="0" y1="'+bd.top+'" x2="'+Wv+'" y2="'+bd.top+'" stroke="'+(isDark?'rgba(180,180,175,0.20)':'rgba(95,94,90,0.20)')+'" stroke-width="1"/>');
+ p.push('<text x="'+PAD+'" y="'+(bd.top+19)+'" style="fill:var(--t2)" font-size="14" font-weight="600">'+esc(bd.t)+'</text>');
+ bd.marks.forEach(function(mk,i){
+  if(i>0)p.push('<line x1="'+PAD+'" y1="'+(mk.ytop-6)+'" x2="'+(Wv-PAD)+'" y2="'+(mk.ytop-6)+'" stroke="'+(isDark?'rgba(180,180,175,0.10)':'rgba(95,94,90,0.08)')+'" stroke-width="1"/>');
+  p.push('<text x="'+PAD+'" y="'+(mk.ytop+boxH/2+4)+'" style="fill:var(--t3)" font-size="12.5" font-weight="600">'+mk.y+'</text>');
+ });
+});
+p.push('<g id="base">');
+D.forEach(function(n){n.f.forEach(function(fid){var a=byId[fid];if(a)p.push('<path d="'+edgePath(a,n)+'" fill="none" stroke="'+faint+'" stroke-width="0.9" marker-end="url(#mF)"/>');});});
+p.push('</g>');
+p.push('<g id="boxes">');
+D.forEach(function(n){var cat=CAT[n.l],pal=cat.p,dash=(n.s==='legacy'||n.s==='declining'),op=dash?0.82:1;var dv=DIFF[n.id]||0,pipW=7,pipG=2.5,pw=5*pipW+4*pipG,px=n.x+n.w/2-pw/2,py=n.yy+boxH-11,pips='';for(var pi=0;pi<5;pi++){pips+='<rect x="'+(px+pi*(pipW+pipG)).toFixed(1)+'" y="'+py+'" width="'+pipW+'" height="4.5" rx="1" fill="'+(pi<dv?pal.s:faint)+'"/>';}p.push('<g class="box" data-id="'+n.id+'" opacity="'+op+'"><rect x="'+n.x+'" y="'+n.yy+'" width="'+n.w+'" height="'+boxH+'" rx="6" fill="'+pal.f+'" stroke="'+pal.s+'" stroke-width="1.1"'+(dash?' stroke-dasharray="3 2.4"':'')+'/><text x="'+(n.x+n.w/2)+'" y="'+(n.yy+16)+'" text-anchor="middle" style="fill:'+pal.x+'" font-size="12.5">'+esc(n.sn)+'</text>'+pips+'</g>');});
+p.push('</g>');
+p.push('<g id="hi"></g>');
+p.push('</svg>');
+document.getElementById('chart').innerHTML=p.join('');
+var fc=document.getElementById('filters');var fh='<button class="chip" data-f="all" aria-pressed="true">全部</button>';CAT.forEach(function(c){fh+='<button class="chip" data-f="'+c.k+'"><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:'+c.m+';margin-right:5px"></span>'+esc(c.t)+'</button>';});fc.innerHTML=fh;
+var lg=document.getElementById('legend');lg.innerHTML='<span class="lgd"><svg width="24" height="10"><line x1="0" y1="5" x2="24" y2="5" stroke="'+cIn+'" stroke-width="2" marker-end="url(#mIn)"/></svg>影響元←</span><span class="lgd"><svg width="24" height="10"><line x1="0" y1="5" x2="24" y2="5" stroke="'+cOut+'" stroke-width="2" marker-end="url(#mOut)"/></svg>影響先→</span><span class="lgd"><span style="display:inline-block;width:14px;height:12px;border:1px solid var(--t3);border-radius:3px"></span>現役</span><span class="lgd"><span style="display:inline-block;width:14px;height:12px;border:1px dashed var(--t3);border-radius:3px"></span>後退・レガシー</span>';
+lg.innerHTML+='<div style="margin-top:8px"><span class="lgd"><svg width="46" height="11" style="vertical-align:middle"><rect x="0" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="9.5" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="19" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="28.5" y="3" width="7" height="5" rx="1" fill="var(--bd2)"/><rect x="38" y="3" width="7" height="5" rx="1" fill="var(--bd2)"/></svg> 習得難易度（5段階・塗りが多いほど難しい）</span><span class="lgd" style="color:var(--t3)">1入門 / 2やや易 / 3中級 / 4難 / 5専門</span></div>';
+var boxesG=document.getElementById('boxes'),baseG=document.getElementById('base'),hiG=document.getElementById('hi'),tip=document.getElementById('tip'),wrap=document.getElementById('wrap');
+var boxEls={};Array.prototype.slice.call(boxesG.querySelectorAll('g.box')).forEach(function(g){boxEls[g.getAttribute('data-id')]=g;});
+var state={cat:'all',lock:null};
+function descOf(id){return D.filter(function(n){return n.f.indexOf(id)>=0;}).map(function(n){return n.id;});}
+function applyDim(setIds){
+ D.forEach(function(n){var g=boxEls[n.id];var base=(state.cat==='all'||CAT[n.l].k===state.cat);var dash=(n.s==='legacy'||n.s==='declining');var full=dash?0.82:1;var op;if(setIds){op=setIds[n.id]?full:0.16;}else{op=base?full:0.18;}g.setAttribute('opacity',op);});
+ baseG.setAttribute('opacity',setIds?0.07:1);
+}
+function highlight(id){var n=byId[id];var anc=n.f.filter(function(x){return byId[x];});var de=descOf(id);var set={};set[id]=1;anc.forEach(function(x){set[x]=1;});de.forEach(function(x){set[x]=1;});
+ var h='';anc.forEach(function(x){h+='<path d="'+edgePath(byId[x],n)+'" fill="none" stroke="'+cIn+'" stroke-width="2" opacity="0.95" marker-end="url(#mIn)"/>';});de.forEach(function(x){h+='<path d="'+edgePath(n,byId[x])+'" fill="none" stroke="'+cOut+'" stroke-width="2" opacity="0.95" marker-end="url(#mOut)"/>';});hiG.innerHTML=h;applyDim(set);}
+function clearHi(){hiG.innerHTML='';applyDim(null);}
+function chip(id){return '<button class="chip" data-go="'+id+'">'+esc(byId[id].sn)+'</button>';}
+function showPanel(id){var n=byId[id];var cat=CAT[n.l];var anc=n.f.filter(function(x){return byId[x];});var de=descOf(id);
+ var h='<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-bottom:4px"><span style="font-size:17px;font-weight:600;color:var(--t1)">'+esc(n.sn)+'</span><span style="font-size:12.5px;color:'+cat.m+'">'+esc(cat.t)+'</span><span style="font-size:12.5px;color:var(--t3)">'+n.y+'年・'+esc(STAT[n.s])+'</span></div>';
+ if(n.c)h+='<div style="font-size:12.5px;color:var(--t2);margin-bottom:7px">作者: '+esc(n.c)+'</div>';
+ var dv=DIFF[n.id]||0,dpip='';for(var pi=0;pi<5;pi++){dpip+='<span style="display:inline-block;width:10px;height:6px;border-radius:1px;margin-right:2px;background:'+(pi<dv?cat.m:'var(--bd2)')+'"></span>';}h+='<div style="font-size:13px;color:var(--t2);margin-bottom:8px">習得難易度　'+dpip+' <span style="color:var(--t1)">Lv'+dv+'・'+(DLAB[dv]||'')+'</span></div>';
+ h+='<div style="font-size:14px;line-height:1.65;color:var(--t1);margin-bottom:5px"><span style="color:var(--t3)">系譜　</span>'+esc(n.t)+'</div>';
+ h+='<div style="font-size:14px;line-height:1.65;color:var(--t1)"><span style="color:var(--t3)">意義　</span>'+esc(n.g)+'</div><div id="go">';
+ if(anc.length)h+='<span style="font-size:12.5px;color:'+cIn+';align-self:center">影響元 ←</span>'+anc.map(chip).join('');
+ if(de.length)h+='<span style="font-size:12.5px;color:'+cOut+';align-self:center;margin-left:4px">影響先 →</span>'+de.map(chip).join('');
+ if(!anc.length&&!de.length)h+='<span style="font-size:12.5px;color:var(--t3)">この図の中に直接の親子リンクなし</span>';
+ h+='<button class="chip" data-clear="1" style="margin-left:auto">解除</button></div>';
+ document.getElementById('panel').innerHTML=h;}
+boxesG.addEventListener('mouseover',function(e){var g=e.target.closest('g.box');if(g&&!state.lock)highlight(g.getAttribute('data-id'));});
+boxesG.addEventListener('mouseout',function(e){var g=e.target.closest('g.box');if(g&&!state.lock)clearHi();});
+boxesG.addEventListener('click',function(e){var g=e.target.closest('g.box');if(!g)return;var id=g.getAttribute('data-id');state.lock=id;highlight(id);showPanel(id);});
+boxesG.addEventListener('mousemove',function(e){var g=e.target.closest('g.box');if(g){var n=byId[g.getAttribute('data-id')];tip.innerHTML='<b>'+esc(n.sn)+'</b><br><span style="color:var(--t2)">'+n.y+'年・'+esc(CAT[n.l].t)+'・'+esc(STAT[n.s])+'</span>';tip.style.display='block';var wr=wrap.getBoundingClientRect();var x=e.clientX-wr.left+14,yp=e.clientY-wr.top+14;if(x>wr.width-260)x-=280;tip.style.left=x+'px';tip.style.top=yp+'px';}else{tip.style.display='none';}});
+boxesG.addEventListener('mouseleave',function(){tip.style.display='none';});
+document.getElementById('panel').addEventListener('click',function(e){var go=e.target.closest('[data-go]');if(go){var id=go.getAttribute('data-go');state.lock=id;highlight(id);showPanel(id);return;}var cl=e.target.closest('[data-clear]');if(cl){state.lock=null;clearHi();document.getElementById('panel').innerHTML='<span style="color:var(--t2);font-size:13.5px">ボックスをなぞると系譜（影響元 ← / 影響先 →）が濃く出ます。クリックで詳細。</span>';}});
+var ffSearch=document.getElementById('ff-search');
+fc.addEventListener('click',function(e){var b=e.target.closest('[data-f]');if(!b)return;state.cat=b.getAttribute('data-f');state.lock=null;hiG.innerHTML='';if(ffSearch)ffSearch.value='';Array.prototype.slice.call(fc.querySelectorAll('.chip')).forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});applyDim(null);});
+ffSearch.addEventListener('input',function(){var q=ffSearch.value.trim().toLowerCase();state.lock=null;state.cat='all';hiG.innerHTML='';Array.prototype.slice.call(fc.querySelectorAll('.chip')).forEach(function(x){x.setAttribute('aria-pressed',x.getAttribute('data-f')==='all'?'true':'false');});if(!q){applyDim(null);return;}var set={};D.forEach(function(n){if((n.sn+' '+n.id+' '+(n.c||'')).toLowerCase().indexOf(q)>=0)set[n.id]=1;});applyDim(set);});
+applyDim(null);
+})();
+</script>
+</body>
+</html>

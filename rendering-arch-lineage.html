@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>レンダリング / 配信アーキテクチャ 系譜（1993–2026）</title>
+<style>
+:root{--t1:#1a1a1a;--t2:#565651;--t3:#8a8984;--bg1:#ffffff;--bg2:#f3f1ea;--bd3:rgba(0,0,0,0.14);--bd2:rgba(0,0,0,0.3);--bd1:rgba(0,0,0,0.42);--font:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;}
+@media(prefers-color-scheme:dark){:root{--t1:#ededed;--t2:#b3b2ad;--t3:#88877f;--bg1:#1f1f1e;--bg2:#2a2a28;--bd3:rgba(255,255,255,0.14);--bd2:rgba(255,255,255,0.3);--bd1:rgba(255,255,255,0.42);}body{background:#171716}}
+*{box-sizing:border-box}
+body{margin:0;padding:24px 18px 60px;font-family:var(--font);color:var(--t1);background:#fafaf7;line-height:1.6}
+@media(prefers-color-scheme:dark){body{background:#171716}}
+h1{font-size:22px;font-weight:600;margin:0 0 4px}
+.sub{font-size:13px;color:var(--t2);margin:0 0 16px;max-width:900px}
+#wrap{position:relative;max-width:1140px;margin:0 auto}
+.chip{font:400 12.5px var(--font);padding:4px 10px;border:1px solid var(--bd2);border-radius:8px;background:transparent;color:var(--t2);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--bg2);color:var(--t1);border-color:var(--bd1)}
+.lgd{display:inline-flex;align-items:center;gap:5px;margin-right:14px;font-size:12.5px;color:var(--t2)}
+g.box{cursor:pointer}
+#tip{position:absolute;pointer-events:none;background:var(--bg1);border:1px solid var(--bd2);border-radius:8px;padding:6px 10px;font:400 12.5px var(--font);color:var(--t1);max-width:280px;display:none;z-index:9;line-height:1.5;box-shadow:0 2px 10px rgba(0,0,0,0.12)}
+#panel{margin-top:16px;border:1px solid var(--bd3);border-radius:12px;padding:14px 18px;background:var(--bg1);min-height:60px}
+#go{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+#chart{overflow-x:auto}
+</style>
+</head>
+<body>
+<div id="wrap">
+<h1>レンダリング / 配信アーキテクチャ 系譜（1993–2026）</h1>
+<div style="margin:2px 0 12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center"><span style="font-size:12px;color:var(--t3)">Web技術アトラス:</span><a href="daisyui-hub.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">daisyUIハブ</a><a href="css-frontend-lineage-flow.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">フロントエンド技術</a><a href="prog-lang-genealogy.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">プログラミング言語</a><a href="reactivity-state-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">リアクティビティ/状態</a><a href="cloud-evolution-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">クラウド進化史</a><a href="ai-llm-coding-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">AI・LLM</a><span style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd1);border-radius:8px;color:var(--t1);background:var(--bg2);font-weight:600" aria-current="page">レンダリング/配信</span><a href="browser-web-standards-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">ブラウザ/Web標準</a><a href="js-engine-runtime-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">JSエンジン/ランタイム</a><a href="vcs-git-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">Git/バージョン管理</a></div>
+<p class="sub">22のレンダリング/配信パラダイム。縦＝時系列、色＝方式（古典 / CSR・SPA / 静的生成 / SSR復権 / アイランド / RSC・ストリーミング / エッジ）、矢印＝発展関係。サーバ生成→CSR/SPA→静的化→SSR復権→hydration→アイランド→ストリーミング/RSC→resumability→エッジ の振り子。バーは概念の複雑度。</p>
+<div style="margin-bottom:10px"><input id="ff-search" type="search" placeholder="名前で検索（例: SSR, RSC, アイランド, hydration）" style="width:100%;max-width:440px;padding:7px 11px;border:1px solid var(--bd2);border-radius:8px;background:var(--bg1);color:var(--t1);font:400 13px var(--font)"></div>
+<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px"><span style="font-size:12.5px;color:var(--t3);margin-right:2px">系統を強調</span><span id="filters"></span></div>
+<div id="legend" style="margin-bottom:12px"></div>
+<div id="chart"></div>
+<div id="tip"></div>
+<div id="panel"><span style="color:var(--t2);font-size:13.5px">ボックスにカーソルを合わせると系譜（影響元 ← / 影響先 →）が濃く表示されます。クリックで詳細。検索や系統チップでも絞り込めます。</span></div>
+</div>
+<script>
+(function(){
+var isDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+var STAT={mainstream:'主流',current:'現役',declining:'後退中',legacy:'レガシー',niche:'ニッチ'};
+var faint=isDark?'rgba(180,180,175,0.30)':'rgba(95,94,90,0.26)';
+var cIn=isDark?'#AFA9EC':'#534AB7', cOut=isDark?'#F0997B':'#D85A30';
+var CAT=[{k:'classic',t:'古典サーバーレンダリング',L:{f:'#F1EFE8',s:'#5F5E5A',x:'#2C2C2A'},Dk:{f:'#2C2C2A',s:'#B4B2A9',x:'#F1EFE8'},m:'#888780'},{k:'csr',t:'CSR / SPA',L:{f:'#E6F1FB',s:'#185FA5',x:'#0C447C'},Dk:{f:'#0C447C',s:'#85B7EB',x:'#E6F1FB'},m:'#378ADD'},{k:'ssg',t:'静的生成',L:{f:'#EAF3DE',s:'#3B6D11',x:'#27500A'},Dk:{f:'#27500A',s:'#97C459',x:'#EAF3DE'},m:'#639922'},{k:'ssr',t:'SSR 復権 / ハイブリッド',L:{f:'#EEEDFE',s:'#534AB7',x:'#3C3489'},Dk:{f:'#3C3489',s:'#AFA9EC',x:'#EEEDFE'},m:'#7F77DD'},{k:'islands',t:'アイランド / 部分hydration',L:{f:'#E1F5EE',s:'#0F6E56',x:'#085041'},Dk:{f:'#085041',s:'#5DCAA5',x:'#E1F5EE'},m:'#1D9E75'},{k:'rsc',t:'RSC / ストリーミング',L:{f:'#FAECE7',s:'#993C1D',x:'#712B13'},Dk:{f:'#712B13',s:'#F0997B',x:'#FAECE7'},m:'#D85A30'},{k:'edge',t:'エッジ',L:{f:'#FAEEDA',s:'#854F0B',x:'#633806'},Dk:{f:'#633806',s:'#EF9F27',x:'#FAEEDA'},m:'#BA7517'}];CAT.forEach(function(c){c.p=isDark?c.Dk:c.L;});var ERAT=['〜2007　古典サーバーレンダリング（CGI・PHP/Rails・Ajax）','2008–2014　CSR/SPA & 静的化（SSG・SPA）','2015–2018　SSR復権 & Jamstack（Universal JS・App Shell・PRPL）','2019–2020　hydration・アイランド・RSC萌芽','2021–2026　ストリーミング & エッジ（RSC・Edge・View Transitions）'];function era(y){return y<=2007?0:y<=2014?1:y<=2018?2:y<=2020?3:4;}var D=[{id:'cgi',l:0,y:1993,s:'legacy',sn:'CGI',c:'',t:'NCSA HTTPd開発の流れでRob McCoolが仕様化。Webサーバが外部プログラム/スクリプトを起動しリクエスト毎にHTMLを動的生成する最初の標準的手段。静的HTMLしか返せなかったWebに動的コンテンツの道を開いた、全サーバーサイドレンダリングの原点。',g:'リクエスト毎にサーバで外部プロセスを実行しHTMLを生成する仕組みを標準化し、動的Webの起点となった。',f:[]},
+{id:'classicssr',l:0,y:1995,s:'mainstream',sn:'クラシックSSR',c:'',t:'1995年にRasmus LerdorfがCGI上のテンプレートエンジンとしてPHPを公開、後にサーバ側でHTMLを丸ごと生成する言語へ進化。2004年のRuby on Railsがerb等のテンプレートとMVCでサーバーサイドレンダリングを定型化。CGIのプロセス起動方式を、言語/フレームワーク埋め込み実行へと洗練させた系譜。',g:'リクエスト毎にサーバがHTMLを完全生成して返す方式を主流化し、長くWeb開発の標準アーキテクチャとなった。',f:['cgi']},
+{id:'ajax',l:1,y:2005,s:'legacy',sn:'Ajax',c:'',t:'IE5のXMLHttpRequest(MicrosoftがOutlook Web Access向けに考案)を基盤に、2005年2月Jesse James Garrettが命名。Google Maps/Gmailで実証された、ページ全体を再読み込みせず非同期にサーバと通信しDOMを部分更新する手法。サーバ生成一辺倒からクライアント側レンダリングへの転換点。',g:'全画面リロードなしの非同期通信とDOM部分更新を一般化し、CSR/SPA時代の技術的口火を切った。',f:['classicssr']},
+{id:'csr',l:1,y:2010,s:'current',sn:'CSR',c:'',t:'Ajaxで可能になった非同期データ取得を全面化し、サーバはJSON等のデータのみ返し、ブラウザ上のJavaScriptがDOMを構築・描画する方式。2010年代初頭にBackbone.js/AngularJS/後のReactと共に確立。レンダリング責務をサーバからクライアントへ移した中核概念。',g:'HTML生成の責務をブラウザのJavaScriptへ移し、SPAを実現する基盤レンダリング方式となった。',f:['ajax']},
+{id:'spa',l:1,y:2010,s:'current',sn:'SPA',c:'',t:'概念自体は2003年頃Netscape系の論者が言及。2010年のBackbone.js/Knockout.js/AngularJSで実装が出揃い普及。単一HTMLを起点にCSRで画面遷移をクライアント完結させ、ネイティブアプリ的UXを目指すアーキテクチャ。CSRを応用設計レベルへ昇華した枠組み。',g:'ページ遷移を伴わずクライアントで画面を切り替えるアプリ型Web設計を確立し、フロント主導開発を決定づけた。',f:['csr']},
+{id:'ssg',l:2,y:2008,s:'mainstream',sn:'SSG',c:'',t:'Movable Type(2001)の静的書き出しやNanocが先行し、2008年Tom Preston-WernerのJekyll(Front matter等)で概念が普及。リクエスト時ではなくビルド時に全ページをHTML化しCDN配信する方式。クラシックSSRの毎回生成を事前生成へ反転させた系譜。',g:'ビルド時に全ページを静的HTML化して配信し、高速・堅牢な配信モデルとして動的生成への対抗軸を打ち立てた。',f:['classicssr']},
+{id:'jamstack',l:2,y:2015,s:'mainstream',sn:'Jamstack',c:'',t:'2015年NetlifyのMatt Biilmannが命名、2016年Smashing Conf登壇で普及。SSGで事前生成したMarkupをCDN配信し、動的機能はクライアントJavaScriptと外部APIで補う構成。SSGの事前生成にCSRの動的性とAPI連携を統合したモダン配信アーキテクチャ。',g:'事前生成の静的Markup+クライアントJS+APIという疎結合構成を提唱し、SSGをモダンWeb配信の主流様式へ押し上げた。',f:['ssg','csr']},
+{id:'appshell',l:1,y:2015,s:'declining',sn:'App Shell',c:'',t:'2015年GoogleのAddy Osmaniらが提唱、PWA(Russell/Berrimanの命名)とService Workerを前提とする。UIの骨格(HTML/CSS/JS)をService Workerでキャッシュし即時表示、中身はCSRで後から注入する設計。SPA/CSRをオフライン耐性と高速初期表示の観点で構造化した。',g:'UIの殻をService Workerでキャッシュし瞬時表示する設計で、PWAのネイティブ的体験と即時ロードを支えた。',f:['spa','csr']},
+{id:'prpl',l:1,y:2016,s:'niche',sn:'PRPL',c:'',t:'2016年Google I/OでPolymerチームが提唱。Push(重要資源を先行配信)/Render(初期ルート描画)/Pre-cache(残ルートを事前キャッシュ)/Lazy-load(残ルート遅延読込)の頭字語。App Shell+Service Workerを土台に、低速モバイル網での高速ロードを最適化する配信戦略。',g:'重要資源の先行配信と残ルートの事前キャッシュ/遅延読込を組み合わせ、モバイル向け高速ロードの定型パターンを示した。',f:['appshell','spa']},
+{id:'ssr',l:3,y:2013,s:'mainstream',sn:'SSR(復権)',c:'Spike Brehm (Airbnb) ほか',t:'クライアント専用SPA(Backbone/初期React)のSEO・初期表示問題への揺り戻し。同一JSコードをNode.jsでサーバ実行し初期HTMLを生成、同じコードがクライアントでも動く『isomorphic/universal』思想。2013年Spike Brehm(Airbnb)が用語を普及、2015年前後にReact/Netflix/Twitterで採用が広がりSSRが復権、Next.js(2016)へ結実。',g:'クライアント完結のSPAから『サーバで初期描画しクライアントで引き継ぐ』ハイブリッド時代への転換点となった。',f:[]},
+{id:'hydration',l:3,y:2017,s:'mainstream',sn:'Hydration',c:'React チーム / Addy Osmani・Jason Miller(概念整理)',t:'SSRで送られた静的HTMLに対し、クライアントで同じコンポーネントツリーを再実行しイベントハンドラと状態を『水を吸わせる』ように結び付けてインタラクティブ化する手法。ReactのrenderToString+hydrateが実装の起点で、Osmani&Miller『Rendering on the Web』(2019)が概念を体系化。後の全派生(部分/プログレッシブ/選択的/resumability)はこの再実行コストへの対抗から生まれた。',g:'SSRの初期HTMLを操作可能にする標準手法であり、同時にTTI悪化という最大の課題を生んだ起点概念。',f:['ssr']},
+{id:'isr',l:3,y:2019,s:'mainstream',sn:'ISR',c:'Vercel / Next.js (v9.5)',t:'SSGの『全ページ再ビルド』限界と、SSRの『毎回サーバ実行』コストの中間。Next.js 9.5(2020)で導入され、ページ単位でバックグラウンド再生成しキャッシュ更新することで、静的の速さを保ちつつ数百万ページ規模に対応。SSGとSSRを連続体として橋渡しした。',g:'静的生成と動的生成を二者択一でなくページ単位で混在可能にし、大規模サイトの配信戦略を変えた。',f:['ssr','hydration']},
+{id:'partialhydration',l:4,y:2019,s:'current',sn:'部分hydration',c:'Addy Osmani・Jason Miller(概念)',t:'Osmani&Miller『Rendering on the Web』(2019)で『partial rehydration』として定義。ページ全体ではなく対話性のある領域だけをハイドレートし、静的・装飾的な部分はJSをほぼゼロに落とす。インタラクティブ部分を局所化する発想がアイランドアーキテクチャへ直結した。',g:'『ページ全体を一括ハイドレート』という前提を崩し、JS出荷量を必要箇所だけに絞る発想を確立した。',f:['hydration']},
+{id:'progressivehydration',l:4,y:2019,s:'current',sn:'プログレッシブhydration',c:'Addy Osmani・Jason Miller(概念)',t:'同じく『Rendering on the Web』(2019)で『progressive rehydration』として定義。アプリ全体を一度に起動するのでなく、サーバ描画済みの各部品を時間をかけて(可視・操作・優先度に応じ)順次ブートする。時間軸でハイドレーションを分割する考えが、Reactの選択的ハイドレーションへ発展した。',g:'ハイドレーションを一括処理から時間分割・優先度付き処理へと変える設計軸を導入した。',f:['hydration','partialhydration']},
+{id:'islands',l:4,y:2020,s:'current',sn:'アイランド',c:'Katie Sylor-Miller(2019命名)/ Jason Miller(2020体系化)',t:'EtsyのKatie Sylor-Millerが2019年に『component island』を命名、Preact作者Jason Millerが2020年8月に記事化して普及。静的HTMLの海に対話性の『島』を点在させ、各島だけを独立にハイドレートする。部分hydrationを明確なアーキテクチャ・パターンへ昇華し、Astro/Marko/Fresh等が実装。',g:'部分hydrationを命名された設計パターンに結晶させ、ゼロJSデフォルトのMPA系フレームワーク群の土台となった。',f:['partialhydration','progressivehydration']},
+{id:'streamingssr',l:5,y:2022,s:'mainstream',sn:'ストリーミングSSR',c:'React チーム(React 18)',t:'React 18(2022年3月)でrenderToPipeableStream/<Suspense>連携により実装。HTML完成を待たずシェルを即座にフラッシュし、遅い部分をSuspense境界ごとに同一HTTPレスポンス内であとからストリーム配信。TTFBを改善し、RSCとSuspenseを前提とする新SSRアーキテクチャの基盤となった。',g:'SSRを『全部揃ってから一括送出』から『準備できた部分から逐次送出』へ転換し、RSC時代の配信基盤を作った。',f:['ssr','rsc']},
+{id:'selectivehydration',l:5,y:2022,s:'mainstream',sn:'選択的hydration',c:'React チーム(React 18)',t:'React 18(2022)で<Suspense>境界を単位に、HTML/JS全体のダウンロード完了を待たず到着分から順次ハイドレートし、ユーザーが操作した箇所を優先する。Osmani/Millerのprogressive/partial rehydration構想を、Suspenseとストリーミングを使ってReactランタイムが自動化したもの。',g:'プログレッシブ/部分hydrationの理念を、Suspenseとストリーミング上でランタイムが自動・優先度制御する実装として実現した。',f:['progressivehydration','streamingssr','hydration']},
+{id:'rsc',l:5,y:2020,s:'current',sn:'RSC',c:'React チーム(Dan Abramov・Lauren Tan・Joseph Savona・Sebastian Markbåge)',t:'2020年12月のRFC(#188)で発表。サーバ専用に実行されクライアントへJSを一切送らないコンポーネントで、サーバ側データソースに直接アクセスしClient Componentとシームレスに合成。ハイドレーション不要領域をコンポーネント境界で表現する点で、islands/部分hydrationの問題意識をReactのコンポーネントモデルへ取り込んだ。',g:'サーバ/クライアントの境界をコンポーネント単位で引けるようにし、JSバンドルゼロのサーバ描画を主流アーキテクチャ化した。',f:['ssr','hydration']},
+{id:'resumability',l:4,y:2022,s:'niche',sn:'Resumability',c:'Miško Hevery(Qwik / Builder.io)',t:'Qwik v0.1(2022年10月)で導入。サーバで実行した状態を全てHTML内に直列化して送り、クライアントはハイドレーションせず『中断地点から再開』するだけ。初期JSは約1KB、ハンドラは遅延ロード。ハイドレーション自体を撤廃する点でislands/部分hydrationの延長かつ最終形態に位置する。',g:'ハイドレーションという再実行コスト自体を排し、状態の直列化と再開でTTIをアプリ規模から切り離す急進的アプローチ。',f:['hydration','islands','partialhydration']},
+{id:'edgerender',l:6,y:2021,s:'current',sn:'エッジレンダリング',c:'Cloudflare(Workers)/ Vercel(Edge Functions)ほか',t:'SSRを中央サーバでなくCDNエッジノードで実行しユーザー近傍で描画、レイテンシを削減。Cloudflare Workers(2017-)が基盤、2021年前後にVercel Edge FunctionsやNext.js Edge Runtime、Netlify Edge Functionsが登場しSSR/RSCのエッジ実行が一般化。ストリーミングSSR/RSCと組み合わさり配信レイヤーを地理分散させた。',g:'サーバ描画の実行場所をユーザー近傍へ分散し、SSR/RSCの『どこで描画するか』という配信軸を新たに開いた。',f:['ssr','streamingssr','rsc','isr']},
+{id:'viewtransitions',l:6,y:2023,s:'current',sn:'View Transitions',c:'Google Chrome / W3C',t:'Chrome 111(2023年3月)で同一ドキュメント(SPA)向けに安定化。旧状態と新状態のスナップショットを撮りCSSアニメーションで滑らかに遷移させる。後にクロスドキュメント(MPA)対応へ拡張され、islands/MPA系やエッジ配信のページ遷移をネイティブで滑らかにするブラウザ標準。',g:'SPA特権だった滑らかな画面遷移をブラウザ標準として提供し、MPA/エッジ配信でもネイティブなUX演出を可能にした。',f:['islands','edgerender']},
+{id:'speculationrules',l:6,y:2023,s:'current',sn:'Speculation Rules',c:'Google Chrome / WICG',t:'Chrome 109(2023年1月)で導入。<script type="speculationrules">やSpeculation-Rulesヘッダで次に遷移しうるページをprefetch/prerenderし、瞬時のナビゲーションを実現。旧来の<link rel=prefetch>/<link rel=prerender>の後継として、エッジ配信やストリーミングSSRと組み合わせ『遷移前に先読みする』配信最適化レイヤーを宣言的に追加する。',g:'次ページの先読み(prefetch/prerender)を宣言的に指定可能にし、ほぼ瞬時のページ遷移という配信最適化を標準化した。',f:['edgerender','viewtransitions']}];var DIFF={cgi:2,classicssr:2,ajax:3,csr:3,spa:3,ssg:2,jamstack:2,appshell:3,prpl:3,ssr:3,hydration:4,isr:3,partialhydration:4,progressivehydration:4,islands:3,streamingssr:4,selectivehydration:5,rsc:5,resumability:5,edgerender:4,viewtransitions:2,speculationrules:3};var DLAB={1:'易',2:'やや易',3:'中',4:'難',5:'専門'};
+var byId={};D.forEach(function(n){byId[n.id]=n;});
+var Wv=1100,PAD=12,boxH=38,rowGap=14,colGap=10,headerH=30,GUT=48;
+var CONTENT=Wv-PAD*2,BX0=PAD+GUT,BW=CONTENT-GUT;
+function wOf(s){var w=0;for(var i=0;i<s.length;i++){w+=s.charCodeAt(i)>0x2E80?12.2:7.2;}return Math.max(60,Math.min(240,Math.round(w)+18));}
+var buckets=ERAT.map(function(){return[];});
+D.forEach(function(n){n.w=wOf(n.sn);buckets[era(n.y)].push(n);});
+var Y=10,bands=[];
+buckets.forEach(function(b,ei){
+ var top=Y, ct=top+headerH+10;
+ var years=[],ymap={};
+ b.forEach(function(n){if(!ymap[n.y]){ymap[n.y]=[];years.push(n.y);}ymap[n.y].push(n);});
+ years.sort(function(a,c){return a-c;});
+ var cy=ct,marks=[];
+ years.forEach(function(yr){
+  var nodes=ymap[yr];nodes.sort(function(a,c){return a.l-c.l;});
+  var x=BX0,row=0;
+  nodes.forEach(function(n){if(x+n.w>BX0+BW){row++;x=BX0;}n.x=x;n.yy=cy+row*(boxH+rowGap);x+=n.w+colGap;});
+  marks.push({y:yr,ytop:cy});
+  cy+=(row+1)*(boxH+rowGap)+12;
+ });
+ var bh=cy-top;
+ bands.push({top:top,h:bh,t:ERAT[ei],ei:ei,marks:marks});
+ Y+=bh;
+});
+var H=Y+8;
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function edgePath(a,b){var ax=a.x+a.w/2,ay=a.yy+boxH,bx=b.x+b.w/2,by=b.yy;var d=Math.max(20,Math.abs(by-ay)*0.4);return 'M'+ax+','+ay+' C'+ax+','+(ay+d)+' '+bx+','+(by-d)+' '+bx+','+by;}
+var p=[];
+p.push('<svg viewBox="0 0 '+Wv+' '+H+'" width="'+Wv+'" style="max-width:100%;display:block;font-family:var(--font)" role="img" aria-label="レンダリング/配信アーキテクチャの系譜 1993-2026">');
+p.push('<defs>');
+p.push('<marker id="mF" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="'+faint+'"/></marker>');
+p.push('<marker id="mIn" markerWidth="7.5" markerHeight="7.5" refX="6" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="'+cIn+'"/></marker>');
+p.push('<marker id="mOut" markerWidth="7.5" markerHeight="7.5" refX="6" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="'+cOut+'"/></marker>');
+p.push('</defs>');
+bands.forEach(function(bd){
+ if(bd.ei%2===0)p.push('<rect x="0" y="'+bd.top+'" width="'+Wv+'" height="'+bd.h+'" fill="'+(isDark?'rgba(180,180,175,0.05)':'rgba(95,94,90,0.045)')+'"/>');
+ p.push('<line x1="0" y1="'+bd.top+'" x2="'+Wv+'" y2="'+bd.top+'" stroke="'+(isDark?'rgba(180,180,175,0.20)':'rgba(95,94,90,0.20)')+'" stroke-width="1"/>');
+ p.push('<text x="'+PAD+'" y="'+(bd.top+19)+'" style="fill:var(--t2)" font-size="14" font-weight="600">'+esc(bd.t)+'</text>');
+ bd.marks.forEach(function(mk,i){
+  if(i>0)p.push('<line x1="'+PAD+'" y1="'+(mk.ytop-6)+'" x2="'+(Wv-PAD)+'" y2="'+(mk.ytop-6)+'" stroke="'+(isDark?'rgba(180,180,175,0.10)':'rgba(95,94,90,0.08)')+'" stroke-width="1"/>');
+  p.push('<text x="'+PAD+'" y="'+(mk.ytop+boxH/2+4)+'" style="fill:var(--t3)" font-size="12.5" font-weight="600">'+mk.y+'</text>');
+ });
+});
+p.push('<g id="base">');
+D.forEach(function(n){n.f.forEach(function(fid){var a=byId[fid];if(a)p.push('<path d="'+edgePath(a,n)+'" fill="none" stroke="'+faint+'" stroke-width="0.9" marker-end="url(#mF)"/>');});});
+p.push('</g>');
+p.push('<g id="boxes">');
+D.forEach(function(n){var cat=CAT[n.l],pal=cat.p,dash=(n.s==='legacy'||n.s==='declining'),op=dash?0.82:1;var dv=DIFF[n.id]||0,pipW=7,pipG=2.5,pw=5*pipW+4*pipG,px=n.x+n.w/2-pw/2,py=n.yy+boxH-11,pips='';for(var pi=0;pi<5;pi++){pips+='<rect x="'+(px+pi*(pipW+pipG)).toFixed(1)+'" y="'+py+'" width="'+pipW+'" height="4.5" rx="1" fill="'+(pi<dv?pal.s:faint)+'"/>';}p.push('<g class="box" data-id="'+n.id+'" opacity="'+op+'"><rect x="'+n.x+'" y="'+n.yy+'" width="'+n.w+'" height="'+boxH+'" rx="6" fill="'+pal.f+'" stroke="'+pal.s+'" stroke-width="1.1"'+(dash?' stroke-dasharray="3 2.4"':'')+'/><text x="'+(n.x+n.w/2)+'" y="'+(n.yy+16)+'" text-anchor="middle" style="fill:'+pal.x+'" font-size="12.5">'+esc(n.sn)+'</text>'+pips+'</g>');});
+p.push('</g>');
+p.push('<g id="hi"></g>');
+p.push('</svg>');
+document.getElementById('chart').innerHTML=p.join('');
+var fc=document.getElementById('filters');var fh='<button class="chip" data-f="all" aria-pressed="true">全部</button>';CAT.forEach(function(c){fh+='<button class="chip" data-f="'+c.k+'"><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:'+c.m+';margin-right:5px"></span>'+esc(c.t)+'</button>';});fc.innerHTML=fh;
+var lg=document.getElementById('legend');lg.innerHTML='<span class="lgd"><svg width="24" height="10"><line x1="0" y1="5" x2="24" y2="5" stroke="'+cIn+'" stroke-width="2" marker-end="url(#mIn)"/></svg>影響元←</span><span class="lgd"><svg width="24" height="10"><line x1="0" y1="5" x2="24" y2="5" stroke="'+cOut+'" stroke-width="2" marker-end="url(#mOut)"/></svg>影響先→</span><span class="lgd"><span style="display:inline-block;width:14px;height:12px;border:1px solid var(--t3);border-radius:3px"></span>現役</span><span class="lgd"><span style="display:inline-block;width:14px;height:12px;border:1px dashed var(--t3);border-radius:3px"></span>後退・レガシー</span>';
+lg.innerHTML+='<div style="margin-top:8px"><span class="lgd"><svg width="46" height="11" style="vertical-align:middle"><rect x="0" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="9.5" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="19" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="28.5" y="3" width="7" height="5" rx="1" fill="var(--bd2)"/><rect x="38" y="3" width="7" height="5" rx="1" fill="var(--bd2)"/></svg> 概念の複雑度（5段階）</span><span class="lgd" style="color:var(--t3)">1易 / 5専門</span></div>';
+var boxesG=document.getElementById('boxes'),baseG=document.getElementById('base'),hiG=document.getElementById('hi'),tip=document.getElementById('tip'),wrap=document.getElementById('wrap');
+var boxEls={};Array.prototype.slice.call(boxesG.querySelectorAll('g.box')).forEach(function(g){boxEls[g.getAttribute('data-id')]=g;});
+var state={cat:'all',lock:null};
+function descOf(id){return D.filter(function(n){return n.f.indexOf(id)>=0;}).map(function(n){return n.id;});}
+function applyDim(setIds){
+ D.forEach(function(n){var g=boxEls[n.id];var base=(state.cat==='all'||CAT[n.l].k===state.cat);var dash=(n.s==='legacy'||n.s==='declining');var full=dash?0.82:1;var op;if(setIds){op=setIds[n.id]?full:0.16;}else{op=base?full:0.18;}g.setAttribute('opacity',op);});
+ baseG.setAttribute('opacity',setIds?0.07:1);
+}
+function highlight(id){var n=byId[id];var anc=n.f.filter(function(x){return byId[x];});var de=descOf(id);var set={};set[id]=1;anc.forEach(function(x){set[x]=1;});de.forEach(function(x){set[x]=1;});
+ var h='';anc.forEach(function(x){h+='<path d="'+edgePath(byId[x],n)+'" fill="none" stroke="'+cIn+'" stroke-width="2" opacity="0.95" marker-end="url(#mIn)"/>';});de.forEach(function(x){h+='<path d="'+edgePath(n,byId[x])+'" fill="none" stroke="'+cOut+'" stroke-width="2" opacity="0.95" marker-end="url(#mOut)"/>';});hiG.innerHTML=h;applyDim(set);}
+function clearHi(){hiG.innerHTML='';applyDim(null);}
+function chip(id){return '<button class="chip" data-go="'+id+'">'+esc(byId[id].sn)+'</button>';}
+function showPanel(id){var n=byId[id];var cat=CAT[n.l];var anc=n.f.filter(function(x){return byId[x];});var de=descOf(id);
+ var h='<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-bottom:4px"><span style="font-size:17px;font-weight:600;color:var(--t1)">'+esc(n.sn)+'</span><span style="font-size:12.5px;color:'+cat.m+'">'+esc(cat.t)+'</span><span style="font-size:12.5px;color:var(--t3)">'+n.y+'年・'+esc(STAT[n.s])+'</span></div>';
+ if(n.c)h+='<div style="font-size:12.5px;color:var(--t2);margin-bottom:7px">作者/開発: '+esc(n.c)+'</div>';
+ var dv=DIFF[n.id]||0,dpip='';for(var pi=0;pi<5;pi++){dpip+='<span style="display:inline-block;width:10px;height:6px;border-radius:1px;margin-right:2px;background:'+(pi<dv?cat.m:'var(--bd2)')+'"></span>';}h+='<div style="font-size:13px;color:var(--t2);margin-bottom:8px">複雑度　'+dpip+' <span style="color:var(--t1)">Lv'+dv+'・'+(DLAB[dv]||'')+'</span></div>';
+ h+='<div style="font-size:14px;line-height:1.65;color:var(--t1);margin-bottom:5px"><span style="color:var(--t3)">系譜　</span>'+esc(n.t)+'</div>';
+ h+='<div style="font-size:14px;line-height:1.65;color:var(--t1)"><span style="color:var(--t3)">意義　</span>'+esc(n.g)+'</div><div id="go">';
+ if(anc.length)h+='<span style="font-size:12.5px;color:'+cIn+';align-self:center">影響元 ←</span>'+anc.map(chip).join('');
+ if(de.length)h+='<span style="font-size:12.5px;color:'+cOut+';align-self:center;margin-left:4px">影響先 →</span>'+de.map(chip).join('');
+ if(!anc.length&&!de.length)h+='<span style="font-size:12.5px;color:var(--t3)">この図の中に直接の親子リンクなし</span>';
+ h+='<button class="chip" data-clear="1" style="margin-left:auto">解除</button></div>';
+ document.getElementById('panel').innerHTML=h;}
+boxesG.addEventListener('mouseover',function(e){var g=e.target.closest('g.box');if(g&&!state.lock)highlight(g.getAttribute('data-id'));});
+boxesG.addEventListener('mouseout',function(e){var g=e.target.closest('g.box');if(g&&!state.lock)clearHi();});
+boxesG.addEventListener('click',function(e){var g=e.target.closest('g.box');if(!g)return;var id=g.getAttribute('data-id');state.lock=id;highlight(id);showPanel(id);});
+boxesG.addEventListener('mousemove',function(e){var g=e.target.closest('g.box');if(g){var n=byId[g.getAttribute('data-id')];tip.innerHTML='<b>'+esc(n.sn)+'</b><br><span style="color:var(--t2)">'+n.y+'年・'+esc(CAT[n.l].t)+'・'+esc(STAT[n.s])+'</span>';tip.style.display='block';var wr=wrap.getBoundingClientRect();var x=e.clientX-wr.left+14,yp=e.clientY-wr.top+14;if(x>wr.width-260)x-=280;tip.style.left=x+'px';tip.style.top=yp+'px';}else{tip.style.display='none';}});
+boxesG.addEventListener('mouseleave',function(){tip.style.display='none';});
+document.getElementById('panel').addEventListener('click',function(e){var go=e.target.closest('[data-go]');if(go){var id=go.getAttribute('data-go');state.lock=id;highlight(id);showPanel(id);return;}var cl=e.target.closest('[data-clear]');if(cl){state.lock=null;clearHi();document.getElementById('panel').innerHTML='<span style="color:var(--t2);font-size:13.5px">ボックスをなぞると系譜（影響元 ← / 影響先 →）が濃く出ます。クリックで詳細。</span>';}});
+var ffSearch=document.getElementById('ff-search');
+fc.addEventListener('click',function(e){var b=e.target.closest('[data-f]');if(!b)return;state.cat=b.getAttribute('data-f');state.lock=null;hiG.innerHTML='';if(ffSearch)ffSearch.value='';Array.prototype.slice.call(fc.querySelectorAll('.chip')).forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});applyDim(null);});
+ffSearch.addEventListener('input',function(){var q=ffSearch.value.trim().toLowerCase();state.lock=null;state.cat='all';hiG.innerHTML='';Array.prototype.slice.call(fc.querySelectorAll('.chip')).forEach(function(x){x.setAttribute('aria-pressed',x.getAttribute('data-f')==='all'?'true':'false');});if(!q){applyDim(null);return;}var set={};D.forEach(function(n){if((n.sn+' '+n.id+' '+(n.c||'')).toLowerCase().indexOf(q)>=0)set[n.id]=1;});applyDim(set);});
+applyDim(null);
+})();
+</script>
+</body>
+</html>

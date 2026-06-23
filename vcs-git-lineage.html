@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>バージョン管理 / Git 系譜（1972–2026）</title>
+<style>
+:root{--t1:#1a1a1a;--t2:#565651;--t3:#8a8984;--bg1:#ffffff;--bg2:#f3f1ea;--bd3:rgba(0,0,0,0.14);--bd2:rgba(0,0,0,0.3);--bd1:rgba(0,0,0,0.42);--font:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;}
+@media(prefers-color-scheme:dark){:root{--t1:#ededed;--t2:#b3b2ad;--t3:#88877f;--bg1:#1f1f1e;--bg2:#2a2a28;--bd3:rgba(255,255,255,0.14);--bd2:rgba(255,255,255,0.3);--bd1:rgba(255,255,255,0.42);}body{background:#171716}}
+*{box-sizing:border-box}
+body{margin:0;padding:24px 18px 60px;font-family:var(--font);color:var(--t1);background:#fafaf7;line-height:1.6}
+@media(prefers-color-scheme:dark){body{background:#171716}}
+h1{font-size:22px;font-weight:600;margin:0 0 4px}
+.sub{font-size:13px;color:var(--t2);margin:0 0 16px;max-width:900px}
+#wrap{position:relative;max-width:1140px;margin:0 auto}
+.chip{font:400 12.5px var(--font);padding:4px 10px;border:1px solid var(--bd2);border-radius:8px;background:transparent;color:var(--t2);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--bg2);color:var(--t1);border-color:var(--bd1)}
+.lgd{display:inline-flex;align-items:center;gap:5px;margin-right:14px;font-size:12.5px;color:var(--t2)}
+g.box{cursor:pointer}
+#tip{position:absolute;pointer-events:none;background:var(--bg1);border:1px solid var(--bd2);border-radius:8px;padding:6px 10px;font:400 12.5px var(--font);color:var(--t1);max-width:280px;display:none;z-index:9;line-height:1.5;box-shadow:0 2px 10px rgba(0,0,0,0.12)}
+#panel{margin-top:16px;border:1px solid var(--bd3);border-radius:12px;padding:14px 18px;background:var(--bg1);min-height:60px}
+#go{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+#chart{overflow-x:auto}
+</style>
+</head>
+<body>
+<div id="wrap">
+<h1>バージョン管理 / Git 系譜（1972–2026）</h1>
+<div style="margin:2px 0 12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center"><span style="font-size:12px;color:var(--t3)">Web技術アトラス:</span><a href="daisyui-hub.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">daisyUIハブ</a><a href="css-frontend-lineage-flow.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">フロントエンド技術</a><a href="prog-lang-genealogy.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">プログラミング言語</a><a href="reactivity-state-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">リアクティビティ/状態</a><a href="cloud-evolution-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">クラウド進化史</a><a href="ai-llm-coding-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">AI・LLM</a><a href="rendering-arch-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">レンダリング/配信</a><a href="browser-web-standards-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">ブラウザ/Web標準</a><a href="js-engine-runtime-lineage.html" style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd2);border-radius:8px;text-decoration:none;color:var(--t1);background:var(--bg1)">JSエンジン/ランタイム</a><span style="display:inline-flex;align-items:center;font-size:12.5px;padding:5px 11px;border:1px solid var(--bd1);border-radius:8px;color:var(--t1);background:var(--bg2);font-weight:600" aria-current="page">Git/バージョン管理</span></div>
+<p class="sub">24のVCS・ホスティング・ワークフロー。縦＝時系列、色＝種別（VCS本体 / ホスティング / ワークフロー）、矢印＝系譜。集中型(SCCS→CVS→SVN)→分散革命(Git/Mercurial、BitKeeper紛争が引き金)→GitHub/GitLab→Git Flow/GitOps。バーは習得難易度。</p>
+<div style="margin-bottom:10px"><input id="ff-search" type="search" placeholder="名前で検索（例: Git, SVN, GitHub, GitOps）" style="width:100%;max-width:440px;padding:7px 11px;border:1px solid var(--bd2);border-radius:8px;background:var(--bg1);color:var(--t1);font:400 13px var(--font)"></div>
+<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px"><span style="font-size:12.5px;color:var(--t3);margin-right:2px">系統を強調</span><span id="filters"></span></div>
+<div id="legend" style="margin-bottom:12px"></div>
+<div id="chart"></div>
+<div id="tip"></div>
+<div id="panel"><span style="color:var(--t2);font-size:13.5px">ボックスにカーソルを合わせると系譜（影響元 ← / 影響先 →）が濃く表示されます。クリックで詳細。検索や系統チップでも絞り込めます。</span></div>
+</div>
+<script>
+(function(){
+var isDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+var STAT={mainstream:'主流',current:'現役',declining:'後退中',legacy:'レガシー',niche:'ニッチ'};
+var faint=isDark?'rgba(180,180,175,0.30)':'rgba(95,94,90,0.26)';
+var cIn=isDark?'#AFA9EC':'#534AB7', cOut=isDark?'#F0997B':'#D85A30';
+var CAT=[{k:'vcs',t:'バージョン管理システム',L:{f:'#E6F1FB',s:'#185FA5',x:'#0C447C'},Dk:{f:'#0C447C',s:'#85B7EB',x:'#E6F1FB'},m:'#378ADD'},{k:'hosting',t:'ホスティング',L:{f:'#EAF3DE',s:'#3B6D11',x:'#27500A'},Dk:{f:'#27500A',s:'#97C459',x:'#EAF3DE'},m:'#639922'},{k:'workflow',t:'ワークフロー',L:{f:'#FAEEDA',s:'#854F0B',x:'#633806'},Dk:{f:'#633806',s:'#EF9F27',x:'#FAEEDA'},m:'#BA7517'}];CAT.forEach(function(c){c.p=isDark?c.Dk:c.L;});var ERAT=['〜1999　集中型VCS（SCCS→RCS→CVS）','2000–2004　SVN & 分散型の芽（BitKeeper・Darcs）','2005–2008　分散革命 & ホスティング誕生（Git/Mercurial・GitHub）','2009–2026　ワークフロー & 集約（GitLab・Git Flow・GitOps）'];function era(y){return y<=1999?0:y<=2004?1:y<=2008?2:3;}var D=[{id:'sccs',l:0,y:1972,s:'legacy',sn:'SCCS',c:'',t:'Bell研のMarc Rochkindが開発した世界初の本格的バージョン管理システム。単一ファイルの全リビジョンを前方デルタで保存し、ロック方式で排他制御する集中型の原型。',g:'リビジョン管理という概念そのものを確立し、後続VCS全ての出発点となった。',f:[]},
+{id:'rcs',l:0,y:1982,s:'legacy',sn:'RCS',c:'',t:'Walter TichyがSCCSの後継として開発。逆デルタを採用し最新版を丸ごと持つことで取り出しを高速化したが、依然ファイル単位・集中型のロック方式。',g:'逆デルタ方式を確立し、CVSなどファイル群を束ねる後継ツールの土台となった。',f:['sccs']},
+{id:'cvs',l:0,y:1990,s:'legacy',sn:'CVS',c:'',t:'Dick Gruneのスクリプト(1986)を経てBrian BerlinerがC実装(1990)。RCSをバックエンドにプロジェクト全体をまとめて管理し、ロックでなく並行編集+マージを導入した集中型の決定版。',g:'クライアント・サーバ型の集中管理を普及させ、オープンソース開発の標準ツールとなった。',f:['rcs']},
+{id:'perforce',l:0,y:1995,s:'niche',sn:'Perforce',c:'',t:'Christopher Seiwaldが創業したPerforce社の商用集中型VCS。中央サーバで巨大なモノリポと大容量バイナリを高速に扱える設計で、ゲーム・大企業に浸透。',g:'大規模・大容量を要する商用開発で集中型の到達点を示し、現在も一部で現役。',f:['rcs','cvs']},
+{id:'svn',l:0,y:2000,s:'declining',sn:'Subversion',c:'',t:'CollabNetがCVSの欠点を補う「より良いCVS」として開発。アトミックコミット・ディレクトリ/リネーム追跡・グローバルなリビジョン番号を備えた集中型の完成形。',g:'CVSを置き換え、集中型VCSの最終世代として2000年代に広く使われた。',f:['cvs']},
+{id:'bitkeeper',l:0,y:2000,s:'legacy',sn:'BitKeeper',c:'',t:'BitMover社(Larry McVoy)の商用分散型VCS。Linuxカーネル開発が無償版を採用したが、2005年4月にTridgellのリバースエンジニアリングを巡り無償提供を撤回。',g:'DVCSの実用性を示すと同時にその無償版撤回がGit誕生の直接の引き金となった。',f:[]},
+{id:'git',l:0,y:2005,s:'mainstream',sn:'Git',c:'',t:'BitKeeper無償版撤回を受けLinus Torvaldsが数日で自作したDVCS。コンテンツアドレス型ストレージとMerkleツリーで全履歴を各クローンが完全保持し、ブランチとマージを高速化。',g:'事実上の標準VCSとなり、GitHub等を通じ現代の開発ワークフロー全体を規定した。',f:['bitkeeper']},
+{id:'mercurial',l:0,y:2005,s:'niche',sn:'Mercurial',c:'',t:'BitKeeper撤回の同月(2005年4月)にMatt MackallがGitとほぼ同時に開始したDVCS。BitKeeper由来のチェンジセット概念とPython実装による使いやすさを重視。',g:'Gitの対抗としてDVCSを普及させ、大規模利用(Mozilla等)でも実績を残した。',f:['bitkeeper']},
+{id:'bazaar',l:0,y:2005,s:'legacy',sn:'Bazaar',c:'',t:'CanonicalがArch系bazを刷新する形で開発したDVCS。使いやすさと柔軟なワークフロー(集中・分散の両対応)を志向し、Ubuntu/Launchpadで採用。',g:'DVCS黎明期にユーザー体験重視の選択肢を示したが、Git台頭で衰退した。',f:['darcs']},
+{id:'darcs',l:0,y:2003,s:'niche',sn:'Darcs',c:'',t:'David RoundyがHaskellで開発したDVCS。スナップショットでなく独立したパッチの集合と可換性を扱う「パッチ理論」を基盤とする独自設計。',g:'Git/Mercurial以前にDVCSを実証し、パッチ指向という代替系譜を切り開いた。',f:[]},
+{id:'fossil',l:0,y:2006,s:'niche',sn:'Fossil',c:'',t:'SQLite作者D. Richard HippがSQLite開発のために作ったDVCS。バグ追跡・Wiki・フォーラム・Web UIを単一実行ファイルに統合し、履歴をSQLiteに格納。',g:'VCSに開発支援機能を一体化する設計を示し、SQLite等で堅実に使われ続ける。',f:['git','mercurial']},
+{id:'sourceforge',l:1,y:1999,s:'legacy',sn:'SourceForge',c:'VA Linux Systems (Tony Guntharp ら)',t:'1999年VA Linuxが開設したOSS集中ホスティングの草分け。CVS/Subversion等の集中型VCS、課題管理、ダウンロード配布を一箇所に集約する『フォージ』の原型を作った。後発のGoogle CodeやGitHubの直接の祖。',g:'OSSプロジェクトを一元ホストする最初の大規模プラットフォームで、後続フォージ全ての原型となった。',f:[]},
+{id:'googlecode',l:1,y:2006,s:'legacy',sn:'Google Code',c:'Google',t:'2006年Googleが『SourceForgeへの回答』として開設。当初Subversion、後にMercurial/Gitに対応。GitHub台頭に押され2015年読取専用化・2016年閉鎖。SourceForgeの系譜上に立つ集中型ホスティング。',g:'大手による洗練されたOSSホスティングで、商用フォージ競争を本格化させた過渡的存在。',f:['sourceforge']},
+{id:'github',l:1,y:2008,s:'mainstream',sn:'GitHub',c:'Tom Preston-Werner, Chris Wanstrath, PJ Hyett, Scott Chacon',t:'2008年公開。Linus TorvaldsのGit(分散型)を中心に据え、fork+Pull Requestによるソーシャルコーディングを発明。SourceForge/Google Codeの集中型フォージを駆逐し、分散VCSホスティングのデファクトに。',g:'Pull Requestとソーシャルコーディングを軸に開発コラボレーションの標準を確立した最大手。',f:['sourceforge','googlecode']},
+{id:'bitbucket',l:1,y:2008,s:'current',sn:'Bitbucket',c:'Jesper Nøhr(後にAtlassianが買収)',t:'2008年Mercurialホスティングとして開始、2010年Atlassian買収後にGit対応・現在はGit中心。GitHubのモデルを追随しつつJira/CI等Atlassianスイートとの統合を強み化。',g:'Atlassianエコシステムと統合された企業向けGit/旧Mercurialホスティングの主要選択肢。',f:['sourceforge','github']},
+{id:'gitlab',l:1,y:2011,s:'mainstream',sn:'GitLab',c:'Dmitriy Zaporozhets, Valery Sizov(2014年GitLab Inc.をSytse Sijbrandijと設立)',t:'2011年オープンソースのセルフホスト型Gitツールとして公開。GitHubのモデルを範としつつ、CI/CDからセキュリティまで包括するシングルアプリ型DevOpsプラットフォームへ拡張。',g:'セルフホスト可能でCI/CDを統合した一気通貫DevOpsプラットフォームの代表格。',f:['github']},
+{id:'gitea',l:1,y:2016,s:'current',sn:'Gitea',c:'Lunny Xiao ほかコミュニティ(Gogsからフォーク)',t:'2016年、単独メンテナ依存だったGogs(Go製軽量Gitサーバ)からコミュニティ主導でフォーク。GitHub類似UIを軽量・自己ホスト可能な形で提供。GitLabより軽い自己ホスト需要に応える。',g:'Go製で軽量・自己ホストしやすいコミュニティ駆動のGitサービス。',f:['github','gitlab']},
+{id:'azuredevops',l:1,y:2005,s:'current',sn:'Azure DevOps',c:'Microsoft',t:'2005年Team Foundation Server(集中型TFVC)として登場。後にGitリポジトリ・パイプライン・ボードを統合し、2015年VSTS、2018年Azure DevOps(クラウド)/Azure DevOps Server(オンプレ)へ改称。集中型から分散型ホスティングへ移行した企業系譜。',g:'MicrosoftのエンタープライズALM/DevOps統合スイートで、TFVCからGitまで包含する。',f:['github']},
+{id:'gitflow',l:2,y:2010,s:'declining',sn:'Git Flow',c:'Vincent Driessen',t:'2010年Vincent Driessenの記事『A successful Git branching model』で提唱。main/develop/feature/release/hotfixの厳格な分岐モデル。バージョン付きリリース製品向けだが、継続的デリバリ時代には重厚すぎるとされ衰退傾向。',g:'Gitの長命ブランチ分岐戦略を体系化した最初期の包括的ブランチングモデル。',f:[]},
+{id:'githubflow',l:2,y:2011,s:'mainstream',sn:'GitHub Flow',c:'Scott Chacon(GitHub)',t:'2011年Scott ChaconがGit Flowの複雑さへの反動として提唱。mainは常時デプロイ可能、機能ブランチ→Pull Request→マージの軽量フロー。継続的デリバリとPull Request文化を前提とする。',g:'Pull Request中心の軽量ブランチ運用で、Web系継続的デリバリの定番となった。',f:['gitflow','pullrequest']},
+{id:'trunkbased',l:2,y:2000,s:'mainstream',sn:'トランクベース開発',c:'(概念) Paul Hammantが体系化・普及',t:'短命ブランチまたは直接トランクへ高頻度に統合し、長期ブランチを避ける実践。源流はCI黎明期(80-90年代)に遡るが、Paul Hammantらが2010年代に体系化・普及。CI/CDと相補的で、Git Flowの対極に位置づけられDORA研究で高パフォーマンスと関連付けられた。',g:'長命ブランチを排し高頻度統合を徹底する、CI/CDと高パフォーマンス組織を支える運用。',f:[]},
+{id:'gitops',l:2,y:2017,s:'current',sn:'GitOps',c:'Alexis Richardson(Weaveworks)',t:'2017年Weaveworksのアレクシス・リチャードソンが命名。Gitを唯一の信頼源とし、宣言的インフラ/Kubernetes構成をPull Requestで変更しエージェントが自動同期する運用。Pull Request文化をインフラ運用へ拡張した系譜。',g:'Gitを単一の信頼源としインフラ運用を宣言的に自動化するクラウドネイティブ運用手法。',f:['pullrequest','trunkbased','githubflow']},
+{id:'pullrequest',l:2,y:2008,s:'mainstream',sn:'Pull Request',c:'GitHub',t:'2008年GitHubが導入。当初はgit request-pullのGUIラッパだったが、2010年の『Pull Requests 2.0』で議論・レビュー・マージを束ねる協働の中核に。Gitのfork&pullモデルを誰にでも使える形に昇華させた。',g:'変更提案・レビュー・マージを統合し、現代のコードコラボレーションの基本単位となった概念。',f:['github']},
+{id:'convcommits',l:2,y:2017,s:'current',sn:'Conventional Commits',c:'Conventional Commitsコミュニティ(Benjamin Coe ほか、Angular規約が基)',t:'2017年頃に策定。Angularのコミットメッセージガイドラインをベースにfeat/fix等の型付きメッセージ規約を標準化。セマンティックバージョニングやCHANGELOG自動生成・semantic-release等のツール連携を可能にした。',g:'コミットメッセージを機械可読に規約化し、自動バージョニングと変更履歴生成を実現する標準。',f:['github','pullrequest']}];var DIFF={sccs:3,rcs:3,cvs:3,perforce:3,svn:3,bitkeeper:3,git:4,mercurial:3,bazaar:3,darcs:4,fossil:2,sourceforge:1,googlecode:1,github:1,bitbucket:1,gitlab:2,gitea:2,azuredevops:3,gitflow:3,githubflow:1,trunkbased:2,gitops:3,pullrequest:1,convcommits:1};var DLAB={1:'入門',2:'やや易',3:'中級',4:'難',5:'専門'};
+var byId={};D.forEach(function(n){byId[n.id]=n;});
+var Wv=1100,PAD=12,boxH=38,rowGap=14,colGap=10,headerH=30,GUT=48;
+var CONTENT=Wv-PAD*2,BX0=PAD+GUT,BW=CONTENT-GUT;
+function wOf(s){var w=0;for(var i=0;i<s.length;i++){w+=s.charCodeAt(i)>0x2E80?12.2:7.2;}return Math.max(60,Math.min(240,Math.round(w)+18));}
+var buckets=ERAT.map(function(){return[];});
+D.forEach(function(n){n.w=wOf(n.sn);buckets[era(n.y)].push(n);});
+var Y=10,bands=[];
+buckets.forEach(function(b,ei){
+ var top=Y, ct=top+headerH+10;
+ var years=[],ymap={};
+ b.forEach(function(n){if(!ymap[n.y]){ymap[n.y]=[];years.push(n.y);}ymap[n.y].push(n);});
+ years.sort(function(a,c){return a-c;});
+ var cy=ct,marks=[];
+ years.forEach(function(yr){
+  var nodes=ymap[yr];nodes.sort(function(a,c){return a.l-c.l;});
+  var x=BX0,row=0;
+  nodes.forEach(function(n){if(x+n.w>BX0+BW){row++;x=BX0;}n.x=x;n.yy=cy+row*(boxH+rowGap);x+=n.w+colGap;});
+  marks.push({y:yr,ytop:cy});
+  cy+=(row+1)*(boxH+rowGap)+12;
+ });
+ var bh=cy-top;
+ bands.push({top:top,h:bh,t:ERAT[ei],ei:ei,marks:marks});
+ Y+=bh;
+});
+var H=Y+8;
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function edgePath(a,b){var ax=a.x+a.w/2,ay=a.yy+boxH,bx=b.x+b.w/2,by=b.yy;var d=Math.max(20,Math.abs(by-ay)*0.4);return 'M'+ax+','+ay+' C'+ax+','+(ay+d)+' '+bx+','+(by-d)+' '+bx+','+by;}
+var p=[];
+p.push('<svg viewBox="0 0 '+Wv+' '+H+'" width="'+Wv+'" style="max-width:100%;display:block;font-family:var(--font)" role="img" aria-label="バージョン管理とGitの系譜 1972-2026">');
+p.push('<defs>');
+p.push('<marker id="mF" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="'+faint+'"/></marker>');
+p.push('<marker id="mIn" markerWidth="7.5" markerHeight="7.5" refX="6" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="'+cIn+'"/></marker>');
+p.push('<marker id="mOut" markerWidth="7.5" markerHeight="7.5" refX="6" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="'+cOut+'"/></marker>');
+p.push('</defs>');
+bands.forEach(function(bd){
+ if(bd.ei%2===0)p.push('<rect x="0" y="'+bd.top+'" width="'+Wv+'" height="'+bd.h+'" fill="'+(isDark?'rgba(180,180,175,0.05)':'rgba(95,94,90,0.045)')+'"/>');
+ p.push('<line x1="0" y1="'+bd.top+'" x2="'+Wv+'" y2="'+bd.top+'" stroke="'+(isDark?'rgba(180,180,175,0.20)':'rgba(95,94,90,0.20)')+'" stroke-width="1"/>');
+ p.push('<text x="'+PAD+'" y="'+(bd.top+19)+'" style="fill:var(--t2)" font-size="14" font-weight="600">'+esc(bd.t)+'</text>');
+ bd.marks.forEach(function(mk,i){
+  if(i>0)p.push('<line x1="'+PAD+'" y1="'+(mk.ytop-6)+'" x2="'+(Wv-PAD)+'" y2="'+(mk.ytop-6)+'" stroke="'+(isDark?'rgba(180,180,175,0.10)':'rgba(95,94,90,0.08)')+'" stroke-width="1"/>');
+  p.push('<text x="'+PAD+'" y="'+(mk.ytop+boxH/2+4)+'" style="fill:var(--t3)" font-size="12.5" font-weight="600">'+mk.y+'</text>');
+ });
+});
+p.push('<g id="base">');
+D.forEach(function(n){n.f.forEach(function(fid){var a=byId[fid];if(a)p.push('<path d="'+edgePath(a,n)+'" fill="none" stroke="'+faint+'" stroke-width="0.9" marker-end="url(#mF)"/>');});});
+p.push('</g>');
+p.push('<g id="boxes">');
+D.forEach(function(n){var cat=CAT[n.l],pal=cat.p,dash=(n.s==='legacy'||n.s==='declining'),op=dash?0.82:1;var dv=DIFF[n.id]||0,pipW=7,pipG=2.5,pw=5*pipW+4*pipG,px=n.x+n.w/2-pw/2,py=n.yy+boxH-11,pips='';for(var pi=0;pi<5;pi++){pips+='<rect x="'+(px+pi*(pipW+pipG)).toFixed(1)+'" y="'+py+'" width="'+pipW+'" height="4.5" rx="1" fill="'+(pi<dv?pal.s:faint)+'"/>';}p.push('<g class="box" data-id="'+n.id+'" opacity="'+op+'"><rect x="'+n.x+'" y="'+n.yy+'" width="'+n.w+'" height="'+boxH+'" rx="6" fill="'+pal.f+'" stroke="'+pal.s+'" stroke-width="1.1"'+(dash?' stroke-dasharray="3 2.4"':'')+'/><text x="'+(n.x+n.w/2)+'" y="'+(n.yy+16)+'" text-anchor="middle" style="fill:'+pal.x+'" font-size="12.5">'+esc(n.sn)+'</text>'+pips+'</g>');});
+p.push('</g>');
+p.push('<g id="hi"></g>');
+p.push('</svg>');
+document.getElementById('chart').innerHTML=p.join('');
+var fc=document.getElementById('filters');var fh='<button class="chip" data-f="all" aria-pressed="true">全部</button>';CAT.forEach(function(c){fh+='<button class="chip" data-f="'+c.k+'"><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:'+c.m+';margin-right:5px"></span>'+esc(c.t)+'</button>';});fc.innerHTML=fh;
+var lg=document.getElementById('legend');lg.innerHTML='<span class="lgd"><svg width="24" height="10"><line x1="0" y1="5" x2="24" y2="5" stroke="'+cIn+'" stroke-width="2" marker-end="url(#mIn)"/></svg>影響元←</span><span class="lgd"><svg width="24" height="10"><line x1="0" y1="5" x2="24" y2="5" stroke="'+cOut+'" stroke-width="2" marker-end="url(#mOut)"/></svg>影響先→</span><span class="lgd"><span style="display:inline-block;width:14px;height:12px;border:1px solid var(--t3);border-radius:3px"></span>現役</span><span class="lgd"><span style="display:inline-block;width:14px;height:12px;border:1px dashed var(--t3);border-radius:3px"></span>後退・レガシー</span>';
+lg.innerHTML+='<div style="margin-top:8px"><span class="lgd"><svg width="46" height="11" style="vertical-align:middle"><rect x="0" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="9.5" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="19" y="3" width="7" height="5" rx="1" fill="'+cIn+'"/><rect x="28.5" y="3" width="7" height="5" rx="1" fill="var(--bd2)"/><rect x="38" y="3" width="7" height="5" rx="1" fill="var(--bd2)"/></svg> 習得難易度（5段階）</span><span class="lgd" style="color:var(--t3)">1入門 / 5専門</span></div>';
+var boxesG=document.getElementById('boxes'),baseG=document.getElementById('base'),hiG=document.getElementById('hi'),tip=document.getElementById('tip'),wrap=document.getElementById('wrap');
+var boxEls={};Array.prototype.slice.call(boxesG.querySelectorAll('g.box')).forEach(function(g){boxEls[g.getAttribute('data-id')]=g;});
+var state={cat:'all',lock:null};
+function descOf(id){return D.filter(function(n){return n.f.indexOf(id)>=0;}).map(function(n){return n.id;});}
+function applyDim(setIds){
+ D.forEach(function(n){var g=boxEls[n.id];var base=(state.cat==='all'||CAT[n.l].k===state.cat);var dash=(n.s==='legacy'||n.s==='declining');var full=dash?0.82:1;var op;if(setIds){op=setIds[n.id]?full:0.16;}else{op=base?full:0.18;}g.setAttribute('opacity',op);});
+ baseG.setAttribute('opacity',setIds?0.07:1);
+}
+function highlight(id){var n=byId[id];var anc=n.f.filter(function(x){return byId[x];});var de=descOf(id);var set={};set[id]=1;anc.forEach(function(x){set[x]=1;});de.forEach(function(x){set[x]=1;});
+ var h='';anc.forEach(function(x){h+='<path d="'+edgePath(byId[x],n)+'" fill="none" stroke="'+cIn+'" stroke-width="2" opacity="0.95" marker-end="url(#mIn)"/>';});de.forEach(function(x){h+='<path d="'+edgePath(n,byId[x])+'" fill="none" stroke="'+cOut+'" stroke-width="2" opacity="0.95" marker-end="url(#mOut)"/>';});hiG.innerHTML=h;applyDim(set);}
+function clearHi(){hiG.innerHTML='';applyDim(null);}
+function chip(id){return '<button class="chip" data-go="'+id+'">'+esc(byId[id].sn)+'</button>';}
+function showPanel(id){var n=byId[id];var cat=CAT[n.l];var anc=n.f.filter(function(x){return byId[x];});var de=descOf(id);
+ var h='<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-bottom:4px"><span style="font-size:17px;font-weight:600;color:var(--t1)">'+esc(n.sn)+'</span><span style="font-size:12.5px;color:'+cat.m+'">'+esc(cat.t)+'</span><span style="font-size:12.5px;color:var(--t3)">'+n.y+'年・'+esc(STAT[n.s])+'</span></div>';
+ if(n.c)h+='<div style="font-size:12.5px;color:var(--t2);margin-bottom:7px">作者/開発: '+esc(n.c)+'</div>';
+ var dv=DIFF[n.id]||0,dpip='';for(var pi=0;pi<5;pi++){dpip+='<span style="display:inline-block;width:10px;height:6px;border-radius:1px;margin-right:2px;background:'+(pi<dv?cat.m:'var(--bd2)')+'"></span>';}h+='<div style="font-size:13px;color:var(--t2);margin-bottom:8px">習得難易度　'+dpip+' <span style="color:var(--t1)">Lv'+dv+'・'+(DLAB[dv]||'')+'</span></div>';
+ h+='<div style="font-size:14px;line-height:1.65;color:var(--t1);margin-bottom:5px"><span style="color:var(--t3)">系譜　</span>'+esc(n.t)+'</div>';
+ h+='<div style="font-size:14px;line-height:1.65;color:var(--t1)"><span style="color:var(--t3)">意義　</span>'+esc(n.g)+'</div><div id="go">';
+ if(anc.length)h+='<span style="font-size:12.5px;color:'+cIn+';align-self:center">影響元 ←</span>'+anc.map(chip).join('');
+ if(de.length)h+='<span style="font-size:12.5px;color:'+cOut+';align-self:center;margin-left:4px">影響先 →</span>'+de.map(chip).join('');
+ if(!anc.length&&!de.length)h+='<span style="font-size:12.5px;color:var(--t3)">この図の中に直接の親子リンクなし</span>';
+ h+='<button class="chip" data-clear="1" style="margin-left:auto">解除</button></div>';
+ document.getElementById('panel').innerHTML=h;}
+boxesG.addEventListener('mouseover',function(e){var g=e.target.closest('g.box');if(g&&!state.lock)highlight(g.getAttribute('data-id'));});
+boxesG.addEventListener('mouseout',function(e){var g=e.target.closest('g.box');if(g&&!state.lock)clearHi();});
+boxesG.addEventListener('click',function(e){var g=e.target.closest('g.box');if(!g)return;var id=g.getAttribute('data-id');state.lock=id;highlight(id);showPanel(id);});
+boxesG.addEventListener('mousemove',function(e){var g=e.target.closest('g.box');if(g){var n=byId[g.getAttribute('data-id')];tip.innerHTML='<b>'+esc(n.sn)+'</b><br><span style="color:var(--t2)">'+n.y+'年・'+esc(CAT[n.l].t)+'・'+esc(STAT[n.s])+'</span>';tip.style.display='block';var wr=wrap.getBoundingClientRect();var x=e.clientX-wr.left+14,yp=e.clientY-wr.top+14;if(x>wr.width-260)x-=280;tip.style.left=x+'px';tip.style.top=yp+'px';}else{tip.style.display='none';}});
+boxesG.addEventListener('mouseleave',function(){tip.style.display='none';});
+document.getElementById('panel').addEventListener('click',function(e){var go=e.target.closest('[data-go]');if(go){var id=go.getAttribute('data-go');state.lock=id;highlight(id);showPanel(id);return;}var cl=e.target.closest('[data-clear]');if(cl){state.lock=null;clearHi();document.getElementById('panel').innerHTML='<span style="color:var(--t2);font-size:13.5px">ボックスをなぞると系譜（影響元 ← / 影響先 →）が濃く出ます。クリックで詳細。</span>';}});
+var ffSearch=document.getElementById('ff-search');
+fc.addEventListener('click',function(e){var b=e.target.closest('[data-f]');if(!b)return;state.cat=b.getAttribute('data-f');state.lock=null;hiG.innerHTML='';if(ffSearch)ffSearch.value='';Array.prototype.slice.call(fc.querySelectorAll('.chip')).forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});applyDim(null);});
+ffSearch.addEventListener('input',function(){var q=ffSearch.value.trim().toLowerCase();state.lock=null;state.cat='all';hiG.innerHTML='';Array.prototype.slice.call(fc.querySelectorAll('.chip')).forEach(function(x){x.setAttribute('aria-pressed',x.getAttribute('data-f')==='all'?'true':'false');});if(!q){applyDim(null);return;}var set={};D.forEach(function(n){if((n.sn+' '+n.id+' '+(n.c||'')).toLowerCase().indexOf(q)>=0)set[n.id]=1;});applyDim(set);});
+applyDim(null);
+})();
+</script>
+</body>
+</html>
