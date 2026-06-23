@@ -124,6 +124,7 @@ function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'
 var Wv=1940,H=2000;
 var p=[];
 p.push('<svg viewBox="0 0 '+Wv+' '+H+'" width="'+Wv+'" style="max-width:100%;display:block;font-family:var(--font)" role="img" aria-label="daisyUI起点の知識展開マップ">');
+p.push('<defs><filter id="goo" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur in="SourceGraphic" stdDeviation="11" result="b"/><feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -7"/></filter></defs>');
 // direction sector labels
 Object.keys(DIR).forEach(function(d){var D=DIR[d];var rad=D.a*Math.PI/180;var r=930;var lx=cx+r*Math.cos(rad),ly=cy+r*Math.sin(rad);p.push('<text x="'+lx.toFixed(0)+'" y="'+ly.toFixed(0)+'" text-anchor="middle" style="fill:'+D.m+';opacity:0.85" font-size="15" font-weight="600">'+esc(D.t)+'</text>');});
 // links
@@ -131,6 +132,7 @@ p.push('<g id="links">');
 N.forEach(function(n){var a=POS[n.p],b=POS[n.id];if(a)p.push('<line data-c="'+n.id+'" x1="'+a.x.toFixed(1)+'" y1="'+a.y.toFixed(1)+'" x2="'+b.x.toFixed(1)+'" y2="'+b.y.toFixed(1)+'" stroke="'+faint+'" stroke-width="1.1"/>');});
 p.push('</g>');
 p.push('<g id="orderpath"></g>');
+p.push('<g id="bookregion"></g>');
 // center daisyUI
 p.push('<g class="nd" data-id="daisyui"><rect x="'+(cx-46)+'" y="'+(cy-19)+'" width="92" height="38" rx="9" fill="'+CEN.f+'" stroke="'+CEN.s+'" stroke-width="2"/><text x="'+cx+'" y="'+(cy+5)+'" text-anchor="middle" style="fill:'+CEN.x+'" font-size="14" font-weight="600">daisyUI</text></g>');
 // nodes
@@ -190,9 +192,17 @@ var coversByNode={};BOOKS.forEach(function(b){b.covers.forEach(function(id){(cov
 var booksMode=false,selBook=null;
 var booksbtn=document.getElementById('booksbtn'),booksEl=document.getElementById('books');
 function renderBookDots(){var s='';N.forEach(function(n){var bs=coversByNode[n.id];if(!bs)return;var w=wOf(n.label);var rx=n.x+w/2-5,ry=n.y-13;bs.forEach(function(b,i){s+='<circle cx="'+(rx-i*9).toFixed(1)+'" cy="'+ry.toFixed(1)+'" r="4.6" fill="'+b.color+'" stroke="var(--bg1)" stroke-width="1"/>';});});document.getElementById('bookdots').innerHTML=booksMode?s:'';}
-function renderBookHi(){var s='';if(booksMode&&selBook){selBook.covers.forEach(function(id){var n=byId[id];if(!n)return;var w=wOf(n.label);s+='<rect x="'+(n.x-w/2-3).toFixed(1)+'" y="'+(n.y-17).toFixed(1)+'" width="'+(w+6)+'" height="34" rx="9" fill="none" stroke="'+selBook.color+'" stroke-width="2.5"/>';});}document.getElementById('bookhi').innerHTML=s;}
+function renderBookHi(){
+ var reg='',edge='';
+ if(booksMode&&selBook){var pad=22;selBook.covers.forEach(function(id){var n=byId[id];if(!n)return;var w=wOf(n.label);
+   reg+='<rect x="'+(n.x-w/2-pad).toFixed(1)+'" y="'+(n.y-14-pad).toFixed(1)+'" width="'+(w+2*pad)+'" height="'+(28+2*pad)+'" rx="36" fill="'+selBook.color+'"/>';
+   edge+='<rect x="'+(n.x-w/2-pad).toFixed(1)+'" y="'+(n.y-14-pad).toFixed(1)+'" width="'+(w+2*pad)+'" height="'+(28+2*pad)+'" rx="36" fill="none" stroke="'+selBook.color+'" stroke-width="3"/>';});}
+ var rg=document.getElementById('bookregion');
+ if(rg)rg.innerHTML=reg?('<g filter="url(#goo)" opacity="0.16">'+reg+'</g><g filter="url(#goo)" opacity="0.85">'+edge+'</g>'):'';
+ document.getElementById('bookhi').innerHTML='';
+}
 function renderBooksList(){var h='<div style="font-size:13.5px;font-weight:600;margin-bottom:7px">おすすめ本とカバー範囲<span style="font-weight:400;color:var(--t3);font-size:12px">　行をクリックすると、その本が網羅するノードが地図上で枠線で光ります。各ノードのドットは「覆っている本」の色。</span></div>';BOOKS.forEach(function(b){var on=selBook&&selBook.id===b.id;var names=b.covers.map(function(id){return (byId[id]||{}).label||id;});h+='<div class="bookrow" data-book="'+b.id+'" style="margin:6px 0;padding:7px 9px;border:1px solid '+(on?b.color:'var(--bd3)')+';border-radius:9px;cursor:pointer;background:'+(on?'var(--bg2)':'transparent')+'"><div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap"><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:'+b.color+'"></span><b style="font-size:13.5px">'+esc(b.name)+'</b><span style="font-size:11.5px;color:'+b.color+';border:1px solid '+b.color+';border-radius:6px;padding:0 6px">'+esc(b.tag)+'</span><a href="'+b.url+'" target="_blank" rel="noopener" style="margin-left:auto;font-size:12px;color:var(--t2)">→ 入手</a></div><div style="font-size:12.5px;color:var(--t2);margin-top:3px">'+esc(b.note)+'</div><div style="font-size:12px;color:var(--t3);margin-top:3px">カバー（'+b.covers.length+'）: '+esc(names.join(' ・ '))+'</div></div>';});h+='<div style="font-size:12px;color:var(--t3);margin-top:6px">※ ドットの無いノード（比較・代替や個別ツール: shadcn/Radix/アイコン等）は1冊では網羅されない領域。公式docや各ツールのドキュメントで個別に。</div>';booksEl.innerHTML=h;}
-function clearBooks(){booksMode=false;selBook=null;document.getElementById('bookdots').innerHTML='';document.getElementById('bookhi').innerHTML='';booksEl.style.display='none';booksbtn.textContent='📚 おすすめ本（カバー範囲）';booksbtn.style.background='var(--bg2)';}
+function clearBooks(){booksMode=false;selBook=null;document.getElementById('bookdots').innerHTML='';document.getElementById('bookhi').innerHTML='';var _rg=document.getElementById('bookregion');if(_rg)_rg.innerHTML='';booksEl.style.display='none';booksbtn.textContent='📚 おすすめ本（カバー範囲）';booksbtn.style.background='var(--bg2)';}
 booksbtn.addEventListener('click',function(){booksMode=!booksMode;if(booksMode){orderMode=false;document.getElementById('badges').innerHTML='';stepsEl.style.display='none';obtn.textContent='▶ 学習順（表層→深層）を表示';obtn.style.background='var(--bg2)';selBook=null;renderBookDots();renderBookHi();renderBooksList();booksEl.style.display='block';booksbtn.textContent='✕ 本を隠す';booksbtn.style.background='var(--bd3)';}else{clearBooks();}});
 booksEl.addEventListener('click',function(e){if(e.target.tagName==='A')return;var row=e.target.closest('.bookrow');if(!row)return;var id=row.getAttribute('data-book');var b=BOOKS.filter(function(x){return x.id===id;})[0];selBook=(selBook&&selBook.id===id)?null:b;renderBookHi();renderBooksList();});
 })();
