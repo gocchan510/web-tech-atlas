@@ -49,10 +49,10 @@ g.nd{cursor:pointer}
 var isDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
 function pal(L,Dk){return isDark?Dk:L;}
 var DIR={
- pre:{a:180,fan:33,t:'前提・土台 ←',L:{f:'#E6F1FB',s:'#185FA5',x:'#0C447C'},Dk:{f:'#0C447C',s:'#85B7EB',x:'#E6F1FB'},m:'#378ADD'},
- alt:{a:0,fan:33,t:'比較・代替 ↔',L:{f:'#FAEEDA',s:'#854F0B',x:'#633806'},Dk:{f:'#633806',s:'#EF9F27',x:'#FAEEDA'},m:'#BA7517'},
- app:{a:270,fan:33,t:'応用・発展 ↑',L:{f:'#EAF3DE',s:'#3B6D11',x:'#27500A'},Dk:{f:'#27500A',s:'#97C459',x:'#EAF3DE'},m:'#639922'},
- root:{a:90,fan:33,t:'ルーツ・歴史 ↓',L:{f:'#EEEDFE',s:'#534AB7',x:'#3C3489'},Dk:{f:'#3C3489',s:'#AFA9EC',x:'#EEEDFE'},m:'#7F77DD'}
+ pre:{a:180,fan:34,t:'前提・土台 ←',L:{f:'#E6F1FB',s:'#185FA5',x:'#0C447C'},Dk:{f:'#0C447C',s:'#85B7EB',x:'#E6F1FB'},m:'#378ADD'},
+ alt:{a:0,fan:34,t:'比較・代替 ↔',L:{f:'#FAEEDA',s:'#854F0B',x:'#633806'},Dk:{f:'#633806',s:'#EF9F27',x:'#FAEEDA'},m:'#BA7517'},
+ app:{a:270,fan:34,t:'応用・発展 ↑',L:{f:'#EAF3DE',s:'#3B6D11',x:'#27500A'},Dk:{f:'#27500A',s:'#97C459',x:'#EAF3DE'},m:'#639922'},
+ root:{a:90,fan:34,t:'ルーツ・歴史 ↓',L:{f:'#EEEDFE',s:'#534AB7',x:'#3C3489'},Dk:{f:'#3C3489',s:'#AFA9EC',x:'#EEEDFE'},m:'#7F77DD'}
 };
 Object.keys(DIR).forEach(function(k){DIR[k].p=pal(DIR[k].L,DIR[k].Dk);});
 var CEN={f:isDark?'#712B13':'#FAECE7',s:isDark?'#F0997B':'#993C1D',x:isDark?'#FAECE7':'#712B13'};
@@ -60,50 +60,71 @@ var faint=isDark?'rgba(180,180,175,0.34)':'rgba(95,94,90,0.3)';
 var F='css-frontend-lineage-flow.html',B='browser-web-standards-lineage.html',RND='rendering-arch-lineage.html';
 var N=[
  {id:'tailwind',dir:'pre',hop:1,p:'daisyui',label:'Tailwind CSS',rel:'daisyUI は Tailwind CSS の「プラグイン」。btn 等の正体は Tailwind ユーティリティの集合で、Tailwind クラスでそのまま上書き・拡張できる。',why:'使うだけならクラス暗記でいけるが、少しでもカスタムすると Tailwind 知識が要る。最優先の前提。',ed:F,edl:'フロントエンド技術編'},
- {id:'themetokens',dir:'pre',hop:1,p:'daisyui',label:'テーマ (data-theme)',rel:'daisyUI の色は CSS変数 でテーマ定義し、<html data-theme="dark"> 等で切替。light/独自テーマもこの仕組み。',why:'daisyUI らしさ＝テーマ機能。ダークモードやブランド色はここを理解すると一気に自由になる。',ed:F,edl:'フロントエンド技術編'},
+ {id:'themetokens',dir:'pre',hop:1,p:'daisyui',label:'テーマ機構',rel:'daisyUI の色は CSS変数 でテーマ定義し、<html data-theme="dark"> 等で切替。light/独自テーマもこの仕組み。',why:'daisyUI らしさ＝テーマ機能。ダークモードやブランド色はここを理解すると一気に自由になる。',ed:F,edl:'フロントエンド技術編'},
  {id:'css',dir:'pre',hop:2,p:'tailwind',label:'CSS 本体',rel:'Tailwind ユーティリティの実体はただの CSS（flex/color/padding…）。詰まったら結局ここに戻る。',why:'ユーティリティが「何をしているか」を読めるように。Flexbox/Grid/詳細度は必須。',ed:F,edl:'フロントエンド技術編'},
  {id:'cssvars',dir:'pre',hop:2,p:'themetokens',label:'CSSカスタムプロパティ',rel:'daisyUI のテーマ実体は --color-* 等の CSS変数。実行時に値を変えられる。',why:'テーマを自作・動的変更する核。ダークモード/ブランド切替の鍵。',ed:F,edl:'フロントエンド技術編'},
- {id:'html',dir:'pre',hop:2,p:'tailwind',label:'HTML/セマンティクス',rel:'btn や card は <button> や <div> に「付ける」もの。正しい要素選び・フォーム構造が土台。',why:'見た目だけ整えても要素が間違うと挙動/a11y が壊れる。',ed:B,edl:'ブラウザ/Web標準編'},
- {id:'postcss',dir:'pre',hop:3,p:'tailwind',label:'PostCSS/ビルド',rel:'Tailwind/daisyUI はビルド時に使用クラスを検出して CSS を生成。v3 は PostCSS プラグイン。',why:'なぜクラスが効かない/消えるか（content設定・purge）を理解するため。',ed:F,edl:'フロントエンド技術編'},
- {id:'tailwindv4',dir:'pre',hop:3,p:'tailwind',label:'Tailwind v4 (Oxide)',rel:'v4 は Rust 製 Oxide＋CSS-first 設定(@theme)。daisyUI v5 がこれに対応。',why:'最新版の設定・高速化を押さえると現行プロジェクトで困らない。',ed:F,edl:'フロントエンド技術編'},
+ {id:'html',dir:'pre',hop:3,p:'css',label:'HTML/セマンティクス',rel:'btn や card は <button> や <div> に「付ける」もの。正しい要素選び・フォーム構造が土台。',why:'見た目だけ整えても要素が間違うと挙動/a11y が壊れる。',ed:B,edl:'ブラウザ/Web標準編'},
+ {id:'postcss',dir:'pre',hop:3,p:'css',label:'PostCSS/ビルド',rel:'Tailwind/daisyUI はビルド時に使用クラスを検出して CSS を生成。v3 は PostCSS プラグイン。',why:'なぜクラスが効かない/消えるか（content設定・purge）を理解するため。',ed:F,edl:'フロントエンド技術編'},
+ {id:'tailwindv4',dir:'pre',hop:4,p:'postcss',label:'Tailwind v4 (Oxide)',rel:'v4 は Rust 製 Oxide＋CSS-first 設定(@theme)。daisyUI v5 がこれに対応。',why:'最新版の設定・高速化を押さえると現行プロジェクトで困らない。',ed:F,edl:'フロントエンド技術編'},
  {id:'oklch',dir:'pre',hop:3,p:'cssvars',label:'oklch 色空間',rel:'daisyUI v5 の色は oklch ベース。知覚的に均一でテーマ生成に向く。',why:'テーマ色を綺麗に作る/調整する時に効く。color-mix() と併用。',ed:F,edl:'フロントエンド技術編'},
 
  {id:'shadcn',dir:'alt',hop:1,p:'daisyui',label:'shadcn/ui',rel:'思想の対極。shadcn は「コピペでソース所有(Radix+Tailwind)」、daisyUI は「プラグインでクラス提供」。',why:'2大潮流を比べると、なぜ daisyUI が手軽で shadcn が柔軟かが腑に落ちる。',ed:F,edl:'フロントエンド技術編'},
  {id:'flowbite',dir:'alt',hop:1,p:'daisyui',label:'Flowbite',rel:'同じ Tailwind 上のコンポーネント集。直接の競合・選択肢。',why:'Tailwind 系コンポーネントの選択肢の幅を知る。',ed:F,edl:'フロントエンド技術編'},
- {id:'bootstrap',dir:'alt',hop:2,p:'daisyui',label:'Bootstrap',rel:'daisyUI のセマンティッククラス(btn/card)は Bootstrap の再来。「短い意味のある名前」の系譜。',why:'daisyUI が何を現代に復活させたのか、歴史的位置づけが分かる。',ed:F,edl:'フロントエンド技術編'},
+ {id:'bootstrap',dir:'alt',hop:2,p:'flowbite',label:'Bootstrap',rel:'daisyUI のセマンティッククラス(btn/card)は Bootstrap の再来。「短い意味のある名前」の系譜。',why:'daisyUI が何を現代に復活させたのか、歴史的位置づけが分かる。',ed:F,edl:'フロントエンド技術編'},
  {id:'headlessui',dir:'alt',hop:2,p:'shadcn',label:'Headless UI',rel:'見た目を持たず挙動/a11y だけ提供。daisyUI はスタイル込みの対極。',why:'daisyUI に足りない「挙動」を補う時、ヘッドレスと組む発想が要る。',ed:F,edl:'フロントエンド技術編'},
  {id:'radix',dir:'alt',hop:2,p:'shadcn',label:'Radix UI',rel:'ヘッドレスの本命で shadcn の土台。WAI-ARIA 準拠プリミティブ。',why:'本格的なアクセシブル UI を組む時の標準。daisyUI の先の世界。',ed:F,edl:'フロントエンド技術編'},
- {id:'unocss',dir:'alt',hop:2,p:'daisyui',label:'UnoCSS',rel:'Tailwind 代替の高速エンジン。daisyUI ライクなプリセットもある。',why:'ユーティリティCSS の別実装。Vite/Nuxt 系で出会う。',ed:F,edl:'フロントエンド技術編'},
- {id:'mui',dir:'alt',hop:3,p:'bootstrap',label:'MUI',rel:'React の CSS-in-JS 系コンポーネント。daisyUI(クラス式)と設計思想が違う。',why:'React 重厚案件の定番。アプローチの違いを知る。',ed:F,edl:'フロントエンド技術編'},
- {id:'vanillaextract',dir:'alt',hop:3,p:'headlessui',label:'vanilla-extract',rel:'ゼロランタイム CSS-in-JS。スタイルの「書き方」の別系統。',why:'大規模/型安全スタイリングの選択肢。',ed:F,edl:'フロントエンド技術編'},
+ {id:'unocss',dir:'alt',hop:3,p:'bootstrap',label:'UnoCSS',rel:'Tailwind 代替の高速エンジン。daisyUI ライクなプリセットもある。',why:'ユーティリティCSS の別実装。Vite/Nuxt 系で出会う。',ed:F,edl:'フロントエンド技術編'},
+ {id:'mui',dir:'alt',hop:3,p:'headlessui',label:'MUI',rel:'React の CSS-in-JS 系コンポーネント。daisyUI(クラス式)と設計思想が違う。',why:'React 重厚案件の定番。アプローチの違いを知る。',ed:F,edl:'フロントエンド技術編'},
+ {id:'vanillaextract',dir:'alt',hop:4,p:'mui',label:'vanilla-extract',rel:'ゼロランタイム CSS-in-JS。スタイルの「書き方」の別系統。',why:'大規模/型安全スタイリングの選択肢。',ed:F,edl:'フロントエンド技術編'},
 
- {id:'fwintegration',dir:'app',hop:1,p:'daisyui',label:'フレームワーク統合',rel:'daisyUI は JS 非依存の CSS プラグインなので、React/Vue/Svelte/Astro どのフレームワークでも同じクラスで使える。',why:'実アプリは FW 上で作る。daisyUI を載せる所から実戦。',ed:F,edl:'フロントエンド技術編'},
- {id:'themedesign',dir:'app',hop:1,p:'daisyui',label:'テーマ設計/デザイントークン',rel:'daisyUI のテーマ変数を自分のブランド色で定義＝デザイントークン運用。',why:'「daisyUIっぽさ」を脱して自社デザインにする鍵。',ed:F,edl:'フロントエンド技術編'},
- {id:'a11y',dir:'app',hop:2,p:'fwintegration',label:'アクセシビリティ (a11y)',rel:'daisyUI は見た目のみ。キーボード操作/ARIA/フォーカスは自前 or Headless 併用が必要。',why:'実務で必須。daisyUI の「足りない所」を埋める方向。',ed:F,edl:'フロントエンド技術編'},
- {id:'responsive',dir:'app',hop:2,p:'fwintegration',label:'レスポンシブ/状態バリアント',rel:'Tailwind の sm: や hover: 等のバリアントで daisyUI を可変に。',why:'実画面はレスポンシブ前提。Tailwind バリアントの理解。',ed:F,edl:'フロントエンド技術編'},
- {id:'componentdesign',dir:'app',hop:2,p:'themedesign',label:'コンポーネント設計/variants',rel:'daisyUI の btn-primary 等の variant 発想を自作コンポーネントへ(CVA 等)。',why:'再利用可能な UI を設計する力。',ed:F,edl:'フロントエンド技術編'},
- {id:'designsystem',dir:'app',hop:3,p:'themedesign',label:'デザインシステム',rel:'テーマ＋コンポーネント＋トークンを束ねブランド横断の体系に。',why:'チーム/プロダクト規模での最終形。',ed:F,edl:'フロントエンド技術編'},
- {id:'metaframework',dir:'app',hop:3,p:'fwintegration',label:'メタフレーム & レンダリング',rel:'Next/SvelteKit/Astro が実アプリの器。daisyUI の UI を SSR/ルーティングに載せる。',why:'「ページ/アプリ」を作る段階。配信/レンダリング方式も関わる。',ed:RND,edl:'レンダリング/配信編'},
- {id:'figma',dir:'app',hop:3,p:'designsystem',label:'Figma↔コード/トークン',rel:'デザインツールのトークンを daisyUI テーマ変数へ橋渡し。',why:'デザイナーとの協業・一貫性。',ed:F,edl:'フロントエンド技術編'},
+ {id:'fwintegration',dir:'app',hop:1,p:'daisyui',label:'FW統合',rel:'daisyUI は JS 非依存の CSS プラグインなので、React/Vue/Svelte/Astro どのフレームワークでも同じクラスで使える。',why:'実アプリは FW 上で作る。daisyUI を載せる所から実戦。',ed:F,edl:'フロントエンド技術編'},
+ {id:'themedesign',dir:'app',hop:1,p:'daisyui',label:'テーマ設計',rel:'daisyUI のテーマ変数を自分のブランド色で定義＝デザイントークン運用。',why:'「daisyUIっぽさ」を脱して自社デザインにする鍵。',ed:F,edl:'フロントエンド技術編'},
+ {id:'a11y',dir:'app',hop:2,p:'fwintegration',label:'アクセシビリティ',rel:'daisyUI は見た目のみ。キーボード操作/ARIA/フォーカスは自前 or Headless 併用が必要。',why:'実務で必須。daisyUI の「足りない所」を埋める方向。',ed:F,edl:'フロントエンド技術編'},
+ {id:'responsive',dir:'app',hop:2,p:'fwintegration',label:'レスポンシブ',rel:'Tailwind の sm: や hover: 等のバリアントで daisyUI を可変に。',why:'実画面はレスポンシブ前提。Tailwind バリアントの理解。',ed:F,edl:'フロントエンド技術編'},
+ {id:'componentdesign',dir:'app',hop:2,p:'fwintegration',label:'コンポーネント設計',rel:'daisyUI の btn-primary 等の variant 発想を自作コンポーネントへ(CVA 等)。',why:'再利用可能な UI を設計する力。',ed:F,edl:'フロントエンド技術編'},
+ {id:'designsystem',dir:'app',hop:4,p:'dui-customize',label:'デザインシステム',rel:'テーマ＋コンポーネント＋トークンを束ねブランド横断の体系に。',why:'チーム/プロダクト規模での最終形。',ed:F,edl:'フロントエンド技術編'},
+ {id:'metaframework',dir:'app',hop:4,p:'tw-plugin-eco',label:'メタフレーム',rel:'Next/SvelteKit/Astro が実アプリの器。daisyUI の UI を SSR/ルーティングに載せる。',why:'「ページ/アプリ」を作る段階。配信/レンダリング方式も関わる。',ed:RND,edl:'レンダリング/配信編'},
+ {id:'figma',dir:'app',hop:4,p:'dui-themegen',label:'Figma連携',rel:'デザインツールのトークンを daisyUI テーマ変数へ橋渡し。',why:'デザイナーとの協業・一貫性。',ed:F,edl:'フロントエンド技術編'},
 
  {id:'utilityfirst',dir:'root',hop:1,p:'daisyui',label:'ユーティリティファースト',rel:'Tailwind/daisyUI の根っこの思想。「意味的クラスを書かず小さな単機能クラスで組む」。daisyUI はそこに短い意味名を足し戻した折衷。',why:'なぜこの形なのか、思想を理解すると応用が効く。',ed:F,edl:'フロントエンド技術編'},
  {id:'tachyons',dir:'root',hop:2,p:'utilityfirst',label:'Tachyons',rel:'Tailwind の直接の先行者（ユーティリティCSS の実用化）。',why:'Tailwind がどこから来たか。',ed:F,edl:'フロントエンド技術編'},
  {id:'atomiccss',dir:'root',hop:2,p:'utilityfirst',label:'Atomic/Functional CSS',rel:'ユーティリティの理論的源流（Thierry Koblentz, 2013）。',why:'思想の出発点。',ed:F,edl:'フロントエンド技術編'},
  {id:'bem',dir:'root',hop:3,p:'atomiccss',label:'BEM/OOCSS',rel:'意味的クラス設計の系譜。daisyUI の btn/card はこの「意味のある名前」文化も汲む。',why:'ユーティリティ vs 意味的クラスの対立軸を知る。',ed:F,edl:'フロントエンド技術編'},
- {id:'csshistory',dir:'root',hop:3,p:'utilityfirst',label:'CSS/ブラウザ標準の進化',rel:'ユーティリティもテーマも、結局ブラウザの CSS 実装(変数/oklch/:has 等)の上に成り立つ。',why:'土台の進化を知ると「今使えるCSS」の判断ができる。',ed:B,edl:'ブラウザ/Web標準編'}
+ {id:'csshistory',dir:'root',hop:3,p:'atomiccss',label:'CSS/ブラウザ標準の進化',rel:'ユーティリティもテーマも、結局ブラウザの CSS 実装(変数/oklch/:has 等)の上に成り立つ。',why:'土台の進化を知ると「今使えるCSS」の判断ができる。',ed:B,edl:'ブラウザ/Web標準編'},
+ {id:'dui-classtaxonomy',dir:'pre',hop:2,p:'tailwind',label:'クラス命名規約',rel:'daisyUIを書く文法そのもの。基底(btn)＋色(btn-primary)＋スタイル(btn-soft/btn-dash)＋サイズ(btn-xs〜xl)のBEM風タクソノミー。',why:'クラスの読み書きの土台。最初に体得すると全コンポーネントが書ける。',ed:F,edl:'フロントエンド技術編'},
+ {id:'dui-colors',dir:'pre',hop:2,p:'themetokens',label:'色ロール規約',rel:'daisyUIテーマの心臓部。primary/secondary/accent/neutral・base-100/200/300階層・各色の-content(前景色)というdaisyUI固有の色語彙。',why:'btn-primaryやbg-base-200が何色になるかを決める規約。押さえると配色が読める。',ed:F,edl:'フロントエンド技術編'},
+ {id:'css-spectrum',dir:'pre',hop:3,p:'cssvars',label:'CSS設計の軸',rel:'クラスレス(Pico)←セマンティック(daisyUI/Bootstrap)←ユーティリティ(Tailwind)の連続軸。daisyUIの位置を俯瞰する整理ノード。',why:'各手法を一枚の地図に束ね、daisyUIが何を選んだのかを理解する。',ed:F,edl:'フロントエンド技術編'},
+ {id:'dui-cssfirst',dir:'pre',hop:4,p:'postcss',label:'v5 CSS-first設定',rel:'v5でtailwind.config.jsが廃止、CSS内 @plugin "daisyui"{themes/prefix/…} へ移行。Tailwindプラグインとして読み込む。',why:'導入の入口。旧JS設定のままだと動かない。Plugin機構の理解も兼ねる。',ed:F,edl:'フロントエンド技術編'},
+ {id:'dui-themevars',dir:'pre',hop:4,p:'oklch',label:'テーマ調整変数',rel:'v5固有の調整トークン(--radius-box/-field/-selector・--border・--depth・--noise・--size-*)。クラスを足さず形を一括制御。',why:'角丸・立体感・サイズをテーマ単位で変えるカスタマイズの核。',ed:F,edl:'フロントエンド技術編'},
+ {id:'tw-component-libs',dir:'alt',hop:2,p:'flowbite',label:'Tailwind系UI比較',rel:'同じTailwind土俵の比較群。HeroUI(挙動込み)・Preline・HyperUI(ブロック)・Tailwind Plus(公式有料)。daisyUIは「スタイルのみ・無料・プラグイン」。',why:'同土俵で設計哲学の差(挙動込み/配布形態/有料)を一望できる。',ed:F,edl:'フロントエンド技術編'},
+ {id:'classless-css',dir:'alt',hop:3,p:'bootstrap',label:'クラスレスCSS',rel:'Pico/Water/Sakura。素のHTMLにlink一本で装飾。daisyUI=セマンティック「クラス」の対極(セマンティック「要素」)。',why:'ゼロ設定との対比で、daisyUIが何を払って何を得るかが分かる。',ed:F,edl:'フロントエンド技術編'},
+ {id:'headless-behavior',dir:'alt',hop:3,p:'radix',label:'ヘッドレス挙動',rel:'見た目を持たず挙動/a11yだけ提供する群(Radix/Base UI/Ark UI/React Aria、駆動エンジンZag.js)。daisyUI=デザインのみの相補。',why:'daisyUIに無い挙動・キーボード操作・a11yを下に敷く構図を学ぶ。',ed:F,edl:'フロントエンド技術編'},
+ {id:'fullfeature-libs',dir:'alt',hop:4,p:'mui',label:'全部入りUI系',rel:'Mantine/Chakra/Ant Design/Vuetify等、挙動・フック・フォームまで包含するランタイム系。軽量CSSプラグインのdaisyUIの反対極。',why:'「軽量・無個性 vs 重厚・規定デザイン」の選択軸を立体化する。',ed:F,edl:'フロントエンド技術編'},
+ {id:'headless-byfw',dir:'alt',hop:4,p:'headless-behavior',label:'FW別ヘッドレス',rel:'React=Radix/Base、Vue=Reka UI、Svelte=Melt/Bits UI。FWを跨いでdaisyUIの挙動・a11yを補う対応表。',why:'Vue/Svelteで挙動を足すには各FWのheadless層が要る、という地図を埋める。',ed:F,edl:'フロントエンド技術編'},
+ {id:'icon-libs',dir:'app',hop:2,p:'fwintegration',label:'アイコン',rel:'daisyUIはアイコン非同梱。Heroicons/Lucide/Iconify、SSR系ならtailwindcss-icons(i-lucide-*をクラスで埋込)が純CSS流儀に合う。',why:'button/menu/navbarにアイコンを置く瞬間に必ず要る最頻の隣接ピース。',ed:F,edl:'フロントエンド技術編'},
+ {id:'dui-themeswitch',dir:'app',hop:2,p:'themedesign',label:'テーマ切替実装',rel:'data-theme切替の運用(複数テーマ宣言/部分適用/prefers-color-scheme連動/JS無しtheme-controller/作者製theme-changeで永続化)。',why:'テーマ定義とは別の「切り替える」実装段。早い段階で必ず触る。',ed:F,edl:'フロントエンド技術編'},
+ {id:'cn-util',dir:'app',hop:3,p:'componentdesign',label:'クラス合成',rel:'btn btn-primaryに利用側classNameを足すと衝突→後勝ち解決＋条件付与する clsx+tailwind-merge(cn)。React/Vueラップで事実上必須。',why:'コンポーネント化でクラスを動的に組む時の接着剤。',ed:F,edl:'フロントエンド技術編'},
+ {id:'anim-libs',dir:'app',hop:3,p:'responsive',label:'アニメーション',rel:'daisyUIはhover/transition止まり。modal/drawer/dropdownの開閉演出に、キーフレーム(tw-animate-css)やspring/ジェスチャ(Motion)を足す。',why:'本格的な動きを付ける段で隣接する。',ed:F,edl:'フロントエンド技術編'},
+ {id:'dui-customize',dir:'app',hop:3,p:'componentdesign',label:'上書きカスタム',rel:'既定デザインを脱する手段(ユーティリティ直接上書き/@layer components再定義/excludeして自前)。Cascade Layersでなぜ上書きが効くかも内包。',why:'「daisyUIっぽさ」を脱する実務。v5+v4で旧@applyが効かない落とし穴も。',ed:F,edl:'フロントエンド技術編'},
+ {id:'tw-plugin-eco',dir:'app',hop:3,p:'componentdesign',label:'他TWプラグイン併用',rel:'daisyUIはプラグインの一つ。@tailwindcss/typography(proseにテーマ色連携)・forms・container queriesと共存させるのが実務。',why:'長文・フォーム既定・コンテナ単位レスポンシブはdaisyUI単体で埋まらない。',ed:F,edl:'フロントエンド技術編'},
+ {id:'dui-themegen',dir:'app',hop:3,p:'dui-themeswitch',label:'テーマ生成器',rel:'公式theme-generator。OKLCHで色・radius・depthをGUI調整しコントラスト確認、@themeコードを出力して@pluginへ貼る。',why:'独自テーマ作成の最短経路。',ed:F,edl:'フロントエンド技術編'},
+ {id:'form-logic',dir:'app',hop:4,p:'tw-plugin-eco',label:'フォーム状態/検証',rel:'daisyUIはinput/validatorの見た目だけ。RHFで状態・Zodで型安全検証し、daisyUIのinput/validator/input-errorクラスで描画。',why:'実フォームはロジック層を別途担うのが王道。',ed:F,edl:'フロントエンド技術編'},
+ {id:'storybook-vrt',dir:'app',hop:4,p:'dui-customize',label:'Storybook+VRT',rel:'全variant/data-theme別を隔離レンダリングしカタログ化(公式もreact.daisyui.com運用)→Chromatic/Playwrightで視覚回帰。',why:'componentdesign/designsystemを運用可能な品質ゲートへ橋渡し。',ed:F,edl:'フロントエンド技術編'},
+ {id:'dui-utils',dir:'app',hop:4,p:'dui-customize',label:'独自ユーティリティ',rel:'daisyUIはコンポーネントだけでなく独自utility(glass/mask等)も配る。componentとutilityの境界＝守備範囲が分かる。版間差分の把握にも。',why:'Tailwind素に無いクラスでdaisyUIの範囲を掴む。',ed:F,edl:'フロントエンド技術編'},
+ {id:'semantic-css-roots',dir:'root',hop:2,p:'utilityfirst',label:'意味的クラスの源流',rel:'.button/.card等の意味的コンポーネントクラスや「ui primary button」命名(Bulma/Foundation/Semantic UI)が、daisyUIのセマンティッククラス哲学の先輩。',why:'btn btn-primaryという命名がどの系譜の末裔かが分かる。',ed:F,edl:'フロントエンド技術編'}
 ];
 var byId={};N.forEach(function(n){byId[n.id]=n;});
-var cx=650,cy=575,Rr={1:210,2:350,3:510};
+var cx=970,cy=990,Rr={1:380,2:540,3:710,4:885};
 var grp={};N.forEach(function(n){grp[n.dir]=grp[n.dir]||{};grp[n.dir][n.hop]=grp[n.dir][n.hop]||[];grp[n.dir][n.hop].push(n);});
-Object.keys(grp).forEach(function(d){var D=DIR[d];Object.keys(grp[d]).forEach(function(h){var arr=grp[d][h],k=arr.length;arr.forEach(function(n,i){var t=(k===1)?D.a:(D.a-D.fan+(2*D.fan)*(i/(k-1)));var rad=t*Math.PI/180;var r=Rr[h];n.x=cx+r*Math.cos(rad);n.y=cy+r*Math.sin(rad);});});});
+Object.keys(grp).forEach(function(d){var D=DIR[d];Object.keys(grp[d]).forEach(function(h){var arr=grp[d][h],k=arr.length;arr.forEach(function(n,i){var off=(h%2)*6;var t=((k===1)?D.a:(D.a-D.fan+(2*D.fan)*(i/(k-1))))+off;var rad=t*Math.PI/180;var r=Rr[h];n.x=cx+r*Math.cos(rad);n.y=cy+r*Math.sin(rad);});});});
 var POS={daisyui:{x:cx,y:cy}};N.forEach(function(n){POS[n.id]={x:n.x,y:n.y};});
 function wOf(s){var w=0;for(var i=0;i<s.length;i++){w+=s.charCodeAt(i)>0x2E80?12:7;}return Math.max(64,Math.round(w)+18);}
 function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-var Wv=1310,H=1165;
+var Wv=1940,H=2000;
 var p=[];
 p.push('<svg viewBox="0 0 '+Wv+' '+H+'" width="'+Wv+'" style="max-width:100%;display:block;font-family:var(--font)" role="img" aria-label="daisyUI起点の知識展開マップ">');
 // direction sector labels
-Object.keys(DIR).forEach(function(d){var D=DIR[d];var rad=D.a*Math.PI/180;var r=Rr[3]+40;var lx=cx+r*Math.cos(rad),ly=cy+r*Math.sin(rad);p.push('<text x="'+lx.toFixed(0)+'" y="'+ly.toFixed(0)+'" text-anchor="middle" style="fill:'+D.m+';opacity:0.85" font-size="15" font-weight="600">'+esc(D.t)+'</text>');});
+Object.keys(DIR).forEach(function(d){var D=DIR[d];var rad=D.a*Math.PI/180;var r=930;var lx=cx+r*Math.cos(rad),ly=cy+r*Math.sin(rad);p.push('<text x="'+lx.toFixed(0)+'" y="'+ly.toFixed(0)+'" text-anchor="middle" style="fill:'+D.m+';opacity:0.85" font-size="15" font-weight="600">'+esc(D.t)+'</text>');});
 // links
 p.push('<g id="links">');
 N.forEach(function(n){var a=POS[n.p],b=POS[n.id];if(a)p.push('<line data-c="'+n.id+'" x1="'+a.x.toFixed(1)+'" y1="'+a.y.toFixed(1)+'" x2="'+b.x.toFixed(1)+'" y2="'+b.y.toFixed(1)+'" stroke="'+faint+'" stroke-width="1.1"/>');});
@@ -145,7 +166,7 @@ nodesG.addEventListener('mouseout',function(e){var g=e.target.closest('g.nd');if
 svg.addEventListener('click',function(e){var g=e.target.closest('g.nd');if(g)showPanel(g.getAttribute('data-id'));});
 
 // ---- 学習順（表層→深層）モード ----
-var STEP={themetokens:1,tailwind:2,responsive:2,themedesign:3,cssvars:3,oklch:3,css:4,html:4,postcss:5,tailwindv4:5,shadcn:6,flowbite:6,headlessui:6,radix:6,unocss:6,bootstrap:6,mui:6,vanillaextract:6,fwintegration:7,a11y:7,componentdesign:7,designsystem:7,metaframework:7,figma:7,utilityfirst:8,tachyons:8,atomiccss:8,bem:8,csshistory:8};
+var STEP={themetokens:1,tailwind:2,responsive:2,themedesign:3,cssvars:3,oklch:3,css:4,html:4,postcss:5,tailwindv4:5,shadcn:6,flowbite:6,headlessui:6,radix:6,unocss:6,bootstrap:6,mui:6,vanillaextract:6,fwintegration:7,a11y:7,componentdesign:7,designsystem:7,metaframework:7,figma:7,utilityfirst:8,tachyons:8,atomiccss:8,bem:8,csshistory:8,'dui-classtaxonomy':1,'dui-themeswitch':1,'dui-utils':2,'icon-libs':2,'dui-colors':3,'dui-themevars':3,'dui-themegen':3,'dui-cssfirst':5,'css-spectrum':6,'tw-component-libs':6,'classless-css':6,'headless-behavior':6,'fullfeature-libs':6,'headless-byfw':6,'dui-customize':7,'cn-util':7,'anim-libs':7,'form-logic':7,'tw-plugin-eco':7,'storybook-vrt':7,'semantic-css-roots':8};
 var PH=['','① まず触って動かす（表層）','② Tailwindでちょいカスタム','③ 自分のテーマを作る','④ 土台のCSSを読む','⑤ ビルドと最新版を知る','⑥ 横の選択肢を見る（比較）','⑦ 実戦で組んで伸ばす（応用）','⑧ ルーツで腑に落とす（深層）'];
 var PHD=['','daisyUI を入れて btn / card を貼り、既成テーマを data-theme で切り替えて「動く」体験。暗記不要・コピペでOK。','Tailwind のユーティリティで色・余白・レスポンシブ(sm: hover:)を上書き。daisyUI の上に Tailwind が乗っていると体感する。','テーマの正体＝CSS変数。自分のブランド色でテーマを定義してみる。色は oklch。','ユーティリティの実体はただの CSS。Flexbox / Grid / 詳細度・HTML セマンティクスを読めるように。','なぜクラスが消える / 効かない？ content 検出・PostCSS・Tailwind v4(Oxide) の仕組み。','同類(shadcn / Flowbite)・ヘッドレス(Radix / Headless)・祖先(Bootstrap)・別エンジン(UnoCSS) と比較し、daisyUI の強みと限界を把握。','フレームワークに載せ、a11y を補い、variants / デザインシステム / メタフレームへ。実プロダクト化。','ユーティリティファースト思想・Tachyons・Atomic・BEM/OOCSS・CSS史で「なぜこの形か」を腑に落とす。'];
 var accent=CEN.s,orderMode=false;
